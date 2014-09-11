@@ -1,3 +1,14 @@
-<div class="row">
+<filterbox ng:model="filter" />
 
+<br/>
+
+<div class="list-group">
+    <a href="<!--/user/[[user.id]]-->" class="list-group-item" ng:repeat="account in accounts | filter:filter | orderBy:'name'">
+        <span class="pull-right">
+            <i class="fa fa-usd"></i> [[account.amount]]
+        </span>
+        <span>
+            <i class="fa fa-database"></i> [[account.name]]
+        </span>
+    </a>
 </div>

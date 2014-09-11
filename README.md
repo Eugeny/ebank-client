@@ -1,8 +1,10 @@
 Setup:
 
     virtualenv env
-    source env/bin/activate
     pip install -r requirements.txt
+    source env/bin/activate
+    ./manage.py syncdb
+    make migrate
 
 
 Running:

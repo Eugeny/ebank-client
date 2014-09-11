@@ -3,7 +3,7 @@ from config.settings import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'elements_web',
+        'NAME': 'ebank_client',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -32,5 +32,3 @@ COMPRESS_JS_FILTERS = []
 COMPRESS_ROOT = "static"
 
 COMPRESS_REBUILD_TIMEOUT = 5
-
-ELEMENTS_INFO_PATH = 'elements.info.json'

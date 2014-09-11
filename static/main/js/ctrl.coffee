@@ -1,9 +1,9 @@
-window.RootCtrl = ($scope, $rootScope, $timeout, $cookies, $window, $templateCache, $http, $location) -> 
+window.RootCtrl = ($scope, $cookies, $window, $location) -> 
     $scope.$location = $location
-    $scope.$timeout = $timeout
     $scope.$window = $window
     $scope.$cookies = $cookies
     $scope.Math = Math
 
 
-window.IndexCtrl = ($scope, $timeout, $interval, $location, $window) -> 
+window.IndexCtrl = ($scope, BankAccount) -> 
+	$scope.accounts = BankAccount.query()

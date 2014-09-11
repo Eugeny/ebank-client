@@ -1,6 +1,6 @@
 window.tabID = Math.floor(Math.random() * 0x10000).toString(16)
 
-window.app = angular.module('app', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'ui.bootstrap.smartdropdown', 'angular-loading-bar', 'btford.socket-io', 'ui.sortable', 'acute.select', 'pasvaz.bindonce'])
+window.app = angular.module('app', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'angular-loading-bar'])
 
 
 app.config ($interpolateProvider, $rootScopeProvider) ->

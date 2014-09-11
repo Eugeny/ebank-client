@@ -108,7 +108,7 @@ class BankAccountResource (AngularResource):
 
     class Meta (AngularResource.Meta):
         queryset = BankAccount.objects.all()
-        resource_name = 'back-account'
+        resource_name = 'bank-account'
 
         filtering = {
             'id': ALL,

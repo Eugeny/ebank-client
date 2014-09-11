@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'compressor',
     'tastypie',
-    'sharedstorage',
 
     'apps.main',
 )
@@ -129,7 +128,6 @@ STATICFILES_FINDERS = (
 # -------------------------
 # COMPRESSION
 # -------------------------
-COMPRESS_CACHE_BACKEND = 'compress'
 COMPRESS_PRECOMPILERS = (
     ('text/coffeescript', 'coffee --compile --stdio'),
     ('text/less', 'lessc {infile} {outfile}'),
@@ -139,28 +137,6 @@ COMPRESS_PRECOMPILERS = (
 # -------------------------
 # CACHING
 # -------------------------
-
-REDIS_DB_CACHE = 0
-
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.cache.RedisCache',
-        'LOCATION': '127.0.0.1:6379:%i' % REDIS_DB_CACHE,
-        'OPTIONS': {
-            #'PARSER_CLASS': 'redis.connection.HiredisParser'
-        }
-    },
-    'compress': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'compress'
-    }
-}
-
-SESSION_ENGINE = 'redis_sessions.session'
-SESSION_REDIS_HOST = 'localost'
-SESSION_REDIS_PORT = 6379
-SESSION_REDIS_DB = REDIS_DB_CACHE
-
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/login'
