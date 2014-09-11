@@ -1,0 +1,182 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+            <div>
+                <div>
+                    <h2>[[ system.name ]]</h2>
+                </div>
+                <div>
+                    <h4>[[ system.product ]]</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8">
+        <h3><i class="fa fa-database"></i> Volumes</h3>
+
+        <div ng:hide="storage_status">
+            <i class="fa fa-circle-o-notch fa-spin"></i> Requesting volume status
+        </div>
+
+        <table class="table" ng:show="storage_status">
+            <tr>
+                <th>Name</th>
+                <th>Space</th>
+                <th>Nodes</th>
+            </tr>
+            <tr ng:repeat="volume in storage_status.volumes | orderBy:'name'">
+                <td>
+                    <i class="fa fa-database"></i> [[volume.name]]
+                    <br/>
+                    <label class="label label-danger" ng:show="!volume.online">
+                        <i class="fa fa-warning"></i> OFFLINE
+                    </label>
+                    <label class="label label-success" ng:show="volume.online">
+                        <i class="fa fa-globe"></i> ONLINE
+                    </label>
+                </td>
+                <td>
+                    <smart-progress type="warning" max="volume.size_total" max-text="volume.size_total|bytes" value="volume.size_used" ng:show="volume.online" text="volume.size_used|bytes" />
+                </td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr ng:repeat="node in volume.nodes">
+                            <td>
+                                <i class="fa fa-hdd-o"></i> [[node.name]]
+                                <br/>
+                                <span ng:show="node.online">
+                                    <label class="label label-success">
+                                        <i class="fa fa-globe"></i> [[node.address]]
+                                    </label>
+                                    &nbsp;
+                                </span>
+                                <span ng:show="node.ctdb_status && node.ctdb_status.status == 'OK'">
+                                    <label class="label label-success">
+                                        <i class="fa fa-cloud"></i> CLUSTERED
+                                    </label>
+                                    &nbsp;
+                                </span>
+                                <span ng:show="node.ctdb_status && node.ctdb_status.master">
+                                    <label class="label label-info">
+                                        <i class="fa fa-angle-double-up"></i> MASTER
+                                    </label>
+                                    &nbsp;
+                                </span>
+                                <span ng:show="!node.online">
+                                    <label class="label label-danger">
+                                        <i class="fa fa-warning"></i> [[node.address]]
+                                    </label>
+                                    &nbsp;
+                                </span>
+                                <label class="label label-danger" ng:show="node.ctdb_status && node.ctdb_status.status != 'OK'">
+                                    <i class="fa fa-warning"></i> [[node.ctdb_status.status]]
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <h3><i class="fa fa-dashboard"></i> System status</h3>
+
+        <table class="table">
+            <tr>
+                <td width="100">
+                    CPU
+                </td>
+                <td>
+                    <smart-progress type="warning" max="100" value="stats.cpu" max-text="'100%'" text="stats.cpu + '%'" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Memory
+                </td>
+                <td>
+                    <smart-progress type="warning" max="100" value="stats.ram" max-text="'100%'" text="stats.ram + '%'" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Disk read
+                </td>
+                <td>
+                    <smart-progress type="warning" max="6000000000" value="stats.disk_din" text="Math.round(stats.disk_din / 1024 / 1024) + 'MB/s'" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Disk write
+                </td>
+                <td>
+                    <smart-progress type="warning" max="6000000000" value="stats.disk_dout" text="Math.round(stats.disk_dout / 1024 / 1024) + 'MB/s'" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Web UI
+                </td>
+                <td>
+                    [[stats.ui_version]] / [[stats.plugin_version]]
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div ng:hide="snfs_status">
+    <i class="fa fa-circle-o-notch fa-spin"></i> Requesting node status
+</div>
+
+<tabset ng:show="snfs_status">
+    <tab ng:repeat="node in storage_status.nodes | orderBy:'name'">
+        <tab-heading>
+            <i class="fa fa-hdd-o"></i> [[node.name]]
+        </tab-heading>
+
+        <div ng:hide="snfs_status[node.id + '']">
+            <p>
+                <br/>
+                <i class="fa fa-warning"></i> Could not retrieve node status
+            </p>
+        </div>
+
+        <div ng:show="snfs_status[node.id + '']">
+            <h4>Stripe groups</h4>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Affinity</th>
+                    <th>Free</th>
+                    <th>Usage</th>
+                </tr>
+                <tr ng:repeat="sg in snfs_status[node.id + ''].stripegroups" ng:show="sg.status.indexOf('Up') != -1">
+                    <td>
+                        <i class="fa fa-hdd-o"></i> [[sg.name]]
+                    </td>
+                    <td>
+                        <span ng:repeat="status in sg.status">
+                            <span class="label label-info">[[status]]</span>    
+                            &nbsp;
+                        </span>
+                    </td>
+                    <td>
+                        [[sg.affinity]]
+                    </td>
+                    <td>
+                        [[sg.free | bytes]]
+                    </td>
+                    <td>
+                        <smart-progress type="warning" max="sg.total" value="sg.used" max-text="sg.total|bytes" text="sg.used|bytes" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </tab>
+</tabset>

@@ -1,0 +1,33 @@
+<filterbox ng:model="filter" />
+
+<div class="list-group">
+    <a href="/media/root/[[root.id]]" class="slide list-group-item" ng:repeat="root in roots | filter:filter | orderBy:'name'">
+        <div class="pull-right" style="width: 100px">
+            &nbsp;
+            <span ng:show="root.root.total_files">
+                <i class="fa fa-film"></i> [[root.root.total_files]] items
+            </span>
+        </div>
+        <div class="pull-right" style="width: 100px">
+            &nbsp;<i class="fa fa-database"></i> [[root.root.size | bytes]]
+        </div>
+        <div class="pull-right"><small>[[root.volume.path + '/' + root.path]]</small></div>
+        <i class="fa fa-folder"></i> [[root.name]]
+    </a>
+</div>
+
+
+<div class="form-group">
+    <label>Name</label>
+    <input ng:enter="create(newRoot.name, newRoot.volume)" type="text" class="form-control" placeholder="New media root name" ng:model="newRoot.name" />
+</div>
+<div class="form-group">
+    <label>Volume</label>
+    <select class="form-control" ng:model="newRoot.volume" ng:options="x as x.name for x in volumes"></select>
+</div>
+<div class="form-group">
+    <a ng:click="create(newRoot.name, newRoot.volume)" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Create
+    </a>
+</div>

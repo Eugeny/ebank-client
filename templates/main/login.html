@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-brand center">
+                <div class="logo">
+                    <img src="{{STATIC_URL}}main/images/logo.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-sm-2 col-xs-0">
+            </div>
+            <div class="col-lg-4 col-sm-8 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form" method="POST" action="/auth/login">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" />
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary pull-right">
+                                    <i class="fa fa-lock"></i> Sign in
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+{% endblock %}

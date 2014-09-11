@@ -1,0 +1,92 @@
+<h3>
+    <i class="fa fa-folder-open" bo:show="item.isdir"></i>
+    <i class="fa fa-file" bo:hide="item.isdir"></i>
+    [[item.name]]
+</h3>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-8">
+            <input ng:model="newName" type="text" class="form-control" />
+        </div>
+        <div class="col-sm-2">
+            <a ng:click="rename()" class="btn btn-default"><i class="fa fa-pencil"></i> Rename</a>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Mode</label>
+        <div class="col-sm-5 form-control-static">
+            [[item.str_mode]]
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Affinity</label>
+        <div class="col-sm-5">
+            <select ng:options="x for x in affinities" ng:model="item.affinity" class="form-control"></select>
+        </div>
+        <div class="col-sm-5">
+            <a ng:click="setAffinity()" class="btn btn-default"><i class="fa fa-check"></i> Set</a>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Created</label>
+        <div class="col-sm-10 form-control-static">
+            [[item.ctime * 1000 | date:'medium']]
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Modified</label>
+        <div class="col-sm-10 form-control-static">
+            [[item.mtime * 1000 | date:'medium']]
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Accessed</label>
+        <div class="col-sm-10 form-control-static">
+            [[item.atime * 1000 | date:'medium']]
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">User permissions</label>
+        <div class="col-sm-10 form-control-static">
+            <span ng:model="item.mod_ur" class="form-control" checkbox text="Read"></span>
+            &nbsp;
+            <span ng:model="item.mod_uw" class="form-control" checkbox text="Write"></span>
+            &nbsp;
+            <span ng:model="item.mod_ux" class="form-control" checkbox text="Execute"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Group permissions</label>
+        <div class="col-sm-10 form-control-static">
+            <span ng:model="item.mod_gr" class="form-control" checkbox text="Read"></span>
+            &nbsp;
+            <span ng:model="item.mod_gw" class="form-control" checkbox text="Write"></span>
+            &nbsp;
+            <span ng:model="item.mod_gx" class="form-control" checkbox text="Execute"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Others permissions</label>
+        <div class="col-sm-10 form-control-static">
+            <span ng:model="item.mod_ar" class="form-control" checkbox text="Read"></span>
+            &nbsp;
+            <span ng:model="item.mod_aw" class="form-control" checkbox text="Write"></span>
+            &nbsp;
+            <span ng:model="item.mod_ax" class="form-control" checkbox text="Execute"></span>
+        </div>
+    </div>        
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10 form-control-static">
+            <a ng:click="applyPermissions(false)" class="btn btn-default">
+                <i class="fa fa-check"></i> Apply permissions
+            </a>
+            &nbsp;
+            <a ng:click="applyPermissions(true)" class="btn btn-default">
+                <i class="fa fa-folder"></i> Apply recursively
+            </a>
+        </div>
+    </div>        
+</div>

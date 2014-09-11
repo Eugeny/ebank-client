@@ -1,0 +1,11 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+path.py
+setup.cfg
+setup.py
+test_path.py
+path.py.egg-info/PKG-INFO
+path.py.egg-info/SOURCES.txt
+path.py.egg-info/dependency_links.txt
+path.py.egg-info/top_level.txt

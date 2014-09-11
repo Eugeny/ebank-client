@@ -1,0 +1,80 @@
+<div class="toolbar" ng:show="raid.megaraid">
+    <a ng:click="silence()" class="btn btn-default"><i class="fa fa-bell-o"></i> Silence alarm</a>
+</div>
+
+<br/>
+
+<div ng:repeat="adapter in raid.megaraid">
+    <h4>Adapter [[adapter.id]]</h4>
+    <table class="table">
+        <tr ng:repeat="array in adapter.arrays">
+            <td>
+                <i class="fa fa-sitemap"></i> [[array.name]]
+            </td>
+            <td>
+                [[array.state]]
+            </td>
+            <td>
+                [[array.size]]
+            </td>
+            <td>
+                [[array.raid_level]]
+            </td>
+            <td>
+                <table class="table">
+                    <tr ng:repeat="device in array.disks">
+                        <td>
+                            <i class="fa fa-hdd-o"></i> [[device.id]]
+                        </td>
+                        <td>
+                            [[device.inquiry_Data]]
+                        </td>
+                        <td>
+                            [[device.firmware_state]]
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div ng:repeat="adapter in raid.areca">
+    <h4>Adapter [[adapter.id]]</h4>
+    <table class="table">
+        <tr ng:repeat="array in adapter.arrays">
+            <td>
+                <i class="fa fa-sitemap"></i> [[array.name]]
+            </td>
+            <td>
+                [[array.state]]
+            </td>
+            <td>
+                [[array.size]]
+            </td>
+            <td>
+                [[array.level]]
+            </td>
+            <td>
+                <table class="table">
+                    <tr ng:repeat="device in array.devices">
+                        <td>
+                            <i class="fa fa-hdd-o"></i> [[device.name]]
+                        </td>
+                        <td>
+                            [[device.size]]
+                        </td>
+                        <td>
+                            [[device.state]]
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+

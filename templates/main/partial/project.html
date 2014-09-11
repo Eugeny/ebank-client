@@ -1,0 +1,103 @@
+<div preloader data="project.id" text="Loading project">
+    <h3><i class="fa fa-briefcase"></i> [[project.name]]</h3>
+
+    <tabset>
+        <tab heading="Workspaces">
+            <br/>
+
+            <filterbox ng:model="filter" />
+
+            <br/>
+
+            <div class="list-group">
+                <div class="slide list-group-item" ng:repeat="workspace in project.workspaces | filter:filter">
+                    <button class="btn btn-danger btn-ink btn-xs pull-right" ng:click="deleteWorkspace(workspace)" ng:show="storage_status.volumes[workspace.volume.id].online">
+                        <i class="fa fa-trash-o"></i> Delete
+                    </button>
+                    <i class="fa fa-folder"></i> <a ng:show="storage_status.volumes[workspace.volume.id].online" class="list-group-item-heading" ng:click="openWorkspace(workspace)">[[workspace.name]]</a>
+                    <span ng:show="!storage_status.volumes[workspace.volume.id].online" class="list-group-item-heading">
+                        [[workspace.name]]
+                        <br/>
+                        <span class="label label-danger">
+                            <i class="fa fa-warning"></i> STORAGE OFFLINE
+                        </span>
+                    </span>
+                    <p class="list-group-item-text">[[workspace.description]]</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input ng:enter="createWorkspace(newWorkspaceInfo.name, newWorkspaceInfo.volume, newWorkspaceInfo.template)"
+                        type="text" class="form-control" required placeholder="New workspace name" ng:model="newWorkspaceInfo.name" />
+            </div>
+            <div class="form-group">
+                <label>Volume</label>
+                <select class="form-control" required ng:model="newWorkspaceInfo.volume" ng:options="x as x.name for x in volumes"></select>
+            </div>
+            <div class="form-group">
+                <label>Template</label>
+                <select class="form-control" ng:model="newWorkspaceInfo.template" ng:options="x.template as x.title for x in templateOptions"></select>
+            </div>
+            <div class="form-group">
+                <a ng:click="createWorkspace(newWorkspaceInfo.name, newWorkspaceInfo.volume, newWorkspaceInfo.template)" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    Create workspace
+                </a>
+            </div>
+        </tab>
+        <tab heading="General">
+            <br/>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng:model="project.description" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Long description</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" ng:model="project.long_description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <a ng:click="project.active=false" class="btn btn-default" ng:show="project.active">
+                            <i class="fa fa-eye-slash"></i> Hide this project
+                        </a>
+                        <a ng:click="project.active=true" class="btn btn-default" ng:hide="project.active">
+                            <i class="fa fa-eye"></i> Unhide this project
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group" ng:show="system.components.ltfs">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <a ng:click="archiveProject()" class="btn btn-default">
+                            <i class="fa fa-download"></i> Archive this project
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <span ng:model="project.obscure_name" class="form-control" checkbox text="Obscure names of new workspaces"></span>
+                    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+
+    <div class="sticky-panel">
+        <a ng:click="save()" class="btn btn-primary">
+            <i class="fa fa-check"></i>
+            Save
+        </a>
+        <a ng:click="delete()" class="btn btn-default">
+            <i class="fa fa-trash-o"></i>
+            Delete
+        </a>
+    </div>
+</div>

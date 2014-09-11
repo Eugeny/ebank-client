@@ -1,0 +1,195 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div ng:controller="RootCtrl">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a ng:click="$window.location.href = '/auth/logout'" class="btn btn-default navbar-btn">
+                    <i class="fa fa-sign-out"></i>
+                    <span ng:hide="mobileMode">Sign out</span>
+                </a>
+            </div>
+
+            <div class="pull-left" ng:show="mobileMode">
+                <a ng:click="toggleNavigation()" id="navigation-toggle" class="btn btn-default navbar-btn">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                &nbsp;
+                &nbsp;
+
+                {% include 'main/tasks-popup.html' %}
+                &nbsp;
+                &nbsp;
+            </div>
+
+            <a class="navbar-brand" ng:if="mobileMode" ng:click="toggleNavigation()">
+                <div class="logo">
+                    <img src="{{STATIC_URL}}main/images/logo.png" />
+                </div>
+            </a>
+            <a href="/" class="navbar-brand" ng:if="!mobileMode">
+                <div class="logo">
+                    <img src="{{STATIC_URL}}main/images/logo.png" />
+                </div>
+            </a>
+
+            <div style="left: 144px; position: relative; display: inline-block" ng:if="!mobileMode">
+                {% include 'main/tasks-popup.html' %}
+            </div>
+
+            <ul class="nav navbar-nav">
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            {% if not elementsuser.onetime_access %}
+            <div class="col-lg-3 nav-sidebar">
+                <div id="navigation" ng:show="nagivationVisible || !mobileMode">
+                    <div class="list-group">
+                        {% if elementsuser.admin_access %}
+                        <a href="/status" class="list-group-item" active-link="active">
+                            <i class="fa fa-dashboard"></i>
+                            Status
+                        </a>
+                        <a href="/project" class="list-group-item" active-link="active">
+                            <i class="fa fa-briefcase"></i>
+                            Projects
+                        </a>
+                        <a href="/workspace" class="list-group-item" active-link="active">
+                            <i class="fa fa-folder-open"></i>
+                            Workspaces
+                        </a>
+                        <a href="/user" class="list-group-item" active-link="active">
+                            <i class="fa fa-user"></i>
+                            Users
+                        </a>
+                        <a href="/group" class="list-group-item" active-link="active">
+                            <i class="fa fa-users"></i>
+                            Groups
+                        </a>
+                        <a href="/share" class="list-group-item" active-link="active">
+                            <i class="fa fa-globe"></i>
+                            Shares
+                        </a>
+                        {% if system.components.areca_raid or system.components.mega_raid %}
+                        <a href="/raid" class="list-group-item" active-link="active">
+                            <i class="fa fa-hdd-o"></i>
+                            RAID
+                        </a>
+                        {% endif %}
+                        <a href="/file-manager/browse" class="list-group-item" active-link="active">
+                            <i class="fa fa-folder"></i>
+                            File manager
+                        </a>
+                        <a href="/tiering" class="list-group-item" active-link="active">
+                            <i class="fa fa-th-large"></i>
+                            Tiering
+                        </a>
+                        {% endif %}
+                        {% if elementsuser.admin_access or elementsuser.staff_access  %}
+                        <a href="/download" class="list-group-item" active-link="active">
+                            <i class="fa fa-download"></i>
+                            Downloads
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    {% if elementsuser.admin_access %}
+                    <div class="list-group">
+                        <a href="/tasks" class="list-group-item" active-link="active">
+                            <i class="fa fa-cogs"></i>
+                            Tasks
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    {% if system.components.media %}
+                    <div class="list-group">
+                        <a ng:click="$cookies.groupMlExpanded = $cookies.groupMlExpanded ? '' : '1'" class="list-group-item" href="#">
+                            <i ng:show="$cookies.groupMlExpanded" class="fa fa-caret-down"></i>
+                            <i ng:hide="$cookies.groupMlExpanded" class="fa fa-caret-right"></i>
+                            Media library
+                        </a>
+                        <a href="/media/browse" class="list-group-item" active-link="active" ng:if="$cookies.groupMlExpanded">
+                            <i class="fa fa-film"></i>
+                            Library
+                        </a>
+                        <a href="/media/updates" class="list-group-item" active-link="active" ng:if="$cookies.groupMlExpanded">
+                            <i class="fa fa-comments"></i>
+                            Updates
+                        </a>
+                        {% if elementsuser.admin_access or elementsuser.staff_access  %}
+                        <a href="/media/editor" class="list-group-item" active-link="active" ng:if="$cookies.groupMlExpanded">
+                            <i class="fa fa-scissors"></i>
+                            Editor
+                        </a>
+                        {% endif %}
+                        {% if elementsuser.admin_access  %}
+                        <a href="/media/root" class="list-group-item" active-link="active" ng:if="$cookies.groupMlExpanded">
+                            <i class="fa fa-play"></i>
+                            Roots
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    {% if elementsuser.admin_access and system.components.ltfs %}
+                    <div class="list-group">
+                        <a ng:click="$cookies.groupLtfsExpanded = $cookies.groupLtfsExpanded ? '' : '1'" class="list-group-item" href="#">
+                            <i ng:show="$cookies.groupLtfsExpanded" class="fa fa-caret-down"></i>
+                            <i ng:hide="$cookies.groupLtfsExpanded" class="fa fa-caret-right"></i>
+                            LTFS Archive
+                        </a>
+                        <a href="/ltfs/search" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-search"></i>
+                            Search
+                        </a>
+                        <a href="/ltfs/backup" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-download"></i>
+                            Archive <span ng:show="ltfsBackuper.queue.length" class="badge">[[ltfsBackuper.queue.length]]</span>
+                        </a>
+                        <a href="/ltfs/restore" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-history"></i>
+                            Restore <span ng:show="ltfsRestorer.queue.length" class="badge">[[ltfsRestorer.queue.length]]</span>
+                        </a>
+                        <a href="/ltfs/jobs" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-cog"></i>
+                            Jobs
+                        </a>
+                        <a href="/ltfs/tapegroups" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-th-large"></i>
+                            Tape Groups
+                        </a>
+                        <a href="/ltfs/library" class="list-group-item" active-link="active" ng:if="$cookies.groupLtfsExpanded">
+                            <i class="fa fa-barcode"></i>
+                            Tape Library
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="col-lg-9" ng:view ng:cloak autoscroll>
+            </div>
+        </div>
+    </div>  
+
+    <div id="dialog-dim" ng:show="dialogDimVisible">
+    </div>
+
+    <div id="loading-dim" ng:class="{out: loadingDimHiding}" ng:hide="loadingDimHidden">
+        <div class="loading-indicator">
+            <div class="circle"></div>
+            <div class="circle circle2"></div>
+            <!--div class="circle circle2 circle3"></div-->
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkEDCsPiUc7RQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAHZSURBVHja7dyxCYAwEEBRI05yjej+syhOEyu7FEHwRHlvAol8rjiSEhF1AJpGRwACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAg8C+TI7hnP7bylW9d5rX6YyYICAQEAgIBgYBAQCAgEEAg0MkmPYlttgkCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQOB5LkwleeupUhe1TBAQCAgEBAICAYGAQEAgQItFYRILOxMEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgcDzXJhK8tbLihcXtkwQEAgIBAQCAgGBgEBAIIBAoFOJCBtWMEFAICAQEAgIBAQCAgGBgEAAgYBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYEAAgGBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBBAICAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAnEEIBAQCAgEEp3cZxNVyi0bTgAAAABJRU5ErkJggg==" />
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

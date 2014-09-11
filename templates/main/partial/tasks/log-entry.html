@@ -1,0 +1,14 @@
+<div class="log-entry log-level-[[log.level]]" ng:class="{expandable: log.children.length || log.data, collapsed: log.collapsed}">
+    <div class="heading" ng:click="log.collapsed=!log.collapsed">
+        <small class="timestamp" bo:text="(log.timestamp*1000)|date:'medium'"></small>
+        <span bo:text="log.text"></span>
+    </div>
+    <div class="content" ng:hide="log.collapsed && (log.data || log.children.length)">
+        <div class="children">
+            <div class="child" ng:repeat="log in log.children">
+                <ng:include src="'/template/main/partial/tasks/log-entry.html'" />
+            </div>
+        </div>
+        <div class="data" bo:show="log.data" bo:text="log.data"></div>
+    </div>
+</div>

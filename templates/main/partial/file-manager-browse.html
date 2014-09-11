@@ -1,0 +1,107 @@
+<div preloader data="items || parent">
+    <h3><i class="fa fa-folder-open"></i> [[path || '/']]</h3>
+
+    <div class="toolbar">
+        <div class="dropdown-custom pull-left" smart-dropdown>
+            <button class="btn btn-default" type="button" smart-dropdown-toggle>
+                <i class="fa fa-folder"></i> New directory
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="width:200px">
+                <li>
+                    <div>
+                        <input type="text" autofocus ng:model="newDirectoryName" placeholder="New directory name" class="form-control input-sm" />
+                    </div>
+                </li>
+                <li>
+                    <a ng:click="createDirectory(newDirectoryName)" closes-dropdown>
+                        <i class="fa fa-plus"></i> Create
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        &nbsp;
+
+        <div class="btn-group">
+            <a ng:click="doCut()" class="btn btn-default" ng:disabled="!hasSelection()">
+                <i class="fa fa-cut"></i> Cut
+            </a>
+            <a ng:click="doCopy()" class="btn btn-default" ng:disabled="!hasSelection()">
+                <i class="fa fa-copy"></i> Copy
+            </a>
+            <a ng:click="doDelete()" class="btn btn-default" ng:disabled="!hasSelection()">
+                <i class="fa fa-trash-o"></i> Delete
+            </a>
+        </div>
+
+        &nbsp;
+        
+        <div class="btn-group">
+            <a ng:click="doPaste()" class="btn btn-default" ng:disabled="!(clipboard.items.length && (path != '/data'))">
+                <i class="fa fa-clipboard"></i> Paste <span ng:show="clipboard.items.length">[[clipboard.items.length]] items</span>
+            </a>
+        </div>
+
+        &nbsp;
+        
+        <div class="btn-group">
+            <a ng:href="/file-manager/file[[path]]" class="btn btn-default">
+                <i class="fa fa-pencil"></i> Directory properties
+            </a>
+        </div>
+    </div>
+
+    <br/>
+    
+    <div class="list-group">
+        <a class="list-group-item" ng:show="path != '/'" ng:href="/file-manager/browse[[parentPath]]">
+            <i class="fa fa-level-up"></i> ..
+        </a>
+        <a class="list-group-item" ng:repeat="item in items.slice((page - 1) * pageSize, page * pageSize)" ng:href="/file-manager/[[item.isdir ? 'browse' : 'file']][[path]]/[[item.name]]" bindonce>
+            <span class="pull-right" bo:hide="item.isdir" bo:text="item.size|bytes"></span>
+            
+            <span ng:model="item.selected" checkbox text="" ng:click="$event.stopPropagation(); $event.preventDefault();"></span>
+            
+            &nbsp;
+            
+            <i class="fa fa-folder-open" bo:show="item.isdir"></i>
+            <i class="fa fa-file" bo:hide="item.isdir"></i>
+            <span bo:text="item.name"></span>
+        </a>
+    </div>
+
+    <pagination ng:show="items.length > pageSize" ng:model="page" total-items="items.length" items-per-page="pageSize"></pagination>
+</div>
+
+
+<div class="drawer" ng:class="{active: drawerVisible}" ng:controller="FileManagerClipboardCtrl" ng:show="clipboard.items.length">
+    <div ng:click="drawerVisible = !drawerVisible" class="toggle">
+        <div class="text">
+            Clipboard <label class="label label-info">[[clipboard.items.length]]</label>
+            <i class="fa fa-arrow-up" ng:hide="drawerVisible" ng:class="{'fa-accent': restoreQueue.length}"></i>
+            <i class="fa fa-arrow-down" ng:show="drawerVisible" ng:class="{'fa-accent': restoreQueue.length}"></i>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <a ng:click="clipboard.clear()" class="btn btn-default"><i class="fa fa-times"></i> Clear</a>
+    </div>
+    <br/>
+    <table class="table">
+        <tr ng:repeat="item in clipboard.items | orderBy:['-isdir', 'path']">
+            <td>
+                <i class="fa fa-cut" ng:show="item.state == 'cut'"></i>
+                <i class="fa fa-copy" ng:show="item.state == 'copy'"></i>
+                <i class="fa fa-folder-open" ng:show="item.item.isdir"></i>
+                <i class="fa fa-file" ng:hide="item.item.isdir"></i>
+                [[item.item.path]]
+            </td>
+            <td width="1">
+                <a ng:click="clipboard.items.splice($index, 1)" class="btn btn-default btn-ink btn-sm">
+                    <i class="fa fa-times"></i> Remove
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

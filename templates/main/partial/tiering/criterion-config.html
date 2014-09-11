@@ -1,0 +1,53 @@
+<div class="tiering-criterion-config type-[[config.type]]">
+    <div class="label">[[config.type]]</div>
+    <div class="content">
+        <div ng:repeat="config in config.blocks">
+            <ng:include src="'/template/main/partial/tiering/criterion-config.html'" />
+        </div>
+        <div ng:show="config.blocks.length == 0 && config.type != 'filter'">
+            &nbsp;&nbsp;No entries in this block
+        </div>
+        <div ng:show="config.type == 'filter'" class="form-inline">
+            <table>
+                <tr>
+                    <td>
+                        <select ng:model="config.filter" class="form-control">
+                            <option value="path">Path</option>
+                            <option value="affinity">Affinity</option>
+                            <option value="name">Name wildcard</option>
+                            <option value="size">File size</option>
+                            <option value="mtime">Last modified</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select ng:model="config.comparison" class="form-control">
+                            <option value="=">equals</option>
+                            <option value="!=">not equals</option>
+                            <option value="<" ng:if="config.filter == 'size' || config.filter == 'mtime'">&lt;</option>
+                            <option value=">" ng:if="config.filter == 'size' || config.filter == 'mtime'">&gt;</option>
+                        </select>
+                    </td>
+                    <td>                        
+                        <elementspathselector absolute-path="config.value" ng:if="config.filter == 'path'" />
+                        <input ng:model="config.value" type="text" ng:show="config.filter == 'name'" class="form-control" />
+                        <select ng:model="config.value" ng:show="config.filter == 'affinity'" ng:options="x.affinity as x.affinity for x in snfs_status[storage_status.volumes[criterion.source_volume.id].node.id].stripegroups" class="form-control" />
+                        <input ng:model="config.value" type="number" ng:show="config.filter == 'size'" class="form-control" />
+                        <input ng:model="config.value" type="number" ng:show="config.filter == 'mtime'" class="form-control" />
+                    </td>
+                    <td>
+                        <select ng:model="config.multiplier" ng:show="config.filter == 'size'" ng:options="x.value as x.name for x in sizeMultipliers" class="form-control"></select>
+                        <select ng:model="config.multiplier" ng:show="config.filter == 'mtime'" ng:options="x.value as x.name for x in timeMultipliers" class="form-control"></select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="btn-group">
+            <a ng:click="create(config, 'filter')" ng:show="config.type != 'filter'" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> Filter</a>
+            <a ng:click="create(config, 'and')" ng:show="config.type != 'filter'" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> AND</a>
+            <a ng:click="create(config, 'or')" ng:show="config.type != 'filter'" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> OR</a>
+            <a ng:click="remove($parent.$parent.config, config)" ng:hide="config._persistent" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i> Remove</a>
+        </div>
+    </div>
+</div>

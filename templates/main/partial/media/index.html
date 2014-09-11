@@ -1,0 +1,14 @@
+<h3>Media roots</h3>
+
+<div class="list-group">
+    <a ng:disabled="!(root.root && (!storage_status.volumes || storage_status.volumes[root.volume.id].online))" class="slide list-group-item" ng:repeat="root in roots | filter:filter | orderBy:'name'" href="/media/browse/[[root.id]]/[[root.root.id]]">
+        <i class="fa fa-folder"></i> [[root.name]]
+        <br/>
+        <span class="label label-warning" ng:hide="root.root">
+            <i class="fa fa-warning"></i> Not scanned yet
+        </span>
+        <span class="label label-danger" ng:show="storage_status.volumes && !storage_status.volumes[root.volume.id].online">
+            <i class="fa fa-warning"></i> STORAGE OFFLINE
+        </span>
+    </a>
+</div>

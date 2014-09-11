@@ -1,0 +1,78 @@
+<tabset>
+    <tab heading="Reports">
+        <br/>
+        <table class="table">
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>
+                    <button class="btn btn-default btn-ink btn-xs pull-right" ng:click="deleteReports()">
+                        <i class="fa fa-trash-o"></i> Clear
+                    </button>                
+                </th>
+            </tr>
+            <tr ng:repeat="report in reports|orderBy:'-date'">
+                <td>
+                    <i class="fa fa-file"></i> <a href="/tasks/report/[[report.id]]">[[getTaskName(report.task_name)]]</a>
+                </td>
+                <td>
+                    <span class="label label-success" ng:show="report.success">SUCCEEDED</span>
+                    <span class="label label-danger" ng:hide="report.success">FAILED</span>
+                </td>
+                <td>
+                    [[report.date|date:'medium']]
+                </td>
+                <td width="1">
+                    <button class="btn btn-default btn-ink btn-xs pull-right" ng:click="deleteReport(report)">
+                        <i class="fa fa-trash-o"></i> Delete
+                    </button>                
+                </td>
+            </tr>
+        </table>
+    </tab>
+    <!--tab heading="Active tasks">
+        <br/>
+    </tab-->
+    <tab heading="Scheduled tasks">
+        <br/>
+        <div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Task</th>
+                    <th>Schedule</th>
+                    <th></th>
+                </tr>
+                <tr ng:repeat="task in tasks|orderBy:'name'">
+                    <td>
+                        <i class="fa fa-cog"></i> <a href="/tasks/[[task.id]]">[[task.name]]</a>
+                    </td>
+                    <td>
+                        [[getTaskName(task.task)]]
+                    </td>
+                    <td>
+                        <div ng:show="task.interval">Every [[task.interval.every]] [[task.interval.period]]</div>
+                        <div ng:show="task.crontab">
+                            [[task.crontab.month_of_year]] [[task.crontab.day_of_month]] [[task.crontab.day_of_week]] [[task.crontab.hour]] [[task.crontab.minute]]
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-ink btn-xs" ng:click="runTask(task.id)">
+                            <i class="fa fa-play"></i> Run
+                        </button>   
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <label>Task type</label>
+            <select ng:model="newTask" required ng:options="name as title for (name, title) in task_names" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <a ng:click="create(newTask)" class="btn btn-primary"><i class="fa fa-plus"></i> New task</a>
+        </div>
+    </tab>
+</tabset>
+

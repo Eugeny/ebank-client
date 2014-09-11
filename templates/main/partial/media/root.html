@@ -1,0 +1,104 @@
+<tabset>
+    <tab heading="General">
+        <br/>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng:model="root.name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Path</label>
+                <div class="col-sm-10">
+                    <elementspathselector volume="root.volume" path="root.path" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Custom fields list</label>
+                <div class="col-sm-10">
+                    <div ng:hide="root.custom_fields.length">No custom fields defined</div>
+                    <table class="slide table table-bordered" ng:show="root.custom_fields.length">
+                        <tr ng:repeat="field in root.custom_fields">
+                            <td>
+                                [[field]]
+                            </td>
+                            <td width="1">
+                                <a ng:click="root.custom_fields.splice($index, 1)" class="btn btn-danger btn-ink btn-sm">
+                                    <i class="fa fa-times"></i> Remove
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="form-inline">
+                        <input ng:enter="root.custom_fields.push(newCustomField); newCustomField = ''" type="text" class="form-control" placeholder="New custom field" ng:model="newCustomField" />
+                        <a ng:click="root.custom_fields.push(newCustomField); newCustomField = ''" class="btn btn-default"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <a ng:click="startMediaScan()" class="btn btn-default"><i class="fa fa-refresh"></i> Rescan media library</a>
+                    &nbsp;
+                    <a ng:click="scheduleMediaScan()" class="btn btn-default"><i class="fa fa-clock-o"></i> Schedule rescan</a>
+                </div>
+            </div>
+        </div>
+    </tab>
+
+    <tab heading="Permissions">
+        <br/>
+        <div class="form-horizontal">
+            <div class="form-group slide">
+                <label class="col-sm-2 control-label">
+                    Permissions
+                </label>
+                <div class="col-sm-10">
+                    <table class="table table-bordered">
+                        <tr ng:repeat="permission in root.permissions">
+                            <td>
+                                <i class="fa fa-user"></i> [[permission.user.username]]
+                            </td>
+                            <td width="1">
+                                <span ng:model="permission.read_only" class="form-control no-wrap" checkbox text="Read-only"></span>
+                            </td>
+                            <td width="1">
+                                <span ng:model="permission.allow_original_download" class="form-control no-wrap" checkbox text="Allow original download"></span>
+                            </td>
+                            <td width="1">
+                                <span ng:model="permission.allow_proxy_download" class="form-control no-wrap" checkbox text="Allow proxy download"></span>
+                            </td>
+                            <td width="1">
+                                <a ng:click="deletePermission(permission)" class="btn btn-danger btn-ink btn-xs">
+                                    <i class="fa fa-times"></i> Remove
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="form-inline" ng:show="newPermissionObjects.length">
+                        <select class="form-control" ng:options="x as x.title for x in newPermissionObjects" ng:model="newPermissionObject"></select>
+                        <a ng:click="createPermission(newPermissionObject)" class="btn btn-primary">
+                            <i class="fa fa-plus"></i>
+                            Allow
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </tab>
+</tabset>
+
+<div class="sticky-panel">
+    <a ng:click="save()" class="btn btn-primary">
+        <i class="fa fa-check"></i>
+        Save
+    </a>
+    <a ng:click="delete()" class="btn btn-default">
+        <i class="fa fa-trash-o"></i>
+        Delete
+    </a>
+</div>

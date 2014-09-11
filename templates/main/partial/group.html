@@ -1,0 +1,52 @@
+<tabset>
+    <tab heading="General">
+        <br/>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" required class="form-control" ng:model="group.name" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Members</label>
+                <div class="col-sm-10">
+                    <table class="table table-bordered">
+                        <tr ng:repeat="member in group.members">
+                            <td>
+                                <i class="fa fa-user"></i> [[member.username]]
+                            </td>
+                            <td width="1">
+                                <a ng:click="deleteMember(member)" class="btn btn-default btn-ink btn-xs">
+                                    <i class="fa fa-times"></i> Remove
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="form-inline" ng:show="newMembers.length">
+                        <select class="form-control" ng:options="x as x.username for x in newMembers" ng:model="newMember"></select>
+                        <a ng:click="addMember(newMember)" class="btn btn-primary">
+                            <i class="fa fa-plus"></i>
+                            Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </tab>
+</tabset>
+
+<div class="sticky-panel">
+    <a ng:click="save()" class="btn btn-primary">
+        <i class="fa fa-check"></i>
+        Save
+    </a>
+    <a ng:click="delete()" class="btn btn-default">
+        <i class="fa fa-trash-o"></i>
+        Delete
+    </a>
+</div>

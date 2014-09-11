@@ -1,0 +1,10 @@
+<filterbox ng:model="filter" />
+
+<br/>
+
+<div class="list-group">
+    <a href="/download/[[download.id]]" target="_blank" class="slide list-group-item" ng:repeat="download in downloads | filter:filter | orderBy:'name'">
+        <img height="20" ng:if="download.icon_path" ng:src="/download/[[download.id]]?icon" />
+        <i ng:if="download.fa_icon" class="fa fa-[[download.fa_icon]]"></i> [[download.name]] 
+    </a>
+</div>

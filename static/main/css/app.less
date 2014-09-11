@@ -1,0 +1,375 @@
+@import "lib/mixins.less";
+@import "lib/bootstrap/variables.less";
+
+html, body {
+    padding: 0;
+    margin: 0;  
+}
+
+body {
+    overflow-y: scroll;
+    padding: 70px 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+.container-fluid {
+    max-width: 1140px !important;
+}
+
+.sticky-panel {
+    width: 848px;
+    position: fixed;
+    background: #2a2a2a;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border: 1px solid #555;
+    border-width: 1px 1px 0 1px;
+    border-radius: 3px 3px 0 0;
+    z-index: 10;
+
+    html.mobile-mode & {
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        padding: 20px;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3ggSEjUqSKh/VAAAAIRJREFUCNdjbG5utuHh4fFlYGD4z4AKGL9+/XqJ5ePHj694eHjKGLCAHz9+BDAfO3bsraam5j4eHp5gJiYmdgYGBoZ///79ffv2bV5ra+tiJgYGBgY2NrbDjx49Cvn/H2LLhw8fSlpbW6eGhYWhGllRUaFWXV3tyMDAwODo6MjAwMDAAACllS4UbVuR7wAAAABJRU5ErkJggg==') !important;
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+a {
+    cursor: pointer;
+}
+
+a[disabled] {
+    pointer-events: none;
+}
+
+.list-group-item[disabled]:hover {
+    background-color: @list-group-bg; 
+    cursor: default;
+}
+
+.btn[toggle] {
+    i {
+        opacity: 0;
+    }
+
+    &.active i {
+        opacity: 1;
+    }
+}
+
+pre {
+    border: none;
+    background: #444;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.navbar-brand.center {
+    width: 170px;
+    margin: auto !important;
+    float: none;
+}
+
+.fa.fa-accent {
+    color: @brand-primary;
+}
+
+.list-group i::before,
+a i::before {
+    display: inline-block;
+    text-align: center;
+    min-width: 16px;
+}
+
+td {
+    word-wrap: break-word;
+}
+
+
+*.ng-dirty.ng-invalid {
+    border-color: red;
+}
+
+
+.open-dialog .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.job-log {
+    width: 750px;
+    height: 400px; 
+    overflow: auto;
+}
+
+.in > .modal {
+    display: block !important;
+}
+
+.timepicker {
+    background: transparent;
+
+    tbody {
+        tr.text-center {
+            display: none;
+        }
+    }
+}
+
+ul[datepicker-popup-wrap] .btn {
+    border-radius: 0 !important;
+}
+
+ul[datepicker-popup-wrap] .btn-success {
+    display: none !important;
+}
+
+
+smart-progress {
+    padding-top: 3px;
+    display: block;
+    overflow: hidden;
+
+    .progress {
+        height: 4px;
+        .progress-bar {
+            background: @form-accent-bright;
+        }
+    }
+
+    .values {
+        font-size: 10px;
+    }
+}
+
+
+.drawer {
+    background: #333;
+    border: 1px solid #666;
+    position: fixed;
+    right: -670px;
+    top: 100px;
+    height: 500px;
+    width: 700px;
+    border-radius: 3px;
+    padding: 10px 20px 10px 40px;
+    .transition(0.5s all);
+    overflow-y: auto;
+
+    html.mobile-mode & {
+        right: -370px;
+        width: 400px;
+
+        &.active {
+            right: -10px;
+        }
+    }
+
+    .toggle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 498px;
+        width: 30px;
+        background: #444;
+        cursor: pointer;
+
+        &:hover {
+            background: #555;
+        }
+
+        .text {
+            .rotate(-90deg);
+            text-transform: uppercase;
+            font-weight: bold;
+            width: 200px;
+            left: -85px;
+            top: 100px;
+            text-align: right;
+            position: relative;
+        }
+    }
+
+    &.active {
+        right: -10px;
+    }
+
+    .scroll {
+        overflow-y: auto;
+    }
+}
+
+*[checkbox] {
+    cursor: pointer;
+    width: auto !important;
+    display: inline-block;
+
+    i {
+        color: @text-color;
+        font-size: 16px;
+        vertical-align: -1px;
+        width: 20px;
+        text-align: center;
+    }
+
+    &.active i.on {
+        color: @form-accent;
+    }
+
+    i.on, &.active i.off {
+        display: none;
+    }
+
+    i.off, &.active i.on {
+        display: inline-block;
+    }
+
+    &:active {
+        background: rgba(255,255,255,.1);
+        border-radius: 3px;
+    }
+}
+
+
+@media (max-width: 480px)
+{
+    .toolbar {
+        .btn {
+            font-size: 0px;
+
+            i {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+.progress {
+    position: relative;
+
+    span {
+        position: absolute;
+        width: 100%;
+        display: block;
+    }
+}
+
+#dialog-dim {
+    z-index: 10;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+#loading-dim {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #222;
+    z-index: 9999;
+    .transition(opacity 1s);
+
+    .loading-indicator {
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: white;
+        overflow: hidden;
+
+        .circle {
+            width: 400px;
+            height: 400px;
+            background: yellow;
+            #gradient > .radial(yellow, rgba(255, 255, 0, 0));
+            opacity: .75;
+            border-radius: 50px;
+            position: absolute;
+
+            -webkit-animation: loadingCircleFrames 1.7s ease infinite alternate;
+            -moz-animation: loadingCircleFrames 1.7s ease infinite alternate;
+            animation: loadingCircleFrames 1.7s ease infinite alternate;
+        }
+
+        .circle2 {
+            background: orange;
+            #gradient > .radial(orange, rgba(255, 128, 0, 0));
+            -webkit-animation-direction: alternate reverse;
+            -webkit-animation-delay: 0.25s;
+            -webkit-animation-duration: 2.5s;
+            -moz-animation-direction: alternate reverse;
+            -moz-animation-delay: 0.25s;
+            -moz-animation-duration: 2.5s;
+            animation-direction: alternate reverse;
+            animation-delay: 0.25s;
+            animation-duration: 2.5s;
+        }
+
+        .circle3 {
+            background: blue;
+            #gradient > .radial(blue, rgba(0, 0, 255, 0));
+            -webkit-animation-delay: 0.5s;
+            -webkit-animation-duration: 1s;
+            -moz-animation-delay: 0.5s;
+            -moz-animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-duration: 1s;
+        }
+
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &.out {
+        opacity: 0;
+    }
+}
+
+.loadingCircleFramesTpl () {
+    0% { left: -100px; top: -100px; }
+    100% { left: 100px; top: 100px; }
+}
+
+@-webkit-keyframes loadingCircleFrames { .loadingCircleFramesTpl(); }
+@-moz-keyframes loadingCircleFrames { .loadingCircleFramesTpl(); }
+@keyframes loadingCircleFrames { .loadingCircleFramesTpl(); }
+

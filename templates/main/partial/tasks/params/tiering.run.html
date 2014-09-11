@@ -1,0 +1,20 @@
+<div class="form-horizontal" ng:controller="TieringRunTaskParamsCtrl">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Criterion</label>
+        <div class="col-sm-5">
+            <select ng:model="task.kwargs.criterion_id" ng:options="x.id as x.name for x in criterions" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Destination</label>
+        <div class="col-sm-5">
+            <select ng:model="task.kwargs.destination_id" ng:options="x.id as x.name for x in destinations" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-5">
+            <span ng:model="task.kwargs.test_run" class="form-control" checkbox text="Test run"></span>
+        </div>
+    </div>
+</div>
