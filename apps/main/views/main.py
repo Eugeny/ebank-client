@@ -1,27 +1,22 @@
-from django.shortcuts import render, get_object_or_404
-from django.conf import settings
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-
-from apps.main.models import *
+from django.template import loader
 
 
-@login_required
 def index(request):
+    if not 'client-id' in request.session:
+        return HttpResponseRedirect('/auth/login')
+        
     return render(
         request,
         'main/index.html',
-        {
-        }
+        {}
     )
 
 
 def template(request, template_name=None):
-    try:
-        resp = TemplateView.as_view(template_name=template_name)(request)
-        resp.render()
-        return resp
-    except:
-        raise Http404()
+    t, o = loader.find_template('partial/' + template_name)
+    if t:
+        return HttpResponse(open(t.origin.name).read())
+    else:
+        return Http404()

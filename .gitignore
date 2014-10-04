@@ -7,3 +7,4 @@ config/environments/local.py
 public
 *.pid
 env
+static/CACHE

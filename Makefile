@@ -1,8 +1,8 @@
 ENV=dev
 
 migrate:
-	./manage.py schemamigration main --auto || true
-	./manage.py migrate --all
+	./manage.py makemigrations
+	./manage.py migrate
 
 build:
 	rm -rf static/CACHE
@@ -17,6 +17,8 @@ run:
 	
 clean:
 	find . -name '*.pyc' -delete
+	rm -rf public/* || true
+	rm -rf static/CACHE || true
 	
 .PHONY: build static
 

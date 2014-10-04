@@ -6,15 +6,13 @@ PROJECT_ROOT = path(__file__).abspath().dirname().dirname()
 sys.path.insert(0, PROJECT_ROOT / 'libs')
 sys.path.insert(0, PROJECT_ROOT / 'apps')
 
-ADMINS = (
+MANAGERS = ADMINS = (
     ('Admin', 'john.pankov@gmail.com'),
 )
 
-MANAGERS = ADMINS
+#SITE_ID = 1
 
-SITE_ID = 1
-
-SECRET_KEY = 'kdsjfkdjhjhhjhgkdjfhgkdjh'
+SECRET_KEY = 'jhjhkjhkjh'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -24,28 +22,39 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'config.urls'
+#WSGI_APPLICATION = 'config.wsgi.application'
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WPADMIN = {
+    'admin': {
+        'title': 'Gamma-E-Bank',
+        'menu': {
+            'top': 'wpadmin.menu.menus.BasicTopMenu',
+            'left': 'wpadmin.menu.menus.BasicLeftMenu',
+        },
+        'dashboard': {
+            'breadcrumbs': True,
+        },
+    }
+}
 
 INSTALLED_APPS = (
-    'grappelli',
+    'wpadmin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
+#    'django.contrib.sites',
+#    'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
 
     'devserver',
-    'south',
-    'django_extensions',
     'compressor',
-    'tastypie',
 
     'apps.main',
 )
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 LOGGING = {
     'version': 1,
@@ -71,8 +80,12 @@ LOGGING = {
         },
     }, 
     'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['mail_admins', 'console'],
             'level': 'ERROR',
             'propagate': True,
         },
@@ -84,8 +97,8 @@ LOGGING = {
 # LOCALE
 # -------------------------
 
-USE_I18N = False
-USE_L10N = False
+USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
@@ -134,15 +147,6 @@ COMPRESS_PRECOMPILERS = (
 )
 
 
-# -------------------------
-# CACHING
-# -------------------------
-
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/login'
 LOGOUT_URL = '/auth/logout'
-
-APPEND_SLASH = False
-TASTYPIE_ALLOW_MISSING_SLASH = True
-
-API_LIMIT_PER_PAGE = 0

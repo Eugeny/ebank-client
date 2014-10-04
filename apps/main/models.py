@@ -6,7 +6,7 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 
-
+"""
 class BankAccount (models.Model):
     name = models.CharField(max_length=255)
     user = models.ForeignKey(User)
@@ -14,3 +14,4 @@ class BankAccount (models.Model):
 
     def __unicode__(self):
         return self.name
+"""

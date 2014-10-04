@@ -1,9 +1,11 @@
-window.RootCtrl = ($scope, $cookies, $window, $location) -> 
+app.controller 'RootCtrl', ($scope, $cookies, $window, $location, $http) -> 
     $scope.$location = $location
     $scope.$window = $window
     $scope.$cookies = $cookies
     $scope.Math = Math
 
+    $http.get('/api/init').success (defs) ->
+        $scope.definitions = defs
 
-window.IndexCtrl = ($scope, BankAccount) -> 
-	$scope.accounts = BankAccount.query()
+
+app.controller 'IndexCtrl', ($scope) -> 

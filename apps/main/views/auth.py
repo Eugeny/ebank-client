@@ -1,9 +1,7 @@
-from django.shortcuts import render
-from django.contrib.auth import load_backend, logout, login, authenticate
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
-from apps.main.models import *
+from libs.bank import BankApi
 
 
 def _login(request):
@@ -11,13 +9,12 @@ def _login(request):
         request.session['login_redirect'] = request.GET.get('next', '/')
         return render(request, 'main/login.html', {})
 
-    user = authenticate(username=request.POST['username'], password=request.POST['password'])
-    if user:
-        login(request, user)
-   
+    if BankApi().auth(request.POST['id'], request.POST['password']):
+        request.session['client-id'] = request.POST['id']
+
     return HttpResponseRedirect(request.session['login_redirect'])
 
 
 def _logout(request):
-    logout(request)
+    del request.session['client-id']
     return HttpResponseRedirect('/')

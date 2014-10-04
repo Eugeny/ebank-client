@@ -1,13 +1,4 @@
-@import "lib/mixins.less";
-@import "lib/bootstrap/variables.less";
-
-html, body {
-    padding: 0;
-    margin: 0;  
-}
-
 body {
-    overflow-y: scroll;
     padding: 70px 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
@@ -29,11 +20,6 @@ a[disabled] {
     pointer-events: none;
 }
 
-pre {
-    border: none;
-    background: #444;
-}
-
 .no-wrap {
     white-space: nowrap;
 }
@@ -41,13 +27,6 @@ pre {
 .word-wrap {
     word-wrap: break-word;
     word-break: break-all;
-}
-
-.list-group i::before,
-a i::before {
-    display: inline-block;
-    text-align: center;
-    min-width: 16px;
 }
 
 *.ng-dirty.ng-invalid {

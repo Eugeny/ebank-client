@@ -1,13 +1,15 @@
-window.tabID = Math.floor(Math.random() * 0x10000).toString(16)
+window.app = angular.module 'app', [
+    'ngAnimate'
+    'ngCookies'
+    'ngRoute'
+    'angular-loading-bar'
+    'ui.bootstrap'
+    'ui.router'
+]
 
-window.app = angular.module('app', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'angular-loading-bar'])
 
-
-app.config ($interpolateProvider, $rootScopeProvider) ->
-  $interpolateProvider.startSymbol '[['
-  $interpolateProvider.endSymbol ']]'
-  $rootScopeProvider.digestTtl(100);
-
+app.config ($rootScopeProvider) ->
+  $rootScopeProvider.digestTtl 100
 
 
 app.directive 'activeLink', ($location) =>
@@ -37,9 +39,10 @@ app.directive 'filterbox', () ->
             <span class="input-group-addon">
                 <i class="fa fa-filter"></i>
             </span>
-            <input type="search" class="form-control" placeholder="[[text || 'Filter']]" ng:model="ngModel" />
+            <input type="search" class="form-control" placeholder="{{text || 'Filter'}}" ng:model="ngModel" />
         </p>
         """
         link: ($scope, element, attr) ->
+            
     }
 

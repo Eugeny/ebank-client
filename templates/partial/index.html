@@ -3,12 +3,12 @@
 <br/>
 
 <div class="list-group">
-    <a href="<!--/user/[[user.id]]-->" class="list-group-item" ng:repeat="account in accounts | filter:filter | orderBy:'name'">
+    <a href="<!--/user/{{user.id}}-->" class="list-group-item" ng:repeat="account in accounts | filter:filter | orderBy:'name'">
         <span class="pull-right">
-            <i class="fa fa-usd"></i> [[account.amount]]
+            <i class="fa fa-usd"></i> {{account.amount}}
         </span>
         <span>
-            <i class="fa fa-database"></i> [[account.name]]
+            <i class="fa fa-database"></i> {{account.name}}
         </span>
     </a>
 </div>

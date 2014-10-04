@@ -1,13 +1,17 @@
+Deps:
+
+  * ``apt-get install npm python-virtualenv python-pip``
+  * ``npm install -g coffee-script less``
+
 Setup:
 
     virtualenv env
     pip install -r requirements.txt
-    source env/bin/activate
+    . env/bin/activate
     ./manage.py syncdb
-    make migrate
-
+    ./manage.py migrate
 
 Running:
 
-    source env/bin/activate
+    . env/bin/activate
     make run
