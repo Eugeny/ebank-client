@@ -6,8 +6,8 @@ Deps:
 Setup:
 
     virtualenv env
-    pip install -r requirements.txt
     . env/bin/activate
+    pip install -r requirements.txt
     ./manage.py syncdb
     ./manage.py migrate
 
