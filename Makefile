@@ -12,7 +12,7 @@ static: build
 	rm -rf public/static/*
 	./manage.py collectstatic --noinput -l --settings=config.environments.$(ENV)
 	
-	npm i -g bower
+	npm i -g bower || true
 	bower install
 
 run:
