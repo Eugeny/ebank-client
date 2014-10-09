@@ -7,7 +7,8 @@
 
         <title>Гамма-Е-Банк</title>
 
-        {% block meta %}{% endblock %}
+        {% block meta %}
+        {% endblock %}
 
         <link rel="shortcut icon" href="{{ STATIC_URL }}main/images/favicon.ico">
 
@@ -27,19 +28,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
 
         {% compress css %}
-            <link rel="stylesheet" href="{{ STATIC_URL }}main/css/lib/angular-loading-bar.css" type="text/css">
+            <link rel="stylesheet" href="{{ STATIC_URL }}main/styles/vendor/angular-loading-bar/angular-loading-bar.css" type="text/css">
 
-            <link rel="stylesheet" href="{{ STATIC_URL }}main/css/app.less" type="text/less">
+            <link rel="stylesheet" href="{{ STATIC_URL }}main/styles/base.less" type="text/less">
         {% endcompress %}
 
         {% compress js %}
-            <script src="{{ STATIC_URL }}main/js/lib/angular-loading-bar.js"></script>
 
-            <script src="{{ STATIC_URL }}main/js/app.coffee" type="text/coffeescript"></script>
-            <script src="{{ STATIC_URL }}main/js/ctrl.coffee" type="text/coffeescript"></script>
-            <script src="{{ STATIC_URL }}main/js/routing.coffee" type="text/coffeescript"></script>
-            <script src="{{ STATIC_URL }}main/js/services.coffee" type="text/coffeescript"></script>
-            <script src="{{ STATIC_URL }}main/js/utils.coffee" type="text/coffeescript"></script>
+            {# vendor scrips }
+            <script src="{{ STATIC_URL }}main/scripts/vendor/angular-loading-bar/angular-loading-bar.js"></script>
+            
+            {# custom scrips }
+
         {% endcompress %}
 
         {% block head %}
