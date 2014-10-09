@@ -11,6 +11,9 @@ build:
 static: build
 	rm -rf public/static/*
 	./manage.py collectstatic --noinput -l --settings=config.environments.$(ENV)
+	
+	npm i -g bower
+	bower install
 
 run:
 	./manage.py runserver 0.0.0.0:8080

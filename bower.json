@@ -1,0 +1,22 @@
+{
+  "name": "ebank-client",
+  "version": "1.0.0",
+  "ignore": [
+    ".jshintrc",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/eugeny/ebank-client",
+  "authors": [
+    "Nikita Klyushnikov <vipkonst@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-strap": "~2.1.1",
+    "ui-router": "~0.2.11"
+  }
+}

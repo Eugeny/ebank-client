@@ -1,0 +1,7 @@
+{
+  "name": "bower_components",
+  "main": "index",
+  "_source": "/home/nightbrownie/Projects/ebank-client/static/main/vendor",
+  "_target": "*",
+  "_originalSource": "./static/main/vendor"
+}
