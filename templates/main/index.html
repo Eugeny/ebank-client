@@ -2,48 +2,6 @@
 
 {% block content %}
 {% verbatim %}
-<div ng:controller="RootCtrl">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="pull-right">
-                Client #{{ definitions.clientId }}
-                &nbsp;
-                <a ng:click="$window.location.href = '/auth/logout'" class="btn btn-default navbar-btn">
-                    GTFO <i class="fa fa-sign-out"></i>
-                </a>
-            </div>
-
-            <a class="navbar-brand" href="/">
-                <div class="logo">
-                    <b>γ</b> eBank
-                </div>
-            </a>
-
-            <ul class="nav navbar-nav">
-            </ul>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="list-group">
-                    <a href="/status" class="list-group-item" active-link="active">
-                        <i class="fa fa-dashboard"></i>
-                        Menu 1
-                    </a>
-                    <a href="/project" class="list-group-item" active-link="active">
-                        <i class="fa fa-briefcase"></i>
-                        Menu 2
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-9" ng:view ng:cloak>
-
-            </div>
-        </div>
-    </div>  
-</div>
+    
 {% endverbatim %}
 {% endblock %}
