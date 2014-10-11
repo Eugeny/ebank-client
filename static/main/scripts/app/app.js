@@ -1,4 +1,5 @@
 angular.module('ebank-client', [
-		'mgcrea.ngStrap',
-		'ui.router'
-	]);
+        'mgcrea.ngStrap',
+        'ui.router',
+        'directives'
+    ]);

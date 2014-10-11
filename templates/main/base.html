@@ -25,7 +25,7 @@
 
         {% compress js %}
 
-            {# vendor scrips #}
+            {# vendor scripts #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/jquery/dist/jquery.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
@@ -38,6 +38,23 @@
             
             {# custom scrips #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/app.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/config/routeConfig.js"></script>
+
+            {# constants #}
+
+            {# services #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/servicesModule.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/localization/localizationService.js"></script>
+
+            {# directives #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/directivesModule.js"></script>
+
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/language-selector/controllers/languageSelectorCtrl.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/language-selector/languageSelector.js"></script>
+
+            {# controllers #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/header/controllers/headerCtrl.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/currency/controllers/currencyCtrl.js"></script>
         {% endcompress %}
 
         {% block head %}

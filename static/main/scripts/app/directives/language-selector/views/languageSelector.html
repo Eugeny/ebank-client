@@ -1,0 +1,13 @@
+<div class="language-selector">
+    <ul class="locale-list">
+        <li class="locale-list-item" ng-repeat="locale in supportedLocales"
+            ng-class="{active: locale === localizationService.currentLocale}">
+            <div class="locale-container">
+                <a class="locale"
+                      ng-click="setCurrentLocale(locale)">
+                    {{locale.friendlyName || locale.code}}
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

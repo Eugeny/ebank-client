@@ -1,0 +1,40 @@
+.language-selector {
+    .locale-list {
+        overflow: hidden;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+
+        .locale-list-item {
+            display: inline-block;
+            float: left;
+
+            margin: 0 5px;
+
+            .transition(all ease .25s);
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            .locale {
+                padding: 5px 0;
+                .border-radius(3px);
+                .transition(all ease .25s);
+            }
+
+            &.active {
+                .locale {
+                    color: @linksHoverColor;
+                    .box-shadow(inset 0 -10px 15px -10px  @languageSelectorActiveLocaleColor);
+                }
+            }
+        }
+    }
+}

@@ -1,34 +1,9 @@
-body {
-    padding: 70px 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: antialiased;
-}
+@import "./variables.less";
+@import "./mixins.less";
 
-select {
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3ggSEjUqSKh/VAAAAIRJREFUCNdjbG5utuHh4fFlYGD4z4AKGL9+/XqJ5ePHj694eHjKGLCAHz9+BDAfO3bsraam5j4eHp5gJiYmdgYGBoZ///79ffv2bV5ra+tiJgYGBgY2NrbDjx49Cvn/H2LLhw8fSlpbW6eGhYWhGllRUaFWXV3tyMDAwODo6MjAwMDAAACllS4UbVuR7wAAAABJRU5ErkJggg==') !important;
-    background-position: 98% 50%;
-    background-repeat: no-repeat;
-}
+@import "./styles/layout.less";
 
-a {
-    cursor: pointer;
-}
+@import "./styles/header.less";
+@import "./styles/footer.less";
 
-a[disabled] {
-    pointer-events: none;
-}
-
-.no-wrap {
-    white-space: nowrap;
-}
-
-.word-wrap {
-    word-wrap: break-word;
-    word-break: break-all;
-}
-
-*.ng-dirty.ng-invalid {
-    border-color: red;
-}
+@import "./styles/language-selector.less";

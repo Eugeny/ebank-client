@@ -1,0 +1,24 @@
+footer {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: @footerHeight;
+
+    background-color: @footerBackgroundColor;
+    border-top: 1px solid @footerBorderColor;
+
+    .footer-content-container {
+        line-height: @footerHeight;
+
+        & > div {
+            &.copyright-container {
+                text-align: right;
+
+                color: @footerCopyrightColor;
+            }
+        }
+    }
+}
