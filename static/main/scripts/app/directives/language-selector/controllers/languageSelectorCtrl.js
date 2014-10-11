@@ -1,6 +1,8 @@
 angular.module('directives')
     .controller('languageSelectorCtrl', ['$scope', 'localizationService',
         function($scope, localizationService) {
+            'use strict';
+
             function activate() {
                 localizationService.getSupportedLocales()
                     .then(function(locales) {

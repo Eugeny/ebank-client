@@ -13,14 +13,30 @@
                     </li>
                     <li class="user-menu-dropdown dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span>username</span>
+                        <span class="username">
+                            <span class="first-name"
+                                  ng-show="userInfoService.currentUserInfo.name.firstName !== ''">
+                                {{userInfoService.currentUserInfo.name.firstName}}
+                            </span>
+                            <span class="middle-name"
+                                  ng-show="userInfoService.currentUserInfo.name.middleName !== ''">
+                                {{userInfoService.currentUserInfo.name.middleName}}
+                            </span>
+                            <span class="last-name"
+                                  ng-show="userInfoService.currentUserInfo.name.lastName !== ''">
+                                {{userInfoService.currentUserInfo.name.lastName}}
+                            </span>
+                        </span>
                         <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="notifications-link-container">
                                 <a class="notifications-link" href="#">
                                     Notifications
-                                    <span class="badge notifications-counter-badge">10</span>
+                                    <span class="badge notifications-counter-badge"
+                                          ng-show="notificationsInfoService.currentNotificationsInfo.count">
+                                          {{notificationsInfoService.currentNotificationsInfo.count}}
+                                    </span>
                                 </a>
                             </li>
                             <li><a href="#">Manage Account</a></li>

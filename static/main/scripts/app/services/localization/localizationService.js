@@ -1,6 +1,8 @@
 angular.module('services')
     .factory('localizationService', ['$q',
         function($q) {
+            'use strict';
+
             function activate() {
                 //TODO: load locale from user settings
                 self.getSupportedLocales()

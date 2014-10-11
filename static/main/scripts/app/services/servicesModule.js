@@ -1,1 +1,5 @@
-angular.module('services', []);
+(function(window, undefined) {
+    'use strict';
+
+    angular.module('services', []);
+})(window);
