@@ -4,7 +4,7 @@ angular.module('directives')
 
         return {
             restrict: 'EA',
-            templateUrl: 'static/main/scripts/app/directives/language-selector/views/languageSelector.html',
+            templateUrl: '/static/main/scripts/app/directives/language-selector/views/languageSelector.html',
             controller: 'languageSelectorCtrl'
         };
     });

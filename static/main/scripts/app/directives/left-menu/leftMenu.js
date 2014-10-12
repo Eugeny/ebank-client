@@ -5,7 +5,7 @@ angular.module('directives')
         return {
             restrict: 'E',
             controller: 'leftMenuCtrl',
-            templateUrl: 'static/main/scripts/app/directives/left-menu/views/leftMenu.html',
+            templateUrl: '/static/main/scripts/app/directives/left-menu/views/leftMenu.html',
             scope: {
                 isOpen: '='
             },

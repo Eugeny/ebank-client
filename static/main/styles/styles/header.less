@@ -91,6 +91,11 @@ header {
             .user-menu-dropdown {
                 line-height: @userMenuButtonHeight;
 
+                li.active a {
+                    background-color: @userMenuDropdownActiveElementBackgroundColor;
+                    color: @userMenuDropdownActiveElementLinkTextColor;
+                }
+
                 & > a {
                     padding: 5px;
                     display: inline-block;

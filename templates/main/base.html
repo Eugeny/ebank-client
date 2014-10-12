@@ -41,6 +41,8 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/config/routeConfig.js"></script>
 
             {# constants #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/constantsModule.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/validation-regular-expressions/validationRegularExpressionsConstant.js"></script>
 
             {# services #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/servicesModule.js"></script>
@@ -59,6 +61,7 @@
             {# controllers #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/header/controllers/headerCtrl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/currency/controllers/currencyCtrl.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js"></script>
         {% endcompress %}
 
         {% block head %}
