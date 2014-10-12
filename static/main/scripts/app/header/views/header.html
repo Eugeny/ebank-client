@@ -2,15 +2,12 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container container-fluid">
             <div class="nav navbar-nav navbar-left menu-open-button-container">
-                <a class="menu-open-button">
+                <a class="menu-open-button" ng-click="toggleLeftMenu()">
                     Menu
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>
-
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Ɣ-E-Bank</a>
-            </div>
+            <left-menu is-open="isLeftMenuOpen"></left-menu>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>

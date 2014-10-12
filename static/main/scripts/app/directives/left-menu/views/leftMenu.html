@@ -1,0 +1,17 @@
+<div class="left-menu-container" ng-show="isOpen">
+    <div class="left-menu" ng-show="isOpen">
+        <div class="menu-header">
+            <div class="close-menu-button-container">
+                <a class="close-menu-button glyphicon glyphicon-remove-circle"
+                      ng-click="close()">
+                </a>
+            </div>
+            <div class="brand-container">
+                <a class="brand" href="#">Ɣ-E-Bank</a>
+            </div>
+        </div>
+        <div class="menu-content-container" ng-transclude>
+        </div>
+    </div>
+    <div class="menu-overlay" ng-click="close()"></div>
+</div>

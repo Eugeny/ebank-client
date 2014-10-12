@@ -5,4 +5,10 @@ angular.module('ebank-client')
 
             $scope.userInfoService = userInfoService;
             $scope.notificationsInfoService = notificationsInfoService;
+
+            $scope.isLeftMenuOpen = false;
+
+            $scope.toggleLeftMenu = function() {
+                $scope.isLeftMenuOpen = !$scope.isLeftMenuOpen;
+            };
         }]);

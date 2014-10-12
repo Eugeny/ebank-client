@@ -1,0 +1,84 @@
+.left-menu-container {
+    .left-menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: @leftMenuWidth;
+        z-index: 10;
+
+        background-color: @leftMenuBackgroundColor;
+        border-right: 1px solid @leftMenuBorderRightColor;
+
+        .box-shadow(-5px 0px 15px 0px @leftMenuShadowRightColor);
+
+        .transition(all ease .5s);
+
+        &.ng-hide-add {
+            left: 0;
+        }
+
+        &.ng-hide-add-active {
+            left: -100%;
+        }
+
+        &.ng-hide-remove {
+            left: -100%;
+        }
+
+        &.ng-hide-remove-active {
+            left: 0;
+        }
+
+        .menu-header {
+            height: @leftMenuHeaderHeight;
+            border-bottom: 1px solid @leftMenuBorderBottomColor;
+
+            .brand-container {
+                float: left;
+                height: @leftMenuHeaderHeight;
+                margin-left: 30px;
+
+                .brand {
+                    line-height: @leftMenuHeaderHeight;
+                    font-size: @leftMenuHeaderBrandFontSize;
+                }
+            }
+
+            .close-menu-button-container {
+                float: right;
+                margin-right: 15px;
+                height: @leftMenuHeaderHeight;
+
+                .close-menu-button {
+                    line-height: @leftMenuHeaderHeight;
+                    font-size: @leftMenuCloseButtonFontSize;
+                }
+            }
+        }
+
+        .menu-content-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: @leftMenuHeaderHeight;
+            bottom: 0;
+
+            overflow-y: auto;
+        }
+    }
+
+    .menu-overlay {
+        position: fixed;
+        z-index: 9;
+
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        background-color: @leftMenuOverlayColor;
+
+        opacity: .1;
+    }
+}
