@@ -46,6 +46,36 @@ header {
                 }
             }
 
+            .left-menu {
+                .menu-links-list {
+                    margin: 15px 0;
+                    padding: 0 20px;
+                    list-style: none;
+
+                    .menu-link-container {
+                        margin-bottom: 10px;
+                        padding-bottom: 10px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+
+                        font-size: @leftMenuLinkFontSize;
+                        border-bottom: 1px solid @leftMeuLinkContainerBorderColor;
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            border: none;
+                        }
+
+                        &.active {
+                            .menu-link {
+                                color: @leftMenuActiveLinkColor;
+                            }
+                        }
+                    }
+                }
+            }
+
             .language-selection-container {
                 padding-right: 15px;
                 border-right: 1px solid @delimiterBorderColor;
