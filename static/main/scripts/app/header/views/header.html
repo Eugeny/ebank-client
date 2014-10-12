@@ -1,49 +1,54 @@
 <div class="header-content">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container container-fluid">
+            <div class="nav navbar-nav navbar-left menu-open-button-container">
+                <a class="menu-open-button">
+                    Menu
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Ɣ-E-Bank</a>
             </div>
 
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <div class="language-selection-container" language-selector>
-                        </div>
-                    </li>
-                    <li class="user-menu-dropdown dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="username">
-                            <span class="first-name"
-                                  ng-show="userInfoService.currentUserInfo.name.firstName !== ''">
-                                {{userInfoService.currentUserInfo.name.firstName}}
-                            </span>
-                            <span class="middle-name"
-                                  ng-show="userInfoService.currentUserInfo.name.middleName !== ''">
-                                {{userInfoService.currentUserInfo.name.middleName}}
-                            </span>
-                            <span class="last-name"
-                                  ng-show="userInfoService.currentUserInfo.name.lastName !== ''">
-                                {{userInfoService.currentUserInfo.name.lastName}}
-                            </span>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="language-selection-container" language-selector>
+                    </div>
+                </li>
+                <li class="user-menu-dropdown dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="username">
+                        <span class="first-name"
+                              ng-show="userInfoService.currentUserInfo.name.firstName !== ''">
+                            {{userInfoService.currentUserInfo.name.firstName}}
                         </span>
-                        <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="notifications-link-container">
-                                <a class="notifications-link" href="#">
-                                    Notifications
-                                    <span class="badge notifications-counter-badge"
-                                          ng-show="notificationsInfoService.currentNotificationsInfo.count">
-                                          {{notificationsInfoService.currentNotificationsInfo.count}}
-                                    </span>
-                                </a>
-                            </li>
-                            <li><a href="#">Manage Account</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                        <span class="middle-name"
+                              ng-show="userInfoService.currentUserInfo.name.middleName !== ''">
+                            {{userInfoService.currentUserInfo.name.middleName}}
+                        </span>
+                        <span class="last-name"
+                              ng-show="userInfoService.currentUserInfo.name.lastName !== ''">
+                            {{userInfoService.currentUserInfo.name.lastName}}
+                        </span>
+                    </span>
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="notifications-link-container">
+                            <a class="notifications-link" href="#">
+                                Notifications
+                                <span class="badge notifications-counter-badge"
+                                      ng-show="notificationsInfoService.currentNotificationsInfo.count">
+                                      {{notificationsInfoService.currentNotificationsInfo.count}}
+                                </span>
+                            </a>
+                        </li>
+                        <li><a href="#">Manage Account</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
 </div>

@@ -24,14 +24,62 @@ header {
                 }
             }
 
+            .menu-open-button-container {
+                line-height: @menuButtonContainerHeight - 20px;
+                border-right: 1px solid @delimiterBorderColor;
+
+                padding-right: 10px;
+                margin: 10px 0;
+                margin-right: 10px;
+
+                .menu-open-button {
+                    padding: 5px;
+                    display: inline-block;
+                    line-height: 14px;
+                    text-transform: uppercase;  
+
+                    .border-radius(4px);
+                    border: 1px solid transparent;
+                    .transition(all ease .25s);
+
+                    &:hover {
+                        border-color: @menuButtonHoverBorderColor;
+                    }
+                }
+            }
+
             .language-selection-container {
                 padding-right: 15px;
                 border-right: 1px solid @delimiterBorderColor;
 
                 margin: 10px 0;
+                margin-right: 10px;
 
                 .locale-list {
                     line-height: @languageSelectorLineHeight - 20px;
+                }
+            }
+
+            .user-menu-dropdown {
+                line-height: @userMenuButtonHeight;
+
+                & > a {
+                    padding: 5px;
+                    display: inline-block;
+
+                    .border-radius(4px);
+                    border: 1px solid transparent;
+                    .transition(all ease .25s);
+
+                    &:hover {
+                        border-color: @menuButtonHoverBorderColor;
+                    }
+                }
+
+                &.open {
+                    & > a {
+                        border-color: @menuButtonHoverBorderColor;
+                    }
                 }
             }
 
