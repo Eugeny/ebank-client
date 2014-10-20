@@ -16,6 +16,22 @@ class BankApi(object):
 
     def auth(self, id, password):
         return self.request('client/auth', {
-            'id': id,
+            'clientId': id,
             'password': password,
         }).get('success', False)
+
+    def get_client(self, id):
+        return self.request('client/list/%s' % id)
+
+    def get_erip_tree(self):
+        return self.request('erip/tree')
+
+    def pay(self, accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount):
+        return self.request('payment/pay', {
+            'accountId': accountId,
+            'recipientBank': recipientBank,
+            'recipientId': recipientId,
+            'recipientName': recipientName,
+            'recipientAccountId': recipientAccountId,
+            'amount': amount,
+        })

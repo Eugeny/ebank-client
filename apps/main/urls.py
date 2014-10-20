@@ -9,7 +9,9 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'apps.main.views.api',
-    url(r'^api/init$', 'init'),
+    url(r'^api/get-info$', 'get_info'),
+    url(r'^api/erip/tree$', 'erip_tree'),
+    url(r'^api/pay$', 'pay'),
 )
 
 urlpatterns += patterns(
