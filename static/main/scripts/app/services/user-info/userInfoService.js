@@ -3,15 +3,6 @@ angular.module('services')
         function(userInfoProvider) {
             'use strict';
 
-            function loadUserInfoFromResponseData(data) {
-                data.client = data.client || {};
-
-                self.currentUserInfo.name.firstName = data.client.firstName || '';
-                self.currentUserInfo.name.middleName = data.client.middleName || '';
-                self.currentUserInfo.name.lastName = data.client.lastName || '';
-                self.currentUserInfo.username = data.client.id || '';
-            };
-
             function activate() {
                 self.currentUserInfo = {
                     username: '',
@@ -32,9 +23,8 @@ angular.module('services')
                 var promise = userInfoProvider.getUserInfo();
 
                 //TODO: create error callback with logger later
-                promise.then(function(result) {
-                    result.data = result.data || {};
-                    loadUserInfoFromResponseData(result.data);
+                promise.then(function(userInfo) {
+                    self.currentUserInfo = userInfo;
                 });
 
                 return promise;
