@@ -1,32 +1,30 @@
 angular.module('providers')
-    .factory('userInfoProvider', ['$http', '$q', 'endpointGenerationService',
+    .factory('userAccountsProvider', ['$http', '$q', 'endpointGenerationService',
         function($http, $q, endpointGenerationService) {
             'use strict';
 
             return {
-                getUserInfo: function() {
+                getAccounts: function() {
                     var deferred = $q.defer();
 
                     $http(endpointGenerationService.getGetUserInfoEndpoint())
                         .then(function(result) {
                             result.data = result.data || {};
                             var client = result.data.client || {}
+                            client.accounts = client.accounts || [];
 
-                            var userInfo = {
-                                name: { }
-                            };
+                            var userAccountsArray = [];
 
-                            userInfo.name.firstName = client.firstName || '';
-                            userInfo.name.middleName = client.middleName || '';
-                            userInfo.name.lastName = client.lastName || '';
-                            userInfo.username = client.id || '';
+                            _.each(client.accounts, function(account) {
+                                userAccountsArray.push(account);
+                            });
 
-                            deferred.resolve(userInfo);
+                            deferred.resolve(userAccountsArray);
                         }, function(error) {
                             deferred.reject(error);
                         });
 
                     return deferred.promise;
                 }
-            };
-        }]);
+            }
+        }])

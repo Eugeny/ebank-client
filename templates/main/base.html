@@ -27,6 +27,7 @@
 
             {# vendor scripts #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/jquery/dist/jquery.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/underscore/underscore.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/angular/angular.js"></script>
@@ -50,10 +51,12 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/endpoint-generation/endpointGenerationService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-info/userInfoService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/notifications-info/notificationsInfoService.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-accounts/userAccountsService.js"></script>
 
             {# providers #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/providersModule.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/user-info/userInfoProvider.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/user-accounts/userAccountsProvider.js"></script>
 
             {# directives #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/directivesModule.js"></script>
