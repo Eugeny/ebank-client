@@ -24,6 +24,14 @@ angular.module('ebank-client')
                         controller: 'currencyCtrl'
                     }
                 }
+            }).state('main.accounts', {
+                url: '/accounts',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/accounts/views/accounts.html',
+                        controller: 'accountsCtrl'
+                    }
+                }
             }).state('main.manageAccount', {
                 abstract: true,
                 views: {
