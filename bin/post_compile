@@ -1,0 +1,4 @@
+#!/bin/sh
+./manage.py compress --settings=config.environments.prod
+./manage.py collectstatic --noinput -c -v3 --settings=config.environments.prod
+
