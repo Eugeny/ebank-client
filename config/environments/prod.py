@@ -13,6 +13,7 @@ TEMPLATE_DEBUG = True
 # -------------------------
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 ADMIN_MEDIA_PREFIX = STATIC_URL
 
 
