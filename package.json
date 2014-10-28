@@ -3,7 +3,7 @@
     "dependencies": {
         "bower": "*",
         "coffee-script": "*",
-        "lessc": "*"
+        "less": "*"
     },
     "scripts": {
         "postinstall": "node node_modules/bower/bin/bower install"
