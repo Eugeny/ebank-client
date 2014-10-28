@@ -9,10 +9,16 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'apps.main.views.api',
-    url(r'^api/get-info$', 'get_info'),
+    url(r'^api/change-password$', 'change_password'),
+    url(r'^api/info$', 'get_info'),
+    url(r'^api/notifications$', 'get_notifications'),
     url(r'^api/erip/tree$', 'erip_tree'),
     url(r'^api/pay$', 'pay'),
-    url(r'^api/change-password$', 'change_password'),
+)
+
+urlpatterns += patterns(
+    'apps.main.views.bank_api',
+    url(r'^bank-api/notify$', 'notify'),
 )
 
 urlpatterns += patterns(
