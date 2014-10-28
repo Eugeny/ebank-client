@@ -27,6 +27,7 @@
 
             {# vendor scripts #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/jquery/dist/jquery.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/underscore/underscore.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/angular/angular.js"></script>
@@ -43,12 +44,20 @@
             {# constants #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/constantsModule.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/validation-regular-expressions/validationRegularExpressionsConstant.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/custom-events/customEventsConstant.js"></script>
 
             {# services #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/servicesModule.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/localization/localizationService.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/endpoint-generation/endpointGenerationService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-info/userInfoService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/notifications-info/notificationsInfoService.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-accounts/userAccountsService.js"></script>
+
+            {# providers #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/providersModule.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/user-info/userInfoProvider.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/user-accounts/userAccountsProvider.js"></script>
 
             {# directives #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/directivesModule.js"></script>
@@ -57,11 +66,13 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/language-selector/languageSelector.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/left-menu/controllers/leftMenuCtrl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/left-menu/leftMenu.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/custom-spinner/customSpinner.js"></script>
 
             {# controllers #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/header/controllers/headerCtrl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/currency/controllers/currencyCtrl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/accounts/controllers/accountsCtrl.js"></script>
         {% endcompress %}
 
         {% block head %}

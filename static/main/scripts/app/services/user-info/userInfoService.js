@@ -1,21 +1,34 @@
 angular.module('services')
-    .factory('userInfoService', ['$q',
-        function($q) {
+    .factory('userInfoService', ['userInfoProvider',
+        function(userInfoProvider) {
             'use strict';
 
             function activate() {
                 self.currentUserInfo = {
-                    username: 'username',
+                    username: '',
                     name: {
-                        firstName: 'Someone',
-                        middleName: 'Someone',
-                        lastName: 'Someone'
+                        firstName: '',
+                        middleName: '',
+                        lastName: ''
                     }
                 };
+
+                self.reloadUserInfo();
             }
 
             var self = {};
             self.currentUserInfo = {};
+
+            self.reloadUserInfo = function() {
+                var promise = userInfoProvider.getUserInfo();
+
+                //TODO: create error callback with logger later
+                promise.then(function(userInfo) {
+                    self.currentUserInfo = userInfo;
+                });
+
+                return promise;
+            };
 
             activate();
 

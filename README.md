@@ -1,7 +1,7 @@
 Deps:
 
-  * ``apt-get install npm python-virtualenv python-pip``
-  * ``npm install -g coffee-script less``
+  * ``apt-get install npm python-virtualenv python-pip libmysqlclient-dev``
+  * ``npm install -g coffee-script less bower``
 
 Setup:
 
