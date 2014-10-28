@@ -12,6 +12,7 @@ urlpatterns += patterns(
     url(r'^api/get-info$', 'get_info'),
     url(r'^api/erip/tree$', 'erip_tree'),
     url(r'^api/pay$', 'pay'),
+    url(r'^api/change-password$', 'change_password'),
 )
 
 urlpatterns += patterns(

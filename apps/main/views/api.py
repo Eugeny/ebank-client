@@ -49,3 +49,8 @@ def pay(request, client_id=None, accountId=None,
     if not any(account['id'] == accountId for account in client['client']['accounts']):
         raise Exception('Invalid accountId')
     return BankApi().pay(accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount)
+
+
+@api
+def change_password(request, client_id=None, password=None):
+    return BankApi().change_password(client_id, password)
