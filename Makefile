@@ -22,7 +22,12 @@ clean:
 	find . -name '*.pyc' -delete
 	rm -rf public/* || true
 	rm -rf static/CACHE || true
-	
+
+heroku-build:
+	heroku run ./manage.py compress --settings=config.environments.prod
+	heroku run ./manage.py collectstatic --settings=config.environments.prod
+
 .PHONY: build static
+
 
 
