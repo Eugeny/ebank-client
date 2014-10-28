@@ -1,4 +1,7 @@
 #!/bin/sh
 ./manage.py compress --settings=config.environments.prod
-./manage.py collectstatic --noinput -c -v3 --settings=config.environments.prod
+mkdir static/CACHE/fonts
+cp static/main/vendor/bower_components/bootstrap/fonts/* static/CACHE/fonts/
+cp static/main/vendor/bower_components/font-awesome/fonts/* static/CACHE/fonts/
+./manage.py collectstatic --noinput --settings=config.environments.prod
 

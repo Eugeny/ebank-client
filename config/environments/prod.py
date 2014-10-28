@@ -26,9 +26,12 @@ COMPRESS_OFFLINE = True
 COMPRESS_CSS_FILTERS = []
 COMPRESS_JS_FILTERS = []
 COMPRESS_ROOT = "static"
-
-COMPRESS_REBUILD_TIMEOUT = 5
+COMPRESS_PRECOMPILERS = (
+    ('text/coffeescript', 'vendor/node/bin/node node_modules/coffee-script/bin/coffee --compile --stdio'),
+    ('text/less', 'vendor/node/bin/node node_modules/less/bin/lessc {infile} {outfile}'),
+)
 
 # -------------------------
 
 BANK_SERVER_URL = 'http://195.50.17.107:8040/api/'
+
