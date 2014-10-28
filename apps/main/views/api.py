@@ -4,7 +4,7 @@ from functools import wraps
 
 from django.http import JsonResponse, Http404
 
-
+from apps.main.models import *
 from libs.bank import BankApi
 
 
@@ -25,7 +25,7 @@ def api(fx):
             response = {
                 'error': repr(e),
             }
-        return JsonResponse(response)
+        return JsonResponse(response, safe=False)
 
     return wrapper
 
@@ -35,6 +35,11 @@ def get_info(request, client_id=None):
     return {
         'client': BankApi().get_client(client_id),
     }
+
+
+@api
+def get_notifications(request, client_id=None):
+    return [x.to_json() for x in Notification.objects.filter(client_id=client_id).all()]
 
 
 @api
@@ -49,3 +54,8 @@ def pay(request, client_id=None, accountId=None,
     if not any(account['id'] == accountId for account in client['client']['accounts']):
         raise Exception('Invalid accountId')
     return BankApi().pay(accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount)
+
+
+@api
+def change_password(request, client_id=None, password=None):
+    return BankApi().change_password(client_id, password)
