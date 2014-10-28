@@ -1,1 +1,80 @@
-accounts mock view
+<div class="page-container accounts-page-container">
+    <div class="accounts-list-container" ng-hide="isBusy">
+        <div class="account-list-header-container">
+            <div class="page-title-container">
+                <h3 class="page-title">
+                    Your Accounts
+                </h3>
+            </div>
+
+            <div class="timestamp-container">
+                <span class="timestamp">
+                    Accounts state is actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                </span>
+            </div>
+
+            <div class="refresh-button-container">
+                <a class="refresh-button">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="accounts-list-header-container">
+            <div class="accounts-list-header">
+                <div class="account-number-header-container col-xs-3">
+                    <span class="account-number-header">
+                        Account Number
+                    </span>
+                </div>
+                <div class="currency-code-header-container col-xs-3">
+                    <span class="currency-code-header">
+                        Currency Code
+                    </span>
+                </div>
+                <div class="account-balance-header-container col-xs-3">
+                    <span class="account-balance-header">
+                        Account Balance
+                    </span>
+                </div>
+                <div class="actions-header-container col-xs-3">
+                </div>
+            </div>
+        </div>
+
+        <ul class="accounts-list">
+            <li class="account-container" ng-repeat="account in accounts">
+                <div class="account-number-container col-xs-3">
+                    <span class="account-number">
+                        {{account.id}}
+                    </span>
+                </div>
+
+                <div class="account-currency-code-container col-xs-3">
+                    <span class="account-currentcy-code">
+                        <!-- TODO: write own currency filter which will transform currency id to currency code -->
+                        {{account.currency}}
+                    </span>
+                </div>
+
+                <div class="account-balance-container col-xs-3">
+                    <div class="account-balance">
+                        {{account.balance}}
+                    </div>
+                </div>
+
+                <div class="account-details-link-container col-xs-3">
+                    <a class="account-details-link">
+                        Show Details
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="accounts-list-paging-container">
+        </div>
+    </div>
+
+    <custom-spinner ng-show="isBusy">
+    </custom-spinner>
+</div>
