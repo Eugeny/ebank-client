@@ -1,7 +1,9 @@
 {
     "name": "ebank-client",
     "dependencies": {
-        "bower": "*"
+        "bower": "*",
+        "coffee-script": "*",
+        "lessc": "*"
     },
     "scripts": {
         "postinstall": "node node_modules/bower/bin/bower install"
