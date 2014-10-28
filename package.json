@@ -3,5 +3,5 @@
     "dependencies": ["bower"],
     "scripts": {
         "postinstall": "node node_modules/bower/bin/bower install"
-    },
+    }
 }
