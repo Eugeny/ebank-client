@@ -4,22 +4,59 @@
     width: 100%;
 
     .accounts-list-container {
-        .account-list-header-container {
-            .page-title-container {
-                .page-title {
+        width: 100%;
 
+        .account-list-header-container {
+            overflow: hidden;
+
+            margin-bottom: 10px;
+
+            //border-bottom: 1px solid @accountsPageHeaderBorderColor;
+
+            .page-title-container {
+                width: 100%;
+                text-align: center;
+
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+
+                border-bottom: 1px solid @accountsPageHeaderTitleBorderColor;
+
+                .page-title {
+                    font-size: @accountsPageHeaderTitleFontSize;
+                    line-height: @accountsPageHeaderTitleFontSize;
+
+                    color: @accountsPageHeaderTitleColor;
+
+                    margin: 0;
                 }
             }
 
             .timestamp-container {
-                .timestamp {
+                float: left;
 
+                margin-left: 15px;
+
+                line-height: @accountsPageHeaderRefreshButtonFontSize;
+
+                .timestamp {
+                    font-size: @accountsPageHeaderStateTimestampFontSize;
+                    line-height: @accountsPageHeaderRefreshButtonFontSize;
+
+                    color: @accountsPageHeaderStateTimestampColor;
                 }
             }
 
             .refresh-button-container {
-                .refresh-button {
+                float: right;
 
+                margin-right: 15px;
+
+                line-height: @accountsPageHeaderRefreshButtonFontSize;
+
+                .refresh-button {
+                    font-size: @accountsPageHeaderRefreshButtonFontSize;
+                    line-height: @accountsPageHeaderRefreshButtonFontSize;
                 }
             }
         }
@@ -28,26 +65,17 @@
             width: 100%;
             overflow: hidden;
 
+            border-bottom: 1px solid @accountsPageAccountsListHeaderBorderColor;
+
+            padding-bottom: 5px;
+
             .accounts-list-header {
-                .account-number-header-container {
-                    .account-number-header {
+                overflow: hidden;
 
-                    }
-                }
-
-                .currency-code-header-container{
-                    .currency-code-header {
-
-                    }
-                }
-
+                .account-number-header-container,
+                .currency-code-header-container,
                 .account-balance-header-container {
-                    .account-balance-header {
-
-                    }
-                }
-
-                .actions-header-container {
+                    color: @accountsPageAccountsListHeaderColor;
                 }
             }
         }
@@ -62,27 +90,83 @@
             padding: 0;
 
             .account-container {
+                overflow: hidden;
+
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                border-bottom: 1px solid @accountsPageAccountContainerBorderColor;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: @accountsPageAccountContainerHoverBackgroundColor;
+                }
+
                 .account-number-container {
                     .account-number {
-
+                        color: @accountsPageAccountDataTextColor;
                     }
                 }
 
                 .account-currency-code-container {
                     .account-currentcy-code {
-
+                        color: @accountsPageAccountDataTextColor;
                     }
                 }
 
                 .account-balance-container {
                     .account-balance {
-
+                        color: @accountsPageAccountDataTextColor;
                     }
                 }
 
                 .account-details-link-container {
-                    .account-details-link {
+                    text-align: right;
 
+                    .account-details-link {
+                        padding: 2px;
+
+                        background-color: transparent;
+
+                        border: 1px solid transparent;
+                        .border-radius(4px);
+
+                        .transition(all .25s ease);
+
+                        &:hover {
+                            background-color: @accountsPageAccountShowDetailsLinkHoverBackgroundColor;
+                            border-color: @accountsPageAccountShowDetailsLinkBorderColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .no-accounts-presented-container {
+            text-align: center;
+            color: @accountsPageNoAccountsPresentedColor;
+        }
+
+        .accounts-list-paging-container {
+            text-align: center;
+
+            ul.pagination {
+                margin-bottom: 0;
+
+                li {
+                    a {
+                        color: @paginationTextColor;
+                    }
+
+                    &.active {
+                        a {
+                            background-color: @paginationActiveBackgroundColor;
+                            color: @paginationActiveTextColor;
+                            border-color: @paginationActiveBorderColor;
+                        }
                     }
                 }
             }

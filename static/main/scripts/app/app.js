@@ -4,8 +4,10 @@
     angular.module('ebank-client', [
         'ngAnimate',
         'mgcrea.ngStrap',
+        'ui.bootstrap',
         'ui.router',
-        'directives'
+        'directives',
+        'filters'
     ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService',
         function($rootScope, $http, $window, customEvents, endpointGenerationService) {
             $rootScope.$on('$stateChangeSuccess', function() {

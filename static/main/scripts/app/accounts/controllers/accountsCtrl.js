@@ -5,9 +5,16 @@ angular.module('ebank-client')
                 $scope.reloadAccontsInformation()
             }
 
+            $scope.isFirstTimeLoad = true;
+
             $scope.accounts = [];
             $scope.isBusy = true;
             $scope.stateTimestamp = new Date();
+
+            $scope.itemsPerPage = 10;
+            $scope.currentPageNumber = 1;
+            $scope.maxPaginationSize = 5;
+
 
             $scope.reloadAccontsInformation = function() {
                 $scope.isBusy = true;
@@ -20,6 +27,7 @@ angular.module('ebank-client')
                         console.log(error);
                     }).finally(function() {
                         $scope.isBusy = false;
+                        $scope.isFirstTimeLoad = false;
                     });
             };
 
