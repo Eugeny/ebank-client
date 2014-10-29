@@ -6,10 +6,17 @@
         'mgcrea.ngStrap',
         'ui.router',
         'directives'
-    ]).run(['$rootScope', 'customEvents',
-        function($rootScope, customEvents) {
+    ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService',
+        function($rootScope, $http, $window, customEvents, endpointGenerationService) {
             $rootScope.$on('$stateChangeSuccess', function() {
                 $rootScope.$emit(customEvents.leftMenu.closeLeftMenu);
+            });
+
+            $rootScope.$on(customEvents.general.logOut, function() {
+                $http(endpointGenerationService.getPostLogoutUserEndpoint())
+                    .then(function() {
+                        $window.location.reload();
+                    });
             });
         }]);
  })(window);

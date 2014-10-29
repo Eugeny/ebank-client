@@ -4,8 +4,14 @@ angular.module('services')
             return {
                 getGetUserInfoEndpoint: function() {
                     return {
-                        url: '/api/get-info',
+                        url: '/api/info',
                         method: 'GET'
+                    }
+                },
+                getPostLogoutUserEndpoint: function() {
+                    return {
+                        url: '/auth/logout',
+                        method: 'POST'
                     }
                 },
                 getGetEripTreeEndpoint: function() {
