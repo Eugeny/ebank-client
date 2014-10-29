@@ -22,7 +22,8 @@ clean:
 	find . -name '*.pyc' -delete
 	rm -rf public/* || true
 	rm -rf static/CACHE || true
-	
+
 .PHONY: build static
+
 
 

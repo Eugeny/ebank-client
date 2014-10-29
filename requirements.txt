@@ -13,3 +13,9 @@ requests
 
 #django-appconf==0.6
 #python-dateutil==2.2
+
+# Deployment
+gunicorn
+psycopg2
+dj_database_url
+whitenoise
