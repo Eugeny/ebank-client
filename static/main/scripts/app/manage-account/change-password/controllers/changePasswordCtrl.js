@@ -21,7 +21,7 @@ angular.module('ebank-client')
 
             $scope.changePassword = function() {
                 $http(endpointGenerationService.getPostChangeUserPasswordEndpoint({
-                    client_id: $scope.login,
+                    client_id_to_change: $scope.login,
                     old_password: $scope.password,
                     new_password: $scope.newPassword
                 })).then(function(result) {
