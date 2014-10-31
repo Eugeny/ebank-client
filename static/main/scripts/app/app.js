@@ -6,8 +6,9 @@
         'mgcrea.ngStrap',
         'ui.bootstrap',
         'ui.router',
+        'toaster',
         'directives',
-        'filters'
+        'filters',
     ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService',
         function($rootScope, $http, $window, customEvents, endpointGenerationService) {
             $rootScope.$on('$stateChangeSuccess', function() {
