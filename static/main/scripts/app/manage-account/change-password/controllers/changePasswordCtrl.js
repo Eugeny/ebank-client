@@ -24,10 +24,14 @@ angular.module('ebank-client')
                     client_id: $scope.login,
                     old_password: $scope.password,
                     new_password: $scope.newPassword
-                })).then(function(data) {
-                    userNotificationService.showSuccess('The password is successfully changed');
+                })).then(function(result) {
+                    if (result.data.error) {
+                        userNotificationService.showError(result.data.error.message);
+                    } else {
+                        userNotificationService.showSuccess('The password successfully changed');
+                    }
                 }, function(error) {
-                    userNotificationService.showSuccess(error);
+                    userNotificationService.showError(error);
                 }).finally(function() {
                     clearForm();
                 });
