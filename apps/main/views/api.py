@@ -2,10 +2,14 @@ import json
 import traceback
 from functools import wraps
 
-from django.http import JsonResponse, Http404
+from django.http import JsonResponse, Http404, HttpResponseForbidden
 
 from apps.main.models import *
 from libs.bank import BankApi
+
+
+class Http403 (Exception):
+    pass
 
 
 def api(fx):
@@ -20,7 +24,9 @@ def api(fx):
 
         try:
             response = fx(request, **kwargs)
-        except Exception, e:
+        except Http403:
+            return HttpResponseForbidden()
+        except Exception as e:
             traceback.print_exc()
             response = {
                 'error': repr(e),
@@ -57,5 +63,7 @@ def pay(request, client_id=None, accountId=None,
 
 
 @api
-def change_password(request, client_id=None, password=None):
-    return BankApi().change_password(client_id, password)
+def change_password(request, client_id=None, old_password=None, new_password=None):
+    if not BankApi().auth(client_id, old_password):
+        raise Http403()
+    return BankApi().change_password(client_id, new_password)
