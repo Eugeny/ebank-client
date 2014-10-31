@@ -67,7 +67,7 @@ def pay(request, client_id=None, accountId=None,
 
 
 @api
-def change_password(request, client_id=None, old_password=None, new_password=None):
-    if not BankApi().auth(client_id, old_password):
+def change_password(request, client_id=None, client_id_to_change=None, old_password=None, new_password=None):
+    if not BankApi().auth(client_id_to_change, old_password):
         raise Http403()
-    return BankApi().change_password(client_id, new_password)
+    return BankApi().change_password(client_id_to_change, new_password)
