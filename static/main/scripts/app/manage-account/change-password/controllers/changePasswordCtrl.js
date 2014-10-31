@@ -31,7 +31,14 @@ angular.module('ebank-client')
                         userNotificationService.showSuccess('The password successfully changed');
                     }
                 }, function(error) {
-                    userNotificationService.showError(error);
+                    var message = "An error occurred during password change process";
+                    
+                    //the old password is not correct
+                    if (error.status === 403) {
+                        message = "Authentication failed";
+                    }
+
+                    userNotificationService.showError(message);
                 }).finally(function() {
                     clearForm();
                 });
