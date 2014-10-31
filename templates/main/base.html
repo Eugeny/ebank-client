@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}main/vendor/bower_components/angular-motion/dist/angular-motion.css" type="text/css">
         <link rel="stylesheet" href="{{ STATIC_URL }}main/vendor/bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="{{ STATIC_URL }}main/vendor/bower_components/font-awesome/css/font-awesome.css" type="text/css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}main/vendor/bower_components/AngularJS-Toaster/toaster.css" />
 
         <link rel="stylesheet" href="{{ STATIC_URL }}main/styles/base.less" type="text/less">
         {% endcompress %}
@@ -37,6 +38,7 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/ui-router/release/angular-ui-router.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/AngularJS-Toaster/toaster.js"></script>
 
             {# custom scrips #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/app.js"></script>
@@ -54,6 +56,7 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-info/userInfoService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/notifications-info/notificationsInfoService.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-accounts/userAccountsService.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/services/user-notification/userNotificationService.js"></script>
 
             {# providers #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/providers/providersModule.js"></script>
@@ -67,6 +70,9 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/left-menu/controllers/leftMenuCtrl.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/left-menu/leftMenu.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/custom-spinner/customSpinner.js"></script>
+
+            {# validation directives #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/directives/validators/match-validator/matchValidatorDirective.js"></script>
 
             {# filters #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/filters/filtersModule.js"></script>

@@ -22,6 +22,7 @@
     "font-awesome": "~4.2.0",
     "underscore": "~1.7.0",
     "angular-ui-bootstrap": "~0.11.2",
-    "angular-bootstrap": "~0.11.2"
+    "angular-bootstrap": "~0.11.2",
+    "AngularJS-Toaster": "~0.4.8"
   }
 }

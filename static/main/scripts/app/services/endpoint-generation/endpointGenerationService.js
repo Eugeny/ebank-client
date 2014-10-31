@@ -14,6 +14,13 @@ angular.module('services')
                         method: 'POST'
                     }
                 },
+                getPostChangeUserPasswordEndpoint: function(data) {
+                    return {
+                        url: '/api/change-password',
+                        method: 'POST',
+                        data: data
+                    }
+                },
                 getGetEripTreeEndpoint: function() {
                     return {
                         url: '/api/erip/tree',
