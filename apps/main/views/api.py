@@ -22,6 +22,8 @@ def api(fx):
 
         kwargs['client_id'] = request.session.get('client-id', None)
 
+        status = 200
+
         try:
             response = fx(request, **kwargs)
         except Http403:
@@ -31,7 +33,9 @@ def api(fx):
             response = {
                 'error': repr(e),
             }
-        return JsonResponse(response, safe=False)
+            status = 500
+
+        return JsonResponse(response, safe=False, status=status)
 
     return wrapper
 

@@ -20,7 +20,7 @@ class BankApi(object):
             'password': password,
         }).get('success', False)
 
-    def changePassword(self, id, password):
+    def change_password(self, id, password):
         return self.request('client/auth', {
             'clientId': id,
             'password': password,
