@@ -26,7 +26,7 @@ ROOT_URLCONF = 'config.urls'
 
 WPADMIN = {
     'admin': {
-        'title': 'Gamma-E-Bank',
+        'title': 'Gamma E-Bank',
         'menu': {
             'top': 'wpadmin.menu.menus.BasicTopMenu',
             'left': 'wpadmin.menu.menus.BasicLeftMenu',
@@ -78,7 +78,7 @@ LOGGING = {
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
         },
-    }, 
+    },
     'loggers': {
         '': {
             'handlers': ['console'],
