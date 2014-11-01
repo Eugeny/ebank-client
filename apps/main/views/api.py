@@ -66,6 +66,11 @@ def erip_tree(request, client_id=None):
 
 
 @api
+def get_currency(request, client_id=None):
+    return BankApi().get_currency_rates()
+
+
+@api
 def pay(request, client_id=None, accountId=None, 
     recipientBank=None, recipientId=None, recipientName=None, recipientAccountId=None, amount=None):
     client = BankApi().get_client(client_id)
