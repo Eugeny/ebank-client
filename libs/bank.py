@@ -4,6 +4,12 @@ import requests
 from django.conf import settings
 
 
+class BankServerError (Exception):
+    def __init__(self, reason, response):
+        self.reason = reason
+        self.response = response
+
+
 class BankApi(object):
     def __init__(self):
         self.url = settings.BANK_SERVER_URL
@@ -12,7 +18,13 @@ class BankApi(object):
         logging.info('>> %s%s', self.url, url)
         req = requests.post(self.url + url, data=post)
         logging.info('<< %s', req.text)
-        return req.json()
+        try:
+            response = req.json()
+        except ValueError:
+            raise BankServerError('not-json', req.text)
+        if 'error' in response:
+            raise BankServerError('returned-error', response)
+        return response
 
     def auth(self, id, password):
         return self.request('client/auth', {

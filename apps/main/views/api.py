@@ -5,7 +5,7 @@ from functools import wraps
 from django.http import JsonResponse, Http404, HttpResponseForbidden
 
 from apps.main.models import *
-from libs.bank import BankApi
+from libs.bank import BankApi, BankServerError
 
 
 class Http403 (Exception):
@@ -28,10 +28,18 @@ def api(fx):
             response = fx(request, **kwargs)
         except Http403:
             return HttpResponseForbidden()
+        except BankServerError as e:
+            response = {
+                'error': e.__class__.__name__,
+                'error_reason': e.reason,
+                'error_message': e.response,
+            }
+            status = 500
         except Exception as e:
             traceback.print_exc()
             response = {
-                'error': repr(e),
+                'error': e.__class__.__name__,
+                'error_message': str(e),
             }
             status = 500
 
