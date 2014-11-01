@@ -47,6 +47,30 @@ angular.module('ebank-client')
                         controller: 'manageAccount.changePasswordCtrl'
                     }
                 }
+            }).state('main.manageAutomaticAccountOperations', {
+                url: '/manageautomaticaccountoperations',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html',
+                        controller: 'manageAutomaticAccountOperationsCtrl'
+                    }
+                }
+            }).state('main.moneyTransfer', {
+                url: '/moneytransfer',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/money-transfer/views/moneyTransfer.html',
+                        controller: 'moneyTransferCtrl'
+                    }
+                }
+            }).state('main.payments', {
+                url: '/payments',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/payments/views/payments.html',
+                        controller: 'paymentsCtrl'
+                    }
+                }
             });
 
             $locationProvider.html5Mode({

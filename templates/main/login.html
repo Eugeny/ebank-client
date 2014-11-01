@@ -6,16 +6,6 @@
 
 {% block content %}
 <div>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-brand center">
-                <div class="logo">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-sm-2 col-xs-0">
@@ -24,10 +14,12 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form class="form" method="POST" action="/auth/login">
-                            <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">Login</div>
                                 <input type="text" class="form-control" name="id" placeholder="ID" />
                             </div>
-                            <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">Password</div>
                                 <input type="password" class="form-control" name="password" placeholder="Password" />
                             </div>
                             <div>
