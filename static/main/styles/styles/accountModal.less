@@ -1,0 +1,120 @@
+.account-modal {
+    .account-details {
+        position: relative;
+
+        padding: 20px;
+
+        .close-modal-button-container {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            button {
+                border: none;
+                background: none;
+            }
+        }
+
+        .account-details-content {
+            .account-info-mode-tabs-container {
+                .account-info-mode-tabs {
+                    border-color: @accountModalAccountInfoContainerBorderColor;
+
+                    li {
+                        a {
+                            padding: 5px;
+                        }
+
+                        &.active {
+                            a {
+                                border-color: @accountModalAccountInfoContainerBorderColor;
+                                border-bottom-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .account-info-container {
+                border-left: 1px solid @accountModalAccountInfoContainerBorderColor;
+                border-right: 1px solid @accountModalAccountInfoContainerBorderColor;
+                border-bottom: 1px solid @accountModalAccountInfoContainerBorderColor;
+
+                .border-radius(0 0 4px 4px);
+
+                padding: 5px 10px;
+
+                .account-general-info-container {
+                    .timestamp-container {
+                        border-bottom: 1px solid @accountModalStateTimestampContainerBorderColor;
+                        padding-bottom: 5px;
+                        margin-bottom: 5px;
+
+                        text-align: center;
+
+                        .timestamp {
+                            font-size: @accountModalStateTimestampFontSize;
+
+                            color: @accountModalStateTimestampColor;
+                        }
+                    }
+
+                    & > .row {
+                        margin: 0;
+                        padding: 5px 0;
+
+                        .label {
+                            text-align: right;
+
+                            padding-right: 10px;
+
+                            font-size: @accountModalLabelFontSize;
+                            color: @accountModalLabelColor;
+
+                            white-space: normal;
+                            word-wrap: break-word;
+
+                            border-right: 1px solid @accountLabelBorderRightColor;
+                            .border-radius(none);
+                        }
+
+                        .value {
+                            padding-left: 10px;
+
+                            font-size: @accountModalValueFontSize;
+                            color: @accountModalValueColor;
+
+                            white-space: normal;
+                            word-wrap: break-word;
+                        }
+                    }
+                }
+
+                .cards-list-container {
+                    .cards-list-header {
+                        padding-bottom: 5px;
+                        margin-bottom: 5px;
+
+                        text-align: center;
+                        color: @accountCardsHeaderColor;
+
+                        border-bottom: 1px solid @accountCardsHeaderBorderColor;
+                    }
+
+                    .cards-list {
+                        overflow: hidden;
+
+                        margin: 0;
+                        padding: 0;
+
+                        list-style: none;
+
+                        .card-container {
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

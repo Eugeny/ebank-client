@@ -49,16 +49,23 @@ angular.module('ebank-client')
         }
 
         function goToAccounsState() {
-            $state.go('^');
+            $state.go('main.accounts');
         }
 
         activate();
-    }]).controller('accounts.account.modalCtrl', ['$scope', 'account',
-    function($scope, account) {
+    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account',
+    function($scope, $rootScope, account) {
         'use strict';
 
         function activate() {
             $scope.setTab($scope.tabIds.generalInfo);
+
+            //close modal if we 
+            $rootScope.$on('$stateChangeSuccess', function(e, toState) {
+                if (toState.name === 'main.accounts') {
+                    $scope.closeModal();
+                }
+            });
         }
 
         $scope.account = account;
