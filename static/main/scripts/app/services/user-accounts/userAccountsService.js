@@ -6,6 +6,9 @@ angular.module('services')
             return  {
                 getAccounts: function() {
                     return userAccountsProvider.getAccounts();
+                },
+                getAccount: function(accountId) {
+                    return userAccountsProvider.getAccount(accountId);
                 }
             }
         }]);

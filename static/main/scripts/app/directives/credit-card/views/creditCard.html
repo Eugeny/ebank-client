@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-number-container">
+        <ul class="card-number-tokens-container">
+            <li class="card-number-token"
+                ng-repeat="token in getCardNumberGroups(card.number) track by $index">
+                {{token}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="expiration-date-container">
+        <div class="expiration-date">
+            <div class="month-container">
+                <span class="month">
+                    {{card.expiresAt | date:'MM'}}
+                </span>
+            </div>
+            <div class="separator-container">
+                <span class="separator">/</span>
+            </div>
+            <div class="year-container">
+                <span class="year">
+                    {{card.expiresAt | date:'yy'}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cardholder-name-container">
+        <div class="card-holder-firstname-container">
+            <span class="card-holder-firstname">
+                {{userInfoService.currentUserInfo.name.firstName}}
+            </span>
+        </div>
+
+        <div class="card-holder-lastname-container">
+            <span class="card-holder-lastname">
+                {{userInfoService.currentUserInfo.name.lastName}}
+            </span>
+        </div>
+    </div>
+</div>
