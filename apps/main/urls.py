@@ -11,6 +11,7 @@ urlpatterns += patterns(
     'apps.main.views.api',
     url(r'^api/change-password$', 'change_password'),
     url(r'^api/info$', 'get_info'),
+    url(r'^api/currency$', 'get_currency'),
     url(r'^api/notifications$', 'get_notifications'),
     url(r'^api/erip/tree$', 'erip_tree'),
     url(r'^api/pay$', 'pay'),

@@ -44,6 +44,9 @@ class BankApi(object):
     def get_erip_tree(self):
         return self.request('erip/tree')
 
+    def get_currency_rates(self):
+        return self.request('currency/rates')
+
     def pay(self, accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount):
         return self.request('payment/pay', {
             'accountId': accountId,
