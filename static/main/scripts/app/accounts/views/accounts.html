@@ -44,7 +44,10 @@
 
         <ul class="accounts-list" ng-hide="accounts.length == 0">
             <li class="account-container" ng-repeat="account in accounts
-                | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
+                | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage"
+                 data-animation="am-fade-and-slide-top" 
+                 data-template="modal/docs/modal.tpl.demo.html"
+                 bs-modal="modal">
                 <div class="account-number-container col-xs-3">
                     <span class="account-number">
                         {{account.id}}
@@ -65,7 +68,8 @@
                 </div>
 
                 <div class="account-details-link-container col-xs-3">
-                    <a class="account-details-link">
+                    <a class="account-details-link"
+                        ui-sref="main.accounts.account({id: account.id})">
                         Show Details
                     </a>
                 </div>
@@ -90,6 +94,10 @@
                 last-text="&raquo;">
             </pagination>
         </div>
+    </div>
+
+    <div class="account-details-container"
+        ui-view="account-details-content-view">
     </div>
 
     <custom-spinner ng-show="isBusy">

@@ -32,6 +32,14 @@ angular.module('ebank-client')
                         controller: 'accountsCtrl'
                     }
                 }
+            }).state('main.accounts.account', {
+                url: '/account/:id',
+                views: {
+                    'account-details-content-view': {
+                        templateUrl: '/static/main/scripts/app/accounts/account/views/account.html',
+                        controller: 'accounts.accountCtrl'
+                    }
+                }
             }).state('main.manageAccount', {
                 abstract: true,
                 views: {
