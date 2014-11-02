@@ -1,0 +1,71 @@
+<div class="account-details">
+    <div class="close-modal-button-container">
+        <a ng-click="closeModal()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+
+    <div class="account-details-content">
+        <div class="account-info-mode-tabs-container">
+            <ul class="nav nav-tabs account-info-mode-tabs" role="tablist">
+                <li role="presentation" ng-class="{ active: isCurrentTab(tabIds.generalInfo)}">
+                    <a ng-click="setTab(tabIds.generalInfo)">
+                        General Info
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{ active: isCurrentTab(tabIds.accountStatement)}">
+                    <a ng-click="setTab(tabIds.accountStatement)">
+                        Account Statement
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="account-info-container">
+            <div class="account-general-info-container" ng-show="isCurrentTab(tabIds.generalInfo)">
+                <div class="timestamp-container">
+                    <span class="timestamp">
+                        Account state is actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                    </span>
+                </div>
+
+                <div class="account-number-container row">
+                    <div class="label col-xs-3">Account Number</div>
+                    <div class="value col-xs-9">
+                        {{account.id}}
+                    </div>
+                </div>
+
+                <div class="currency-code-container row">
+                    <div class="label col-xs-3">Currency Code</div>
+                    <div class="value col-xs-9">
+                        {{account.currency}}
+                    </div>
+                </div>
+
+                <div class="balance-container row">
+                    <div class="label col-xs-3">Balance</div>
+                    <div class="value col-xs-9">
+                        {{account.balance}}
+                    </div>
+                </div>
+
+                <div class="cards-list-container">
+                    <div class="cards-list-header">
+                        <span>Account Cards:</span>
+                    </div>
+
+                    <ul class="cards-list">
+                        <li class="card-container" ng-repeat="card in account.cards">
+                            <credit-card card="card"></credit-card>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="account-statement-container" ng-show="isCurrentTab(tabIds.accountStatement)">
+                Account Statement Mockup Data
+            </div>
+        </div>
+    </div>
+</div>

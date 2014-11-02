@@ -1,0 +1,106 @@
+@creditCardWidth: 250px;
+@creditCardHeight: @creditCardWidth * 0.63;
+
+@creditCardNumberMarginTop: @creditCardWidth * 0.21;
+
+@creditCardUserInfoColor: @primaryColor6;
+@creditCardBackgroundColor: @primaryColor1;
+@creditCardBorderColor: @primaryColor2;
+
+credit-card {
+    .card {
+        overflow: hidden;
+
+        width: @creditCardWidth;
+        height: @creditCardHeight;
+
+        background-color: @creditCardBackgroundColor;
+        border: 1px solid @creditCardBorderColor;
+
+        .border-radius(@creditCardWidth/30);
+
+        .bank-logo-container {
+            text-align: left;
+            margin-top: @creditCardWidth/15;
+            margin-left: @creditCardWidth/12;
+
+            .bank-logo {
+                font-size: @creditCardWidth/12;
+                line-height: @creditCardWidth/12;
+
+                color: @primaryColor4;
+            }
+        }
+
+        .card-number-container {
+            position: relative;
+
+            margin-top: @creditCardNumberMarginTop;
+
+            .card-number-tokens-container {
+                margin: 0;
+                padding:0;
+
+                list-style: none;
+
+                text-align: center;
+
+                font-family: 'KreditBack';
+                font-size: @creditCardWidth/14;
+                line-height: @creditCardWidth/14;
+
+                color: @creditCardUserInfoColor;
+
+                .card-number-token {
+                    display: inline-block;
+
+                    padding-right: @creditCardWidth/15;
+
+                    &:last-of-type {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+
+        .expiration-date-container {
+            margin-top: @creditCardWidth/30;
+
+            .expiration-date {
+                text-align: center;
+
+                font-family: 'KreditBack';
+                font-size: @creditCardWidth/20;
+                line-height: @creditCardWidth/20;
+
+                color: @creditCardUserInfoColor;
+
+                .month-container,
+                .separator-container,
+                .year-container {
+                    display: inline-block;
+                }
+            }
+        }
+
+        .cardholder-name-container {
+            margin-top: @creditCardWidth/120;
+            margin-left: @creditCardWidth/11;
+
+            text-transform: uppercase;
+
+            font-family: 'KreditBack';
+            font-size: @creditCardWidth/20;
+            line-height: @creditCardWidth/20;
+
+            text-align: left;
+
+            color: @creditCardUserInfoColor;
+
+            .card-holder-firstname-container,
+            .card-holder-lastname-container {
+                display: inline-block;
+            }
+        }
+    }
+}

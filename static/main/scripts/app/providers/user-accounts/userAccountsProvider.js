@@ -3,7 +3,7 @@ angular.module('providers')
         function($http, $q, endpointGenerationService) {
             'use strict';
 
-            return {
+            var self = {
                 getAccounts: function() {
                     var deferred = $q.defer();
 
@@ -25,6 +25,30 @@ angular.module('providers')
                         });
 
                     return deferred.promise;
+                },
+                getAccount: function(accountId) {
+                    var deferred = $q.defer();
+
+                    self.getAccounts()
+                        .then(function(accounts) {
+                            var account = _.findWhere(accounts, {
+                                id: accountId
+                            });
+
+                            if (account) {
+                                deferred.resolve(account);
+                            } else {
+                                deferred.reject({
+                                    message: 'No account with that id found'
+                                });
+                            }
+                        }, function() {
+                            deferred.reject(error);
+                        });
+
+                    return deferred.promise;
                 }
-            }
+            };
+
+            return self;
         }]);

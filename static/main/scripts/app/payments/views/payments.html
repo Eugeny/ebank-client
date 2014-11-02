@@ -1,1 +1,15 @@
-Payments mock data
+<div class="page-container payments-page-container">
+    <div class="erip-payment-settings-container">
+        <erip-payment class="erip-payment-settings"
+            payment-form="paymentForm" current-payment="currentPayment"
+            current-payment-fields="currentPaymentFields">
+        </erip-payment>
+
+        <div class="pay-btn-container">
+            <button class="btn btn-success pay-btn" ng-click="pay()"
+                ng-class="{disabled: currentPayment == null || !paymentForm.$valid}">
+                Pay
+            </button>
+        </div>
+    </div>
+</div>
