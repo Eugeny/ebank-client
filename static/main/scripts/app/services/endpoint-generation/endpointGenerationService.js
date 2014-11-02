@@ -33,6 +33,12 @@ angular.module('services')
                         method: 'POST',
                         data: data
                     }
+                },
+                getCurrencyListEndpoint: function() {
+                    return {
+                        url: '/api/currency',
+                        method: 'GET'
+                    }
                 }
             }
         }]);
