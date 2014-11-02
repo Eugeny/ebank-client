@@ -44,15 +44,22 @@ class BankApi(object):
     def get_erip_tree(self):
         return self.request('erip/tree')
 
+    def erip_pay(self, accountId, paymentId, fields, amount):
+        params = {
+            'accountId': accountId,
+            'paymentId': paymentId,
+            'amount': amount,
+        }
+        for k,v in fields.iteritems():
+            params['fields[%s]' % k] = v
+        return self.request('erip/pay', params)
+
     def get_currency_rates(self):
         return self.request('currency/rates')
 
-    def pay(self, accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount):
+    def pay(self, accountId, recipientAccountId, amount):
         return self.request('payment/pay', {
             'accountId': accountId,
-            'recipientBank': recipientBank,
-            'recipientId': recipientId,
-            'recipientName': recipientName,
             'recipientAccountId': recipientAccountId,
             'amount': amount,
         })

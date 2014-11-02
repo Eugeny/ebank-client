@@ -14,6 +14,7 @@ urlpatterns += patterns(
     url(r'^api/currency$', 'get_currency'),
     url(r'^api/notifications$', 'get_notifications'),
     url(r'^api/erip/tree$', 'erip_tree'),
+    url(r'^api/erip/pay$', 'erip_pay'),
     url(r'^api/pay$', 'pay'),
 )
 

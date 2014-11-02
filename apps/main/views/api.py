@@ -71,12 +71,19 @@ def get_currency(request, client_id=None):
 
 
 @api
-def pay(request, client_id=None, accountId=None, 
-    recipientBank=None, recipientId=None, recipientName=None, recipientAccountId=None, amount=None):
+def pay(request, client_id=None, accountId=None, recipientAccountId=None, amount=None):
     client = BankApi().get_client(client_id)
     if not any(account['id'] == accountId for account in client['client']['accounts']):
         raise Exception('Invalid accountId')
-    return BankApi().pay(accountId, recipientBank, recipientId, recipientName, recipientAccountId, amount)
+    return BankApi().pay(accountId, recipientAccountId, amount)
+
+
+@api
+def erip_pay(request, client_id=None, accountId=None, paymentId=None, fields={}, amount=None):
+    client = BankApi().get_client(client_id)
+    if not any(account['id'] == accountId for account in client['client']['accounts']):
+        raise Exception('Invalid accountId')
+    return BankApi().erip_pay(accountId, paymentId, fields, amount)
 
 
 @api
