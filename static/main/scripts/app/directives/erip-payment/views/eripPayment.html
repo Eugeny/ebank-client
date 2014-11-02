@@ -1,0 +1,49 @@
+<div class="erip-payment-container">
+    <div class="erip-payment-header">
+        ERIP payment
+    </div>
+
+    <div class="erip-tree-container">
+        <div class="erip-tree-header">
+            Choose payment from the tree below
+        </div>
+
+        <div class="erip-tree">
+            <erip-tree-node node="eripTreeRootNode" selected-item="currentPayment"
+                item-selected-callback="paymentSelectedCallback">
+            </erip-tree-node>
+        </div>
+    </div>
+
+    <div class="erip-payment">
+        <div class="payment-name-container">
+            <span class="payment-name-label">
+                Payment:
+            </span>
+            <span class="payment-name">
+                {{currentPayment.name}}
+            </span>
+        </div>
+
+        <div class="payment-fields-container" ng-form="paymentForm">
+            <ul class="payment-fields">
+                <li ng-repeat="(key, value) in currentPayment.fields">
+                    <div class="field-container">
+                        <div class="field input-group">
+                            <div class="input-group-addon">
+                                {{value}}
+                            </div>
+
+                            <input class="form-control" type="text"
+                                placeholder="{{value}}"
+                                ng-required="true"
+                                ng-model="currentPaymentFields[key]">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <custom-spinner ng-show="isBusy"></custom-spinner>
+</div>

@@ -1,0 +1,40 @@
+<div class="erip-tree-node-category">
+    <div class="category-header-container">
+        <div class="category-header" ng-click="inverseExpansion()">
+            <span class="icon fa"
+                ng-class="{
+                            'fa-folder-open-o': isExpanded,
+                            'fa-folder-o': !isExpanded
+                        }">
+            </span>
+            <span class="category-name">
+                {{node.name}}
+            </span>
+        </div>
+    </div>
+    <div class="category-contents" ng-show="isExpanded">
+        <div class="subcategories-list-container">
+            <ul class="subcategories-list">
+                <li ng-repeat="category in node.categories"
+                    class="subcategory-container">
+                    <erip-tree-node node="category" selected-item="$parent.selectedItem"
+                        item-selected-callback="itemSelectedCallback()">
+                    </erip-tree-node>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category-payments-list-container">
+            <ul class="category-payments-list">
+                <li class="category-payment-container" ng-repeat="payment in node.payments"
+                    ng-class="{active: $parent.isSelectedItem(payment)}">
+                    <div class="category-payment" ng-click="$parent.selectItem(payment)">
+                        <span class="category-payment-name">
+                            {{payment.name}}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
