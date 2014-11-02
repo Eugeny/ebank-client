@@ -1,7 +1,7 @@
 @creditCardWidth: 250px;
 @creditCardHeight: @creditCardWidth * 0.63;
 
-@creditCardNumberMarginTop: @creditCardWidth * 0.35;
+@creditCardNumberMarginTop: @creditCardWidth * 0.21;
 
 @creditCardUserInfoColor: @primaryColor6;
 @creditCardBackgroundColor: @primaryColor1;
@@ -18,6 +18,19 @@ credit-card {
         border: 1px solid @creditCardBorderColor;
 
         .border-radius(@creditCardWidth/30);
+
+        .bank-logo-container {
+            text-align: left;
+            margin-top: @creditCardWidth/15;
+            margin-left: @creditCardWidth/12;
+
+            .bank-logo {
+                font-size: @creditCardWidth/12;
+                line-height: @creditCardWidth/12;
+
+                color: @primaryColor4;
+            }
+        }
 
         .card-number-container {
             position: relative;

@@ -1,4 +1,8 @@
 <div class="card">
+    <div class="bank-logo-container">
+        <span class="bank-logo">Ɣ E-Bank</span>
+    </div>
+
     <div class="card-number-container">
         <ul class="card-number-tokens-container">
             <li class="card-number-token"
@@ -12,7 +16,7 @@
         <div class="expiration-date">
             <div class="month-container">
                 <span class="month">
-                    {{card.expiresAt | date:'MM'}}
+                    {{card.expiresAt | date:'MMM'}}
                 </span>
             </div>
             <div class="separator-container">
