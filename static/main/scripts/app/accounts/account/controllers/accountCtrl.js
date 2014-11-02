@@ -60,7 +60,7 @@ angular.module('ebank-client')
         function activate() {
             $scope.setTab($scope.tabIds.generalInfo);
 
-            //close modal if we 
+            //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
                 if (toState.name === 'main.accounts') {
                     $scope.closeModal();
