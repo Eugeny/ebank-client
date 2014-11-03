@@ -1,5 +1,5 @@
 <div class="page-container payments-page-container">
-    <div class="erip-payment-settings-container">
+    <div class="erip-payment-container">
         <erip-payment class="erip-payment-settings"
             payment-form="paymentForm" current-payment="currentPayment"
             current-payment-fields="currentPaymentFields">
@@ -17,7 +17,7 @@
                         min="1"
                         max="{{currentUserAccount.balance}}"
                         ng-required="true"
-                        ng-model="currentPaymentFields[key]"
+                        ng-model="paymentAmount"
                         ng-pattern="validationRegularExpressions.integerNumberRegularExpression">
                 </div>
             </div>

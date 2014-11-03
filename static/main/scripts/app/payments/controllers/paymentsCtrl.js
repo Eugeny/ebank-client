@@ -13,7 +13,6 @@ angular.module('ebank-client')
 
                 userAccountsProvider.getAccounts()
                     .then(function(accounts) {
-                        console.log(accounts);
                         $scope.userAccounts = accounts;
 
                         if ($scope.userAccounts.length) {
@@ -32,6 +31,7 @@ angular.module('ebank-client')
                 $scope.currentPaymentFields = null;
 
                 $scope.currentUserAccount = null;
+                $scope.paymentAmount = 1;
             }
 
             $scope.validationRegularExpressions = validationRegularExpressions;
