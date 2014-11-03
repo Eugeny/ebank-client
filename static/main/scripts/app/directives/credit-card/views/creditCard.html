@@ -16,7 +16,7 @@
         <div class="expiration-date">
             <div class="month-container">
                 <span class="month">
-                    {{card.expiresAt * 1000 | date:'MM'}}
+                    {{card.expiresAt | unixtime | date:'MM'}}
                 </span>
             </div>
             <div class="separator-container">
@@ -24,7 +24,7 @@
             </div>
             <div class="year-container">
                 <span class="year">
-                    {{card.expiresAt * 1000 | date:'yy'}}
+                    {{card.expiresAt | unixtime | date:'yy'}}
                 </span>
             </div>
         </div>
