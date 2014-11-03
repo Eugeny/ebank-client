@@ -6,39 +6,46 @@ angular.module('services')
                     return {
                         url: '/api/info',
                         method: 'GET'
-                    }
+                    };
                 },
                 getPostLogoutUserEndpoint: function() {
                     return {
                         url: '/auth/logout',
                         method: 'POST'
-                    }
+                    };
                 },
                 getPostChangeUserPasswordEndpoint: function(data) {
                     return {
                         url: '/api/change-password',
                         method: 'POST',
                         data: data
-                    }
+                    };
                 },
                 getGetEripTreeEndpoint: function() {
                     return {
                         url: '/api/erip/tree',
                         method: 'GET'
-                    }
+                    };
                 },
-                getPayEndpoint: function(data) {
+                getPostEripPayEndpoint: function(data) {
+                    return {
+                        url: '/api/erip/pay',
+                        method: 'POST',
+                        data: data
+                    };
+                },
+                getPostPayEndpoint: function(data) {
                     return {
                         url: '/api/pay',
                         method: 'POST',
                         data: data
-                    }
+                    };
                 },
                 getCurrencyListEndpoint: function() {
                     return {
                         url: '/api/currency',
                         method: 'GET'
-                    }
+                    };
                 }
             }
         }]);

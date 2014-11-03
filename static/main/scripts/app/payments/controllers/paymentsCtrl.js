@@ -1,6 +1,8 @@
 angular.module('ebank-client')
     .controller('paymentsCtrl', ['$scope', 'userAccountsProvider', 'validationRegularExpressions',
-        function($scope, userAccountsProvider, validationRegularExpressions) {
+            'paymentsService', 'userNotificationService',
+        function($scope, userAccountsProvider, validationRegularExpressions, paymentsService,
+                userNotificationService) {
             'use strict';
 
             function activate() {
@@ -39,12 +41,24 @@ angular.module('ebank-client')
             $scope.userAccounts = null;
 
             $scope.pay = function() {
-                //TODO: post payment query
-                console.log($scope.currentPayment, $scope.currentPaymentFields);
+                $scope.isBusy = true;
 
-                clearForm();
-                updateAccountsInfo();
-            }
+                paymentsService.payEripPayment({
+                    accountNumber: $scope.currentUserAccount.id,
+                    paymentId: $scope.currentPayment.paymentId,
+                    paymentFields: $scope.currentPaymentFields,
+                    amount: $scope.paymentAmount
+                }).then(function (result) {
+                    userNotificationService.showSuccess('Payment successfully done');
+
+                    clearForm();
+                    updateAccountsInfo();
+                }, function (error) {
+                    userNotificationService.showError('An error occured during payment process');
+                }).finally(function() {
+                    $scope.isBusy = false;
+                });
+            };
 
             activate();
         }]);

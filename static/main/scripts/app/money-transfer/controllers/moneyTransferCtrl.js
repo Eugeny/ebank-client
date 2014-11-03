@@ -1,6 +1,8 @@
 angular.module('ebank-client')
     .controller('moneyTransferCtrl', ['$scope', 'userAccountsProvider', 'validationRegularExpressions',
-        function($scope, userAccountsProvider, validationRegularExpressions) {
+            'paymentsService', 'userNotificationService',
+        function($scope, userAccountsProvider, validationRegularExpressions, paymentsService,
+                userNotificationService) {
             'use strict';
 
             function activate() {
@@ -37,12 +39,23 @@ angular.module('ebank-client')
             $scope.userAccounts = null;
 
             $scope.pay = function() {
-                //TODO: post payment query
-                console.log($scope.currentPayment);
+                $scope.isBusy = true;
 
-                clearForm();
-                updateAccountsInfo();
-            }
+                paymentsService.payGenericPayment(
+                    angular.extend($scope.currentPayment, {
+                        accountNumber: $scope.currentUserAccount.id,
+                        amount: $scope.paymentAmount
+                    })).then(function (result) {
+                        userNotificationService.showSuccess('Money successfully transfered');
+
+                        clearForm();
+                        updateAccountsInfo();
+                    }, function (error) {
+                        userNotificationService.showError('An error occured during money transfering process');
+                    }).finally(function() {
+                        $scope.isBusy = false;
+                    });
+            };
 
             activate();
         }]);
