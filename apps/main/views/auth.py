@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from libs.bank import BankApi
+from libs.bank import BankApi, BankServerError
 
 
 def _login(request):
@@ -9,8 +9,11 @@ def _login(request):
         request.session['login_redirect'] = request.GET.get('next', '/')
         return render(request, 'main/login.html', {})
 
-    if BankApi().auth(request.POST['id'], request.POST['password']):
-        request.session['client-id'] = request.POST['id']
+    try:
+        if BankApi().auth(request.POST['id'], request.POST['password']):
+            request.session['client-id'] = request.POST['id']
+    except BankServerError:
+        pass
 
     return HttpResponseRedirect(request.session['login_redirect'])
 
