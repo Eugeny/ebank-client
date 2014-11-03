@@ -5,11 +5,45 @@
             current-payment-fields="currentPaymentFields">
         </erip-payment>
 
-        <div class="pay-btn-container">
+        <div class="general-payment-info-form" ng-form="generalPaymentInfoForm">
+            <div class="payment-amount-container" ng-show="currentPayment != null">
+                <div class="payment-amount input-group">
+                    <div class="input-group-addon">
+                        Amount
+                    </div>
+
+                    <input class="form-control" type="number"
+                        placeholder="Amount"
+                        min="1"
+                        max="{{currentUserAccount.balance}}"
+                        ng-required="true"
+                        ng-model="currentPaymentFields[key]"
+                        ng-pattern="validationRegularExpressions.integerNumberRegularExpression">
+                </div>
+            </div>
+
+            <div class="current-account-switch-container" ng-show="currentPayment != null">
+                <div class="current-account-switch input-group">
+                    <div class="input-group-addon">
+                        Account number to pay from
+                    </div>
+
+                    <select type="button" class="form-control"
+                        ng-model="currentUserAccount"
+                        ng-options="account.id + ' (Balance: ' + account.balance + ')' for account in userAccounts"
+                        ng-required="true">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="pay-btn-container" ng-show="currentPayment != null">
             <button class="btn btn-success pay-btn" ng-click="pay()"
-                ng-class="{disabled: currentPayment == null || !paymentForm.$valid}">
+                ng-class="{disabled: !paymentForm.$valid || !generalPaymentInfoForm.$valid}">
                 Pay
             </button>
         </div>
     </div>
+
+    <custom-spinner ng-show="isBusy"></custom-spinner>
 </div>
