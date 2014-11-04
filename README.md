@@ -24,6 +24,7 @@ Parameters are passed in a JSON body
   * ``api/info`` - returns definitions, current user, etc
   * ``api/currency`` - returns currency definitions
   * ``api/notifications`` - returns list of notifications
+  * ``api/notification/mark-read`` - marks notification as read, args: ``notificationId``
   * ``api/erip/tree`` - fetches and returns ERIP tree from server
   * ``api/erip/pay`` - performs a payment, args: ``accountId, paymentId, fields (object), amount``
   * ``api/pay`` - performs a payment, args: ``accountId, recipientAccountId, amount``

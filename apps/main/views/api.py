@@ -61,6 +61,13 @@ def get_notifications(request, client_id=None):
 
 
 @api
+def notification_mark_read(request, client_id=None, notificationId=None):
+    n = Notification.objects.get(id=notificationId)
+    n.unread = False
+    n.save()
+
+
+@api
 def erip_tree(request, client_id=None):
     return BankApi().get_erip_tree()
 
