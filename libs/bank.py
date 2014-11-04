@@ -60,6 +60,7 @@ class BankApi(object):
     def pay(self, accountId, recipientAccountId, amount):
         return self.request('payment/pay', {
             'accountId': accountId,
+            'recipientBank': u'Гамма Е-Банк',
             'recipientAccountId': recipientAccountId,
             'amount': amount,
         })
