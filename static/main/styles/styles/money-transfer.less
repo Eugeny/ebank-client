@@ -1,17 +1,14 @@
 .money-transfer-page-container {
     height: 100%;
     overflow-y: auto;
-}
-
-.money-transfer-container {
-    width: @moneyTransferContainerMaxWidth;
-
-    margin-left: auto;
-    margin-right: auto;
 
     .money-transfer-header-container {
-        text-align: center;
         margin: 10px 0;
+        padding-bottom: 5px;
+
+        text-align: center;
+
+        border-bottom: 1px solid @moneyTransferHeaderBorderColor;
 
         .money-transfer-header {
             margin: 0;
@@ -22,6 +19,13 @@
             color: @pageHeaderTitleColor;
         }
     }
+}
+
+.money-transfer-container {
+    width: @moneyTransferContainerMaxWidth;
+
+    margin-left: auto;
+    margin-right: auto;
 
     .money-transfer-info-form {
         width: 100%;

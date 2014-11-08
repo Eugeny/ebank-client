@@ -1,0 +1,164 @@
+.erip-payment-container {
+    .erip-tree-container {
+        width: 100%;
+
+        margin-bottom: 10px;
+
+        .erip-tree-header {
+            width: 100%;
+
+            margin-bottom: 5px;
+
+            text-align: center;
+            font-size: @eripTreeHeaderFontSize;
+            line-height: @eripTreeHeaderFontSize;
+            color: @eripTreeHeaderColor;
+        }
+
+        .erip-tree {
+            width: 100%;
+
+            .erip-tree-node-category {
+                & > .category-header-container {
+                    .category-header {
+                        margin-left: 5px;
+                        padding-bottom: 5px;
+
+                        font-size: @eripTreeCategoryHeaderFontSize;
+                        line-height: @eripTreeCategoryHeaderFontSize;
+
+                        color: @eripTreeCategoryHeaderColor;
+
+                        cursor: pointer;
+
+                        .transition(color .25s ease);
+
+                        &:hover {
+                            color: @eripTreeCategoryHeaderHoverColor;
+                        }
+
+                        .icon {
+                            min-width: @eripTreeCategoryHeaderFontSize*1.1;
+                        }
+                    }
+                }
+
+                & > .category-contents {
+                    width: 100%;
+
+                    overflow-x: auto;
+
+                    .subcategories-list-container {
+                        width: 100%;
+
+                        .subcategories-list {
+                            margin: 0;
+                            margin-left: @eripTreeCategoryHeaderFontSize*0.75;
+
+                            padding: 0;
+                            padding-left: @eripTreeCategoryHeaderFontSize*0.65;
+
+                            list-style: none;
+
+                            border-left: 1px solid @eripTreeNodeCategoryInnerListBorderColor;
+
+                            li:first-of-type {
+                                padding-top: 5px;
+                            }
+                        }
+                    }
+
+                    .category-payments-list-container {
+                        width: 100%;
+
+                        overflow: hidden;
+
+                        .category-payments-list {
+                            margin: 0;
+                            margin-left: @eripTreePaymentFontSize*0.75;
+                            margin-bottom: 5px;
+
+                            padding: 0;
+                            padding-left: @eripTreePaymentFontSize*0.65;
+
+                            list-style: none;
+
+                            border-left: 1px solid @eripTreeNodeCategoryInnerListBorderColor;
+
+                            .category-payment-container {
+                                .category-payment {
+                                    margin-left: 5px;
+                                    padding-bottom: 5px;
+
+                                    font-size: @eripTreePaymentFontSize;
+                                    line-height: @eripTreePaymentFontSize;
+
+                                    color: @eripTreeCategoryPaymentColor;
+
+                                    cursor: pointer;
+
+                                    .transition(color .25s ease);
+
+                                    &:hover {
+                                        color: @eripTreeCategoryPaymentHoverColor;
+                                    }
+                                }
+
+                                &.active {
+                                    .category-payment {
+                                        color: @eripTreeCategoryPaymentActiveColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .erip-payment {
+        .payment-name-container {
+            width: 100%;
+
+            padding-top: 10px;
+            margin-bottom: 10px;
+
+            border-top: 1px solid @eripPaymentNameContainerBorderColor;
+
+            text-align: center;
+            font-size: @eripPaymentNameFontSize;
+            line-height: @eripPaymentNameFontSize;
+            color: @eripPaymentNameColor;
+        }
+
+        .payment-fields-container {
+            width: 100%;
+
+            .payment-fields {
+                width: 100%;
+
+                margin: 0;
+                padding: 0;
+
+                list-style: none;
+
+                li {
+                    width: 100%;
+
+                    .field-container {
+                        width: 100%;
+
+                        .field {
+                            margin-bottom: 10px;
+
+                            .input-group-addon {
+                                min-width: @eripPaymentFieldInputGroupAddonWidth;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

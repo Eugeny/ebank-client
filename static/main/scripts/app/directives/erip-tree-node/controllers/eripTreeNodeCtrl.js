@@ -5,14 +5,16 @@ angular.module('directives')
 
             $scope.isExpanded = false;
 
-            //$scope.selectedItem = null;
-
             $scope.inverseExpansion = function() {
                 $scope.isExpanded = !$scope.isExpanded;
             };
 
             $scope.selectItem = function(item) {
-                $scope.selectedItem = item;
+                if ($scope.selectedItem != item) {
+                    $scope.selectedItem = item;
+                } else {
+                    $scope.selectedItem = null;
+                }
 
                 if ($scope.itemSelectedCallback) {
                     var callback = $scope.itemSelectedCallback();

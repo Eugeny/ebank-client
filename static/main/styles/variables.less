@@ -16,10 +16,16 @@
 @changePasswordInputGroupAddonWidth: 150px;
 @changePasswordFormMaxWidth: 550px;
 
-@moneyTransferContainerMaxWidth: 700px;
+@paymentContainerWidth: 700px;
+
+@moneyTransferContainerMaxWidth: @paymentContainerWidth;
 @moneyTransferInfoFormInputGroupAddonWidth: 205px;
 
+@eripPaymentContainerMaxWidth: @paymentContainerWidth;
+
 @generalPaymentInfoFormInputGroupAddonWidth: 205px;
+
+@eripPaymentFieldInputGroupAddonWidth: 205px;
 
 //font sizes
 @leftMenuCloseButtonFontSize: 18px;
@@ -34,6 +40,11 @@
 @accountModalStateTimestampFontSize: 14px;
 @accountModalLabelFontSize: 14px;
 @accountModalValueFontSize: 14px;
+
+@eripPaymentNameFontSize: 16px;
+@eripTreeHeaderFontSize: 14px;
+@eripTreeCategoryHeaderFontSize: 16px;
+@eripTreePaymentFontSize: 16px;
 
 //colors
 @primaryColor1: #F0F0F0;
@@ -106,3 +117,16 @@
 @paginationActiveTextColor: white;
 @paginationActiveBackgroundColor: @primaryColor3;
 @paginationActiveBorderColor: @primaryColor4;
+
+@moneyTransferHeaderBorderColor: @primaryColor2;
+
+@eripPaymentHeaderBorderColor: @primaryColor2;
+@eripPaymentNameContainerBorderColor: @primaryColor2;
+@eripPaymentNameColor: @primaryColor4;
+@eripTreeHeaderColor: @primaryColor3;
+@eripTreeCategoryHeaderColor: @primaryColor4;
+@eripTreeCategoryHeaderHoverColor: @primaryColor6;
+@eripTreeNodeCategoryInnerListBorderColor: @primaryColor2;
+@eripTreeCategoryPaymentColor: @primaryColor4;
+@eripTreeCategoryPaymentHoverColor: @primaryColor6;
+@eripTreeCategoryPaymentActiveColor: @primaryColor5;
