@@ -52,9 +52,17 @@
                 </div>
 
                 <div class="account-currency-code-container col-xs-3">
-                    <span class="account-currentcy-code">
-                        <!-- TODO: write own currency filter which will transform currency id to currency code -->
-                        {{account.currency}}
+                    <span class="account-currentcy-code"
+                        title="{{getCurrencyById(account.currency)
+                            && getCurrencyById(account.currency)
+                                .nameLocalized[$parent.localizationService.currentLocale.code]
+                            ? getCurrencyById(account.currency)
+                                .nameLocalized[$parent.localizationService.currentLocale.code]
+                            : account.currency}}">
+
+                        {{getCurrencyById(account.currency)
+                            ? getCurrencyById(account.currency).code
+                            : account.currency}}
                     </span>
                 </div>
 

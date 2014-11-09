@@ -29,14 +29,14 @@ angular.module('services')
                         friendlyName: 'Рус'
                     },
                     {
-                        code: 'be-BY',
+                        code: 'be',
                         friendlyName: 'Бел'
                     }
                 ],
                 localizationDataDictionary= {
                     'en': {},
                     'ru': {},
-                    'be-BY': {}
+                    'be': {}
                 },
                 defaultLocalizationData = {};
 
