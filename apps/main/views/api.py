@@ -32,14 +32,16 @@ def api(fx):
             response = {
                 'error': e.__class__.__name__,
                 'error_reason': e.reason,
-                'error_message': e.response,
+                'message': e.response['error']['message']
+                    if e.response['error'] is not None and e.response['error']['message'] is not None
+                    else e.response,
             }
             status = 500
         except Exception as e:
             traceback.print_exc()
             response = {
                 'error': e.__class__.__name__,
-                'error_message': str(e),
+                'message': str(e),
             }
             status = 500
 

@@ -1,0 +1,80 @@
+<div class="payment-result">
+    <div class="close-modal-button-container">
+        <a ng-click="closeModal()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+
+    <div class="payment-result-content">
+        <div class="payment-result-header-container">
+            <h3 class="payment-result-header payment-result-successful-header"
+                ng-show="paymentResult.isSuccessful">
+                The payment is successfuly proceed
+            </h3>
+            <h3 class="payment-result-header payment-result-failure-header"
+                ng-hide="paymentResult.isSuccessful">
+                The error occurred during payment process
+            </h3>
+
+            <h4 class="payment-name-container" ng-show="paymentResult.paymentName != null">
+                Payment: {{paymentResult.paymentName}}
+            </h4>
+        </div>
+
+        <div class="payment-info-container">
+            <!-- Money transfer fields -->
+            <div class="payment-field-container input-group"
+                ng-show="paymentResult.payment.recipientAccountNumber != null">
+                <div class="input-group-addon">
+                    Recipient account number
+                </div>
+                <input class="form-control" type="text" readonly="readonly" 
+                    ng-model="paymentResult.payment.recipientAccountNumber">
+            </div>
+
+            <!-- Erip payment fields -->
+            <div class="payment-field-container input-group"
+                ng-if="paymentResult.payment.paymentFields != null"
+                ng-repeat="(key, value) in paymentResult.payment.paymentFields">
+                <div class="input-group-addon">
+                    {{$parent.paymentResult.paymentSpecificFieldNames != null
+                        ? $parent.paymentResult.paymentSpecificFieldNames[key]
+                        : key}}
+                </div>
+                <input class="form-control" type="text" readonly="readonly" 
+                    ng-model="value">
+            </div>
+
+            <!-- General payment fields -->
+            <div class="payment-field-container input-group"
+                ng-show="paymentResult.payment.amount != null">
+                <div class="input-group-addon">
+                    Amount
+                </div>
+                <input class="form-control" type="text" readonly="readonly" 
+                    ng-model="paymentResult.payment.amount">
+            </div>
+
+            <div class="payment-field-container input-group"
+                ng-show="paymentResult.payment.accountNumber != null">
+                <div class="input-group-addon">
+                    Account number to pay from
+                </div>
+                <input class="form-control" type="text" readonly="readonly" 
+                    ng-model="paymentResult.payment.accountNumber">
+            </div>
+        </div>
+
+        <div class="error-info-container">
+            <div class="error-info-header">
+                Error details:
+            </div>
+
+            <div class="error-details">
+                <div class="error-message">
+                    {{paymentResult.errorInfo.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
