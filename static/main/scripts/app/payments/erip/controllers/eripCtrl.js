@@ -64,8 +64,6 @@ angular.module('ebank-client')
 
                 paymentsService.payEripPayment(currentPayment)
                     .then(function (result) {
-                        userNotificationService.showSuccess('Payment successfully done');
-
                         openPaymentResultModal({
                             payment: currentPayment,
                             paymentSpecificFieldNames: $scope.currentPayment.fields,
@@ -79,8 +77,6 @@ angular.module('ebank-client')
                             updateAccountsInfo();
                         });
                     }, function (error) {
-                        userNotificationService.showError('An error occured during payment process');
-
                         openPaymentResultModal({
                             payment: currentPayment,
                             paymentSpecificFieldNames: $scope.currentPayment.fields,

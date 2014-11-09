@@ -1,0 +1,96 @@
+.payment-result {
+    position: relative;
+
+    padding: 20px;
+
+    .close-modal-button-container {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        button {
+            border: none;
+            background: none;
+        }
+    }
+
+    .payment-result-content {
+        .payment-result-header-container {
+            width: 100%;
+
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            text-align: center;
+
+            border-bottom: 1px solid @paymentResultHeaderBorderColor;
+
+            .payment-result-header {
+                margin: 0;
+                margin-bottom: 10px;
+
+                font-size: @paymentResultHeaderFontSize;
+                line-height: @paymentResultHeaderFontSize;
+
+                &.payment-result-successful-header {
+                    color: @paymentResultSuccessHeaderColor;
+                }
+
+                &.payment-result-failure-header {
+                    color: @paymentResultFailureHeaderColor;
+                }
+            }
+
+            .payment-name-container {
+                margin: 0;
+
+                font-size: @paymentResultPaymentNameFontSize;
+                line-height: @paymentResultPaymentNameFontSize;
+
+                color: @paymentResultPaymentNameColor;
+            }
+        }
+
+        .payment-info-container {
+            width: 100%;
+
+            .input-group {
+                margin-bottom: 10px;
+
+                .input-group-addon {
+                    min-width: @paymentResultFieldsInputGroupAddonMinWidth;
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .error-info-container {
+            width: 100%;
+
+            margin-top: 10px;
+            padding-top: 10px;
+
+            border-top: 1px solid @paymentResultErrorInfoBorderColor;
+
+            .error-info-header {
+                text-align: center;
+
+                color: @paymentResultErrorInfoHeaderColor;
+
+                font-size: @paymentResultErrorInfoHeaderFontSize;
+                line-height: @paymentResultErrorInfoHeaderFontSize;
+            }
+
+            .error-details {
+                margin-top: 5px;
+
+                .error-message {
+                    color: @paymentResultErrorInfoErrorDetailsMessageColor;
+                }
+            }
+        }
+    }
+}

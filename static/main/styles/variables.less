@@ -17,15 +17,17 @@
 @changePasswordFormMaxWidth: 550px;
 
 @paymentContainerWidth: 700px;
+@paymentInputGroupAddonMinWidth: 205px;
+
+@paymentResultFieldsInputGroupAddonMinWidth: @paymentInputGroupAddonMinWidth;
+
+@generalPaymentInfoFormInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 @moneyTransferContainerMaxWidth: @paymentContainerWidth;
-@moneyTransferInfoFormInputGroupAddonWidth: 205px;
+@moneyTransferInfoFormInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 @eripPaymentContainerMaxWidth: @paymentContainerWidth;
-
-@generalPaymentInfoFormInputGroupAddonWidth: 205px;
-
-@eripPaymentFieldInputGroupAddonWidth: 205px;
+@eripPaymentFieldInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 //font sizes
 @leftMenuCloseButtonFontSize: 18px;
@@ -40,6 +42,10 @@
 @accountModalStateTimestampFontSize: 14px;
 @accountModalLabelFontSize: 14px;
 @accountModalValueFontSize: 14px;
+
+@paymentResultHeaderFontSize: 24px;
+@paymentResultPaymentNameFontSize: 18px;
+@paymentResultErrorInfoHeaderFontSize: 18px;
 
 @eripPaymentNameFontSize: 16px;
 @eripTreeHeaderFontSize: 14px;
@@ -56,6 +62,7 @@
 @primaryColor7: #ef5f3c;
 
 @invalidColor: @primaryColor7;
+@validColor: @primaryColor5;
 
 @headerBackgroundColor: @primaryColor1;
 @headerBorderColor: @primaryColor2;
@@ -120,6 +127,14 @@
 @paginationActiveTextColor: white;
 @paginationActiveBackgroundColor: @primaryColor3;
 @paginationActiveBorderColor: @primaryColor4;
+
+@paymentResultSuccessHeaderColor: @validColor;
+@paymentResultFailureHeaderColor: @invalidColor;
+@paymentResultPaymentNameColor: @primaryColor4;
+@paymentResultHeaderBorderColor: @primaryColor2;
+@paymentResultErrorInfoBorderColor: @primaryColor2;
+@paymentResultErrorInfoHeaderColor: @primaryColor4;
+@paymentResultErrorInfoErrorDetailsMessageColor: @invalidColor;
 
 @moneyTransferHeaderBorderColor: @primaryColor2;
 

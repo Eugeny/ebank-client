@@ -62,8 +62,6 @@ angular.module('ebank-client')
 
                 paymentsService.payGenericPayment(currentPayment)
                     .then(function (result) {
-                        userNotificationService.showSuccess('Money successfully transfered');
-
                         openPaymentResultModal({
                             payment: currentPayment,
                             paymentName: 'Money Transfer',
@@ -76,8 +74,6 @@ angular.module('ebank-client')
                             updateAccountsInfo();
                         });
                     }, function (error) {
-                        userNotificationService.showError('An error occured during money transfering process');
-
                         openPaymentResultModal({
                             payment: currentPayment,
                             paymentName: 'Money Transfer',
