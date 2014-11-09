@@ -28,7 +28,6 @@ angular.module('ebank-client')
             }
 
             function clearForm() {
-                $scope.paymentForm = null;
                 $scope.currentPayment = null;
                 $scope.currentPaymentFields = null;
 
