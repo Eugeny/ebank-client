@@ -25,6 +25,38 @@ a {
     height: 100%;
 }
 
+form,
+[data-ng-form],
+[ng-form] {
+    input,
+    textarea {
+        .transition(all .25s ease);
+    }
+
+    &.ng-invalid.ng-dirty {
+        input,
+        textarea {
+            &.ng-invalid.ng-dirty:not(:focus) {
+                border-color: @invalidColor;
+                .box-shadow(0 0 8px @invalidColor;);
+            }
+        }
+    }
+}
+
+button.btn {
+    .transition(all .25s ease);
+
+    &.disabled {
+        border-color: @invalidColor;
+        background-color: @invalidColor;
+
+        &:focus {
+            .box-shadow(none);
+        }
+    }
+}
+
 ul.pagination {
     margin-bottom: 0;
 
