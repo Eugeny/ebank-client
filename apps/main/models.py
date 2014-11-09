@@ -23,4 +23,4 @@ class Notification (models.Model):
 
     @classmethod
     def vacuum(cls):
-        cls.objects.filter(start__lt=datetime.now()-timedelta(days=60)).delete()
+        cls.objects.filter(timestamp__lt=datetime.now() - timedelta(days=60)).delete()
