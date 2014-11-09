@@ -1,4 +1,5 @@
 #!/bin/sh
+./manage.py migrate --settings=config.environments.prod
 ./manage.py compress --settings=config.environments.prod
 mkdir static/CACHE/fonts
 cp static/main/vendor/bower_components/bootstrap/fonts/* static/CACHE/fonts/
