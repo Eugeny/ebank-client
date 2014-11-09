@@ -2,7 +2,7 @@ angular.module('ebank-client')
     .controller('accountsCtrl', ['$scope', 'userAccountsService', 'currencyService', 'localizationService',
         function($scope, userAccountsService, currencyService, localizationService) {
             function activate() {
-                $scope.reloadAccontsInformation()
+                $scope.reloadAccontsInformation();
 
                 $scope.isBusy = true;
                 currencyService.getCurrencyList()
