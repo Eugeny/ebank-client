@@ -81,12 +81,12 @@
             </li>
         </ul>
 
-        <div class="no-accounts-presented-container" ng-show="accounts.length == 0">
+        <div class="no-accounts-presented-container" ng-show="accounts.length == 0 && !isBusy">
             <h3>You have no accounts yet :(</h3>
         </div>
 
         <div class="accounts-list-paging-container"
-            ng-hide="isBusy || (accounts.length / itemsPerPage <= 1)">
+            ng-hide="accounts.length / itemsPerPage <= 1">
             <pagination class="pagination-sm"
                 ng-model="currentPageNumber"
                 total-items="accounts.length"

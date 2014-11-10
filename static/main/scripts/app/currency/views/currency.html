@@ -1,5 +1,5 @@
 <div class="page-container currency-page-container">
-    <div class="currency-header-container">
+    <div class="currency-header-container" ng-hide="isFirstTimeLoad">
         <h3 class="currency-header">
             Currency Information
         </h3>
@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="currency-list-header-container">
+    <div class="currency-list-header-container" ng-hide="currencyList.length == 0 || isFirstTimeLoad">
         <div class="currency-list-header">
             <div class="currency-name-header-container col-xs-4">
                 <span class="currency-name-header">
@@ -29,12 +29,12 @@
                     Code
                 </span>
             </div>
-            <div class="currency-exchange-rate-buy-header-container col-xs-2">
+            <div class="currency-exchange-rate-buy-header-container col-xs-3">
                 <span class="currency-exchange-rate-buy-header">
                     Bank Buys
                 </span>
             </div>
-            <div class="currency-excnhange-rate-sell-header-container col xs-2">
+            <div class="currency-excnhange-rate-sell-header-container col-xs-3">
                 <span class="currency-exchange-rate-sell-header">
                     Bank Sells
                 </span>
@@ -42,8 +42,8 @@
         </div>
     </div>
 
-    <div class="currency-list-container">
-        <ul class="currency-list" ng-show="currencyList.length != 0">
+    <div class="currency-list-container" ng-hide="isFirstTimeLoad">
+        <ul class="currency-list" ng-hide="currencyList.length == 0">
             <li class="currency-container" ng-repeat="currency in currencyList
                 | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
                 <div class="currency-name-container col-xs-4">
@@ -58,12 +58,12 @@
                         {{currency.code}}
                     </span>
                 </div>
-                <div class="currency-exchange-rate-buy-container col-xs-2">
+                <div class="currency-exchange-rate-buy-container col-xs-3">
                     <div class="currency-exchange-rate-buy-balance">
                         {{currency.rate.buy}}
                     </div>
                 </div>
-                <div class="currency-exchange-rate-sell-container col-xs-2">
+                <div class="currency-exchange-rate-sell-container col-xs-3">
                     <div class="currency-exchange-rate-sell-balance">
                         {{currency.rate.sell}}
                     </div>
@@ -71,12 +71,12 @@
             </li>
         </ul>
 
-        <div class="no-currencies-presented-container" ng-show="currencyList.length == 0">
+        <div class="no-currencies-presented-container" ng-show="currencyList.length == 0 && !isBusy">
             <h3>No currencies loaded :(</h3>
         </div>
 
         <div class="currency-list-paging-container"
-            ng-hide="isBusy || (currencyList.length / itemsPerPage <= 1)">
+            ng-hide="currencyList.length / itemsPerPage <= 1">
             <pagination class="pagination-sm"
                 ng-model="currentPageNumber"
                 total-items="currencyList.length"

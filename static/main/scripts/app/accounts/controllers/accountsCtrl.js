@@ -37,6 +37,8 @@ angular.module('ebank-client')
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;
+
+                        $scope.currentPageNumber = 1;
                     });
             };
 

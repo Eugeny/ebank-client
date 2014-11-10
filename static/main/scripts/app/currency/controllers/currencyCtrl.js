@@ -10,6 +10,8 @@ angular.module('ebank-client')
             $scope.currencyService = currencyService;
             $scope.localizationService = localizationService;
 
+            $scope.isFirstTimeLoad = true;
+
             $scope.isBusy = false;
 
             $scope.currencyList = [];
@@ -27,6 +29,9 @@ angular.module('ebank-client')
                         $scope.currencyList = currencies;
                     }).finally(function() {
                         $scope.isBusy = false;
+                        $scope.isFirstTimeLoad = false;
+
+                        $scope.currentPageNumber = 1;
                     });
             }
 
