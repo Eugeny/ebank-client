@@ -1,6 +1,6 @@
 <div class="page-container currency-page-container">
     <div class="currency-header-container">
-        <h3 class="money-transfer-header">
+        <h3 class="currency-header">
             Currency Information
         </h3>
 
@@ -19,19 +19,24 @@
 
     <div class="currency-list-header-container">
         <div class="currency-list-header">
-            <div class="currency-name-header-container col-xs-6">
+            <div class="currency-name-header-container col-xs-4">
                 <span class="currency-name-header">
                     Name
                 </span>
             </div>
-            <div class="currency-code-header-container col-xs-3">
+            <div class="currency-code-header-container col-xs-2">
                 <span class="currency-code-header">
                     Code
                 </span>
             </div>
-            <div class="currency-exchange-rate-header-container col-xs-3">
-                <span class="currency-exchange-rate-header">
-                    Exchange Rate
+            <div class="currency-exchange-rate-buy-header-container col-xs-2">
+                <span class="currency-exchange-rate-buy-header">
+                    Bank Buys
+                </span>
+            </div>
+            <div class="currency-excnhange-rate-sell-header-container col xs-2">
+                <span class="currency-exchange-rate-sell-header">
+                    Bank Sells
                 </span>
             </div>
         </div>
@@ -41,23 +46,26 @@
         <ul class="currency-list" ng-show="currencyList.length != 0">
             <li class="currency-container" ng-repeat="currency in currencyList
                 | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
-                <div class="currency-name-container col-xs-6">
+                <div class="currency-name-container col-xs-4">
                     <span class="currency-name">
                         {{currency.nameLocalized[$parent.localizationService.currentLocale.code]
                             ? currency.nameLocalized[$parent.localizationService.currentLocale.code]
                             : currency.code}}
                     </span>
                 </div>
-
-                <div class="currency-code-container col-xs-3">
+                <div class="currency-code-container col-xs-2">
                     <span class="currentcy-code">
                         {{currency.code}}
                     </span>
                 </div>
-
-                <div class="currency-exchange-rate-container col-xs-3">
-                    <div class="currency-exchange-rate-balance">
-                        {{currency.rate}}
+                <div class="currency-exchange-rate-buy-container col-xs-2">
+                    <div class="currency-exchange-rate-buy-balance">
+                        {{currency.rate.buy}}
+                    </div>
+                </div>
+                <div class="currency-exchange-rate-sell-container col-xs-2">
+                    <div class="currency-exchange-rate-sell-balance">
+                        {{currency.rate.sell}}
                     </div>
                 </div>
             </li>
