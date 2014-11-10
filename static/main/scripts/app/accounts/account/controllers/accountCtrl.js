@@ -54,8 +54,7 @@ angular.module('ebank-client')
 
         activate();
     }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account', 'currencyService',
-        'localizationService',
-    function($scope, $rootScope, account, currencyService, localizationService) {
+    function($scope, $rootScope, account, currencyService) {
         'use strict';
 
         function activate() {
@@ -73,8 +72,6 @@ angular.module('ebank-client')
                 }
             });
         }
-
-        $scope.localizationService = localizationService;
 
         $scope.account = account;
 

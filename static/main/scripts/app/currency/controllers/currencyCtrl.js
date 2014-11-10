@@ -1,6 +1,6 @@
 angular.module('ebank-client')
-    .controller('currencyCtrl', ['$scope', 'currencyService', 'localizationService',
-        function($scope, currencyService, localizationService) {
+    .controller('currencyCtrl', ['$scope', 'currencyService',
+        function($scope, currencyService) {
             'use strict';
 
             function activate() {
@@ -8,7 +8,6 @@ angular.module('ebank-client')
             }
 
             $scope.currencyService = currencyService;
-            $scope.localizationService = localizationService;
 
             $scope.isFirstTimeLoad = true;
 

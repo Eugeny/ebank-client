@@ -43,7 +43,9 @@
 
                     <select type="button" class="form-control"
                         ng-model="currentUserAccount"
-                        ng-options="account.id + ' (Balance: ' + account.balance + ')' for account in userAccounts"
+                        ng-options="account.id + ' (Balance: ' + account.balance
+                            + ' ' + getCurrencyById(account.currency).code
+                            + ')' for account in userAccounts"
                         ng-required="true">
                     </select>
                 </div>

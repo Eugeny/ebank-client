@@ -9,8 +9,10 @@
         'toaster',
         'directives',
         'filters',
-    ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService',
-        function($rootScope, $http, $window, customEvents, endpointGenerationService) {
+    ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService', 'localizationService',
+        function($rootScope, $http, $window, customEvents, endpointGenerationService, localizationService) {
+            $rootScope.localizationService = localizationService;
+
             $rootScope.$on('$stateChangeSuccess', function() {
                 $rootScope.$emit(customEvents.leftMenu.closeLeftMenu);
             });

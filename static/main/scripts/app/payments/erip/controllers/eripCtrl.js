@@ -1,13 +1,20 @@
 angular.module('ebank-client')
     .controller('payments.eripCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
-            'paymentsService', 'userNotificationService',
+            'paymentsService', 'userNotificationService', 'currencyService',
         function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
-                userNotificationService) {
+                userNotificationService, currencyService) {
             'use strict';
+
+            var currencyList = null;
 
             function activate() {
                 clearForm();
                 updateAccountsInfo();
+
+                currencyService.getCurrencyList()
+                    .then(function(currencies) {
+                        currencyList = currencies;
+                    });
             }
 
             function updateAccountsInfo() {
@@ -55,6 +62,14 @@ angular.module('ebank-client')
             $scope.userAccounts = null;
 
             $scope.isFirstTimeLoad = true;
+
+            $scope.getCurrencyById = function(id) {
+                if (currencyList) {
+                    return _.findWhere(currencyList, {id: id});
+                } else {
+                    return null;
+                }
+            };
 
             $scope.pay = function() {
                 $scope.isBusy = true;

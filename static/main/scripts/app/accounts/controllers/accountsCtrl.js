@@ -1,6 +1,6 @@
 angular.module('ebank-client')
-    .controller('accountsCtrl', ['$scope', 'userAccountsService', 'currencyService', 'localizationService',
-        function($scope, userAccountsService, currencyService, localizationService) {
+    .controller('accountsCtrl', ['$scope', 'userAccountsService', 'currencyService',
+        function($scope, userAccountsService, currencyService) {
             function activate() {
                 $scope.reloadAccontsInformation();
 
@@ -12,8 +12,6 @@ angular.module('ebank-client')
                         $scope.isBusy = false;
                     });
             }
-
-            $scope.localizationService = localizationService;
 
             $scope.isFirstTimeLoad = true;
 
