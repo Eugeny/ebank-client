@@ -1,11 +1,11 @@
 <div class="page-container money-transfer-page-container">
-    <div class="money-transfer-header-container">
+    <div class="money-transfer-header-container" ng-hide="isFirstTimeLoad">
         <h3 class="money-transfer-header">
             Money Transfer
         </h3>
     </div>
 
-    <div class="money-transfer-container">
+    <div class="money-transfer-container" ng-hide="isFirstTimeLoad">
         <div class="money-transfer-info-form" ng-form="moneyTransferInfoForm">
             <div class="recipient-account-number-container input-group">
                 <div class="input-group-addon">

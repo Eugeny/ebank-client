@@ -24,6 +24,7 @@ angular.module('ebank-client')
                         console.log(error);
                     }).finally(function() {
                         $scope.isBusy = false;
+                        $scope.isFirstTimeLoad = false;
                     });
             }
 
@@ -52,6 +53,8 @@ angular.module('ebank-client')
             $scope.validationRegularExpressions = validationRegularExpressions;
             $scope.isBusy = false;
             $scope.userAccounts = null;
+
+            $scope.isFirstTimeLoad = true;
 
             $scope.pay = function() {
                 $scope.isBusy = true;

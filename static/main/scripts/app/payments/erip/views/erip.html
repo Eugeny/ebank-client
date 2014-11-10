@@ -1,11 +1,11 @@
 <div class="page-container payments-page-container">
-    <div class="erip-payment-header-container">
+    <div class="erip-payment-header-container" ng-hide="isFirstTimeLoad">
         <h3 class="erip-payment-header">
             ERIP Payments
         </h3>
     </div>
 
-    <div class="erip-payment-container">
+    <div class="erip-payment-container" ng-hide="isFirstTimeLoad">
         <erip-payment class="erip-payment-settings"
             payment-form="paymentForm" current-payment="currentPayment"
             current-payment-fields="currentPaymentFields">
