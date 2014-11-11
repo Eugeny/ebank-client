@@ -1,6 +1,6 @@
 angular.module('ebank-client')
-    .controller('headerCtrl', ['$scope', '$rootScope', 'userInfoService', 'notificationsInfoService', 'customEvents',
-        function($scope, $rootScope, userInfoService, notificationsInfoService, customEvents) {
+    .controller('headerCtrl', ['$scope', 'userInfoService', 'notificationsInfoService',
+        function($scope, userInfoService, notificationsInfoService) {
             'use strict';
 
             $scope.userInfoService = userInfoService;
@@ -13,6 +13,6 @@ angular.module('ebank-client')
             };
 
             $scope.logOut = function() {
-                $rootScope.$emit(customEvents.general.logOut);
+                userInfoService.logoutUser();
             };
         }]);

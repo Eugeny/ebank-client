@@ -27,6 +27,15 @@ angular.module('providers')
                         });
 
                     return deferred.promise;
+                },
+                loginUser: function(login, password) {
+                    return $http(endpointGenerationService.getPostLoginUserEndpoint({
+                        id: login,
+                        password: password
+                    }));
+                },
+                logoutUser: function() {
+                    return $http(endpointGenerationService.getPostLogoutUserEndpoint());
                 }
             };
         }]);

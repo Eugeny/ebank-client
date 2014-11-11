@@ -4,6 +4,9 @@ angular.module('constants')
             closeLeftMenu: 'close-left-menu'
         },
         general: {
-            logOut: 'user-logout'
+            logIn: 'user-login',
+            logOut: 'user-logout',
+            sessionExpired: 'user-session-expired',
+            userNotAuthenticated: 'user-not-authenticated'
         }
     });

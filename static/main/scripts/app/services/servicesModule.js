@@ -1,5 +1,5 @@
 (function(window, undefined) {
     'use strict';
 
-    angular.module('services', ['providers']);
+    angular.module('services', ['providers', 'constants']);
 })(window);

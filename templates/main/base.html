@@ -41,8 +41,13 @@
             <script type="text/javascript" src="{{ STATIC_URL }}main/vendor/bower_components/AngularJS-Toaster/toaster.js"></script>
 
             {# custom scrips #}
+
+            {# app config #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/app.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/config/routeConfig.js"></script>
+
+            {# interceptors #}
+            <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/interceptors/unauthenticatedInterceptor.js"></script>
 
             {# constants #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/constants/constantsModule.js"></script>

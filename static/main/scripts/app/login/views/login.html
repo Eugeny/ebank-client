@@ -1,0 +1,36 @@
+<div class="login-page-container">
+    <div class="login-form-container">
+        <div class="login-form-content">
+            <div class="language-selection-container" language-selector>
+            </div>
+
+            <div class="logo-container">
+                <span class="logo">
+                    Ɣ E-Bank
+                </span>
+            </div>
+
+            <form class="login-form" role="form" name="loginForm">
+                <div class="input-group">
+                    <div class="input-group-addon">Login</div>
+                    <input type="text" class="form-control" placeholder="Login"
+                        ng-required="true"
+                        ng-model="login"/>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">Password</div>
+                    <input type="password" class="form-control" placeholder="Password"
+                        ng-required="true"
+                        ng-model="password"/>
+                </div>
+                <div class="login-button-container">
+                    <button type="submit" class="btn btn-block btn-success login-button"
+                        ng-class="{ disabled: !loginForm.$valid}">
+                        Sign In
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

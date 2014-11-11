@@ -9,8 +9,11 @@
         'toaster',
         'directives',
         'filters',
-    ]).run(['$rootScope', '$http', '$window', 'customEvents', 'endpointGenerationService', 'localizationService',
-        function($rootScope, $http, $window, customEvents, endpointGenerationService, localizationService) {
+    ]).config(['$interpolateProvider', '$httpProvider',
+        function($interpolateProvider, $httpProvider) {
+            $httpProvider.interceptors.push('unauthenticatedInterceptor');
+    }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService',
+        function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService) {
             $rootScope.localizationService = localizationService;
 
             $rootScope.$on('$stateChangeSuccess', function() {
@@ -18,10 +21,11 @@
             });
 
             $rootScope.$on(customEvents.general.logOut, function() {
-                $http(endpointGenerationService.getPostLogoutUserEndpoint())
-                    .then(function() {
-                        $window.location.reload();
-                    });
+                $state.transitionTo($state.current, $stateParams, {
+                    reload: true,
+                    inherit: true,
+                    notify: true
+                });
             });
         }]);
  })(window);
