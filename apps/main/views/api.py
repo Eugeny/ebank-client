@@ -8,9 +8,23 @@ from apps.main.models import *
 from libs.bank import BankApi, BankServerError
 
 
+class Http401 (Exception):
+    pass
+
+
 class Http403 (Exception):
     pass
 
+
+def require_login(fx):
+    @wraps(fx)
+    def wrapper(request, client_id=None, **kwargs):
+        if not client_id:
+            raise Http401()
+        return fx(client_id=None, **kwargs)
+
+    return wrapper
+    
 
 def api(fx):
     @wraps(fx)
@@ -28,6 +42,8 @@ def api(fx):
             response = fx(request, **kwargs)
         except Http403:
             return HttpResponseForbidden()
+        except Http401:
+            return JsonResponse({}, status=401)
         except BankServerError as e:
             response = {
                 'error': e.__class__.__name__,
@@ -60,12 +76,14 @@ def auth_login(request, client_id=None, id=None, password=None):
 
 
 @api
+@require_login
 def auth_logout(request, client_id=None):
     request.session.pop('client-id', None)
     return {}
 
 
 @api
+@require_login
 def get_info(request, client_id=None):
     return {
         'client': BankApi().get_client(client_id),
@@ -73,11 +91,13 @@ def get_info(request, client_id=None):
 
 
 @api
+@require_login
 def get_notifications(request, client_id=None):
     return [x.to_json() for x in Notification.objects.filter(client_id=client_id).all()]
 
 
 @api
+@require_login
 def notification_mark_read(request, client_id=None, notificationId=None):
     n = Notification.objects.get(id=notificationId)
     n.unread = False
@@ -85,16 +105,19 @@ def notification_mark_read(request, client_id=None, notificationId=None):
 
 
 @api
+@require_login
 def erip_tree(request, client_id=None):
     return BankApi().get_erip_tree()
 
 
 @api
+@require_login
 def get_currency(request, client_id=None):
     return BankApi().get_currency_rates()
 
 
 @api
+@require_login
 def pay(request, client_id=None, accountId=None, recipientAccountId=None, amount=None):
     client = BankApi().get_client(client_id)
     if not any(account['id'] == accountId for account in client['accounts']):
@@ -103,6 +126,7 @@ def pay(request, client_id=None, accountId=None, recipientAccountId=None, amount
 
 
 @api
+@require_login
 def erip_pay(request, client_id=None, accountId=None, paymentId=None, fields={}, amount=None):
     client = BankApi().get_client(client_id)
     if not any(account['id'] == accountId for account in client['accounts']):
@@ -111,6 +135,7 @@ def erip_pay(request, client_id=None, accountId=None, paymentId=None, fields={},
 
 
 @api
+@require_login
 def change_password(request, client_id=None, client_id_to_change=None, old_password=None, new_password=None):
     if not BankApi().auth(client_id_to_change, old_password):
         raise Http403()
