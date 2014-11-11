@@ -2,28 +2,8 @@
 
 {% block content %}
 {% verbatim %}
-    <header ui-view="header-view">
-    </header>
+    <ui-view name="site-view"></ui-view>
 
-    <ui-view name="main-view"></ui-view>
-
-    <footer>
-        <div class="footer-content-container container">
-            <div class="home-link-container col-xs-2">
-                <a class="home-link"
-                    ui-sref="main.currency">
-                    Ɣ E-Bank
-                </a>
-            </div>
-            <div class="about-link-container col-xs-2">
-                <a class="about-link">About</a>
-            </div>
-            <div class="copyright-container col-xs-8">
-                <span class="copyright">Copyright Gamma E-Bank ©2014</span>
-            </div>
-        </div>
-    </footer>
-
-<toaster-container></toaster-container>
+    <toaster-container></toaster-container>
 {% endverbatim %}
 {% endblock %}
