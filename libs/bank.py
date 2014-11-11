@@ -65,3 +65,11 @@ class BankApi(object):
             'recipientAccountId': recipientAccountId,
             'amount': amount,
         })
+
+    def payment_report(self, accountId, dateFrom, dateTo, type):
+        return self.request('payment/report', {
+            'accountId': accountId,
+            'dateFrom': dateFrom,
+            'dateTo': dateTo,
+            'type': type,
+        })

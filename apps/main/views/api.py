@@ -1,5 +1,6 @@
 import json
 import traceback
+import time
 from functools import wraps
 
 from django.http import JsonResponse, Http404, HttpResponseForbidden
@@ -140,3 +141,9 @@ def change_password(request, client_id=None, client_id_to_change=None, old_passw
     if not BankApi().auth(client_id_to_change, old_password):
         raise Http403()
     return BankApi().change_password(client_id_to_change, new_password)
+
+
+@api
+@require_login
+def payment_report(request, client_id=None, accountId=None, dateFrom=None, dateTo=None, type=None):
+    return BankApi().payment_report(accountId, dateFrom or 0, dateTo or str(int(time.time())), type or 'payment')
