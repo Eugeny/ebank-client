@@ -37,9 +37,19 @@
                 </div>
 
                 <div class="currency-code-container row">
-                    <div class="label col-xs-3">Currency Code</div>
+                    <div class="label col-xs-3">Currency</div>
                     <div class="value col-xs-9">
-                        {{account.currency}}
+
+                        {{currentAccountCurrency
+                            ? currentAccountCurrency.code
+                            : account.currency}}
+
+                        ({{currentAccountCurrency
+                            && currentAccountCurrency
+                                .nameLocalized[localizationService.currentLocale.code]
+                            ? currentAccountCurrency
+                                .nameLocalized[localizationService.currentLocale.code]
+                            : account.currency}})
                     </div>
                 </div>
 

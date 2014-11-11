@@ -17,15 +17,17 @@
 @changePasswordFormMaxWidth: 550px;
 
 @paymentContainerWidth: 700px;
+@paymentInputGroupAddonMinWidth: 205px;
+
+@paymentResultFieldsInputGroupAddonMinWidth: @paymentInputGroupAddonMinWidth;
+
+@generalPaymentInfoFormInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 @moneyTransferContainerMaxWidth: @paymentContainerWidth;
-@moneyTransferInfoFormInputGroupAddonWidth: 205px;
+@moneyTransferInfoFormInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 @eripPaymentContainerMaxWidth: @paymentContainerWidth;
-
-@generalPaymentInfoFormInputGroupAddonWidth: 205px;
-
-@eripPaymentFieldInputGroupAddonWidth: 205px;
+@eripPaymentFieldInputGroupAddonWidth: @paymentInputGroupAddonMinWidth;
 
 //font sizes
 @leftMenuCloseButtonFontSize: 18px;
@@ -41,10 +43,18 @@
 @accountModalLabelFontSize: 14px;
 @accountModalValueFontSize: 14px;
 
+@paymentResultHeaderFontSize: 24px;
+@paymentResultPaymentNameFontSize: 18px;
+@paymentResultErrorInfoHeaderFontSize: 18px;
+
 @eripPaymentNameFontSize: 16px;
 @eripTreeHeaderFontSize: 14px;
 @eripTreeCategoryHeaderFontSize: 16px;
 @eripTreePaymentFontSize: 16px;
+
+@currencyHeaderRefreshButtonFontSize: 16px;
+@currencyHeaderStateTimestampFontSize: 14px;
+@currencyHeaderRefreshButtonFontSize: 16px;
 
 //colors
 @primaryColor1: #F0F0F0;
@@ -53,6 +63,10 @@
 @primaryColor4: #888888;
 @primaryColor5: #00CC33;
 @primaryColor6: #606060;
+@primaryColor7: #ef5f3c;
+
+@invalidColor: @primaryColor7;
+@validColor: @primaryColor5;
 
 @headerBackgroundColor: @primaryColor1;
 @headerBorderColor: @primaryColor2;
@@ -118,6 +132,14 @@
 @paginationActiveBackgroundColor: @primaryColor3;
 @paginationActiveBorderColor: @primaryColor4;
 
+@paymentResultSuccessHeaderColor: @validColor;
+@paymentResultFailureHeaderColor: @invalidColor;
+@paymentResultPaymentNameColor: @primaryColor4;
+@paymentResultHeaderBorderColor: @primaryColor2;
+@paymentResultErrorInfoBorderColor: @primaryColor2;
+@paymentResultErrorInfoHeaderColor: @primaryColor4;
+@paymentResultErrorInfoErrorDetailsMessageColor: @invalidColor;
+
 @moneyTransferHeaderBorderColor: @primaryColor2;
 
 @eripPaymentHeaderBorderColor: @primaryColor2;
@@ -130,3 +152,13 @@
 @eripTreeCategoryPaymentColor: @primaryColor4;
 @eripTreeCategoryPaymentHoverColor: @primaryColor6;
 @eripTreeCategoryPaymentActiveColor: @primaryColor5;
+
+@currencyHeaderBorderColor: @primaryColor2;
+@currencyHeaderStateTimestampColor: @primaryColor3;
+@currencyListHeaderBorderColor: @primaryColor2;
+@currencyListHeaderColor: @primaryColor4;
+@currencyContainerBorderColor: @primaryColor2;
+@currencyContainerHoverBackgroundColor: @primaryColor1;
+@currencyDataTextColor: @primaryColor6;
+@currencyNoCurrenciesPresentedColor: @primaryColor3;
+

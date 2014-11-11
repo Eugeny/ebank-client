@@ -1,0 +1,133 @@
+.currency-page-container {
+    height: 100%;
+    overflow-y: auto;
+
+    .currency-header-container {
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        .currency-header {
+            margin: 10px 0;
+            padding-bottom: 5px;
+
+            text-align: center;
+
+            border-bottom: 1px solid @currencyHeaderBorderColor;
+
+            font-size: @pageHeaderTitleFontSize;
+            line-height: @pageHeaderTitleFontSize;
+
+            color: @pageHeaderTitleColor;
+        }
+
+        .timestamp-container {
+            float: left;
+
+            margin-left: 15px;
+
+            line-height: @currencyHeaderRefreshButtonFontSize;
+
+            .timestamp {
+                font-size: @currencyHeaderStateTimestampFontSize;
+                line-height: @currencyHeaderRefreshButtonFontSize;
+
+                color: @currencyHeaderStateTimestampColor;
+            }
+        }
+
+        .refresh-button-container {
+            float: right;
+
+            margin-right: 15px;
+
+            line-height: @currencyHeaderRefreshButtonFontSize;
+
+            .refresh-button {
+                font-size: @currencyHeaderRefreshButtonFontSize;
+                line-height: @currencyHeaderRefreshButtonFontSize;
+            }
+        }
+    }
+
+    .currency-list-header-container {
+        width: 100%;
+        overflow: hidden;
+
+        border-bottom: 1px solid @currencyListHeaderBorderColor;
+
+        padding-bottom: 5px;
+
+        .currency-list-header {
+            overflow: hidden;
+
+            .currency-name-header-container,
+            .currency-code-header-container,
+            .currency-exchange-rate-buy-header-container,
+            .currency-excnhange-rate-sell-header-container {
+                color: @currencyListHeaderColor;
+            }
+        }
+    }
+
+    .currency-list-container {
+        .currency-list {
+            width: 100%;
+
+            overflow: hidden;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .currency-container {
+                overflow: hidden;
+
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                border-bottom: 1px solid @currencyContainerBorderColor;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: @currencyContainerHoverBackgroundColor;
+                }
+
+                .currency-name-container {
+                    .currency-name {
+                        color: @currencyDataTextColor;
+                    }
+                }
+
+                .currency-code-container {
+                    .currency-code {
+                        color: @currencyDataTextColor;
+                    }
+                }
+
+                .currency-exchange-rate-buy-container {
+                    .currency-exchange-rate-buy {
+                        color: @currencyDataTextColor;
+                    }
+                }
+
+                .currency-exchange-rate-sell-container {
+                    .currency-exchange-rate-sell-container {
+                        color: @currencyDataTextColor;
+                    }
+                }
+            }
+        }
+
+        .no-currencies-presented-container {
+            text-align: center;
+            color: @currencyNoCurrenciesPresentedColor;
+        }
+
+        .currency-list-paging-container {
+            text-align: center;
+        }
+    }
+}

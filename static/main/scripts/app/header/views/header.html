@@ -11,22 +11,27 @@
             <left-menu is-open="isLeftMenuOpen">
                 <ul class="menu-links-list">
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.accounts">
+                        <a class="menu-link" ui-sref="main.authenticated.currency">
+                            Currency Information
+                        </a>
+                    </li>
+                    <li class="menu-link-container" ui-sref-active="active">
+                        <a class="menu-link" ui-sref="main.authenticated.accounts">
                             Show Accounts
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.payments">
-                            Payments
+                        <a class="menu-link" ui-sref="main.authenticated.payments.erip">
+                            ERIP Payments
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.moneyTransfer">
+                        <a class="menu-link" ui-sref="main.authenticated.payments.moneyTransfer">
                             Money Transfer
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.manageAutomaticAccountOperations">
+                        <a class="menu-link" ui-sref="main.authenticated.manageAutomaticAccountOperations">
                             Manage Automatic Acccount Operations
                         </a>
                     </li>
@@ -67,7 +72,7 @@
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="main.manageAccount.changePassword">
+                            <a ui-sref="main.authenticated.manageAccount.changePassword">
                                 Manage Account
                             </a>
                         </li>

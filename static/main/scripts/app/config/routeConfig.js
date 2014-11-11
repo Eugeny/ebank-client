@@ -5,7 +5,22 @@ angular.module('ebank-client')
 
             $urlRouterProvider.otherwise('/currency');
 
-            $stateProvider.state('main', {
+            $stateProvider.state('login', {
+                url: '/login',
+                views: {
+                    'site-view': {
+                        templateUrl: '/static/main/scripts/app/login/views/login.html',
+                        controller: 'loginCtrl'
+                    }
+                }
+            }).state('main', {
+                abstract: true,
+                views: {
+                    'site-view': {
+                        templateUrl: '/static/main/scripts/app/main/views/main.html',
+                    }
+                }
+            }).state('main.authenticated', {
                 abstract: true,
                 views: {
                     'header-view': {
@@ -13,10 +28,10 @@ angular.module('ebank-client')
                         controller: 'headerCtrl'
                     },
                     'main-view': {
-                        templateUrl: '/static/main/scripts/app/main/views/main.html',
+                        templateUrl: '/static/main/scripts/app/main/views/authenticated.html',
                     }
                 }
-            }).state('main.currency', {
+            }).state('main.authenticated.currency', {
                 url: '/currency',
                 views: {
                     'main-content-view': {
@@ -24,7 +39,7 @@ angular.module('ebank-client')
                         controller: 'currencyCtrl'
                     }
                 }
-            }).state('main.accounts', {
+            }).state('main.authenticated.accounts', {
                 url: '/accounts',
                 views: {
                     'main-content-view': {
@@ -32,7 +47,7 @@ angular.module('ebank-client')
                         controller: 'accountsCtrl'
                     }
                 }
-            }).state('main.accounts.account', {
+            }).state('main.authenticated.accounts.account', {
                 url: '/account/:id',
                 views: {
                     'account-details-content-view': {
@@ -40,22 +55,23 @@ angular.module('ebank-client')
                         controller: 'accounts.accountCtrl'
                     }
                 }
-            }).state('main.manageAccount', {
+            }).state('main.authenticated.manageAccount', {
                 abstract: true,
+                url: '/manageaccount',
                 views: {
                     'main-content-view': {
                         templateUrl: '/static/main/scripts/app/manage-account/views/manageAccount.html'
                     }
                 }
-            }).state('main.manageAccount.changePassword', {
-                url: '/manageaccount/changepassword',
+            }).state('main.authenticated.manageAccount.changePassword', {
+                url: '/changepassword',
                 views: {
                     'manage-account-content-view': {
                         templateUrl: '/static/main/scripts/app/manage-account/change-password/views/changePassword.html',
                         controller: 'manageAccount.changePasswordCtrl'
                     }
                 }
-            }).state('main.manageAutomaticAccountOperations', {
+            }).state('main.authenticated.manageAutomaticAccountOperations', {
                 url: '/manageautomaticaccountoperations',
                 views: {
                     'main-content-view': {
@@ -63,20 +79,28 @@ angular.module('ebank-client')
                         controller: 'manageAutomaticAccountOperationsCtrl'
                     }
                 }
-            }).state('main.moneyTransfer', {
-                url: '/moneytransfer',
-                views: {
-                    'main-content-view': {
-                        templateUrl: '/static/main/scripts/app/money-transfer/views/moneyTransfer.html',
-                        controller: 'moneyTransferCtrl'
-                    }
-                }
-            }).state('main.payments', {
+            }).state('main.authenticated.payments', {
+                abstract: true,
                 url: '/payments',
                 views: {
                     'main-content-view': {
-                        templateUrl: '/static/main/scripts/app/payments/views/payments.html',
-                        controller: 'paymentsCtrl'
+                        templateUrl: '/static/main/scripts/app/payments/views/payments.html'
+                    }
+                }
+            }).state('main.authenticated.payments.moneyTransfer', {
+                url: '/moneytransfer',
+                views: {
+                    'payments-content-view': {
+                        templateUrl: '/static/main/scripts/app/payments/money-transfer/views/moneyTransfer.html',
+                        controller: 'payments.moneyTransferCtrl'
+                    }
+                }
+            }).state('main.authenticated.payments.erip', {
+                url: '/erip',
+                views: {
+                    'payments-content-view': {
+                        templateUrl: '/static/main/scripts/app/payments/erip/views/erip.html',
+                        controller: 'payments.eripCtrl'
                     }
                 }
             });

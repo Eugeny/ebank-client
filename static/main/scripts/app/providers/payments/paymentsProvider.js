@@ -35,7 +35,9 @@ angular.module('providers')
                         .then(function(result) {
                             deferred.resolve(result.data || {});
                         }, function(error) {
-                            deferred.reject(error);
+                            deferred.reject(error.data || {
+                                message: 'An error occurred during erip payment process'
+                            });
                         });
 
                     return deferred.promise;
@@ -53,7 +55,9 @@ angular.module('providers')
                         .then(function(result) {
                             deferred.resolve(result.data || {});
                         }, function(error) {
-                            deferred.reject(error);
+                            deferred.reject(error.data || {
+                                message: 'An error occurred during payment payment process'
+                            });
                         });
 
                     return deferred.promise;

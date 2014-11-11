@@ -52,9 +52,17 @@
                 </div>
 
                 <div class="account-currency-code-container col-xs-3">
-                    <span class="account-currentcy-code">
-                        <!-- TODO: write own currency filter which will transform currency id to currency code -->
-                        {{account.currency}}
+                    <span class="account-currentcy-code"
+                        title="{{getCurrencyById(account.currency)
+                            && getCurrencyById(account.currency)
+                                .nameLocalized[$parent.localizationService.currentLocale.code]
+                            ? getCurrencyById(account.currency)
+                                .nameLocalized[$parent.localizationService.currentLocale.code]
+                            : account.currency}}">
+
+                        {{getCurrencyById(account.currency)
+                            ? getCurrencyById(account.currency).code
+                            : account.currency}}
                     </span>
                 </div>
 
@@ -66,19 +74,19 @@
 
                 <div class="account-details-link-container col-xs-3">
                     <a class="account-details-link"
-                        ui-sref="main.accounts.account({id: account.id})">
+                        ui-sref="main.authenticated.accounts.account({id: account.id})">
                         Show Details
                     </a>
                 </div>
             </li>
         </ul>
 
-        <div class="no-accounts-presented-container" ng-show="accounts.length == 0">
+        <div class="no-accounts-presented-container" ng-show="accounts.length == 0 && !isBusy">
             <h3>You have no accounts yet :(</h3>
         </div>
 
         <div class="accounts-list-paging-container"
-            ng-hide="isBusy || (accounts.length / itemsPerPage <= 1)">
+            ng-hide="accounts.length / itemsPerPage <= 1">
             <pagination class="pagination-sm"
                 ng-model="currentPageNumber"
                 total-items="accounts.length"

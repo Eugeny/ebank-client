@@ -53,12 +53,17 @@ angular.module('ebank-client')
         }
 
         activate();
-    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account',
-    function($scope, $rootScope, account) {
+    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account', 'currencyService',
+    function($scope, $rootScope, account, currencyService) {
         'use strict';
 
         function activate() {
             $scope.setTab($scope.tabIds.generalInfo);
+
+            currencyService.getCurrencyById(account.currency)
+                .then(function(currency) {
+                    $scope.currentAccountCurrency = currency;
+                });
 
             //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
