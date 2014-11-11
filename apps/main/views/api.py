@@ -21,7 +21,7 @@ def require_login(fx):
     def wrapper(request, client_id=None, **kwargs):
         if not client_id:
             raise Http401()
-        return fx(client_id=None, **kwargs)
+        return fx(request, client_id=None, **kwargs)
 
     return wrapper
     
