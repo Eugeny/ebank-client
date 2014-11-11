@@ -44,6 +44,14 @@ angular.module('services')
                         data: data
                     };
                 },
+                //accountId, dateFrom(opt), dateTo(opt), type(opt)=(erip|payment)
+                getPostPaymentReportEndpoint: function(data) {
+                    return {
+                        url: '/api/payment/report',
+                        method: 'POST',
+                        data: data
+                    };
+                },
                 //accountId, recipientAccountId, amount
                 getPostPayEndpoint: function(data) {
                     return {

@@ -49,7 +49,7 @@ angular.module('ebank-client')
         }
 
         function goToAccounsState() {
-            $state.go('main.accounts');
+            $state.go('main.authenticated.accounts');
         }
 
         activate();
@@ -67,7 +67,7 @@ angular.module('ebank-client')
 
             //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
-                if (toState.name === 'main.accounts') {
+                if (toState.name === 'main.authenticated.accounts') {
                     $scope.closeModal();
                 }
             });
