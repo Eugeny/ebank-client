@@ -3,6 +3,54 @@ angular.module('ebank-client')
         function($stateProvider, $urlRouterProvider, $locationProvider) {
             'use strict';
 
+            var getCheckAuthForRouteFactory = function(mustBeAnonymous) {
+                    mustBeAnonymous = mustBeAnonymous || false;
+
+                    return ['$q', '$rootScope', '$state', '$stateParams', 'userInfoService', 'customEvents',
+                        function($q, $rootScope, $state, $stateParams, userInfoService, customEvents) {
+                            var deferred = $q.defer();
+
+                            if (userInfoService.isFirstTimeLoad) {
+                                userInfoService.reloadUserInfo()
+                                    .finally(function() {
+                                        if (userInfoService.isAuthenticated()) {
+                                            if (!mustBeAnonymous) {
+                                                deferred.resolve(true);
+                                            } else {
+                                                deferred.reject(false);
+                                                $rootScope.$emit(customEvents.general.notAnonymousUser);
+                                            }
+                                        } else {
+                                            if (mustBeAnonymous) {
+                                                deferred.resolve(true);
+                                            } else {
+                                                deferred.reject(false);
+                                                $rootScope.$emit(customEvents.general.userNotAuthenticated);
+                                            }
+                                        }
+                                    });
+                            } else {
+                                if (userInfoService.isAuthenticated()) {
+                                    if (!mustBeAnonymous) {
+                                        deferred.resolve(true);
+                                    } else {
+                                        deferred.reject(false);
+                                        $rootScope.$emit(customEvents.general.notAnonymousUser);
+                                    }
+                                } else {
+                                    if (mustBeAnonymous) {
+                                        deferred.resolve(true);
+                                    } else {
+                                        deferred.reject(false);
+                                        $rootScope.$emit(customEvents.general.userNotAuthenticated);
+                                    }
+                                }
+                            }
+
+                            return deferred.promise;
+                        }];
+                };
+
             $urlRouterProvider.otherwise('/currency');
 
             $stateProvider.state('login', {
@@ -12,6 +60,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/login/views/login.html',
                         controller: 'loginCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory(true)
                 }
             }).state('main', {
                 abstract: true,

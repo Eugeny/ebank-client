@@ -1,6 +1,6 @@
 angular.module('services')
-    .factory('userInfoService', ['$q', '$rootScope', 'userInfoProvider', 'customEvents',
-        function($q, $rootScope, userInfoProvider, customEvents) {
+    .factory('userInfoService', ['$q', '$rootScope', 'userInfoProvider', 'customEvents', 'userNotificationService',
+        function($q, $rootScope, userInfoProvider, customEvents, userNotificationService) {
             'use strict';
 
             var isAuthenticated = false;
@@ -33,6 +33,8 @@ angular.module('services')
 
                     if (self.isAuthenticated()) {
                         $rootScope.$emit(customEvents.general.sessionExpired);
+
+                        userNotificationService.showWarning('Your ssession has expired');
                     }
                 });
             }
@@ -43,6 +45,8 @@ angular.module('services')
 
             var self = {};
             self.currentUserInfo = {};
+
+            self.isFirstTimeLoad = true;
 
             self.isAuthenticated = function() {
                 return isAuthenticated;
@@ -55,13 +59,15 @@ angular.module('services')
                 promise.then(function(userInfo) {
                     self.currentUserInfo = userInfo;
                     authenticate(true);
+                }).finally(function() {
+                    self.isFirstTimeLoad = false;
                 });
 
                 return promise;
             };
 
-            self.loginUser = function() {
-                var promise = userInfoProvider.loginUser();
+            self.loginUser = function(login, password) {
+                var promise = userInfoProvider.loginUser(login, password);
 
                 promise.then(function(data) {
                     $rootScope.$emit(customEvents.general.logIn);

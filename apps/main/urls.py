@@ -26,9 +26,3 @@ urlpatterns += patterns(
     'apps.main.views.bank_api',
     url(r'^bank-api/notify$', 'notify'),
 )
-
-urlpatterns += patterns(
-    'apps.main.views.auth',
-    url(r'^auth/login$', '_login'),
-    url(r'^auth/logout$', '_logout'),
-)

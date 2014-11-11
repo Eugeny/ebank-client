@@ -7,6 +7,7 @@ angular.module('constants')
             logIn: 'user-login',
             logOut: 'user-logout',
             sessionExpired: 'user-session-expired',
-            userNotAuthenticated: 'user-not-authenticated'
+            userNotAuthenticated: 'user-not-authenticated',
+            notAnonymousUser: 'user-not-anonymous'
         }
     });

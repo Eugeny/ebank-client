@@ -4,9 +4,6 @@ from django.template import loader
 
 
 def index(request):
-    if not 'client-id' in request.session:
-        return HttpResponseRedirect('/auth/login')
-        
     return render(
         request,
         'main/index.html',

@@ -10,7 +10,7 @@
                 </span>
             </div>
 
-            <form class="login-form" role="form" name="loginForm">
+            <form class="login-form" role="form" name="loginForm" ng-submit="loginUser()">
                 <div class="input-group">
                     <div class="input-group-addon">Login</div>
                     <input type="text" class="form-control" placeholder="Login"
@@ -33,4 +33,6 @@
             </form>
         </div>
     </div>
+
+    <custom-spinner ng-show="isBusy"></custom-spinner>
 </div>
