@@ -10,10 +10,19 @@ angular.module('services')
                 },
                 getPostLogoutUserEndpoint: function() {
                     return {
-                        url: '/auth/logout',
+                        url: '/api/auth/logout',
                         method: 'POST'
                     };
                 },
+                //id, password
+                getPostLoginUserEndpoint: function(data) {
+                    return {
+                        url: '/api/auth/login',
+                        method: 'POST',
+                        data: data
+                    };
+                },
+                //client_id_to_change, old_password, new_password
                 getPostChangeUserPasswordEndpoint: function(data) {
                     return {
                         url: '/api/change-password',
@@ -27,6 +36,7 @@ angular.module('services')
                         method: 'GET'
                     };
                 },
+                //accountId, paymentId, fields (object), amount
                 getPostEripPayEndpoint: function(data) {
                     return {
                         url: '/api/erip/pay',
@@ -34,6 +44,7 @@ angular.module('services')
                         data: data
                     };
                 },
+                //accountId, recipientAccountId, amount
                 getPostPayEndpoint: function(data) {
                     return {
                         url: '/api/pay',
