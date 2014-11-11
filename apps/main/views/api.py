@@ -49,6 +49,21 @@ def api(fx):
 
 
 @api
+def auth_login(request, client_id=None, id=None, password=None):
+    if BankApi().auth(id, password):
+        request.session['client-id'] = id
+    else:
+        raise Http403()
+    return {'client_id': id}
+
+
+@api
+def auth_logout(request, client_id=None):
+    request.session.pop('client-id', None)
+    return {}
+
+
+@api
 def get_info(request, client_id=None):
     return {
         'client': BankApi().get_client(client_id),

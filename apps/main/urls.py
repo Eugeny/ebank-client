@@ -9,6 +9,8 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'apps.main.views.api',
+    url(r'^api/auth/login$', 'auth_login'),
+    url(r'^api/auth/logout$', 'auth_logout'),
     url(r'^api/change-password$', 'change_password'),
     url(r'^api/info$', 'get_info'),
     url(r'^api/currency$', 'get_currency'),

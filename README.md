@@ -21,6 +21,8 @@ API
 
 Parameters are passed in a JSON body
 
+  * ``api/auth/login`` - args: ``id, password``
+  * ``api/auth/logout`` - logs out
   * ``api/info`` - returns definitions, current user, etc
   * ``api/currency`` - returns currency definitions
   * ``api/notifications`` - returns list of notifications
