@@ -1,4 +1,5 @@
 #encoding: utf8
+import json
 import logging
 import requests
 
@@ -17,6 +18,7 @@ class BankApi(object):
 
     def request(self, url, post={}):
         logging.info('>> %s%s', self.url, url)
+        logging.info(':: %s', json.dumps(post))
         req = requests.post(self.url + url, data=post)
         logging.info('<< %s', req.text)
         try:
