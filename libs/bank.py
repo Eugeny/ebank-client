@@ -66,6 +66,7 @@ class BankApi(object):
             'recipientBank': u'Гамма Е-Банк',
             'recipientAccountId': recipientAccountId,
             'amount': amount,
+            'code': 'e',
         })
 
     def payment_report(self, accountId, dateFrom, dateTo, type):
