@@ -16,7 +16,7 @@
         function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService) {
             $rootScope.localizationService = localizationService;
 
-            $rootScope.$on(customEvents.general.userNotAuthenticated, function() {
+            $rootScope.$on(customEvents.general.sessionExpired, function() {
                 $state.go('login');
             });
 
@@ -33,11 +33,13 @@
             });
 
             $rootScope.$on(customEvents.general.logOut, function() {
-                $state.transitionTo($state.current, $stateParams, {
-                    reload: true,
-                    inherit: true,
-                    notify: true
-                });
+                if (!$state.current.abstract) {
+                    $state.transitionTo($state.current, $stateParams, {
+                        reload: true,
+                        inherit: true,
+                        notify: true
+                    });
+                }
             });
         }]);
  })(window);

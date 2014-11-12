@@ -10,8 +10,7 @@ angular.module('ebank-client')
                         function($q, $rootScope, $state, $stateParams, userInfoService, customEvents) {
                             var deferred = $q.defer();
 
-                            if (userInfoService.isFirstTimeLoad) {
-                                userInfoService.reloadUserInfo()
+                            userInfoService.reloadUserInfo()
                                     .finally(function() {
                                         if (userInfoService.isAuthenticated()) {
                                             if (!mustBeAnonymous) {
@@ -25,27 +24,10 @@ angular.module('ebank-client')
                                                 deferred.resolve(true);
                                             } else {
                                                 deferred.reject(false);
-                                                $rootScope.$emit(customEvents.general.userNotAuthenticated);
+                                                $state.go('login');
                                             }
                                         }
                                     });
-                            } else {
-                                if (userInfoService.isAuthenticated()) {
-                                    if (!mustBeAnonymous) {
-                                        deferred.resolve(true);
-                                    } else {
-                                        deferred.reject(false);
-                                        $rootScope.$emit(customEvents.general.notAnonymousUser);
-                                    }
-                                } else {
-                                    if (mustBeAnonymous) {
-                                        deferred.resolve(true);
-                                    } else {
-                                        deferred.reject(false);
-                                        $rootScope.$emit(customEvents.general.userNotAuthenticated);
-                                    }
-                                }
-                            }
 
                             return deferred.promise;
                         }];
@@ -89,6 +71,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/currency/views/currency.html',
                         controller: 'currencyCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.accounts', {
                 url: '/accounts',
@@ -97,6 +82,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/accounts/views/accounts.html',
                         controller: 'accountsCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.accounts.account', {
                 url: '/account/:id',
@@ -105,6 +93,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/accounts/account/views/account.html',
                         controller: 'accounts.accountCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.manageAccount', {
                 abstract: true,
@@ -121,6 +112,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/manage-account/change-password/views/changePassword.html',
                         controller: 'manageAccount.changePasswordCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.manageAutomaticAccountOperations', {
                 url: '/manageautomaticaccountoperations',
@@ -129,6 +123,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html',
                         controller: 'manageAutomaticAccountOperationsCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.payments', {
                 abstract: true,
@@ -145,6 +142,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/payments/money-transfer/views/moneyTransfer.html',
                         controller: 'payments.moneyTransferCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.payments.erip', {
                 url: '/erip',
@@ -153,6 +153,9 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/payments/erip/views/erip.html',
                         controller: 'payments.eripCtrl'
                     }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
                 }
             });
 

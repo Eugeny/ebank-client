@@ -22,16 +22,11 @@ angular.module('services')
                 self.reloadUserInfo();
 
                 //subscribe for auth events
-                $rootScope.$on(customEvents.general.logIn, function() {
-                    authenticate(true);
-                    self.reloadUserInfo();
-                });
-
                 $rootScope.$on(customEvents.general.userNotAuthenticated, function() {
-                    authenticate(false);
-                    setDefaultUserInfo();
-
                     if (self.isAuthenticated()) {
+                        authenticate(false);
+                        setDefaultUserInfo();
+
                         $rootScope.$emit(customEvents.general.sessionExpired);
 
                         userNotificationService.showWarning('Your ssession has expired');
@@ -70,6 +65,9 @@ angular.module('services')
                 var promise = userInfoProvider.loginUser(login, password);
 
                 promise.then(function(data) {
+                    authenticate(true);
+                    self.reloadUserInfo();
+
                     $rootScope.$emit(customEvents.general.logIn);
                 });
 
