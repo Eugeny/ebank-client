@@ -1,0 +1,3 @@
+Date,Account,Type,Info,Amount,Currency
+{% for payment in payments %}{{ payment.processedAt }},{{ payment.giverAccountId }},{{ payment.type }},{{ payment.paymentInfo.payment }},{{payment.amount}},{{currency.code}}
+{% endfor %}

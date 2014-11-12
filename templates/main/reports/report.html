@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: "Helvetica Neue", sans-serif;
+                color: #555;
+                padding: 40px;
+            }
+
+            table {
+                margin: 20px 0;
+                border-collapse: collapse;
+            }
+
+            th {
+                text-align: left;
+            }
+
+            td {
+                border-top: 1px solid #888;
+            }
+
+            th, td {
+                padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Account statement</h1>
+            <h3>{{client.firstName}} {{client.lastName}}, account #{{ account.id }}, {{currency.code}}</h3>
+        </header>
+
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>Account</th>
+                <th>Type</th>
+                <th>Info</th>
+                <th></th>
+            </tr>
+            {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.processedAt  }}</td>
+                    <td>{{ payment.giverAccountId }}</td>
+                    <td>{{ payment.type }}</td>
+                    <td>
+                        {{ payment.paymentInfo.payment }}
+                        {% if payment.paymentInfo.fields %} 
+                            {% for k,v in payment.paymentInfo.fields.items %}
+                                <div>
+                                    <strong>{{k}}</strong>: {{v}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{payment.amount}} {{currency.code}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <footer>
+            <strong>
+                Final account balance: {{account.balance}} {{currency.code}}
+            </strong>
+        </footer>
+    </body>
+</html>

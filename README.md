@@ -33,6 +33,10 @@ Parameters are passed in a JSON body
   * ``api/payment/report`` - returns report, args: ``accountId, dateFrom(opt), dateTo(opt), type(opt)=(erip|payment)``
   *  ``api/change-password`` - changes the password, args: ``client_id_to_change, old_password, new_password``
 
+Report URL
+
+``/report/<account-id>/<type>/<from>/<to>/<format>`` - type: erip/payment, from & to - timestamps, format: html/csv/pdf
+
 Bank API
 --------
 
