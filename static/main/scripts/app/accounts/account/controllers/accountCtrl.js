@@ -53,8 +53,8 @@ angular.module('ebank-client')
         }
 
         activate();
-    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account', 'currencyService',
-    function($scope, $rootScope, account, currencyService) {
+    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account', 'currencyService', 'paymentsService',
+    function($scope, $rootScope, account, currencyService, paymentsService) {
         'use strict';
 
         function activate() {
@@ -71,6 +71,8 @@ angular.module('ebank-client')
                     $scope.closeModal();
                 }
             });
+
+            $scope.getAccountReport();
         }
 
         $scope.account = account;
@@ -94,6 +96,16 @@ angular.module('ebank-client')
 
         $scope.isCurrentTab = function(tabId) {
             return $scope.currentTabId === tabId;
+        };
+
+        $scope.getAccountReport = function() {
+            paymentsService.getAccountReport($scope.account.id)
+                .then(function(reportEntries) {
+                    $scope.reportEntries = reportEntries;
+                    console.log(reportEntries);
+                }, function(error) {
+                    console.log(error);
+                });
         };
 
         activate();

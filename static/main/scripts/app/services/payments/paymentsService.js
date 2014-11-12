@@ -12,6 +12,10 @@ angular.module('services')
                 },
                 payGenericPayment: function(paymentData) {
                     return paymentsProvider.payGenericPayment(paymentData);
+                },
+                //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
+                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
+                    return paymentsProvider.getAccountReport(accountId, dateFrom, dateTo, isEripPayment);
                 }
             };
 
