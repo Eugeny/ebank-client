@@ -56,6 +56,25 @@ angular.module('ebank-client')
                 });
             }
 
+            function setAllInputsDirty(scope) {
+                _.each(scope, function(value, key) {
+                    // We skip non-form and non-inputs
+                    if (!value || value.$dirty === undefined) {
+                        return;
+                    }
+
+                    // Recursively applying same method on all forms included in the form
+                    if (value.$addControl) {
+                        return setAllInputsDirty(value);
+                    }
+
+                    // Setting inputs to $dirty, but re-applying its content in itself
+                    if (value.$setViewValue) {
+                        return value.$setViewValue(value.$viewValue);
+                    }
+                });
+            }
+
             $scope.validationRegularExpressions = validationRegularExpressions;
             $scope.isBusy = false;
             $scope.userAccounts = null;
