@@ -67,6 +67,7 @@ class BankApi(object):
             'recipientAccountId': recipientAccountId,
             'amount': amount,
             'code': 'e',
+            'recipientName': 'auto',
         })
 
     def payment_report(self, accountId, dateFrom, dateTo, type):
