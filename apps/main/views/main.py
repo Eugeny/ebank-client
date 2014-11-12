@@ -76,7 +76,7 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
     if format == 'pdf':
         html = render(
             request,
-            'main/reports/html.html',
+            'main/reports/report.html',
             context,
         ).content
 
