@@ -26,7 +26,6 @@ angular.module('ebank-client')
                         userNotificationService.showError('Login or Password are incorrect, please try again');
 
                         clearForm();
-                    }).finally(function() {
                         $scope.isBusy = false;
                     });
             };
