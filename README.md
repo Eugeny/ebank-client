@@ -30,7 +30,7 @@ Parameters are passed in a JSON body
   * ``api/erip/tree`` - fetches and returns ERIP tree from server
   * ``api/erip/pay`` - performs a payment, args: ``accountId, paymentId, fields (object), amount``
   * ``api/pay`` - performs a payment, args: ``accountId, recipientAccountId, amount``
-  * ``api/payment/report`` - returns report, args: ``accountId, dateFrom(opt), dateTo(opt), type(opt)=(erip|payment)``
+  * ``api/payment/report`` - returns report, args: ``accountId, dateFrom(opt), dateTo(opt), type(opt)=(erip|direct)``
   *  ``api/change-password`` - changes the password, args: ``client_id_to_change, old_password, new_password``
 
 Bank API

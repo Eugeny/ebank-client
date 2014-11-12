@@ -75,6 +75,12 @@
 
             <div class="account-statement-container" ng-show="isCurrentTab(tabIds.accountStatement)">
                 Account Statement Mockup Data
+
+                <ul>
+                    <li ng-repeat="reportEntry in reportEntries">
+                        {{reportEntry}}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
