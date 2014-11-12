@@ -146,4 +146,4 @@ def change_password(request, client_id=None, client_id_to_change=None, old_passw
 @api
 @require_login
 def payment_report(request, client_id=None, accountId=None, dateFrom=None, dateTo=None, type=None):
-    return BankApi().payment_report(accountId, dateFrom or 0, dateTo or str(int(time.time())), type or 'payment')
+    return BankApi().payment_report(accountId, dateFrom or 0, dateTo or str(int(time.time())), type or '')
