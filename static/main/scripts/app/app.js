@@ -3,9 +3,9 @@
 
     angular.module('ebank-client', [
         'ngAnimate',
-        'mgcrea.ngStrap',
         'ui.bootstrap',
         'ui.router',
+        'aa.formExtensions',
         'toaster',
         'directives',
         'filters',

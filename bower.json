@@ -16,13 +16,14 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular-strap": "~2.1.1",
     "ui-router": "~0.2.11",
     "angular-loading-bar": "~0.6.0",
     "font-awesome": "~4.2.0",
     "underscore": "~1.7.0",
     "angular-ui-bootstrap": "~0.11.2",
     "angular-bootstrap": "~0.11.2",
-    "AngularJS-Toaster": "~0.4.8"
+    "AngularJS-Toaster": "~0.4.8",
+    "angular-agility": "~0.8.18",
+    "bootstrap": "~3.3.0"
   }
 }
