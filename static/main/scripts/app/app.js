@@ -3,6 +3,7 @@
 
     angular.module('ebank-client', [
         'ngAnimate',
+        'ngCookies',
         'ui.bootstrap',
         'ui.router',
         'aa.formExtensions',
