@@ -28,7 +28,7 @@
                     <input class="form-control" type="number"
                         placeholder="Amount"
                         min="1"
-                        max="{{currentUserAccount.balance}}"
+                        max="{{currentUserAccount.balance | number:0}}"
                         ng-required="true"
                         ng-model="paymentAmount"
                         ng-pattern="validationRegularExpressions.integerNumberRegularExpression">
