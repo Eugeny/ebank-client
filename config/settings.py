@@ -17,12 +17,15 @@ SECRET_KEY = 'jhjhkjhkjh'
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 ROOT_URLCONF = 'config.urls'
 #WSGI_APPLICATION = 'config.wsgi.application'
+
+LOCALE_PATHS = ['locale']
 
 WPADMIN = {
     'admin': {
@@ -108,6 +111,7 @@ TIME_ZONE = 'UTC'
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'apps.main.context.context',
+    'django.core.context_processors.i18n',
     'django.core.context_processors.request',
 )
 

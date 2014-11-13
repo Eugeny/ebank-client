@@ -37,6 +37,8 @@ Report URL
 
 ``/report/<account-id>/<type>/<from>/<to>/<format>`` - type: erip/payment, from & to - timestamps, format: html/csv/pdf
 
+Localization: from ``django_language`` cookie value (en/ru/be)
+
 Bank API
 --------
 

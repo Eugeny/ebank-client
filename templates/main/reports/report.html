@@ -1,4 +1,4 @@
-<!doctype html>
+{% load i18n %}<!doctype html>
 <html>
     <head>
         <style>
@@ -54,8 +54,8 @@
         <header>
             <div>
                 <div class="pull-right">
-                    <h2>Account statement</h2>
-                    <h3>{{client.firstName}} {{client.lastName}}, account #{{ account.id }}, {{currency.code}}</h3>
+                    <h2>{% trans "Account statement" %}</h2>
+                    <h3>{{client.firstName}} {{client.lastName}}, {% trans "account" %} #{{ account.id }}, {{currency.code}}</h3>
                 </div>
 
                 <img src="data:image/png;base64,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" />
@@ -66,11 +66,11 @@
 
         <table class="table">
             <tr>
-                <th>Date</th>
-                <th>Account</th>
-                <th>Type</th>
-                <th>Info</th>
-                <th>Amount</th>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Account" %}</th>
+                <th>{% trans "Type" %}</th>
+                <th>{% trans "Info" %}</th>
+                <th>{% trans "Amount" %}</th>
             </tr>
             {% for payment in payments %}
                 <tr>
@@ -96,7 +96,7 @@
 
         <footer>
             <strong>
-                Final account balance: {{account.balance}} {{currency.code}}
+                {% trans "Final account balance:" %} {{account.balance}} {{currency.code}}
             </strong>
         </footer>
     </body>

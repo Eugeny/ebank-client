@@ -23,7 +23,12 @@ clean:
 	rm -rf public/* || true
 	rm -rf static/CACHE || true
 
+makemessages:
+	./manage.py makemessages -i '*sublime*' -i env -l en
+	./manage.py makemessages -i '*sublime*' -i env -l ru
+	./manage.py makemessages -i '*sublime*' -i env -l be
+
+compilemessages:
+	./manage.py compilemessages
+
 .PHONY: build static
-
-
-
