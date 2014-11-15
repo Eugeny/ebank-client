@@ -120,6 +120,116 @@
                         }
                     }
                 }
+
+                .account-statement-container {
+                    position: relative;
+
+                    width: 100%;
+
+                    padding: 5px 0;
+
+                    .statement-filters-container {
+                        width: 100%;
+
+                        padding: 10px;
+
+                        margin-bottom: 10px;
+
+                        border: 1px solid @primaryColor2;
+
+                        .border-radius(4px);
+
+                        .statement-filters-header-container {
+                            width: 100%;
+
+                            text-align: center;
+
+                            .statement-filters-header {
+                                width: 100%;
+
+                                padding-bottom: 5px;
+
+                                margin: 0;
+                                margin-bottom: 10px;
+
+                                font-size: 16px;
+                                line-height: 16px;
+
+                                border-bottom: 1px solid @primaryColor2;
+
+                                color: @primaryColor4;
+                            }
+                        }
+
+                        .filter-container {
+                            margin-bottom: 10px;
+
+                            width: 100%;
+
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+
+                            & .form-control {
+                                overflow: hidden;
+                                height: auto;
+                            }
+
+                            & > .input-group-addon {
+                                min-width: 100px;
+                                max-width: 100px;
+
+                                white-space: normal;
+                            }
+
+                            & > .form-control {
+                                padding: 10px;
+
+                                & > .input-group {
+                                    margin-bottom: 10px;
+
+                                    .input-group-addon {
+                                        min-width: 120px;
+                                    }
+                                }
+
+                                .selected-date-container {
+                                    margin-bottom: 0;
+                                }
+
+                                .date-time-selectors {
+                                    & > .input-group {
+                                        margin-bottom: 10px;
+
+                                        &:first-of-type {
+                                            margin-top: 10px;
+                                        }
+
+                                        &:last-of-type {
+                                            margin-bottom: 0;
+                                        }
+                                    }
+
+                                    .date-container {
+
+                                    }
+
+                                    .time-container {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .statement-controls-container {
+
+                    }
+
+                    .statement-report-container {
+
+                    }
+                }
             }
         }
     }

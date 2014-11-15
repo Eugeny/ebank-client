@@ -84,7 +84,28 @@ angular.module('ebank-client')
 
         $scope.stateTimestamp = accountInfo.timestamp;
 
+        $scope.itemsPerPage = 10;
+        $scope.currentPageNumber = 1;
+        $scope.maxPaginationSize = 5;
+
         $scope.currentTabId = null;
+
+        $scope.isBusy = false;
+
+        //statement filters
+        $scope.statementDateFrom = new Date();
+        $scope.statementDateFromFilterEnabled = false;
+
+        $scope.statementDateTo = new Date();
+        $scope.statementDateToFilterEnabled = false;
+
+        $scope.statementOperationType = 'erip';
+        $scope.statementOperationTypeFilterEnabled = false;
+
+        $scope.minDate = new Date();
+        //set a min-date for minus 100 years
+        $scope.minDate.setFullYear($scope.minDate.getFullYear() - 25);
+        $scope.maxDate = new Date();
 
         $scope.closeModal = function() {
             $scope.$dismiss();
@@ -102,10 +123,13 @@ angular.module('ebank-client')
             userAccountsService.getAccountReport($scope.account.id)
                 .then(function(reportInfo) {
                     $scope.reportEntries = reportInfo.reportEntries;
-                    console.log(reportInfo.reportEntries);
                 }, function(error) {
                     console.log(error);
                 });
+        };
+
+        $scope.getCurrentDate = function() {
+            return new Date();
         };
 
         activate();

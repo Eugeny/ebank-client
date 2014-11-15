@@ -74,13 +74,361 @@
             </div>
 
             <div class="account-statement-container" ng-show="isCurrentTab(tabIds.accountStatement)">
-                Account Statement Mockup Data
+                <div class="statement-filters-container" ng-form="statement-filters-form">
+                    <div class="statement-filters-header-container">
+                        <h4 class="statement-filters-header">
+                            Filters:
+                        </h4>
+                    </div>
 
-                <ul>
-                    <li ng-repeat="reportEntry in reportEntries">
-                        {{reportEntry}}
-                    </li>
-                </ul>
+                    <div class="filter-container date-from-filter-container input-group">
+                        <div class="input-group-addon">
+                            Date From
+                        </div>
+
+                        <div class="form-control">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Enable Filter
+                                </div>
+                                <span class="form-control">
+                                    <input type="checkbox" ng-model="statementDateFromFilterEnabled"/>
+                                </span>
+                            </div>
+
+                            <div class="input-group selected-date-container">
+                                <div class="input-group-addon">
+                                    Selected Date
+                                </div>
+
+                                <input type="text" class="form-control" readonly="readonly"
+                                    ng-model="statementDateFrom">
+                            </div>
+
+                            <div class="date-time-selectors" collapse="!statementDateFromFilterEnabled">
+                                <div class="input-group date-container">
+                                    <div class="input-group-addon">
+                                        Date
+                                    </div>
+
+                                    <datepicker ng-model="statementDateFrom"
+                                        class="form-control"
+                                        max-date="statementDateTo"
+                                        min-date="minDate"
+                                        starting-day="1"
+                                        class="well well-sm">
+                                    </datepicker>
+                                </div>
+                                <div class="input-group time-container">
+                                    <div class="input-group-addon">
+                                        Time
+                                    </div>
+                                    <timepicker class="form-control"
+                                                ng-model="statementDateFrom"
+                                                hour-step="1"
+                                                minute-step="1"
+                                                show-meridian="false"
+                                                readonly-input="true"></timepicker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-container date-from-filter-container input-group">
+                        <div class="input-group-addon">
+                            Date To
+                        </div>
+
+                        <div class="form-control">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Enable Filter
+                                </div>
+                                <span class="form-control">
+                                    <input type="checkbox" ng-model="statementDateToFilterEnabled"/>
+                                </span>
+                            </div>
+
+                            <div class="input-group selected-date-container">
+                                <div class="input-group-addon">
+                                    Selected Date
+                                </div>
+
+                                <input type="text" class="form-control" readonly="readonly"
+                                    ng-model="statementDateTo">
+                            </div>
+
+                            <div class="date-time-selectors" collapse="!statementDateToFilterEnabled">
+                                <div class="input-group date-container">
+                                    <div class="input-group-addon">
+                                        Date
+                                    </div>
+
+                                    <datepicker ng-model="statementDateTo"
+                                        class="form-control"
+                                        max-date="maxDate"
+                                        min-date="statementDateFrom"
+                                        starting-day="1"
+                                        class="well well-sm">
+                                    </datepicker>
+                                </div>
+                                <div class="input-group time-container">
+                                    <div class="input-group-addon">
+                                        Time
+                                    </div>
+                                    <timepicker class="form-control"
+                                                ng-model="statementDateTo"
+                                                hour-step="1"
+                                                minute-step="1"
+                                                show-meridian="false"
+                                                readonly-input="true"></timepicker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-container payment-type-filter-container input-group">
+                        <div class="input-group-addon">
+                            Operation Type
+                        </div>
+
+                        <div class="form-control">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    Enable Filter
+                                </div>
+                                <span class="form-control">
+                                    <input type="checkbox" ng-model="statementOperationTypeFilterEnabled"/>
+                                </span>
+                            </div>
+
+                            <div class="input-group date-container" collapse="!statementOperationTypeFilterEnabled">
+                                <div class="input-group-addon">
+                                    Operation Type
+                                </div>
+
+                                <div class="form-control">
+                                    <input type="radio" ng-model="statementOperationType" value="erip">
+                                        Erip Payment
+                                    <br/>
+                                    <input type="radio" ng-model="statementOperationType" value="direct">
+                                        Money Transfer
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="statement-controls-container">
+                    <button class="btn btn-primary show-statement-btn">
+                        Show Statement
+                    </button>
+
+                    <div class="vertical-delimiter"></div>
+
+                    <span class="download-statement-label label">
+                        Download statement in:
+                    </span>
+
+                    <a class="btn btn-link download-statement-pdf-btn"
+                        target="_blank">
+                        PDF
+                    </a>
+                    <a class="btn btn-link download-statement-csv-btn"
+                        target="_blank">
+                        CSV
+                    </a>
+                </div>
+
+                <div class="statement-report-container">
+                    <div class="statement-report-header-container">
+                        <h4 class="statement-report-header">
+                            Statement:
+                        </h4>
+                    </div>
+
+                    <div class="statement-report-list-container">
+                        <div class="statement-report-list-header">
+                            <div class="statement-operation-date-header-container col-xs-2">
+                                <span class="statement-operation-date-header">
+                                    Date
+                                </span>
+                            </div>
+                            <div class="statement-operation-type-header-container col-xs-2">
+                                <span class="statement-operation-type-header">
+                                    Operation Type
+                                </span>
+                            </div>
+                            <div class="statement-operation-info-header-container col-xs-5">
+                                <span class="statement-operation-info-header">
+                                    Operation Info
+                                </span>
+                            </div>
+                            <div class="statement-operation-operation-amount-header-container col-xs-3">
+                                <span class="statement-operation-amount-header">
+                                    Operation Amount
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="statement-report-list">
+                            <li class="statement-operation-container"
+                                    ng-repeat="reportEntry in reportEntries  | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
+                                <div class="statement-operation-date-container col-xs-2">
+                                    <span class="statement-operation-date">
+                                        {{reportEntry.processedAt | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                                    </span>
+                                </div>
+                                <div class="statement-operation-type-container col-xs-2">
+                                    <span class="statement-operation-type">
+                                        {{reportEntry.isEripPayment
+                                            ? 'Erip Payment'
+                                            : ((reportEntry.giverAccountId === $parent.account.id
+                                                ? 'Outgoing'
+                                                : 'Incoming') + ' Money Transfer')}}
+                                    </span>
+                                </div>
+                                <div class="statement-operation-info-container col-xs-5">
+                                    <div class="erip-payment-statement-operation statement-operation-info" ng-if="reportEntry.isEripPayment">
+                                        <div class="erip-payment-name-container">
+                                            <span class="label">
+                                                Payment:
+                                            </span>
+                                            <span class="erip-payment-name">
+                                                {{reportEntry.paymentInfo.payment}}
+                                            </span>
+                                        </div>
+
+                                        <div class="erip-payment-fields-container">
+                                            <span class="label">
+                                                Payment Fields:
+                                            </span>
+                                            <ul class="erip-payment-fields">
+                                                <li class="erip-payment-field-container"
+                                                    ng-repeat="(key, value) in reportEntry.paymentInfo.fields">
+                                                    <span class="label">
+                                                        {{key}}
+                                                    </span>
+                                                    <span class="field-value">
+                                                        {{value}}
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="money-transfer-statement-operation-info" ng-if="!reportEntry.isEripPayment">
+                                        <div class="outgoing-money-transfer-statement-operation-info statement-operation-info"
+                                             ng-if="reportEntry.giverAccountId === $parent.account.id">
+                                            <div class="recipient-bank-name-container"
+                                                 ng-if="reportEntry.paymentInfo
+                                                    && reportEntry.paymentInfo.recipientBank">
+                                                <span class="label">
+                                                    Recipient Bank Name:
+                                                </span>
+                                                <span class="recipient-bank-name">
+                                                    {{reportEntry.paymentInfo.recipientBank}}
+                                                </span>
+                                            </div>
+                                            <div class="recipient-name-container">
+                                                <span class="label">
+                                                    Recipient Name:
+                                                </span>
+                                                <span class="recipient-name">
+                                                    {{reportEntry.recipientFirstName}}
+                                                    {{reportEntry.recipientLastName}}
+                                                </span>
+                                            </div>
+                                            <div class="recipient-account-number-container">
+                                                <span class="label">
+                                                    Recipient Account Number:
+                                                </span>
+                                                <span class="recipient-account-number">
+                                                    {{reportEntry.recipientLastName}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="incoming-money-transfer-statement-operation-info statement-operation-info"
+                                             ng-if="reportEntry.giverAccountId !== $parent.account.id">
+                                            <div class="giver-bank-name-container"
+                                                 ng-if="reportEntry.paymentInfo
+                                                    && reportEntry.paymentInfo.giverBank">
+                                                <span class="label">
+                                                    Giver Bank Name:
+                                                </span>
+                                                <span class="giver-bank-name">
+                                                    {{reportEntry.paymentInfo.giverBank}}
+                                                </span>
+                                            </div>
+                                            <div class="giver-name-container">
+                                                <span class="label">
+                                                    Giver Name:
+                                                </span>
+                                                <span class="giver-name">
+                                                    {{reportEntry.giverFirstName}}
+                                                    {{reportEntry.giverLastName}}
+                                                </span>
+                                            </div>
+                                            <div class="giver-account-number-container">
+                                                <span class="label">
+                                                    Giver Account Number:
+                                                </span>
+                                                <span class="giver-account-number">
+                                                    {{reportEntry.giverAccountId}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="statement-operation-operation-amount-container col-xs-3">
+                                    <span class="statement-operation-amount">
+                                        {{reportEntry.amount}}
+                                        <span class="amount-currency"
+                                            title="{{currentAccountCurrency
+                                                        && currentAccountCurrency.nameLocalized[localizationService.currentLocale.code]
+                                                    ? currentAccountCurrency.nameLocalized[localizationService.currentLocale.code]
+                                                    : account.currency}}">
+
+                                            {{currentAccountCurrency
+                                                ? currentAccountCurrency.code
+                                                : account.currency}}
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="statement-report-list-pagination-container"
+                         ng-hide="reportEntries.length / itemsPerPage <= 1">
+                        <pagination class="pagination-sm"
+                            ng-model="currentPageNumber"
+                            total-items="reportEntries.length"
+                            items-per-page="itemsPerPage"
+                            max-size="maxPaginationSize"
+                            boundary-links="true"
+                            previous-text="&lsaquo;"
+                            next-text="&rsaquo;"
+                            first-text="&laquo;"
+                            last-text="&raquo;">
+                        </pagination>
+                    </div>
+
+                    <div class="statement-report-final-balance-container">
+                        Final account balance: {{account.balance}}
+                        <span class="balance-currency"
+                            title="{{currentAccountCurrency
+                                        && currentAccountCurrency.nameLocalized[localizationService.currentLocale.code]
+                                    ? currentAccountCurrency.nameLocalized[localizationService.currentLocale.code]
+                                    : account.currency}}">
+
+                            {{currentAccountCurrency
+                                ? currentAccountCurrency.code
+                                : account.currency}}
+                        </span>
+                    </div>
+                </div>
+
+                <custom-spinner ng-show="isBusy"></custom-spinner>
             </div>
         </div>
     </div>
