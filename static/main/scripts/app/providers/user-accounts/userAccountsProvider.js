@@ -10,7 +10,8 @@ angular.module('providers')
                     $http(endpointGenerationService.getGetUserInfoEndpoint())
                         .then(function(result) {
                             result.data = result.data || {};
-                            var client = result.data.client || {}
+                            var clientData = result.data.client || {}
+                            var client = clientData.response || {};
                             client.accounts = client.accounts || [];
 
                             var userAccountsArray = [];
@@ -19,7 +20,10 @@ angular.module('providers')
                                 userAccountsArray.push(account);
                             });
 
-                            deferred.resolve(userAccountsArray);
+                            deferred.resolve({
+                                accounts: userAccountsArray,
+                                timestamp: clientData.serverTime
+                            });
                         }, function(error) {
                             deferred.reject(error);
                         });
@@ -30,19 +34,63 @@ angular.module('providers')
                     var deferred = $q.defer();
 
                     self.getAccounts()
-                        .then(function(accounts) {
-                            var account = _.findWhere(accounts, {
+                        .then(function(accountsData) {
+                            var account = _.findWhere(accountsData.accounts, {
                                 id: accountId
                             });
 
                             if (account) {
-                                deferred.resolve(account);
+                                deferred.resolve({
+                                    account: account,
+                                    timestamp: accountsData.timestamp
+                                });
                             } else {
                                 deferred.reject({
                                     message: 'No account with that id found'
                                 });
                             }
                         }, function() {
+                            deferred.reject(error);
+                        });
+
+                    return deferred.promise;
+                },
+                //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
+                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
+                    var deferred = $q.defer();
+
+                    var requestObject = {
+                        accountId: accountId
+                    };
+
+                    if (dateFrom) {
+                        requestObject.dateFrom = dateFrom;
+                    }
+
+                    if (dateTo) {
+                        requestObject.dateTo = dateTo;
+                    }
+
+                    if (isEripPayment !== undefined) {
+                        requestObject.type = isEripPayment ? 'erip' : 'direct';
+                    }
+
+                    $http(endpointGenerationService.getPostPaymentReportEndpoint(requestObject))
+                        .then(function(result) {
+                            var reportInfo = result.data || {};
+                            var reportEntries = reportInfo.response || [];
+
+                            _.each(reportEntries, function(entry) {
+                                entry.isEripPayment = entry.type == 'erip';
+
+                                delete entry.type;
+                            });
+
+                            deferred.resolve({
+                                reportEntries: reportEntries,
+                                timestamp: reportInfo.serverTime
+                            });
+                        }, function(error) {
                             deferred.reject(error);
                         });
 

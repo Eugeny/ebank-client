@@ -3,14 +3,14 @@ angular.module('services')
         function($q, currencyProvider) {
             'use strict';
 
-            var currencies = null;
+            var currenciesInfo = null;
 
             var self = {
                 getCurrencyList: function() {
                     var deferred = $q.defer();
 
-                    if (currencies) {
-                        deferred.resolve(currencies);
+                    if (currenciesInfo) {
+                        deferred.resolve(currenciesInfo);
                     } else {
                         return self.updateCurrencyList();
                     }
@@ -21,9 +21,9 @@ angular.module('services')
                     var deferred = $q.defer();
 
                     currencyProvider.getCurrencyList()
-                        .then(function(currencyList) {
-                            currencies = currencyList;
-                            deferred.resolve(currencies);
+                        .then(function(currencyListData) {
+                            currenciesInfo = currencyListData || {};
+                            deferred.resolve(currenciesInfo);
                         }, function(error) {
                             deferred.reject(error);
                         });
@@ -31,30 +31,7 @@ angular.module('services')
                     return deferred.promise;
                 },
                 getCurrencyById: function(id) {
-                    var deferred = $q.defer();
-
-                    if (id === undefined) {
-                        deferred.reject({
-                            message: 'No id set'
-                        });
-                    } else {
-                        self.getCurrencyList()
-                            .then(function (currencyList) {
-                                var currency = _.findWhere(currencyList, {id: id});
-
-                                    if (currency) {
-                                        deferred.resolve(currency);
-                                    } else {
-                                        deferred.reject({
-                                            message: 'Currency not found'
-                                        });
-                                    }
-                            }, function(error) {
-                                deferred.reject(error);
-                            });
-                    }
-
-                    return deferred.promise;
+                    return currencyProvider.getCurrencyById(id);
                 }
             };
 

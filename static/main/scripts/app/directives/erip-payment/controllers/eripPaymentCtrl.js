@@ -8,8 +8,8 @@ angular.module('directives')
                 $scope.isBusy = true;
 
                 paymentsService.getEripTree()
-                    .then(function(eripTree) {
-                        $scope.eripTreeRootNode = eripTree;
+                    .then(function(eripTreeData) {
+                        $scope.eripTreeRootNode = eripTreeData.eripData || {};
                     }).finally(function() {
                         $scope.isBusy = false;
                     });

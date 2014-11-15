@@ -17,7 +17,7 @@ angular.module('ebank-client')
 
             $scope.accounts = [];
             $scope.isBusy = true;
-            $scope.stateTimestamp = new Date();
+            $scope.stateTimestamp = 0;
 
             $scope.itemsPerPage = 10;
             $scope.currentPageNumber = 1;
@@ -27,9 +27,9 @@ angular.module('ebank-client')
                 $scope.isBusy = true;
 
                 userAccountsService.getAccounts()
-                    .then(function(accounts) {
-                        $scope.stateTimestamp = new Date();
-                        $scope.accounts = accounts;
+                    .then(function(accountsData) {
+                        $scope.stateTimestamp = accountsData.timestamp;
+                        $scope.accounts = accountsData.accounts;
                     }, function(error) {
                         console.log(error);
                     }).finally(function() {

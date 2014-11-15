@@ -27,12 +27,13 @@
                     <div class="field-container">
                         <div class="field input-group">
                             <div class="input-group-addon">
-                                {{value}}
+                                {{value.name}}
                             </div>
 
                             <input class="form-control" type="text"
-                                placeholder="{{value}}"
+                                placeholder="{{value.name}}"
                                 ng-required="true"
+                                ng-pattern="value.regex"
                                 ng-model="currentPaymentFields[key]">
                         </div>
                     </div>

@@ -8,13 +8,17 @@ angular.module('providers')
                     var deferred = $q.defer();
 
                     $http(endpointGenerationService.getGetEripTreeEndpoint())
-                        .then(function(result) {
-                            var data = result.data || {};
+                        .then(function(response) {
+                            var eripInfoData = response.data || {};
+                            var eripData = eripInfoData.response || {};
 
                             //TODO: move definition to localization
-                            data.name = 'Payments';
+                            eripData.name = 'Payments';
 
-                            deferred.resolve(data);
+                            deferred.resolve({
+                                eripData: eripData,
+                                timestamp: eripInfoData.serverTime
+                            });
                         }, function(error) {
                             deferred.reject(error);
                         });
@@ -58,43 +62,6 @@ angular.module('providers')
                             deferred.reject(error.data || {
                                 message: 'An error occurred during payment payment process'
                             });
-                        });
-
-                    return deferred.promise;
-                },
-                //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
-                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
-                    var deferred = $q.defer();
-
-                    var requestObject = {
-                        accountId: accountId
-                    };
-
-                    if (dateFrom) {
-                        requestObject.dateFrom = dateFrom;
-                    }
-
-                    if (dateTo) {
-                        requestObject.dateTo = dateTo;
-                    }
-
-                    if (isEripPayment !== undefined) {
-                        requestObject.type = isEripPayment ? 'erip' : 'direct';
-                    }
-
-                    $http(endpointGenerationService.getPostPaymentReportEndpoint(requestObject))
-                        .then(function(result) {
-                            var reportEntries = result.data;
-
-                            _.each(reportEntries, function(entry) {
-                                entry.isEripPayment = entry.type == 'erip';
-
-                                delete entry.type;
-                            });
-
-                            deferred.resolve(reportEntries);
-                        }, function(error) {
-                            deferred.reject(error);
                         });
 
                     return deferred.promise;

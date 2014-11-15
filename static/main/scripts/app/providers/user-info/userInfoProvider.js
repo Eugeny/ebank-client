@@ -10,7 +10,8 @@ angular.module('providers')
                     $http(endpointGenerationService.getGetUserInfoEndpoint())
                         .then(function(result) {
                             result.data = result.data || {};
-                            var client = result.data.client || {}
+                            var clientData = result.data.client || {}
+                            var client = clientData.response || {};
 
                             var userInfo = {
                                 name: { }

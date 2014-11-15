@@ -12,8 +12,8 @@ angular.module('ebank-client')
                 updateAccountsInfo();
 
                 currencyService.getCurrencyList()
-                    .then(function(currencies) {
-                        currencyList = currencies;
+                    .then(function(currenciesInfo) {
+                        currencyList = currenciesInfo.currencies || [];
                     });
             }
 
@@ -21,8 +21,8 @@ angular.module('ebank-client')
                 $scope.isBusy = true;
 
                 userAccountsProvider.getAccounts()
-                    .then(function(accounts) {
-                        $scope.userAccounts = accounts;
+                    .then(function(accountsInfo) {
+                        $scope.userAccounts = accountsInfo.accounts || [];
 
                         if ($scope.userAccounts.length) {
                             $scope.currentUserAccount = $scope.userAccounts[0];

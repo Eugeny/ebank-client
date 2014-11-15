@@ -9,6 +9,10 @@ angular.module('services')
                 },
                 getAccount: function(accountId) {
                     return userAccountsProvider.getAccount(accountId);
+                },
+                //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
+                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
+                    return userAccountsProvider.getAccountReport(accountId, dateFrom, dateTo, isEripPayment);
                 }
             }
         }]);

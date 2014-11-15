@@ -6,7 +6,7 @@
 
         <div class="timestamp-container" ng-show="stateTimestamp != undefined">
             <span class="timestamp">
-                Currency information is actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
             </span>
         </div>
 

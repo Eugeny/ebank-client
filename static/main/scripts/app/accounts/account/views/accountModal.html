@@ -25,7 +25,7 @@
             <div class="account-general-info-container" ng-show="isCurrentTab(tabIds.generalInfo)">
                 <div class="timestamp-container">
                     <span class="timestamp">
-                        Account state is actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                        Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                     </span>
                 </div>
 

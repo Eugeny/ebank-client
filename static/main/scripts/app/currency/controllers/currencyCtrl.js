@@ -23,9 +23,9 @@ angular.module('ebank-client')
                 $scope.isBusy = true;
 
                 currencyService.updateCurrencyList()
-                    .then(function(currencies) {
-                        $scope.stateTimestamp = new Date();
-                        $scope.currencyList = currencies;
+                    .then(function(currenciesInfo) {
+                        $scope.stateTimestamp = currenciesInfo.timestamp || new Date();
+                        $scope.currencyList = currenciesInfo.currencies;
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

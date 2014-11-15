@@ -1,6 +1,6 @@
 angular.module('ebank-client')
     .controller('accounts.accountCtrl', ['$scope', '$state', '$stateParams', '$modal',
-        'userAccountsProvider',
+        'userAccountsService',
     function($scope, $state, $stateParams, $modal, userAccountsService) {
         'use strict';
 
@@ -17,8 +17,8 @@ angular.module('ebank-client')
             $scope.isBusy = true;
 
             userAccountsService.getAccount(id)
-                .then(function(account) {
-                    modal = openModal(account);
+                .then(function(accountInfo) {
+                    modal = openModal(accountInfo);
 
                     modal.result.then(
                         //cancel callback - do nothing (not used)
@@ -34,15 +34,15 @@ angular.module('ebank-client')
                 });
         }
 
-        function openModal(account) {
+        function openModal(accountInfo) {
             return $modal.open({
               templateUrl: '/static/main/scripts/app/accounts/account/views/accountModal.html',
               controller: 'accounts.account.modalCtrl',
               size: 'lg',
               windowClass: 'account-modal',
               resolve: {
-                account: function() {
-                    return account;
+                accountInfo: function() {
+                    return accountInfo;
                 }
               }
             });
@@ -53,14 +53,14 @@ angular.module('ebank-client')
         }
 
         activate();
-    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'account', 'currencyService', 'paymentsService',
-    function($scope, $rootScope, account, currencyService, paymentsService) {
+    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'accountInfo', 'currencyService', 'userAccountsService',
+    function($scope, $rootScope, accountInfo, currencyService, userAccountsService) {
         'use strict';
 
         function activate() {
             $scope.setTab($scope.tabIds.generalInfo);
 
-            currencyService.getCurrencyById(account.currency)
+            currencyService.getCurrencyById(accountInfo.account.currency)
                 .then(function(currency) {
                     $scope.currentAccountCurrency = currency;
                 });
@@ -75,14 +75,14 @@ angular.module('ebank-client')
             $scope.getAccountReport();
         }
 
-        $scope.account = account;
+        $scope.account = accountInfo.account;
 
         $scope.tabIds = {
             generalInfo: 0,
             accountStatement: 1
         };
 
-        $scope.stateTimestamp = new Date();
+        $scope.stateTimestamp = accountInfo.timestamp;
 
         $scope.currentTabId = null;
 
@@ -99,10 +99,10 @@ angular.module('ebank-client')
         };
 
         $scope.getAccountReport = function() {
-            paymentsService.getAccountReport($scope.account.id)
-                .then(function(reportEntries) {
-                    $scope.reportEntries = reportEntries;
-                    console.log(reportEntries);
+            userAccountsService.getAccountReport($scope.account.id)
+                .then(function(reportInfo) {
+                    $scope.reportEntries = reportInfo.reportEntries;
+                    console.log(reportInfo.reportEntries);
                 }, function(error) {
                     console.log(error);
                 });

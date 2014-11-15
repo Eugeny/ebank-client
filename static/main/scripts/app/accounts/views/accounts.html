@@ -9,7 +9,7 @@
 
             <div class="timestamp-container">
                 <span class="timestamp">
-                    Accounts state is actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                    Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                 </span>
             </div>
 

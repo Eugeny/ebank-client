@@ -8,8 +8,12 @@ angular.module('providers')
                     var deferred = $q.defer();
 
                     $http(endpointGenerationService.getCurrencyListEndpoint())
-                        .then(function(data) {
-                            deferred.resolve(data.data);
+                        .then(function(response) {
+                            var data = response.data || {};
+                            deferred.resolve({
+                                currencies: data.response,
+                                timestamp: data.serverTime
+                            });
                         }, function(error) {
                             deferred.reject(error);
                         });
@@ -25,7 +29,9 @@ angular.module('providers')
                         });
                     } else {
                         self.getCurrencyList()
-                            .then(function(currencies) {
+                            .then(function(response) {
+                                var currencies = response.currencies || [];
+
                                 var currency = _.findWhere(currencies, {id: id});
 
                                 if (currency) {
