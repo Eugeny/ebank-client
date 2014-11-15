@@ -32,6 +32,8 @@ Parameters are passed in a JSON body
   * ``api/pay`` - performs a payment, args: ``accountId, recipientAccountId, amount``
   * ``api/payment/report`` - returns report, args: ``accountId, dateFrom(opt), dateTo(opt), type(opt)=(erip|direct)``
   *  ``api/change-password`` - changes the password, args: ``client_id_to_change, old_password, new_password``
+  * ``api/autopayment/:accountId/:id`` - autopayment resource endpoint. Fields: ``startDate, period (week|??), data[recipientBank], data[payerName],data[code]=e, data[recipientAccountId], data[recipientName], data[amount], type (direct|erip)``
+
 
 Report URL
 

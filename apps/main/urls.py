@@ -22,7 +22,7 @@ urlpatterns += patterns(
     url(r'^api/pay$', 'pay'),
     url(r'^api/payment/report$', 'payment_report'),
     url(r'^api/autopayment/(?P<accountId>\d+)/$', 'autopayments'),
-    url(r'^api/autopayment/(?P<accountId>\d+)/(?P<id>\d+)/$', 'autopayment'),
+    url(r'^api/autopayment/(?P<accountId>\d+)/(?P<id>\d+)$', 'autopayment'),
 )
 
 urlpatterns += patterns(
