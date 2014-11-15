@@ -33,7 +33,7 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
         raise Http404()
     
     account = None
-    client = BankApi().get_client(client_id)
+    client = BankApi().get_client(client_id)['response']
     for x in client['accounts']:
         if x['id'] == int(account_id):
             account = x
@@ -42,11 +42,11 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
         raise Http404()
 
     currency = None
-    for x in BankApi().get_currency_rates():
+    for x in BankApi().get_currency_rates()['response']:
         if x['id'] == account['currency']:
             currency = x
 
-    report = BankApi().payment_report(account_id, date_from, date_to, type)
+    report = BankApi().payment_report(account_id, date_from, date_to, type)['response']
     if format != 'csv':
         for payment in report:
             payment['processedAt'] = datetime.utcfromtimestamp(payment['processedAt'])

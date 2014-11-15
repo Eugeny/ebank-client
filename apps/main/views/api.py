@@ -49,8 +49,8 @@ def api(fx):
             response = {
                 'error': e.__class__.__name__,
                 'error_reason': e.reason,
-                'message': e.response['error']['message']
-                    if e.response['error'] is not None and e.response['error']['message'] is not None
+                'message': e.response['response']['error']['message']
+                    if e.response['response']['error'] is not None and e.response['response']['error']['message'] is not None
                     else e.response,
             }
             status = 500
@@ -117,21 +117,24 @@ def get_currency(request, client_id=None):
     return BankApi().get_currency_rates()
 
 
+
+def __authorize_account(client_id, accountId):
+    client = BankApi().get_client(client_id)
+    if not any(account['id'] == int(accountId) for account in client['response']['accounts']):
+        raise Exception('Invalid accountId')
+
+
 @api
 @require_login
 def pay(request, client_id=None, accountId=None, recipientAccountId=None, amount=None):
-    client = BankApi().get_client(client_id)
-    if not any(account['id'] == accountId for account in client['accounts']):
-        raise Exception('Invalid accountId')
+    __authorize_account(client_id, accountId)
     return BankApi().pay(accountId, recipientAccountId, amount)
 
 
 @api
 @require_login
 def erip_pay(request, client_id=None, accountId=None, paymentId=None, fields={}, amount=None):
-    client = BankApi().get_client(client_id)
-    if not any(account['id'] == accountId for account in client['accounts']):
-        raise Exception('Invalid accountId')
+    __authorize_account(client_id, accountId)
     return BankApi().erip_pay(accountId, paymentId, fields, amount)
 
 
@@ -146,4 +149,27 @@ def change_password(request, client_id=None, client_id_to_change=None, old_passw
 @api
 @require_login
 def payment_report(request, client_id=None, accountId=None, dateFrom=None, dateTo=None, type=None):
+    __authorize_account(client_id, accountId)
     return BankApi().payment_report(accountId, dateFrom or 0, dateTo or str(int(time.time())), type or '')
+
+
+
+@api
+@require_login
+def autopayments(request, client_id=None, accountId=None, **params):
+    __authorize_account(client_id, accountId)
+    if request.method == 'GET':
+        return BankApi().autopayment_list(client_id, accountId)
+    if request.method == 'POST':
+        return BankApi().autopayment_create(client_id, accountId, params)
+
+
+
+@api
+@require_login
+def autopayment(request, client_id=None, accountId=None, id=None, **params):
+    __authorize_account(client_id, accountId)
+    if request.method == 'POST':
+        return BankApi().autopayment_update(client_id, accountId, id, params)
+    if request.method == 'DELETE':
+        return BankApi().autopayment_delete(client_id, accountId, id)

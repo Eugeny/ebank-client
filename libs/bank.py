@@ -25,7 +25,7 @@ class BankApi(object):
             response = req.json()
         except ValueError:
             raise BankServerError('not-json', req.text)
-        if 'error' in response:
+        if 'error' in response['response']:
             raise BankServerError('returned-error', response)
         return response
 
@@ -33,7 +33,7 @@ class BankApi(object):
         return self.request('client/auth', {
             'clientId': id,
             'password': password,
-        }).get('success', False)
+        })['response'].get('success', False)
 
     def change_password(self, id, password):
         return self.request('client/changePassword', {
@@ -76,4 +76,34 @@ class BankApi(object):
             'dateFrom': dateFrom,
             'dateTo': dateTo,
             'type': type,
+        })
+
+    def autopayment_list(self, clientId, accountId):
+        return self.request('autopayment/list', {
+            'clientId': clientId,
+            'accountId': accountId,
+        })
+
+    def autopayment_create(self, clientId, accountId, params):
+        kw = {}
+        kw.update(params)
+        kw.update({
+            'clientId': clientId,
+            'accountId': accountId,
+        })
+        return self.request('autopayment/create', kw)
+
+    def autopayment_update(self, clientId, accountId, id, params):
+        kw = {}
+        kw.update(params)
+        kw.update({
+            'clientId': clientId,
+            'accountId': accountId,
+        })
+        return self.request('autopayment/%s/update' % id, kw)
+
+    def autopayment_delete(self, clientId, accountId, id):
+        return self.request('autopayment/%s/delete' % id, {
+            'clientId': clientId,
+            'accountId': accountId,
         })
