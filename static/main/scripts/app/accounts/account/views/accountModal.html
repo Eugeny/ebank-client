@@ -77,11 +77,13 @@
                 <div class="statement-filters-container">
                     <div class="statement-filters-header-container">
                         <h4 class="statement-filters-header">
-                            <a class="glyphicon glyphicon-chevron-down"
-                                ng-class="{filtersMenuOpen: isFiltersMenuOpen}"
-                                ng-click="toggleFiltersMenu()">
+                            <a ng-click="toggleFiltersMenu()">
+                                <span class="glyphicon glyphicon-chevron-down"
+                                    ng-class="{filtersMenuOpen: isFiltersMenuOpen}">
+                                </span>
+                                Filters ({{getFiltersCount()}}):
                             </a>
-                            Filters ({{getFiltersCount()}}):
+                            
                         </h4>
                     </div>
 
@@ -418,7 +420,7 @@
                             </li>
                         </ul>
 
-                        <div class="no-operations-found-message-container">
+                        <div class="no-operations-found-message-container" ng-show="!reportEntries.length">
                             <h3 class="no-operations-found-message">
                                 No operations found for your filters :(
                             </h3>
