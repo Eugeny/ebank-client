@@ -71,8 +71,33 @@ angular.module('ebank-client')
                     $scope.closeModal();
                 }
             });
+        }
 
-            $scope.getAccountReport();
+        function getStatementOperationDateFromFilterValue() {
+            return Math.floor(($scope.statementDateFromFilterEnabled
+                ? $scope.statementDateFrom.getTime()
+                : 0) / 1000);
+        }
+
+        function getStatementOperationDateToFilterValue() {
+            return Math.floor(($scope.statementDateToFilterEnabled
+                ? $scope.statementDateTo.getTime()
+                : new Date().getTime()) / 1000);
+        }
+
+        function getStatementOperationTypeFilterValue() {
+            return $scope.statementOperationTypeFilterEnabled
+                ? $scope.statementOperationType === 'erip'
+                : null;
+        }
+
+        function getStatementDownloadLink(documentFormat) {
+            return '/report/'
+                + $scope.account.id + '/'
+                + (getStatementOperationTypeFilterValue() || '') + '/'
+                + getStatementOperationDateFromFilterValue() + '/'
+                + getStatementOperationDateToFilterValue() + '/'
+                + documentFormat;
         }
 
         $scope.account = accountInfo.account;
@@ -107,6 +132,8 @@ angular.module('ebank-client')
         $scope.minDate.setFullYear($scope.minDate.getFullYear() - 25);
         $scope.maxDate = new Date();
 
+        $scope.isFiltersMenuOpen = false;
+
         $scope.closeModal = function() {
             $scope.$dismiss();
         };
@@ -119,17 +146,40 @@ angular.module('ebank-client')
             return $scope.currentTabId === tabId;
         };
 
-        $scope.getAccountReport = function() {
-            userAccountsService.getAccountReport($scope.account.id)
-                .then(function(reportInfo) {
-                    $scope.reportEntries = reportInfo.reportEntries;
-                }, function(error) {
-                    console.log(error);
-                });
+        $scope.loadAccountReport = function() {
+            $scope.isBusy = true;
+
+            //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
+            userAccountsService.getAccountReport(
+                $scope.account.id,
+                getStatementOperationDateFromFilterValue(),
+                getStatementOperationDateToFilterValue(),
+                getStatementOperationTypeFilterValue())
+            .then(function(reportInfo) {
+                $scope.reportEntries = reportInfo.reportEntries;
+            }, function(error) {
+                console.log(error);
+            }).finally(function() {
+                $scope.isBusy = false;
+            });
         };
 
-        $scope.getCurrentDate = function() {
-            return new Date();
+        $scope.getFiltersCount = function() {
+            return ($scope.statementDateFromFilterEnabled ? 1 : 0)
+                + ($scope.statementDateToFilterEnabled ? 1 : 0)
+                + ($scope.statementOperationTypeFilterEnabled ? 1 : 0);
+        };
+
+        $scope.toggleFiltersMenu = function() {
+            $scope.isFiltersMenuOpen = !$scope.isFiltersMenuOpen;
+        };
+
+        $scope.getPdfStatementDownloadLink = function() {
+            return getStatementDownloadLink('pdf')
+        };
+
+        $scope.getCsvStatementDownloadLink = function() {
+            return getStatementDownloadLink('csv')
         };
 
         activate();

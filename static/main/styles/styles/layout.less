@@ -1,4 +1,5 @@
-a {
+a,
+a.btn {
     .transition(color ease .25s);
 
     color: @linksColor;
@@ -8,6 +9,12 @@ a {
     &:hover {
         color: @linksHoverColor;
         text-decoration: none;
+    }
+}
+
+a.btn {
+    &.disabled {
+        color: @invalidColor;
     }
 }
 
@@ -34,8 +41,7 @@ form,
     }
 
     &.ng-invalid.ng-dirty {
-        input,
-        textarea {
+        .form-control {
             &.ng-invalid.ng-dirty:not(:focus) {
                 border-color: @invalidColor;
                 .box-shadow(0 0 8px @invalidColor;);

@@ -71,7 +71,7 @@ angular.module('providers')
                         requestObject.dateTo = dateTo;
                     }
 
-                    if (isEripPayment !== undefined) {
+                    if (isEripPayment != null) {
                         requestObject.type = isEripPayment ? 'erip' : 'direct';
                     }
 

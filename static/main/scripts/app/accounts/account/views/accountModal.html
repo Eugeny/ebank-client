@@ -74,174 +74,195 @@
             </div>
 
             <div class="account-statement-container" ng-show="isCurrentTab(tabIds.accountStatement)">
-                <div class="statement-filters-container" ng-form="statement-filters-form">
+                <div class="statement-filters-container">
                     <div class="statement-filters-header-container">
                         <h4 class="statement-filters-header">
-                            Filters:
+                            <a class="glyphicon glyphicon-chevron-down"
+                                ng-class="{filtersMenuOpen: isFiltersMenuOpen}"
+                                ng-click="toggleFiltersMenu()">
+                            </a>
+                            Filters ({{getFiltersCount()}}):
                         </h4>
                     </div>
 
-                    <div class="filter-container date-from-filter-container input-group">
-                        <div class="input-group-addon">
-                            Date From
-                        </div>
-
-                        <div class="form-control">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    Enable Filter
-                                </div>
-                                <span class="form-control">
-                                    <input type="checkbox" ng-model="statementDateFromFilterEnabled"/>
-                                </span>
+                    <div collapse="!isFiltersMenuOpen" class="filters-container" ng-form="statementFiltersForm">
+                        <div class="filter-container date-from-filter-container input-group">
+                            <div class="input-group-addon">
+                                Date From
                             </div>
 
-                            <div class="input-group selected-date-container">
-                                <div class="input-group-addon">
-                                    Selected Date
-                                </div>
-
-                                <input type="text" class="form-control" readonly="readonly"
-                                    ng-model="statementDateFrom">
-                            </div>
-
-                            <div class="date-time-selectors" collapse="!statementDateFromFilterEnabled">
-                                <div class="input-group date-container">
+                            <div class="form-control">
+                                <div class="input-group">
                                     <div class="input-group-addon">
-                                        Date
+                                        Enable Filter
                                     </div>
-
-                                    <datepicker ng-model="statementDateFrom"
-                                        class="form-control"
-                                        max-date="statementDateTo"
-                                        min-date="minDate"
-                                        starting-day="1"
-                                        class="well well-sm">
-                                    </datepicker>
+                                    <span class="form-control">
+                                        <input type="checkbox" ng-model="statementDateFromFilterEnabled"/>
+                                    </span>
                                 </div>
-                                <div class="input-group time-container">
+
+                                <div class="date-time-selectors" collapse="!statementDateFromFilterEnabled">
+                                    <div class="input-group selected-date-container">
+                                        <div class="input-group-addon">
+                                            Selected Date
+                                        </div>
+
+                                        <span class="form-control">
+                                            {{statementDateFrom | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                                        </span>
+                                    </div>
+                                    <div class="input-group date-container">
+                                        <div class="input-group-addon">
+                                            Date
+                                        </div>
+
+                                        <datepicker ng-model="statementDateFrom"
+                                            class="form-control"
+                                            max-date="((statementDateFromFilterEnabled && statementDateToFilterEnabled)
+                                                ? statementDateTo
+                                                : maxDate)"
+                                            min-date="minDate"
+                                            starting-day="1"
+                                            class="well well-sm">
+                                        </datepicker>
+                                    </div>
+                                    <div class="input-group time-container">
+                                        <div class="input-group-addon">
+                                            Time
+                                        </div>
+                                        <timepicker class="form-control"
+                                                    ng-model="statementDateFrom"
+                                                    hour-step="1"
+                                                    minute-step="1"
+                                                    show-meridian="false"
+                                                    readonly-input="true"></timepicker>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-container date-from-filter-container input-group">
+                            <div class="input-group-addon">
+                                Date To
+                            </div>
+
+                            <div class="form-control">
+                                <div class="input-group">
                                     <div class="input-group-addon">
-                                        Time
+                                        Enable Filter
                                     </div>
-                                    <timepicker class="form-control"
-                                                ng-model="statementDateFrom"
-                                                hour-step="1"
-                                                minute-step="1"
-                                                show-meridian="false"
-                                                readonly-input="true"></timepicker>
+                                    <span class="form-control">
+                                        <input type="checkbox" ng-model="statementDateToFilterEnabled"/>
+                                    </span>
+                                </div>
+
+                                <div class="date-time-selectors" collapse="!statementDateToFilterEnabled">
+                                    <div class="input-group selected-date-container">
+                                        <div class="input-group-addon">
+                                            Selected Date
+                                        </div>
+
+                                        <span class="form-control">
+                                            {{statementDateTo | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                                        </span>
+                                    </div>
+                                    <div class="input-group date-container">
+                                        <div class="input-group-addon">
+                                            Date
+                                        </div>
+
+                                        <datepicker ng-model="statementDateTo"
+                                            class="form-control"
+                                            max-date="maxDate"
+                                            min-date="((statementDateFromFilterEnabled && statementDateToFilterEnabled)
+                                                ? statementDateFrom
+                                                : minDate)"
+                                            starting-day="1"
+                                            class="well well-sm">
+                                        </datepicker>
+                                    </div>
+                                    <div class="input-group time-container">
+                                        <div class="input-group-addon">
+                                            Time
+                                        </div>
+                                        <timepicker class="form-control"
+                                                    ng-model="statementDateTo"
+                                                    hour-step="1"
+                                                    minute-step="1"
+                                                    show-meridian="false"
+                                                    readonly-input="true"></timepicker>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="filter-container date-from-filter-container input-group">
-                        <div class="input-group-addon">
-                            Date To
-                        </div>
-
-                        <div class="form-control">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    Enable Filter
-                                </div>
-                                <span class="form-control">
-                                    <input type="checkbox" ng-model="statementDateToFilterEnabled"/>
-                                </span>
+                        <div class="filter-container payment-type-filter-container input-group">
+                            <div class="input-group-addon">
+                                Operation Type
                             </div>
 
-                            <div class="input-group selected-date-container">
-                                <div class="input-group-addon">
-                                    Selected Date
-                                </div>
-
-                                <input type="text" class="form-control" readonly="readonly"
-                                    ng-model="statementDateTo">
-                            </div>
-
-                            <div class="date-time-selectors" collapse="!statementDateToFilterEnabled">
-                                <div class="input-group date-container">
+                            <div class="form-control">
+                                <div class="input-group">
                                     <div class="input-group-addon">
-                                        Date
+                                        Enable Filter
                                     </div>
-
-                                    <datepicker ng-model="statementDateTo"
-                                        class="form-control"
-                                        max-date="maxDate"
-                                        min-date="statementDateFrom"
-                                        starting-day="1"
-                                        class="well well-sm">
-                                    </datepicker>
+                                    <span class="form-control">
+                                        <input type="checkbox" ng-model="statementOperationTypeFilterEnabled"/>
+                                    </span>
                                 </div>
-                                <div class="input-group time-container">
-                                    <div class="input-group-addon">
-                                        Time
+
+                                <div class="operation-type-select" collapse="!statementOperationTypeFilterEnabled">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            Operation Type
+                                        </div>
+
+                                        <div class="form-control">
+                                            <input type="radio" ng-model="statementOperationType" value="erip">
+                                            Erip Payment
+                                            <br />
+                                            <input type="radio" ng-model="statementOperationType" value="direct">
+                                            Money Transfer
+                                            <br />
+                                        </div>
                                     </div>
-                                    <timepicker class="form-control"
-                                                ng-model="statementDateTo"
-                                                hour-step="1"
-                                                minute-step="1"
-                                                show-meridian="false"
-                                                readonly-input="true"></timepicker>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="filter-container payment-type-filter-container input-group">
-                        <div class="input-group-addon">
-                            Operation Type
-                        </div>
-
-                        <div class="form-control">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    Enable Filter
-                                </div>
-                                <span class="form-control">
-                                    <input type="checkbox" ng-model="statementOperationTypeFilterEnabled"/>
-                                </span>
-                            </div>
-
-                            <div class="input-group date-container" collapse="!statementOperationTypeFilterEnabled">
-                                <div class="input-group-addon">
-                                    Operation Type
-                                </div>
-
-                                <div class="form-control">
-                                    <input type="radio" ng-model="statementOperationType" value="erip">
-                                        Erip Payment
-                                    <br/>
-                                    <input type="radio" ng-model="statementOperationType" value="direct">
-                                        Money Transfer
-                                    <br/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="statement-controls-container">
-                    <button class="btn btn-primary show-statement-btn">
-                        Show Statement
-                    </button>
+                <div class="statement-controls-container controls-container row-fluid">
+                    <div class="show-statement-btn-container col-xs-6">
+                        <button class="btn btn-success show-statement-btn"
+                                ng-class="{disabled: !statementFiltersForm.$valid}"
+                                ng-click="loadAccountReport()">
+                            Show Statement
+                        </button>
+                    </div>
 
-                    <div class="vertical-delimiter"></div>
-
-                    <span class="download-statement-label label">
+                    <span class="download-statement-label col-xs-4">
                         Download statement in:
                     </span>
 
-                    <a class="btn btn-link download-statement-pdf-btn"
+                    <a class="btn btn-link download-statement-pdf-link col-xs-1"
+                        download="statement.pdf"
+                        ng-class="{disabled: !statementFiltersForm.$valid}"
+                        ng-href="{{getPdfStatementDownloadLink()}}"
                         target="_blank">
                         PDF
                     </a>
-                    <a class="btn btn-link download-statement-csv-btn"
+
+                    <a class="btn btn-link download-statement-csv-link col-xs-1"
+                        download="statement.csv"
+                        ng-class="{disabled: !statementFiltersForm.$valid}"
+                        ng-href="{{getCsvStatementDownloadLink()}}"
                         target="_blank">
                         CSV
                     </a>
                 </div>
 
-                <div class="statement-report-container">
+                <div class="statement-report-container" ng-show="reportEntries !== undefined">
                     <div class="statement-report-header-container">
                         <h4 class="statement-report-header">
                             Statement:
@@ -276,7 +297,7 @@
                                     ng-repeat="reportEntry in reportEntries  | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
                                 <div class="statement-operation-date-container col-xs-2">
                                     <span class="statement-operation-date">
-                                        {{reportEntry.processedAt | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                                        {{reportEntry.processedAt | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                                     </span>
                                 </div>
                                 <div class="statement-operation-type-container col-xs-2">
@@ -396,6 +417,12 @@
                                 </div>
                             </li>
                         </ul>
+
+                        <div class="no-operations-found-message-container">
+                            <h3 class="no-operations-found-message">
+                                No operations found for your filters :(
+                            </h3>
+                        </div>
                     </div>
 
                     <div class="statement-report-list-pagination-container"

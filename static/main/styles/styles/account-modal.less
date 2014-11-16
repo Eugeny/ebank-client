@@ -147,75 +147,139 @@
                             .statement-filters-header {
                                 width: 100%;
 
-                                padding-bottom: 5px;
-
                                 margin: 0;
-                                margin-bottom: 10px;
 
                                 font-size: 16px;
                                 line-height: 16px;
 
-                                border-bottom: 1px solid @primaryColor2;
-
                                 color: @primaryColor4;
+
+                                a {
+                                    .transition(all .25s ease);
+
+                                    &.filtersMenuOpen {
+                                        .rotate(180deg);
+                                    }
+                                }
                             }
                         }
 
-                        .filter-container {
-                            margin-bottom: 10px;
+                        .filters-container {
+                            margin-top: 5px;
+                            padding-top: 10px;
 
-                            width: 100%;
+                            border-top: 1px solid @primaryColor2;
 
-                            &:last-of-type {
-                                margin-bottom: 0;
-                            }
+                            .filter-container {
+                                margin-bottom: 10px;
 
-                            & .form-control {
-                                overflow: hidden;
-                                height: auto;
-                            }
+                                width: 100%;
 
-                            & > .input-group-addon {
-                                min-width: 100px;
-                                max-width: 100px;
-
-                                white-space: normal;
-                            }
-
-                            & > .form-control {
-                                padding: 10px;
-
-                                & > .input-group {
-                                    margin-bottom: 10px;
-
-                                    .input-group-addon {
-                                        min-width: 120px;
-                                    }
-                                }
-
-                                .selected-date-container {
+                                &:last-of-type {
                                     margin-bottom: 0;
                                 }
 
-                                .date-time-selectors {
+                                & .form-control {
+                                    overflow: hidden;
+                                    height: auto;
+                                }
+
+                                & > .input-group-addon {
+                                    min-width: 100px;
+                                    max-width: 100px;
+
+                                    white-space: normal;
+                                }
+
+                                & > .form-control {
+                                    padding: 10px;
+
                                     & > .input-group {
-                                        margin-bottom: 10px;
-
-                                        &:first-of-type {
-                                            margin-top: 10px;
-                                        }
-
-                                        &:last-of-type {
-                                            margin-bottom: 0;
+                                        .input-group-addon {
+                                            min-width: 120px;
                                         }
                                     }
 
-                                    .date-container {
+                                    .selected-date-container {
+                                        margin-bottom: 0;
 
+                                        .form-control {
+                                            white-space: normal;
+                                        }
                                     }
 
-                                    .time-container {
-                                        
+                                    .date-time-selectors {
+                                        & > .input-group {
+                                            margin-bottom: 10px;
+
+                                            &:first-of-type {
+                                                margin-top: 10px;
+                                            }
+
+                                            &:last-of-type {
+                                                margin-bottom: 0;
+                                            }
+                                        }
+
+                                        .date-container {
+                                            .form-control {
+                                                padding: 10px;
+
+                                                text-align: center;
+
+                                                table {
+                                                    display: inline-block;
+
+                                                    .text-info {
+                                                        color: @validColor;
+                                                    }
+
+                                                    .btn:focus {
+                                                        outline: none;
+                                                    }
+
+                                                    .btn-info {
+                                                        background-color: @primaryColor3;
+                                                        border-color: @primaryColor4;
+
+                                                        .text-info {
+                                                            color: @primaryColor6;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .time-container {
+                                            .form-control {
+                                                text-align: center;
+
+                                                padding: 0 10px;
+
+                                                tbody {
+                                                    display: inline-block;
+
+                                                    .btn-link {
+                                                        color: @primaryColor3;
+
+                                                        &:hover {
+                                                            color: @primaryColor4;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.payment-type-filter-container {
+                                    & > .form-control {
+                                        .operation-type-select {
+                                            .input-group {
+                                                margin: 0;
+                                                margin-top: 10px;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -223,11 +287,39 @@
                     }
 
                     .statement-controls-container {
+                        width: 100%;
 
+                        overflow: hidden;
+
+                        .show-statement-btn-container {
+                            text-align: center;
+
+                            border-right: 1px solid @primaryColor2;
+                        }
+
+                        .download-statement-label {
+                            text-align: right;
+
+                            line-height: 34px;
+
+                            color: @primaryColor4;
+                        }
+
+                        .download-statement-pdf-link,
+                        .download-statement-csv-link {
+                            padding-left: 0;
+
+                            text-align: left;
+                        }
                     }
 
                     .statement-report-container {
+                        padding-top: 10px;
+                        margin-top: 10px;
 
+                        border-top: 1px solid @primaryColor2;
+
+                        
                     }
                 }
             }

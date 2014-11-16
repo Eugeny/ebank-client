@@ -1,21 +1,35 @@
 angular.module('services')
-    .factory('localizationService', ['$q',
-        function($q) {
+    .factory('localizationService', ['$q', '$window', '$cookies',
+        function($q, $window, $cookies) {
             'use strict';
 
             function activate() {
-                //TODO: load locale from user settings
                 self.getSupportedLocales()
                     .then(function(locales) {
-                        self.setCurrentLocale(locales[0])
-                            .then(function(result) {
-                                //congratulations, default locale is set
-                            }, function(error) {
-                                //TODO: handle error and notify user
-                            });
+                        var loadedLocaleCode = getStoredLocaleCode() || locales[0].code;
+
+                        var loadedLocale = _.findWhere(locales, {code: loadedLocaleCode}) || locales[0];
+
+                        self.setCurrentLocale(loadedLocale)
+                            .then(function(result) {}, //congratulations, default locale is set
+                                function(error) {
+                                    //TODO: handle error and notify user
+                                });
                     }, function(error) {
                         //TODO: handle error and notify user
                     });
+            }
+
+            function getStoredLocaleCode() {
+                return $window.localStorage.getItem('saved_locale_code');
+            }
+
+            function setStoredLocaleCode(localeCode) {
+                $window.localStorage.setItem('saved_locale_code', localeCode);
+            }
+
+            function setLocaleCookie(localeCode) {
+                $cookies.django_language = localeCode;
             }
 
             //TODO: replace with retviewing data from the server
@@ -84,6 +98,12 @@ angular.module('services')
                     .then(function(locales) {
                         if (locales.indexOf(locale) != -1) {
                             self.currentLocale = locale;
+
+                            //store locale in local storage
+                            setStoredLocaleCode(self.currentLocale.code);
+
+                            //set locale cookie
+                            setLocaleCookie(self.currentLocale.code);
 
                             self.getLocalizationDataForLocale(locale)
                                 .then(function(localizationData) {
