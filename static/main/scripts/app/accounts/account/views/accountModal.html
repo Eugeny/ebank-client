@@ -265,12 +265,6 @@
                 </div>
 
                 <div class="statement-report-container" ng-show="reportEntries !== undefined">
-                    <div class="statement-report-header-container">
-                        <h4 class="statement-report-header">
-                            Statement:
-                        </h4>
-                    </div>
-
                     <div class="statement-report-list-container">
                         <div class="statement-report-list-header">
                             <div class="statement-operation-date-header-container col-xs-2">
@@ -324,13 +318,13 @@
 
                                         <div class="erip-payment-fields-container">
                                             <span class="label">
-                                                Payment Fields:
+                                                Payment Fields
                                             </span>
                                             <ul class="erip-payment-fields">
                                                 <li class="erip-payment-field-container"
                                                     ng-repeat="(key, value) in reportEntry.paymentInfo.fields">
                                                     <span class="label">
-                                                        {{key}}
+                                                        {{key}}:
                                                     </span>
                                                     <span class="field-value">
                                                         {{value}}

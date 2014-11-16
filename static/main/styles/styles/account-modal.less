@@ -314,12 +314,190 @@
                     }
 
                     .statement-report-container {
-                        padding-top: 10px;
+                        padding-top: 5px;
                         margin-top: 10px;
 
                         border-top: 1px solid @primaryColor2;
 
-                        
+                        .statement-report-list-container {
+                            .statement-report-list-header {
+                                width: 100%;
+                                overflow: hidden;
+
+                                padding-bottom: 5px;
+
+                                border-bottom: 1px solid @primaryColor2;
+
+                                .statement-operation-date-header-container,
+                                .statement-operation-type-header-container,
+                                .statement-operation-info-header-container,
+                                .statement-operation-operation-amount-header-container {
+                                    color: @primaryColor4;
+                                }
+                            }
+
+                            ul {
+                                width: 100%;
+                                overflow: hidden;
+
+                                margin: 0;
+
+                                padding: 0;
+
+                                list-style: none;
+                            }
+
+                            .statement-report-list {
+                                .statement-operation-container {
+                                    overflow: hidden;
+
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+
+                                    border-bottom: 1px solid @primaryColor2;
+
+                                    &:last-of-type {
+                                        border-bottom: none;
+                                    }
+
+                                    &:hover {
+                                        background-color: @primaryColor1;
+                                    }
+
+                                    .statement-operation-date-container {
+                                        .statement-operation-date {
+                                            color: @primaryColor6;
+                                        }
+                                    }
+
+                                    .statement-operation-type-container {
+                                        .statement-operation-type {
+                                            color: @primaryColor6;
+                                        }
+                                    }
+
+                                    .statement-operation-info-container {
+                                        .statement-operation-info {
+                                            .label {
+                                                padding: 0;
+
+                                                word-wrap: break-work;
+                                                white-space: normal;
+
+                                                font-size: 14px;
+                                                font-weight: bold;
+
+                                                color: @primaryColor4;
+                                            }
+                                        }
+
+                                        .erip-payment-statement-operation {
+                                            .erip-payment-name-container {
+                                                width: 100%;
+
+                                                .erip-payment-name {
+                                                    word-wrap: break-work;
+                                                    white-space: normal;
+                                                }
+                                            }
+
+                                            .erip-payment-fields-container {
+                                                width: 100%;
+
+                                                & > .label {
+                                                    display: inline-block;
+                                                    width: 100%;
+                                                }
+
+                                                .erip-payment-fields {
+                                                    .erip-payment-field-container {
+                                                        width: 100%;
+
+                                                        padding-top: 2px;
+                                                        margin-top: 2px;
+
+                                                        border-top: 1px solid @primaryColor2;
+
+                                                        .field-value {
+                                                            word-wrap: break-work;
+                                                            white-space: normal;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .money-transfer-statement-operation-info {
+                                            .outgoing-money-transfer-statement-operation-info {
+                                                .recipient-bank-name-container .recipient-bank-name,
+                                                .recipient-name-container .recipient-name,
+                                                .recipient-account-number-container .recipient-account-number {
+                                                    word-wrap: break-work;
+                                                    white-space: normal;
+                                                }
+                                            }
+
+                                            .incoming-money-transfer-statement-operation-info {
+                                                .giver-bank-name-container .giver-bank-name,
+                                                .giver-name-container .giver-name,
+                                                .giver-account-number-container .giver-account-number {
+                                                    word-wrap: break-work;
+                                                    white-space: normal;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .statement-operation-operation-amount-container {
+                                        .statement-operation-amount {
+                                            color: @primaryColor6;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .no-operations-found-message-container {
+                                width: 100%;
+
+                                text-align: center;
+
+                                .no-operations-found-message {
+                                    margin-top: 0;
+
+                                    font-size: 18px;
+                                    line-height: 18px;
+
+                                    color: @primaryColor3;
+                                }
+                            }
+                        }
+
+                        .statement-report-list-pagination-container {
+                            width: 100%;
+
+                            overflow: hidden;
+
+                            text-align: center;
+                        }
+
+                        .statement-report-final-balance-container {
+                            width: 100%;
+
+                            padding-top: 10px;
+                            margin-top: 5px;
+
+                            text-align: center;
+
+                            white-space: normal;
+                            word-wrap: break-word;
+
+                            border-top: 1px solid @primaryColor2;
+
+                            font-size: 14px;
+                            line-height: 14px;
+
+                            color: @primaryColor4;
+                        }
                     }
                 }
             }

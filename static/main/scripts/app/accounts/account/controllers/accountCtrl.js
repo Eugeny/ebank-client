@@ -157,6 +157,7 @@ angular.module('ebank-client')
                 getStatementOperationTypeFilterValue())
             .then(function(reportInfo) {
                 $scope.reportEntries = reportInfo.reportEntries;
+                $scope.currentPageNumber = 1;
             }, function(error) {
                 console.log(error);
             }).finally(function() {
