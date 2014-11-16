@@ -49,7 +49,7 @@ angular.module('providers')
                                     message: 'No account with that id found'
                                 });
                             }
-                        }, function() {
+                        }, function(error) {
                             deferred.reject(error);
                         });
 
