@@ -68,7 +68,6 @@
         <table class="table">
             <tr>
                 <th>{% trans "Date" %}</th>
-                <th>{% trans "Account" %}</th>
                 <th>{% trans "Type" %}</th>
                 <th>{% trans "Info" %}</th>
                 <th>{% trans "Amount" %}</th>
@@ -76,16 +75,54 @@
             {% for payment in payments %}
                 <tr>
                     <td>{{ payment.processedAt  }}</td>
-                    <td>{{ payment.giverAccountId }}</td>
-                    <td>{{ payment.type }}</td>
                     <td>
-                        {{ payment.paymentInfo.payment }}
+                        {% if payment.type == 'erip' %}
+                            ERIP
+                        {% else %}
+                            {% if payment.giverAccountId != account.id %}
+                                Incoming
+                            {% else %}
+                                Outgoing
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if payment.paymentInfo.payment %}
+                            <div>
+                                <strong>{% trans "Payment" %}</strong>: {{payment.paymentInfo.payment}}
+                            </div>
+                        {% endif %}
                         {% if payment.paymentInfo.fields %} 
                             {% for k,v in payment.paymentInfo.fields.items %}
                                 <div>
                                     <strong>{{k}}</strong>: {{v}}
                                 </div>
                             {% endfor %}
+                        {% endif %}
+                        {% if payment.paymentInfo.recipientBank %}
+                            <div>
+                                <strong>{% trans "Recipient bank" %}</strong>: {{payment.paymentInfo.recipientBank}}
+                            </div>
+                        {% endif %}
+                        {% if payment.recipientLastName %}
+                            <div>
+                                <strong>{% trans "Recipient name" %}</strong>: {{payment.recipientFirstName}} {{payment.recipientLastName}}
+                            </div>
+                        {% endif %}
+                        {% if payment.giverBank %}
+                            <div>
+                                <strong>{% trans "Payer's bank" %}</strong>: {{payment.giverBank}}
+                            </div>
+                        {% endif %}
+                        {% if payment.giverLastName %}
+                            <div>
+                                <strong>{% trans "Payer" %}</strong>: {{payment.giverFirstName}} {{payment.giverLastName}}
+                            </div>
+                        {% endif %}
+                        {% if payment.giverAccountId %}
+                            <div>
+                                <strong>{% trans "Payer's account ID" %}</strong>: {{payment.giverAccountId}}
+                            </div>
                         {% endif %}
                     </td>
                     <td>

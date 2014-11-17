@@ -343,7 +343,7 @@
                                                     Recipient Bank Name:
                                                 </span>
                                                 <span class="recipient-bank-name">
-                                                    {{reportEntry.paymentInfo.recipientBank}}
+                                                    {{reportEntry.paymentInfo.recipientBanku}}
                                                 </span>
                                             </div>
                                             <div class="recipient-name-container">
@@ -360,7 +360,7 @@
                                                     Recipient Account Number:
                                                 </span>
                                                 <span class="recipient-account-number">
-                                                    {{reportEntry.recipientLastName}}
+                                                    {{reportEntry.recipientAccountId}}
                                                 </span>
                                             </div>
                                         </div>
@@ -370,7 +370,7 @@
                                                  ng-if="reportEntry.paymentInfo
                                                     && reportEntry.paymentInfo.giverBank">
                                                 <span class="label">
-                                                    Giver Bank Name:
+                                                    Payer's Bank Name:
                                                 </span>
                                                 <span class="giver-bank-name">
                                                     {{reportEntry.paymentInfo.giverBank}}
@@ -378,7 +378,7 @@
                                             </div>
                                             <div class="giver-name-container">
                                                 <span class="label">
-                                                    Giver Name:
+                                                    Payer:
                                                 </span>
                                                 <span class="giver-name">
                                                     {{reportEntry.giverFirstName}}
@@ -387,7 +387,7 @@
                                             </div>
                                             <div class="giver-account-number-container">
                                                 <span class="label">
-                                                    Giver Account Number:
+                                                    Payer's Account Number:
                                                 </span>
                                                 <span class="giver-account-number">
                                                     {{reportEntry.giverAccountId}}
