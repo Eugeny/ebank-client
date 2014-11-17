@@ -3,9 +3,11 @@
 
 @creditCardNumberMarginTop: @creditCardWidth * 0.21;
 
-@creditCardUserInfoColor: @primaryColor6;
+@creditCardUserInfoColor: #444;
 @creditCardBackgroundColor: @primaryColor1;
+@creditCardBackgroundImage: url('/static/main/images/card.png');
 @creditCardBorderColor: @primaryColor2;
+@creditCardTextBevel: 0 -1px 1px rgba(255,255,255,.5), 0 1px 1px rgba(0,0,0,.5), 0 0 5px white;
 
 credit-card {
     .card {
@@ -15,6 +17,7 @@ credit-card {
         height: @creditCardHeight;
 
         background-color: @creditCardBackgroundColor;
+        background-image: @creditCardBackgroundImage;
         border: 1px solid @creditCardBorderColor;
 
         .border-radius(@creditCardWidth/30);
@@ -28,7 +31,7 @@ credit-card {
                 font-size: @creditCardWidth/12;
                 line-height: @creditCardWidth/12;
 
-                color: @primaryColor4;
+                color: @primaryColor1;
             }
         }
 
@@ -50,6 +53,7 @@ credit-card {
                 line-height: @creditCardWidth/14;
 
                 color: @creditCardUserInfoColor;
+                text-shadow: @creditCardTextBevel;
 
                 .card-number-token {
                     display: inline-block;
@@ -74,6 +78,7 @@ credit-card {
                 line-height: @creditCardWidth/20;
 
                 color: @creditCardUserInfoColor;
+                text-shadow: @creditCardTextBevel;
 
                 .month-container,
                 .separator-container,
@@ -96,6 +101,7 @@ credit-card {
             text-align: left;
 
             color: @creditCardUserInfoColor;
+            text-shadow: @creditCardTextBevel;
 
             .card-holder-firstname-container,
             .card-holder-lastname-container {
