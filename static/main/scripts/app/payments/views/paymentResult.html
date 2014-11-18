@@ -37,8 +37,8 @@
                 ng-if="paymentResult.payment.paymentFields != null"
                 ng-repeat="(key, value) in paymentResult.payment.paymentFields">
                 <div class="input-group-addon">
-                    {{$parent.paymentResult.paymentSpecificFieldNames != null
-                        ? $parent.paymentResult.paymentSpecificFieldNames[key]
+                    {{$parent.paymentResult.paymentSpecificFieldDefinitions != null
+                        ? $parent.paymentResult.paymentSpecificFieldDefinitions[key].name
                         : key}}
                 </div>
                 <input class="form-control" type="text" readonly="readonly" 
