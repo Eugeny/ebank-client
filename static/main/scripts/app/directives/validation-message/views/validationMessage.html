@@ -1,0 +1,12 @@
+<div class="validation-messages-list-container" ng-hide="isValid()">
+    <ul class="validation-messages-list">
+        <li class="validation-message"
+            ng-repeat="validationExpression in validationExpressions"
+            ng-hide="validationExpression.isValid">
+
+            <div class="validation-message-text">
+                {{validationExpression.validationMessageText}}
+            </div>
+        </li>
+    </ul>
+</div>

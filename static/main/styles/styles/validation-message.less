@@ -1,0 +1,36 @@
+validation-message {
+    display: table;
+    width: 100%;
+
+    .validation-messages-list-container {
+        width: 100%;
+
+        background-color: @invalidColor;
+
+        border: 1px solid @invalidColor;
+        .border-radius(0 0 4px 0);
+
+        .box-shadow(0 0 8px @invalidColor;);
+
+        .validation-messages-list {
+            width: 100%;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+
+            .validation-message {
+                padding: 6px;
+
+                .validation-message-text {
+                    display: inline;
+                    word-wrap: break-word;
+                    white-space: normal;
+
+                    color: white;
+                }
+            }
+        }
+    }
+}
