@@ -43,7 +43,7 @@
                                 {
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.pattern),
-                                    validationMessageText: value.errorMessage[localizationService.currentLocale]
+                                    validationMessageText: value.errorMessage[$parent.localizationService.currentLocale.code]
                                 }]">
                             </validation-message>
                         </div>

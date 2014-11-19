@@ -1,6 +1,6 @@
 angular.module('directives')
-    .controller('eripPaymentCtrl', ['$scope', 'paymentsService',
-        function($scope, paymentsService) {
+    .controller('eripPaymentCtrl', ['$scope', 'paymentsService', 'localizationService',
+        function($scope, paymentsService, localizationService) {
             'use strict';
 
             function activate() {
@@ -18,6 +18,8 @@ angular.module('directives')
             $scope.isBusy = false;
 
             $scope.eripTreeRootNode = null;
+
+            $scope.localizationService = localizationService;
 
             $scope.paymentSelectedCallback = function() {
                 $scope.currentPaymentFields = {};
