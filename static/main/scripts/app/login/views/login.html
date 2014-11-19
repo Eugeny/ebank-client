@@ -14,14 +14,28 @@
                 <div class="input-group">
                     <div class="input-group-addon">Login</div>
                     <input type="text" class="form-control" placeholder="Login"
+                        name="login"
                         ng-required="true"
                         ng-model="login"/>
+                    <validation-message validation-expressions="[{
+                            isValid: (!loginForm.login.$dirty
+                                || loginForm.login.$valid),
+                            validationMessageText: 'The login is required'
+                        }]">
+                    </validation-message>
                 </div>
                 <div class="input-group">
                     <div class="input-group-addon">Password</div>
                     <input type="password" class="form-control" placeholder="Password"
+                        name="password"
                         ng-required="true"
                         ng-model="password"/>
+                    <validation-message validation-expressions="[{
+                            isValid: (!loginForm.password.$dirty
+                                || loginForm.password.$valid),
+                            validationMessageText: 'The password is required'
+                        }]">
+                    </validation-message>
                 </div>
                 <div class="login-button-container">
                     <button type="submit" class="btn btn-block btn-success login-button">

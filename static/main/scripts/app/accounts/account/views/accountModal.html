@@ -83,7 +83,7 @@
                                 </span>
                                 Filters ({{getFiltersCount()}}):
                             </a>
-                            
+
                         </h4>
                     </div>
 
@@ -120,6 +120,7 @@
 
                                         <datepicker ng-model="statementDateFrom"
                                             class="form-control"
+                                            name="statementDateFrom"
                                             max-date="((statementDateFromFilterEnabled && statementDateToFilterEnabled)
                                                 ? statementDateTo
                                                 : maxDate)"
@@ -127,6 +128,12 @@
                                             starting-day="1"
                                             class="well well-sm">
                                         </datepicker>
+                                        <validation-message validation-expressions="[{
+                                                isValid: (!statementFiltersForm.statementDateFrom.$dirty
+                                                    || statementFiltersForm.statementDateFrom.$valid),
+                                                validationMessageText: 'The Date From filter value must be less or equal to Date To filter value'
+                                            }]">
+                                        </validation-message>
                                     </div>
                                     <div class="input-group time-container">
                                         <div class="input-group-addon">
@@ -175,6 +182,7 @@
 
                                         <datepicker ng-model="statementDateTo"
                                             class="form-control"
+                                            name="statementDateTo"
                                             max-date="maxDate"
                                             min-date="((statementDateFromFilterEnabled && statementDateToFilterEnabled)
                                                 ? statementDateFrom
@@ -182,6 +190,12 @@
                                             starting-day="1"
                                             class="well well-sm">
                                         </datepicker>
+                                        <validation-message validation-expressions="[{
+                                                isValid: (!statementFiltersForm.statementDateTo.$dirty
+                                                    || statementFiltersForm.statementDateTo.$valid),
+                                                validationMessageText: 'The Date To filter value must be greater or equal to Date From filter value'
+                                            }]">
+                                        </validation-message>
                                     </div>
                                     <div class="input-group time-container">
                                         <div class="input-group-addon">

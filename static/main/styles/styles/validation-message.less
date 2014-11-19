@@ -1,8 +1,9 @@
 validation-message {
-    display: table;
     width: 100%;
 
     .validation-messages-list-container {
+        overflow: hidden;
+
         width: 100%;
 
         background-color: @invalidColor;
@@ -33,4 +34,9 @@ validation-message {
             }
         }
     }
+}
+
+.input-group .form-control.ng-invalid.ng-dirty:focus + validation-message .validation-messages-list-container {
+    display: none;
+    max-height: 0;
 }

@@ -13,8 +13,16 @@
                 </div>
 
                 <input class="form-control" type="text"
+                    name="recipientAccountNumber"
                     placeholder="Recipient account number"
-                    ng-required="true" ng-model="currentPayment.recipientAccountNumber">
+                    ng-required="true"
+                    ng-model="currentPayment.recipientAccountNumber">
+                <validation-message validation-expressions="[{
+                        isValid: (!moneyTransferInfoForm.recipientAccountNumber.$dirty
+                            || moneyTransferInfoForm.recipientAccountNumber.$valid),
+                        validationMessageText: 'The recipient account number is required'
+                    }]">
+                </validation-message>
             </div>
         </div>
 

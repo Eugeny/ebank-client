@@ -29,12 +29,23 @@
                             <div class="input-group-addon">
                                 {{value.name}}
                             </div>
-
                             <input class="form-control" type="text"
                                 placeholder="{{value.name}}"
+                                name="{{'paymentFields.' + key}}"
                                 ng-required="true"
                                 ng-pattern="value.regex"
                                 ng-model="currentPaymentFields[key]">
+                            <validation-message validation-expressions="[{
+                                    isValid: (!paymentForm['paymentFields.' + key].$dirty
+                                        || !paymentForm['paymentFields.' + key].$error.required),
+                                    validationMessageText: 'The new password confirmation is required'
+                                },
+                                {
+                                    isValid: (!paymentForm['paymentFields.' + key].$dirty
+                                        || !paymentForm['paymentFields.' + key].$error.pattern),
+                                    validationMessageText: value.errorMessage[localizationService.currentLocale]
+                                }]">
+                            </validation-message>
                         </div>
                     </div>
                 </li>
