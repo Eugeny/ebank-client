@@ -25,7 +25,7 @@ angular.module('ebank-client')
                         $scope.userAccounts = accountsInfo.accounts || [];
 
                         if ($scope.userAccounts.length) {
-                            $scope.currentUserAccount = $scope.userAccounts[0];
+                            $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
                         console.log(error);
@@ -38,8 +38,8 @@ angular.module('ebank-client')
             function clearForm() {
                 $scope.currentPayment = {};
 
-                $scope.currentUserAccount = null;
-                $scope.paymentAmount = 1;
+                $scope.currentPayment.currentUserAccount = null;
+                $scope.currentPayment.paymentAmount = 1;
             }
 
             function openPaymentResultModal(paymentResult) {
@@ -92,10 +92,11 @@ angular.module('ebank-client')
             $scope.pay = function() {
                 $scope.isBusy = true;
 
-                var currentPayment = angular.extend($scope.currentPayment, {
-                    accountNumber: $scope.currentUserAccount.id,
-                    amount: $scope.paymentAmount
-                });
+                var currentPayment = {
+                    recipientAccountNumber: $scope.currentPayment.recipientAccountNumber,
+                    accountNumber: $scope.currentPayment.currentUserAccount.id,
+                    amount: $scope.currentPayment.paymentAmount
+                };
 
                 paymentsService.payGenericPayment(currentPayment)
                     .then(function (result) {
