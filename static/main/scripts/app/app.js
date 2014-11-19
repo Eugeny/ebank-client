@@ -16,7 +16,9 @@
     }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService', 'userInfoService',
         function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService) {
             $rootScope.localizationService = localizationService;
+            $rootScope.isAppBusy = false;
 
+            //custom events
             $rootScope.$on(customEvents.general.sessionExpired, function() {
                 $state.go('login');
             });
@@ -29,10 +31,6 @@
                 $state.go('main.authenticated.currency');
             });
 
-            $rootScope.$on('$stateChangeSuccess', function() {
-                $rootScope.$emit(customEvents.leftMenu.closeLeftMenu);
-            });
-
             $rootScope.$on(customEvents.general.logOut, function() {
                 if (!$state.current.abstract) {
                     $state.transitionTo($state.current, $stateParams, {
@@ -41,6 +39,24 @@
                         notify: true
                     });
                 }
+            });
+
+            //ui router events
+            $rootScope.$on('$stateChangeStart', function() {
+                $rootScope.isAppBusy = true;
+            });
+
+            $rootScope.$on('$stateNotFound', function() {
+                $rootScope.isAppBusy = false;
+            });
+
+            $rootScope.$on('$stateChangeError', function() {
+                $rootScope.isAppBusy = false;
+            });
+
+            $rootScope.$on('$stateChangeSuccess', function() {
+                $rootScope.$emit(customEvents.leftMenu.closeLeftMenu);
+                $rootScope.isAppBusy = false;
             });
         }]);
  })(window);
