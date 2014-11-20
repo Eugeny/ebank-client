@@ -25,7 +25,7 @@ angular.module('ebank-client')
                         $scope.userAccounts = accountsInfo.accounts || [];
 
                         if ($scope.userAccounts.length) {
-                            $scope.currentUserAccount = $scope.userAccounts[0];
+                            $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
                         console.log(error);
@@ -36,11 +36,12 @@ angular.module('ebank-client')
             }
 
             function clearForm() {
-                $scope.currentPayment = null;
+                $scope.currentPayment = {};
+                $scope.currentEripPayment = null;
                 $scope.currentPaymentFields = null;
 
-                $scope.currentUserAccount = null;
-                $scope.paymentAmount = 1;
+                $scope.currentPayment.currentUserAccount = null;
+                $scope.currentPayment.paymentAmount = 1;
             }
 
             function openPaymentResultModal(paymentResult) {
@@ -74,17 +75,17 @@ angular.module('ebank-client')
             $scope.pay = function() {
                 $scope.isBusy = true;
                 var currentPayment = {
-                    accountNumber: $scope.currentUserAccount.id,
-                    paymentId: $scope.currentPayment.paymentId,
+                    accountNumber: $scope.currentPayment.currentUserAccount.id,
+                    paymentId: $scope.currentEripPayment.paymentId,
                     paymentFields: $scope.currentPaymentFields,
-                    amount: $scope.paymentAmount
+                    amount: $scope.currentPayment.paymentAmount
                 };
 
                 paymentsService.payEripPayment(currentPayment)
                     .then(function (result) {
                         openPaymentResultModal({
                             payment: currentPayment,
-                            paymentSpecificFieldDefinitions: $scope.currentPayment.fields,
+                            paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
                             paymentName: $scope.currentPayment.name,
                             isSuccessful: true,
                             errorInfo: null

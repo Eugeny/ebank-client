@@ -6,25 +6,9 @@
     </div>
 
     <div class="money-transfer-container" ng-hide="isFirstTimeLoad">
-        <div class="money-transfer-info-form" ng-form="moneyTransferInfoForm">
-            <div class="recipient-account-number-container input-group">
-                <div class="input-group-addon">
-                    Recipient account number
-                </div>
-
-                <input class="form-control" type="text"
-                    name="recipientAccountNumber"
-                    placeholder="Recipient account number"
-                    ng-required="true"
-                    ng-model="currentPayment.recipientAccountNumber">
-                <validation-message validation-expressions="[{
-                        isValid: (!moneyTransferInfoForm.recipientAccountNumber.$dirty
-                            || moneyTransferInfoForm.recipientAccountNumber.$valid),
-                        validationMessageText: 'The recipient account number is required'
-                    }]">
-                </validation-message>
-            </div>
-        </div>
+        <money-transfer payment-form="moneyTransferInfoForm"
+            current-payment="currentPayment">
+        </money-transfer>
 
         <general-payment payment-form="generalPaymentInfoForm"
             current-payment="currentPayment"

@@ -7,45 +7,17 @@
 
     <div class="erip-payment-container" ng-hide="isFirstTimeLoad">
         <erip-payment class="erip-payment-settings"
-            payment-form="paymentForm" current-payment="currentPayment"
+            payment-form="paymentForm" current-payment="currentEripPayment"
             current-payment-fields="currentPaymentFields">
         </erip-payment>
 
-        <div class="general-payment-info-form" ng-form="generalPaymentInfoForm">
-            <div class="payment-amount-container" ng-show="currentPayment != null">
-                <div class="payment-amount input-group">
-                    <div class="input-group-addon">
-                        Amount
-                    </div>
+        <general-payment payment-form="generalPaymentInfoForm"
+            current-payment="currentPayment"
+            user-accounts="userAccounts"
+            ng-show="currentEripPayment != null">
+        </general-payment>
 
-                    <input class="form-control" type="number"
-                        placeholder="Amount"
-                        min="1"
-                        max="{{currentUserAccount.balance | number:0}}"
-                        ng-required="true"
-                        ng-model="paymentAmount"
-                        ng-pattern="validationRegularExpressions.integerNumberRegularExpression">
-                </div>
-            </div>
-
-            <div class="current-account-switch-container" ng-show="currentPayment != null">
-                <div class="current-account-switch input-group">
-                    <div class="input-group-addon">
-                        Account number to pay from
-                    </div>
-
-                    <select type="button" class="form-control"
-                        ng-model="currentUserAccount"
-                        ng-options="account.id + ' (Balance: ' + account.balance
-                            + ' ' + getCurrencyById(account.currency).code
-                            + ')' for account in userAccounts"
-                        ng-required="true">
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="pay-btn-container" ng-show="currentPayment != null">
+        <div class="pay-btn-container" ng-show="currentEripPayment != null">
             <button class="btn btn-success pay-btn" ng-click="pay()"
                 ng-class="{disabled: !paymentForm.$valid || !generalPaymentInfoForm.$valid}">
                 Pay

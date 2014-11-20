@@ -38,7 +38,7 @@
                             <validation-message validation-expressions="[{
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.required),
-                                    validationMessageText: 'The new password confirmation is required'
+                                    validationMessageText: 'The ' + value.name + ' is required'
                                 },
                                 {
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
