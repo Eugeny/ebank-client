@@ -1,6 +1,6 @@
 angular.module('services')
-    .factory('localizationService', ['$q', '$window', '$cookies',
-        function($q, $window, $cookies) {
+    .factory('localizationService', ['$q', '$window', '$cookies', 'gettextCatalog',
+        function($q, $window, $cookies, gettextCatalog) {
             'use strict';
 
             function activate() {
@@ -93,6 +93,8 @@ angular.module('services')
 
             self.setCurrentLocale = function(locale) {
                 var deferred = $q.defer();
+
+                gettextCatalog.setCurrentLanguage(locale.code);
 
                 self.getSupportedLocales()
                     .then(function(locales) {

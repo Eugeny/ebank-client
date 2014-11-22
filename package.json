@@ -1,11 +1,15 @@
 {
-    "name": "ebank-client",
-    "dependencies": {
-        "bower": "*",
-        "coffee-script": "*",
-        "less": "*"
-    },
-    "scripts": {
-        "postinstall": "node node_modules/bower/bin/bower install"
-    }
+  "name": "ebank-client",
+  "dependencies": {
+    "bower": "*",
+    "coffee-script": "*",
+    "less": "*"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-angular-gettext": "~0.2.15"
+  },
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install"
+  }
 }

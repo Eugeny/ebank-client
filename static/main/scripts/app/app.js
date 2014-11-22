@@ -10,6 +10,7 @@
         'toaster',
         'directives',
         'filters',
+        'gettext',
     ]).config(['$interpolateProvider', '$httpProvider',
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');

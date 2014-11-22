@@ -1,0 +1,14 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Language: ru\n"
+
+#: static/main/scripts/app/main/views/main.html
+msgid "About"
+msgstr "О нас"
+
+#: static/main/scripts/app/main/views/main.html
+msgid "Copyright Gamma E-Bank ©2014"
+msgstr "Гамма Е-Банк © 2014"
