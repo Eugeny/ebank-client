@@ -11,81 +11,89 @@ msgstr "О нас"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account Number"
-msgstr ""
+msgstr "Номер счета"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account Statement"
-msgstr ""
+msgstr "Выписка"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account balance"
-msgstr ""
+msgstr "Баланс счета"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account cards:"
-msgstr ""
+msgstr "Карты, привязанные к счету:"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account number"
-msgstr ""
+msgstr "Номер счета"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Account number to pay from"
-msgstr ""
+msgstr "Оплатить с номера счета"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid ""
 "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Состояние аккаунта от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:"
+"mm:ss Z'}}"
+
+#: static/main/scripts/app/header/views/header.html
+msgid "Accounts"
+msgstr "Счета"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid ""
 "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
+"ss Z'}}"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Amount"
-msgstr ""
+msgstr "Сумма"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
-msgstr ""
+msgstr "Произошла ошибка во время платежа"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
-msgstr ""
+msgstr "Автоматические операции"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Bank buys"
-msgstr ""
+msgstr "Покупка"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Bank sells"
-msgstr ""
+msgstr "Продажа"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
-msgstr ""
+msgstr "Смена пароля"
 
 #: static/main/scripts/app/directives/erip-payment/views/eripPayment.html
 msgid "Choose payment from the tree below"
-msgstr ""
+msgstr "Выберите платеж из дерева снизу"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Confirm password"
-msgstr ""
+msgstr "Повторите пароль"
 
 #: static/main/scripts/app/main/views/main.html
 msgid "Copyright Gamma E-Bank ©2014"
@@ -93,125 +101,125 @@ msgstr "Гамма Е-Банк © 2014"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
-msgstr ""
+msgstr "Валюта"
 
 #: static/main/scripts/app/currency/views/currency.html
 #: static/main/scripts/app/header/views/header.html
 msgid "Currency Information"
-msgstr ""
+msgstr "Информация о валютах"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Currency code"
-msgstr ""
+msgstr "Код валюты"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid ""
 "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, "
 "dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Информация о валютах от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:"
+"mm:ss Z'}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date from"
-msgstr ""
+msgstr "Дата от"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date to"
-msgstr ""
+msgstr "Дата до"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Download statement in:"
-msgstr ""
+msgstr "Скачать выписку в:"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "ERIP Payments"
-msgstr ""
+msgstr "Платежи ЕРИП"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
-msgstr ""
+msgstr "Включить фильтр"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable filter"
-msgstr ""
+msgstr "Включить фильтр"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter login"
-msgstr ""
+msgstr "Введите логин"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter new password"
-msgstr ""
+msgstr "Введите новый пароль"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter old password"
-msgstr ""
+msgstr "Введите старый пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Erip payment"
-msgstr ""
+msgstr "Платеж ЕРИП"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Error details:"
-msgstr ""
+msgstr "Информация об ошибке:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Filters"
-msgstr ""
+msgstr "Фильтры"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Final account balance: {{account.balance}}"
-msgstr ""
+msgstr "Конечный баланс: {{account.balance}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "General Info"
-msgstr ""
+msgstr "Общая информация"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Log Out"
-msgstr ""
+msgstr "Выйти"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
-msgstr ""
+msgstr "Вход"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
-msgstr ""
+msgstr "Управление счетом"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Automatic Acccount Operations"
-msgstr ""
+msgstr "Управление автоматическими операциями"
 
 #: static/main/scripts/app/header/views/header.html
-msgid ""
-"Menu\n"
-"                    <span class=\"glyphicon glyphicon-chevron-right\"></span>"
-msgstr ""
+msgid "Menu"
+msgstr "Меню"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/header/views/header.html
 msgid "Money Transfer"
-msgstr ""
+msgstr "Перевод денег"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "New password"
-msgstr ""
+msgstr "Новый пароль"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "No currencies loaded :("
-msgstr ""
+msgstr "Нет загруженных валют"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "No operations found for your filters"
-msgstr ""
+msgstr "С этим фильтром операции не найдены"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
@@ -219,102 +227,90 @@ msgstr "Уведомления"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Old password"
-msgstr ""
+msgstr "Старый пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Operation info"
-msgstr ""
+msgstr "Информация об операции"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Operation type"
-msgstr ""
+msgstr "Тип операции"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's account number:"
-msgstr ""
+msgstr "Номер счета плательщика"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's bank name:"
-msgstr ""
+msgstr "Банк плательщика"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer:"
-msgstr ""
+msgstr "Плательщик"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payment fields"
-msgstr ""
+msgstr "Поля платежа"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/directives/erip-payment/views/eripPayment.html
 msgid "Payment:"
-msgstr ""
+msgstr "Платеж:"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Payment: {{paymentResult.paymentName}}"
-msgstr ""
+msgstr "Платеж: {{paymentResult.paymentName}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient Name:"
-msgstr ""
+msgstr "Имя получателя:"
 
 #: static/main/scripts/app/directives/money-transfer/views/moneyTransfer.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Recipient account number"
-msgstr ""
+msgstr "Номер счета получателя"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient account number:"
-msgstr ""
+msgstr "Номер счета получателя:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient bank name:"
-msgstr ""
-
-#: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "Selected Date"
-msgstr ""
+msgstr "Банк получателя"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Selected date"
-msgstr ""
-
-#: static/main/scripts/app/header/views/header.html
-msgid "Show Accounts"
-msgstr ""
+msgstr "Выбранная дата"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Show Statement"
-msgstr ""
+msgstr "Показать выписку"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Show details"
-msgstr ""
+msgstr "Показать детали"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Sign In"
-msgstr ""
+msgstr "Войти"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
-msgstr ""
+msgstr "Платеж успешно обработан"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "You have no accounts yet :("
-msgstr ""
+msgstr "У вас пока нет счетов"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
-msgstr ""
-
-#: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "{{account.id}}"
-msgstr ""
+msgstr "Ваши счета"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
-msgstr ""
+msgstr "Ɣ Е-Банк"

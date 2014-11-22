@@ -1,6 +1,10 @@
 angular.module('services')
-    .factory('localizationService', ['$q', '$window', '$cookies', 'gettextCatalog',
-        function($q, $window, $cookies, gettextCatalog) {
+    .config(['tmhDynamicLocaleProvider', 
+        function (tmhDynamicLocaleProvider) {
+            tmhDynamicLocaleProvider.localeLocationPattern('/static/main/vendor/bower_components/angular-i18n/angular-locale_{{locale}}.js');
+        }])
+    .factory('localizationService', ['$q', '$window', '$cookies', 'gettextCatalog', 'tmhDynamicLocale',
+        function($q, $window, $cookies, gettextCatalog, tmhDynamicLocale) {
             'use strict';
 
             function activate() {
@@ -67,6 +71,7 @@ angular.module('services')
                 var deferred = $q.defer();
 
                 gettextCatalog.setCurrentLanguage(locale.code);
+                tmhDynamicLocale.set(locale.code);
 
                 self.getSupportedLocales()
                     .then(function(locales) {

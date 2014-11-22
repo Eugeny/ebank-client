@@ -37,6 +37,10 @@ msgstr ""
 msgid "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
+#: static/main/scripts/app/header/views/header.html
+msgid "Accounts"
+msgstr ""
+
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
@@ -180,9 +184,7 @@ msgid "Manage Automatic Acccount Operations"
 msgstr ""
 
 #: static/main/scripts/app/header/views/header.html
-msgid ""
-"Menu\n"
-"                    <span class=\"glyphicon glyphicon-chevron-right\"></span>"
+msgid "Menu"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
@@ -269,15 +271,7 @@ msgid "Recipient bank name:"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "Selected Date"
-msgstr ""
-
-#: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Selected date"
-msgstr ""
-
-#: static/main/scripts/app/header/views/header.html
-msgid "Show Accounts"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
@@ -302,10 +296,6 @@ msgstr ""
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
-msgstr ""
-
-#: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "{{account.id}}"
 msgstr ""
 
 #: static/main/scripts/app/login/views/login.html
