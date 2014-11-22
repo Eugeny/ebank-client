@@ -44,6 +44,11 @@
 
             {# custom scrips #}
 
+        {% endcompress %}
+        
+        <script type="text/javascript" src="/template/bundle.js"></script>
+
+        {% compress js %}
             {# app config #}
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/app.js"></script>
             <script type="text/javascript" src="{{ STATIC_URL }}main/scripts/app/translations.js"></script>

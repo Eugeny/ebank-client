@@ -4,6 +4,7 @@ from django.conf.urls import patterns, url, include
 urlpatterns = patterns(
     'apps.main.views.main',
     url(r'^$', 'index'),
+    url(r'^template/bundle.js$', 'template_bundle'),
     url(r'^template/(?P<template_name>.+)$', 'template'),
     url(r'^report/(?P<account_id>\d+)/(?P<type>\w*)/(?P<date_from>\d+)/(?P<date_to>\d+)/(?P<format>\w+)$', 'report'),
 )

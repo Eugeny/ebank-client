@@ -11,6 +11,7 @@
         'directives',
         'filters',
         'gettext',
+        'templateBundle',
     ]).config(['$interpolateProvider', '$httpProvider',
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');

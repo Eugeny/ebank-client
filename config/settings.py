@@ -154,3 +154,5 @@ COMPRESS_PRECOMPILERS = (
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/login'
 LOGOUT_URL = '/auth/logout'
+
+TEMPLATE_BUNDLER_ROOT = PROJECT_ROOT / 'static/main/scripts/app'

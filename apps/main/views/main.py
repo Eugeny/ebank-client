@@ -1,8 +1,10 @@
 from datetime import datetime
+import json
 import os
 import subprocess
 import tempfile
 
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
@@ -95,3 +97,25 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
         return HttpResponse(pdf, content_type='application/pdf')
 
     raise Http404()
+
+
+def template_bundle(request):
+    format = '''
+        angular.module("templateBundle").run(["$templateCache", function($templateCache) {
+          $templateCache.put("%s", %s);
+        }]);
+    '''
+
+    js = '''
+        angular.module("templateBundle", []);
+    '''
+
+    for dir_path, dir_names, file_names in os.walk(settings.TEMPLATE_BUNDLER_ROOT):
+        for file in file_names:
+            path = os.path.join(dir_path, file)
+            relative_path = path[len(settings.PROJECT_ROOT):]
+            content = open(path).read()
+            if path.endswith('.html'):
+                js += format % (relative_path, json.dumps(content))
+
+    return HttpResponse(js, content_type='application/javascript')
