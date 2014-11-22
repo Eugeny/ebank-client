@@ -39,7 +39,6 @@
                 <div class="currency-code-container row">
                     <div class="label col-xs-3">Currency</div>
                     <div class="value col-xs-9">
-
                         {{currentAccountCurrency
                             ? currentAccountCurrency.code
                             : account.currency}}
@@ -135,17 +134,6 @@
                                             }]">
                                         </validation-message>
                                     </div>
-                                    <div class="input-group time-container">
-                                        <div class="input-group-addon">
-                                            Time
-                                        </div>
-                                        <timepicker class="form-control"
-                                                    ng-model="statementDateFrom"
-                                                    hour-step="1"
-                                                    minute-step="1"
-                                                    show-meridian="false"
-                                                    readonly-input="true"></timepicker>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -196,17 +184,6 @@
                                                 validationMessageText: 'The Date To filter value must be greater or equal to Date From filter value'
                                             }]">
                                         </validation-message>
-                                    </div>
-                                    <div class="input-group time-container">
-                                        <div class="input-group-addon">
-                                            Time
-                                        </div>
-                                        <timepicker class="form-control"
-                                                    ng-model="statementDateTo"
-                                                    hour-step="1"
-                                                    minute-step="1"
-                                                    show-meridian="false"
-                                                    readonly-input="true"></timepicker>
                                     </div>
                                 </div>
                             </div>
@@ -357,14 +334,19 @@
                                                     Recipient Bank Name:
                                                 </span>
                                                 <span class="recipient-bank-name">
-                                                    {{reportEntry.paymentInfo.recipientBanku}}
+                                                    {{reportEntry.paymentInfo.recipientBank}}
                                                 </span>
                                             </div>
-                                            <div class="recipient-name-container">
+                                            <div class="recipient-name-container"
+                                                ng-if="reportEntry.paymentInfo
+                                                    && reportEntry.paymentInfo.recipientName">
                                                 <span class="label">
                                                     Recipient Name:
                                                 </span>
-                                                <span class="recipient-name">
+                                                <span class="recipient-name" ng-if="reportEntry.paymentInfo.recipientName != 'auto'">
+                                                    {{reportEntry.paymentInfo.recipientName}}
+                                                </span>
+                                                <span class="recipient-name" ng-if="reportEntry.paymentInfo.recipientName == 'auto'">
                                                     {{reportEntry.recipientFirstName}}
                                                     {{reportEntry.recipientLastName}}
                                                 </span>
@@ -374,7 +356,7 @@
                                                     Recipient Account Number:
                                                 </span>
                                                 <span class="recipient-account-number">
-                                                    {{reportEntry.recipientAccountId}}
+                                                    {{reportEntry.paymentInfo.recipientAccountId}}
                                                 </span>
                                             </div>
                                         </div>

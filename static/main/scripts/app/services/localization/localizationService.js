@@ -32,7 +32,6 @@ angular.module('services')
                 $cookies.django_language = localeCode;
             }
 
-            //TODO: replace with retviewing data from the server
             var supportedLocales = [
                     {
                         code: 'en',
@@ -46,30 +45,11 @@ angular.module('services')
                         code: 'be',
                         friendlyName: 'Бел'
                     }
-                ],
-                localizationDataDictionary= {
-                    'en': {},
-                    'ru': {},
-                    'be': {}
-                },
-                defaultLocalizationData = {};
+                ];
 
             var self = {};
 
-            self.currentLocalizationData = null;
             self.currentLocale = null;
-
-            self.getLocalizationDataForLocale = function(locale) {
-                var deferred = $q.defer();
-
-                if (locale.code && localizationDataDictionary[locale.code]) {
-                    deferred.resolve(localizationDataDictionary[locale.code]);
-                } else {
-                    //TODO: try to load localization data from the back end
-                }
-
-                return deferred.promise;
-            };
 
             self.getSupportedLocales = function() {
                 var deferred = $q.defer();
@@ -81,14 +61,6 @@ angular.module('services')
                 }
 
                 return deferred.promise;
-            };
-
-            self.setCurrentLocalizationDataToDefault = function() {
-                if (defaultLocalizationData) {
-                    self.currentLocalizationData = defaultLocalizationData;
-                } else {
-                    //TODO: load default localization data from server and set it
-                }
             };
 
             self.setCurrentLocale = function(locale) {
@@ -106,16 +78,6 @@ angular.module('services')
 
                             //set locale cookie
                             setLocaleCookie(self.currentLocale.code);
-
-                            self.getLocalizationDataForLocale(locale)
-                                .then(function(localizationData) {
-                                    self.currentLocalizationData = localizationData;
-                                    self.currentLocale = locale;
-                                    deferred.resolve(true);
-                                }, function() {
-                                    self.setCurrentLocalizationDataToDefault();
-                                    deferred.resolve(false);
-                                });
                         } else {
                             console.log('The provided locale is not supported');
                             deferred.resolve(false);

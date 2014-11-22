@@ -6,12 +6,12 @@
         'ngCookies',
         'ui.bootstrap',
         'ui.router',
-        'aa.formExtensions',
         'toaster',
         'directives',
         'filters',
         'gettext',
         'templateBundle',
+        'translations',
     ]).config(['$interpolateProvider', '$httpProvider',
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');
