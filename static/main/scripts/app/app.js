@@ -6,7 +6,6 @@
         'ngCookies',
         'ui.bootstrap',
         'ui.router',
-        'aa.formExtensions',
         'toaster',
         'directives',
         'filters',
