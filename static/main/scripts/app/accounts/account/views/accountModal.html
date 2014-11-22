@@ -334,14 +334,19 @@
                                                     Recipient Bank Name:
                                                 </span>
                                                 <span class="recipient-bank-name">
-                                                    {{reportEntry.paymentInfo.recipientBanku}}
+                                                    {{reportEntry.paymentInfo.recipientBank}}
                                                 </span>
                                             </div>
-                                            <div class="recipient-name-container">
+                                            <div class="recipient-name-container"
+                                                ng-if="reportEntry.paymentInfo
+                                                    && reportEntry.paymentInfo.recipientName">
                                                 <span class="label">
                                                     Recipient Name:
                                                 </span>
-                                                <span class="recipient-name">
+                                                <span class="recipient-name" ng-if="reportEntry.paymentInfo.recipientName != 'auto'">
+                                                    {{reportEntry.paymentInfo.recipientName}}
+                                                </span>
+                                                <span class="recipient-name" ng-if="reportEntry.paymentInfo.recipientName == 'auto'">
                                                     {{reportEntry.recipientFirstName}}
                                                     {{reportEntry.recipientLastName}}
                                                 </span>
@@ -351,7 +356,7 @@
                                                     Recipient Account Number:
                                                 </span>
                                                 <span class="recipient-account-number">
-                                                    {{reportEntry.recipientAccountId}}
+                                                    {{reportEntry.paymentInfo.recipientAccountId}}
                                                 </span>
                                             </div>
                                         </div>

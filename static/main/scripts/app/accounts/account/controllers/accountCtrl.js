@@ -94,7 +94,7 @@ angular.module('ebank-client')
         function getStatementDownloadLink(documentFormat) {
             return '/report/'
                 + $scope.account.id + '/'
-                + (getStatementOperationTypeFilterValue() || '') + '/'
+                + ((getStatementOperationTypeFilterValue() ? 'erip': 'direct') || '') + '/'
                 + getStatementOperationDateFromFilterValue() + '/'
                 + getStatementOperationDateToFilterValue() + '/'
                 + documentFormat;
