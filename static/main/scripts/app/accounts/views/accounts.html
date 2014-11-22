@@ -2,13 +2,13 @@
     <div class="accounts-list-container" ng-hide="isFirstTimeLoad">
         <div class="account-list-header-container">
             <div class="page-title-container">
-                <h3 class="page-title">
-                    Your Accounts
+                <h3 class="page-title" translate>
+                    Your accounts
                 </h3>
             </div>
 
             <div class="timestamp-container">
-                <span class="timestamp">
+                <span class="timestamp" translate>
                     Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                 </span>
             </div>
@@ -23,18 +23,18 @@
         <div class="accounts-list-header-container" ng-hide="accounts.length == 0">
             <div class="accounts-list-header">
                 <div class="account-number-header-container col-xs-3">
-                    <span class="account-number-header">
-                        Account Number
+                    <span class="account-number-header" translate>
+                        Account number
                     </span>
                 </div>
                 <div class="currency-code-header-container col-xs-3">
-                    <span class="currency-code-header">
-                        Currency Code
+                    <span class="currency-code-header" translate>
+                        Currency code
                     </span>
                 </div>
                 <div class="account-balance-header-container col-xs-3">
-                    <span class="account-balance-header">
-                        Account Balance
+                    <span class="account-balance-header" translate>
+                        Account balance
                     </span>
                 </div>
                 <div class="actions-header-container col-xs-3">
@@ -74,15 +74,15 @@
 
                 <div class="account-details-link-container col-xs-3">
                     <a class="account-details-link"
-                        ui-sref="main.authenticated.accounts.account({id: account.id})">
-                        Show Details
+                        ui-sref="main.authenticated.accounts.account({id: account.id})" translate>
+                        Show details
                     </a>
                 </div>
             </li>
         </ul>
 
         <div class="no-accounts-presented-container" ng-show="accounts.length == 0 && !isBusy">
-            <h3>You have no accounts yet :(</h3>
+            <h3 translate>You have no accounts yet :(</h3>
         </div>
 
         <div class="accounts-list-paging-container"

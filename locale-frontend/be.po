@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Language: be\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
 
 #: static/main/scripts/app/main/views/main.html
 msgid "About"
@@ -34,11 +35,15 @@ msgid "Account number to pay from"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
+"yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/accounts/views/accounts.html
-msgid "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
+"yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
@@ -100,7 +105,9 @@ msgid "Currency code"
 msgstr ""
 
 #: static/main/scripts/app/currency/views/currency.html
-msgid "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, "
+"dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html

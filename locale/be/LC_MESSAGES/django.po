@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-13 15:51+0000\n"
+"POT-Creation-Date: 2014-11-22 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,20 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: templates/main/reports/report.html:57
+#: templates/main/reports/report.html:58
 msgid "Account statement"
 msgstr ""
 
-#: templates/main/reports/report.html:58
+#: templates/main/reports/report.html:59
 msgid "account"
 msgstr ""
 
-#: templates/main/reports/report.html:69
-msgid "Date"
-msgstr ""
-
 #: templates/main/reports/report.html:70
-msgid "Account"
+msgid "Date"
 msgstr ""
 
 #: templates/main/reports/report.html:71
@@ -47,6 +43,30 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: templates/main/reports/report.html:99
+#: templates/main/reports/report.html:92
+msgid "Payment"
+msgstr ""
+
+#: templates/main/reports/report.html:104
+msgid "Recipient bank"
+msgstr ""
+
+#: templates/main/reports/report.html:109
+msgid "Recipient name"
+msgstr ""
+
+#: templates/main/reports/report.html:114
+msgid "Payer's bank"
+msgstr ""
+
+#: templates/main/reports/report.html:119
+msgid "Payer"
+msgstr ""
+
+#: templates/main/reports/report.html:124
+msgid "Payer's account ID"
+msgstr ""
+
+#: templates/main/reports/report.html:137
 msgid "Final account balance:"
 msgstr ""

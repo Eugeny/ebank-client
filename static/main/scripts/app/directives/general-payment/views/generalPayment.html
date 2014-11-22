@@ -1,13 +1,13 @@
 <div class="general-payment-info-form" ng-form="paymentForm">
     <div class="payment-amount-container" ng-show="currentPayment != null">
         <div class="payment-amount input-group">
-            <div class="input-group-addon">
+            <div class="input-group-addon" translate>
                 Amount
             </div>
 
             <input class="form-control" type="number"
                 name="paymentAmount"
-                placeholder="Amount"
+                placeholder="{{'Amount'|translate}}"
                 min="1"
                 max="{{currentPayment.currentUserAccount.balance | integerNumber:0}}"
                 ng-required="true"
@@ -16,27 +16,27 @@
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.required),
-                    validationMessageText: 'The amount is required'
+                    validationMessageText: ('The amount is required'|translate)
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.number),
-                    validationMessageText: 'The amount must be integer number'
+                    validationMessageText: ('The amount must be integer number'|translate)
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.pattern),
-                    validationMessageText: 'The amount must be greater than zero integer number'
+                    validationMessageText: ('The amount must be greater than zero integer number'|translate)
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.min),
-                    validationMessageText: 'The amount must be greater than zero'
+                    validationMessageText: ('The amount must be greater than zero'|translate)
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.max),
-                    validationMessageText: 'The amount must be less than selected account balance'
+                    validationMessageText: ('The amount must be less than selected account balance'|translate)
                 }]">
             </validation-message>
         </div>
@@ -44,14 +44,14 @@
 
     <div class="current-account-switch-container" ng-show="currentPayment != null">
         <div class="current-account-switch input-group">
-            <div class="input-group-addon">
+            <div class="input-group-addon" translate>
                 Account number to pay from
             </div>
 
             <select type="button" class="form-control"
                 name="currentUserAccount"
                 ng-model="currentPayment.currentUserAccount"
-                ng-options="account.id + ' (Balance: ' + account.balance
+                ng-options="account.id + (' (Balance: '|translate) + account.balance
                     + ' ' + getCurrencyById(account.currency).code
                     + ')' for account in userAccounts"
                 ng-required="true">
@@ -59,7 +59,7 @@
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.currentUserAccount.$dirty
                         || !paymentForm.currentUserAccount.$error.required),
-                    validationMessageText: 'The account number to pay from is required'
+                    validationMessageText: ('The account number to pay from is required'|translate)
                 }]">
             </validation-message>
         </div>

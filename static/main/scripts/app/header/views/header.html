@@ -2,7 +2,7 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container container-fluid">
             <div class="nav navbar-nav navbar-left menu-open-button-container">
-                <a class="menu-open-button" ng-click="toggleLeftMenu()">
+                <a class="menu-open-button" ng-click="toggleLeftMenu()" translate>
                     Menu
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
@@ -11,27 +11,27 @@
             <left-menu is-open="isLeftMenuOpen">
                 <ul class="menu-links-list">
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.authenticated.currency">
+                        <a class="menu-link" ui-sref="main.authenticated.currency" translate>
                             Currency Information
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.authenticated.accounts">
+                        <a class="menu-link" ui-sref="main.authenticated.accounts" translate>
                             Show Accounts
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.authenticated.payments.erip">
+                        <a class="menu-link" ui-sref="main.authenticated.payments.erip" translate>
                             ERIP Payments
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.authenticated.payments.moneyTransfer">
+                        <a class="menu-link" ui-sref="main.authenticated.payments.moneyTransfer" translate>
                             Money Transfer
                         </a>
                     </li>
                     <li class="menu-link-container" ui-sref-active="active">
-                        <a class="menu-link" ui-sref="main.authenticated.manageAutomaticAccountOperations">
+                        <a class="menu-link" ui-sref="main.authenticated.manageAutomaticAccountOperations" translate>
                             Manage Automatic Acccount Operations
                         </a>
                     </li>
@@ -64,7 +64,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li class="notifications-link-container">
                             <a class="notifications-link" href="#">
-                                Notifications
+                                <span translate>Notifications</span>
                                 <span class="badge notifications-counter-badge"
                                       ng-show="notificationsInfoService.currentNotificationsInfo.count">
                                       {{notificationsInfoService.currentNotificationsInfo.count}}
@@ -72,12 +72,12 @@
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="main.authenticated.manageAccount.changePassword">
+                            <a ui-sref="main.authenticated.manageAccount.changePassword" translate>
                                 Manage Account
                             </a>
                         </li>
                         <li class="logout-link-container">
-                            <a class="logout-link" ng-click="logOut()">
+                            <a class="logout-link" ng-click="logOut()" translate>
                                 Log Out
                             </a>
                         </li>

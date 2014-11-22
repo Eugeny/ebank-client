@@ -1,6 +1,6 @@
 <div class="erip-payment-container">
     <div class="erip-tree-container">
-        <div class="erip-tree-header">
+        <div class="erip-tree-header" translate>
             Choose payment from the tree below
         </div>
 
@@ -13,7 +13,7 @@
 
     <div class="erip-payment" ng-show="currentPayment != null">
         <div class="payment-name-container">
-            <span class="payment-name-label">
+            <span class="payment-name-label" translate>
                 Payment:
             </span>
             <span class="payment-name">
@@ -38,7 +38,7 @@
                             <validation-message validation-expressions="[{
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.required),
-                                    validationMessageText: 'The ' + value.name + ' is required'
+                                    validationMessageText: value.name + (' is required'|translate)
                                 },
                                 {
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty

@@ -1,11 +1,11 @@
 <div class="page-container currency-page-container">
     <div class="currency-header-container" ng-hide="isFirstTimeLoad">
-        <h3 class="currency-header">
+        <h3 class="currency-header" translate>
             Currency Information
         </h3>
 
         <div class="timestamp-container" ng-show="stateTimestamp != undefined">
-            <span class="timestamp">
+            <span class="timestamp" translate>
                 Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
             </span>
         </div>
@@ -20,23 +20,23 @@
     <div class="currency-list-header-container" ng-hide="currencyList.length == 0 || isFirstTimeLoad">
         <div class="currency-list-header">
             <div class="currency-name-header-container col-xs-4">
-                <span class="currency-name-header">
+                <span class="currency-name-header" translate>
                     Name
                 </span>
             </div>
             <div class="currency-code-header-container col-xs-2">
-                <span class="currency-code-header">
+                <span class="currency-code-header" translate>
                     Code
                 </span>
             </div>
             <div class="currency-exchange-rate-buy-header-container col-xs-3">
-                <span class="currency-exchange-rate-buy-header">
-                    Bank Buys
+                <span class="currency-exchange-rate-buy-header" translate>
+                    Bank buys
                 </span>
             </div>
             <div class="currency-excnhange-rate-sell-header-container col-xs-3">
-                <span class="currency-exchange-rate-sell-header">
-                    Bank Sells
+                <span class="currency-exchange-rate-sell-header" translate>
+                    Bank sells
                 </span>
             </div>
         </div>
@@ -72,7 +72,7 @@
         </ul>
 
         <div class="no-currencies-presented-container" ng-show="currencyList.length == 0 && !isBusy">
-            <h3>No currencies loaded :(</h3>
+            <h3 translate>No currencies loaded :(</h3>
         </div>
 
         <div class="currency-list-paging-container"

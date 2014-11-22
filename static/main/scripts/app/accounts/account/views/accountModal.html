@@ -9,12 +9,12 @@
         <div class="account-info-mode-tabs-container">
             <ul class="nav nav-tabs account-info-mode-tabs" role="tablist">
                 <li role="presentation" ng-class="{ active: isCurrentTab(tabIds.generalInfo)}">
-                    <a ng-click="setTab(tabIds.generalInfo)">
+                    <a ng-click="setTab(tabIds.generalInfo)" translate>
                         General Info
                     </a>
                 </li>
                 <li role="presentation" ng-class="{ active: isCurrentTab(tabIds.accountStatement)}">
-                    <a ng-click="setTab(tabIds.accountStatement)">
+                    <a ng-click="setTab(tabIds.accountStatement)" translate>
                         Account Statement
                     </a>
                 </li>
@@ -24,20 +24,20 @@
         <div class="account-info-container">
             <div class="account-general-info-container" ng-show="isCurrentTab(tabIds.generalInfo)">
                 <div class="timestamp-container">
-                    <span class="timestamp">
+                    <span class="timestamp" translate>
                         Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                     </span>
                 </div>
 
                 <div class="account-number-container row">
-                    <div class="label col-xs-3">Account Number</div>
-                    <div class="value col-xs-9">
+                    <div class="label col-xs-3" translate>Account Number</div>
+                    <div class="value col-xs-9" translate>
                         {{account.id}}
                     </div>
                 </div>
 
                 <div class="currency-code-container row">
-                    <div class="label col-xs-3">Currency</div>
+                    <div class="label col-xs-3" translate>Currency</div>
                     <div class="value col-xs-9">
                         {{currentAccountCurrency
                             ? currentAccountCurrency.code
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="balance-container row">
-                    <div class="label col-xs-3">Balance</div>
+                    <div class="label col-xs-3" translate>Balance</div>
                     <div class="value col-xs-9">
                         {{account.balance}}
                     </div>
@@ -61,7 +61,7 @@
 
                 <div class="cards-list-container">
                     <div class="cards-list-header">
-                        <span>Account Cards:</span>
+                        <span translate>Account cards:</span>
                     </div>
 
                     <ul class="cards-list">
@@ -80,22 +80,21 @@
                                 <span class="glyphicon glyphicon-chevron-down"
                                     ng-class="{filtersMenuOpen: isFiltersMenuOpen}">
                                 </span>
-                                Filters ({{getFiltersCount()}}):
+                                <span translate>Filters</span> ({{getFiltersCount()}}):
                             </a>
-
                         </h4>
                     </div>
 
                     <div collapse="!isFiltersMenuOpen" class="filters-container" ng-form="statementFiltersForm">
                         <div class="filter-container date-from-filter-container input-group">
-                            <div class="input-group-addon">
-                                Date From
+                            <div class="input-group-addon" translate>
+                                Date from
                             </div>
 
                             <div class="form-control">
                                 <div class="input-group">
-                                    <div class="input-group-addon">
-                                        Enable Filter
+                                    <div class="input-group-addon" translate>
+                                        Enable filter
                                     </div>
                                     <span class="form-control">
                                         <input type="checkbox" ng-model="statementDateFromFilterEnabled"/>
@@ -104,8 +103,8 @@
 
                                 <div class="date-time-selectors" collapse="!statementDateFromFilterEnabled">
                                     <div class="input-group selected-date-container">
-                                        <div class="input-group-addon">
-                                            Selected Date
+                                        <div class="input-group-addon" translate>
+                                            Selected date
                                         </div>
 
                                         <span class="form-control">
@@ -113,7 +112,7 @@
                                         </span>
                                     </div>
                                     <div class="input-group date-container">
-                                        <div class="input-group-addon">
+                                        <div class="input-group-addon" translate>
                                             Date
                                         </div>
 
@@ -139,13 +138,13 @@
                         </div>
 
                         <div class="filter-container date-from-filter-container input-group">
-                            <div class="input-group-addon">
-                                Date To
+                            <div class="input-group-addon" translate>
+                                Date to
                             </div>
 
                             <div class="form-control">
                                 <div class="input-group">
-                                    <div class="input-group-addon">
+                                    <div class="input-group-addon" translate>
                                         Enable Filter
                                     </div>
                                     <span class="form-control">
@@ -155,7 +154,7 @@
 
                                 <div class="date-time-selectors" collapse="!statementDateToFilterEnabled">
                                     <div class="input-group selected-date-container">
-                                        <div class="input-group-addon">
+                                        <div class="input-group-addon" translate>
                                             Selected Date
                                         </div>
 
@@ -164,7 +163,7 @@
                                         </span>
                                     </div>
                                     <div class="input-group date-container">
-                                        <div class="input-group-addon">
+                                        <div class="input-group-addon" translate>
                                             Date
                                         </div>
 
@@ -190,14 +189,14 @@
                         </div>
 
                         <div class="filter-container payment-type-filter-container input-group">
-                            <div class="input-group-addon">
-                                Operation Type
+                            <div class="input-group-addon" translate>
+                                Operation type
                             </div>
 
                             <div class="form-control">
                                 <div class="input-group">
-                                    <div class="input-group-addon">
-                                        Enable Filter
+                                    <div class="input-group-addon" translate>
+                                        Enable filter
                                     </div>
                                     <span class="form-control">
                                         <input type="checkbox" ng-model="statementOperationTypeFilterEnabled"/>
@@ -206,16 +205,16 @@
 
                                 <div class="operation-type-select" collapse="!statementOperationTypeFilterEnabled">
                                     <div class="input-group">
-                                        <div class="input-group-addon">
-                                            Operation Type
+                                        <div class="input-group-addon" translate>
+                                            Operation type
                                         </div>
 
                                         <div class="form-control">
                                             <input type="radio" ng-model="statementOperationType" value="erip">
-                                            Erip Payment
+                                            <span translate>Erip payment</span>
                                             <br />
                                             <input type="radio" ng-model="statementOperationType" value="direct">
-                                            Money Transfer
+                                            <span translate>Money Transfer</span>
                                             <br />
                                         </div>
                                     </div>
@@ -229,12 +228,12 @@
                     <div class="show-statement-btn-container col-xs-6">
                         <button class="btn btn-success show-statement-btn"
                                 ng-class="{disabled: !statementFiltersForm.$valid}"
-                                ng-click="loadAccountReport()">
+                                ng-click="loadAccountReport()" translate>
                             Show Statement
                         </button>
                     </div>
 
-                    <span class="download-statement-label col-xs-4">
+                    <span class="download-statement-label col-xs-4" translate>
                         Download statement in:
                     </span>
 
@@ -259,18 +258,18 @@
                     <div class="statement-report-list-container">
                         <div class="statement-report-list-header">
                             <div class="statement-operation-date-header-container col-xs-2">
-                                <span class="statement-operation-date-header">
+                                <span class="statement-operation-date-header" translate>
                                     Date
                                 </span>
                             </div>
                             <div class="statement-operation-type-header-container col-xs-2">
-                                <span class="statement-operation-type-header">
-                                    Operation Type
+                                <span class="statement-operation-type-header" translate>
+                                    Operation type
                                 </span>
                             </div>
                             <div class="statement-operation-info-header-container col-xs-5">
-                                <span class="statement-operation-info-header">
-                                    Operation Info
+                                <span class="statement-operation-info-header" translate>
+                                    Operation info
                                 </span>
                             </div>
                             <div class="statement-operation-operation-amount-header-container col-xs-3">
@@ -290,16 +289,16 @@
                                 <div class="statement-operation-type-container col-xs-2">
                                     <span class="statement-operation-type">
                                         {{reportEntry.isEripPayment
-                                            ? 'Erip Payment'
+                                            ? ('Erip Payment'|translate)
                                             : ((reportEntry.giverAccountId === $parent.account.id
-                                                ? 'Outgoing'
-                                                : 'Incoming') + ' Money Transfer')}}
+                                                ? ('Outgoing'|translate)
+                                                : ('Incoming'|translate)) + (' Money Transfer'|translate))}}
                                     </span>
                                 </div>
                                 <div class="statement-operation-info-container col-xs-5">
                                     <div class="erip-payment-statement-operation statement-operation-info" ng-if="reportEntry.isEripPayment">
                                         <div class="erip-payment-name-container">
-                                            <span class="label">
+                                            <span class="label" translate>
                                                 Payment:
                                             </span>
                                             <span class="erip-payment-name">
@@ -308,8 +307,8 @@
                                         </div>
 
                                         <div class="erip-payment-fields-container">
-                                            <span class="label">
-                                                Payment Fields
+                                            <span class="label" translate>
+                                                Payment fields
                                             </span>
                                             <ul class="erip-payment-fields">
                                                 <li class="erip-payment-field-container"
@@ -330,8 +329,8 @@
                                             <div class="recipient-bank-name-container"
                                                  ng-if="reportEntry.paymentInfo
                                                     && reportEntry.paymentInfo.recipientBank">
-                                                <span class="label">
-                                                    Recipient Bank Name:
+                                                <span class="label" translate>
+                                                    Recipient bank name:
                                                 </span>
                                                 <span class="recipient-bank-name">
                                                     {{reportEntry.paymentInfo.recipientBank}}
@@ -340,7 +339,7 @@
                                             <div class="recipient-name-container"
                                                 ng-if="reportEntry.paymentInfo
                                                     && reportEntry.paymentInfo.recipientName">
-                                                <span class="label">
+                                                <span class="label" translate>
                                                     Recipient Name:
                                                 </span>
                                                 <span class="recipient-name" ng-if="reportEntry.paymentInfo.recipientName != 'auto'">
@@ -352,8 +351,8 @@
                                                 </span>
                                             </div>
                                             <div class="recipient-account-number-container">
-                                                <span class="label">
-                                                    Recipient Account Number:
+                                                <span class="label" translate>
+                                                    Recipient account number:
                                                 </span>
                                                 <span class="recipient-account-number">
                                                     {{reportEntry.paymentInfo.recipientAccountId}}
@@ -365,15 +364,15 @@
                                             <div class="giver-bank-name-container"
                                                  ng-if="reportEntry.paymentInfo
                                                     && reportEntry.paymentInfo.giverBank">
-                                                <span class="label">
-                                                    Payer's Bank Name:
+                                                <span class="label" translate>
+                                                    Payer's bank name:
                                                 </span>
                                                 <span class="giver-bank-name">
                                                     {{reportEntry.paymentInfo.giverBank}}
                                                 </span>
                                             </div>
                                             <div class="giver-name-container">
-                                                <span class="label">
+                                                <span class="label" translate>
                                                     Payer:
                                                 </span>
                                                 <span class="giver-name">
@@ -382,8 +381,8 @@
                                                 </span>
                                             </div>
                                             <div class="giver-account-number-container">
-                                                <span class="label">
-                                                    Payer's Account Number:
+                                                <span class="label" translate>
+                                                    Payer's account number:
                                                 </span>
                                                 <span class="giver-account-number">
                                                     {{reportEntry.giverAccountId}}
@@ -411,8 +410,8 @@
                         </ul>
 
                         <div class="no-operations-found-message-container" ng-show="!reportEntries.length">
-                            <h3 class="no-operations-found-message">
-                                No operations found for your filters :(
+                            <h3 class="no-operations-found-message" translate>
+                                No operations found for your filters
                             </h3>
                         </div>
                     </div>
@@ -433,7 +432,7 @@
                     </div>
 
                     <div class="statement-report-final-balance-container">
-                        Final account balance: {{account.balance}}
+                        <span translate>Final account balance: {{account.balance}}</span>
                         <span class="balance-currency"
                             title="{{currentAccountCurrency
                                         && currentAccountCurrency.nameLocalized[localizationService.currentLocale.code]

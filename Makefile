@@ -23,12 +23,16 @@ clean:
 	rm -rf public/* || true
 	rm -rf static/CACHE || true
 
-makemessages:
-	./manage.py makemessages -i '*sublime*' -i env -l en
-	./manage.py makemessages -i '*sublime*' -i env -l ru
-	./manage.py makemessages -i '*sublime*' -i env -l be
-
-compilemessages:
+locale:
+	./manage.py makemessages -i '*sublime*' -i 'node_modules' -i env -l en
+	./manage.py makemessages -i '*sublime*' -i 'node_modules' -i env -l ru
+	./manage.py makemessages -i '*sublime*' -i 'node_modules' -i env -l be
 	./manage.py compilemessages
 
-.PHONY: build static
+locale-frontend:
+	grunt compile -v
+	grunt extract -v
+	msgmerge -U locale-frontend/be.po locale-frontend/template.pot
+	msgmerge -U locale-frontend/ru.po locale-frontend/template.pot
+
+.PHONY: build static locale locale-frontend

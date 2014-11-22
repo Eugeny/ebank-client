@@ -1,18 +1,18 @@
 <div class="money-transfer-info-form" ng-form="paymentForm">
     <div class="recipient-account-number-container input-group">
-        <div class="input-group-addon">
+        <div class="input-group-addon" translate>
             Recipient account number
         </div>
 
         <input class="form-control" type="text"
             name="recipientAccountNumber"
-            placeholder="Recipient account number"
+            placeholder="{{'Recipient account number'|translate}}"
             ng-required="true"
             ng-model="currentPayment.recipientAccountNumber">
         <validation-message validation-expressions="[{
                 isValid: (!paymentForm.recipientAccountNumber.$dirty
                     || paymentForm.recipientAccountNumber.$valid),
-                validationMessageText: 'The recipient account number is required'
+                validationMessageText: ('The recipient account number is required'|translate)
             }]">
         </validation-message>
     </div>
