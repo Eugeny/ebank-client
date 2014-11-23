@@ -4,307 +4,319 @@ msgstr ""
 "Language: be\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: static/main/scripts/app/main/views/main.html
 msgid "About"
-msgstr ""
+msgstr "Пра нас"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account Number"
-msgstr ""
+msgstr "Нумар рахунку"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account Statement"
-msgstr ""
+msgstr "Выпіска"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account balance"
-msgstr ""
+msgstr "Баланс рахунку"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account cards:"
-msgstr ""
+msgstr "Карткі прывязаныя да рахунку:"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account number"
-msgstr ""
+msgstr "Нумар рахунку"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Account number to pay from"
-msgstr ""
+msgstr "Аплаціць з нумара рахунку"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid ""
 "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Стан рахунку актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
+"HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Accounts"
-msgstr ""
+msgstr "Рахункі"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid ""
 "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Стан рахункаў актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
+"HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Amount"
-msgstr ""
+msgstr "Колькасць"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
-msgstr ""
+msgstr "Падчас працэсу аплаты адбылася памылка"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
-msgstr ""
+msgstr "Аўтаматычныя аперацыі з рахункам"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Bank buys"
-msgstr ""
+msgstr "Купля"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Bank sells"
-msgstr ""
+msgstr "Продаж"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
-msgstr ""
+msgstr "Змяніць пароль"
 
 #: static/main/scripts/app/directives/erip-payment/views/eripPayment.html
 msgid "Choose payment from the tree below"
-msgstr ""
+msgstr "Выберыце плацёж са спісу унізе"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Confirm password"
-msgstr ""
+msgstr "Паўтарыце пароль"
 
 #: static/main/scripts/app/main/views/main.html
 msgid "Copyright Gamma E-Bank ©2014"
-msgstr ""
+msgstr "Гамма Е-Банк © 2014"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
-msgstr ""
+msgstr "Валюта"
 
 #: static/main/scripts/app/currency/views/currency.html
 #: static/main/scripts/app/header/views/header.html
 msgid "Currency Information"
-msgstr ""
+msgstr "Курсы валют"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Currency code"
-msgstr ""
+msgstr "Код валюты"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid ""
 "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, "
 "dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Курсы валют актуальныя на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
+"HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date from"
-msgstr ""
+msgstr "Дата ад"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date to"
-msgstr ""
+msgstr "Дата да"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Download statement in:"
-msgstr ""
+msgstr "Сьцягнуць выпіску ў:"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "ERIP Payments"
-msgstr ""
+msgstr "Плацяжы ЕРІП"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
-msgstr ""
+msgstr "Уключыць фільтр"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable filter"
-msgstr ""
+msgstr "Уключыць фільтр"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter login"
-msgstr ""
+msgstr "Увядзіце лагін"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter new password"
-msgstr ""
+msgstr "Увядзіце новы пароль"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Enter old password"
-msgstr ""
+msgstr "Увядзіце стары пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Erip payment"
-msgstr ""
+msgstr "Плацёж ЕРІП"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Error details:"
-msgstr ""
+msgstr "Дэталі аб памылцы:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Filters"
-msgstr ""
+msgstr "Фільтры"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Final account balance: {{account.balance}}"
-msgstr ""
+msgstr "Канчатковы баланс: {{account.balance}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "General Info"
-msgstr ""
+msgstr "Агульная інфармацыя"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Log Out"
-msgstr ""
+msgstr "Выйсці"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
-msgstr ""
+msgstr "Увайсці"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
-msgstr ""
+msgstr "Кіраванне рахункам"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Automatic Acccount Operations"
-msgstr ""
+msgstr "Кіраванне аўтаматычнымі аперацыямі з рахункам"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/header/views/header.html
 msgid "Money Transfer"
-msgstr ""
+msgstr "Перавод  грошаў"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Name"
-msgstr ""
+msgstr "Імя"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "New password"
-msgstr ""
+msgstr "Новы пароль"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "No currencies loaded :("
-msgstr ""
+msgstr "Няма валют для адлюстравання"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "No operations found for your filters"
-msgstr ""
+msgstr "Не знойдзена аперацый для вашых фільтраў"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
-msgstr ""
+msgstr "Апавяшчэння"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Old password"
-msgstr ""
+msgstr "Стары пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Operation info"
-msgstr ""
+msgstr "Інфармацыя аб аперацыі"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Operation type"
-msgstr ""
+msgstr "Тып аперацыі"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's account number:"
-msgstr ""
+msgstr "Нумар рахунку плацельшчыка"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's bank name:"
-msgstr ""
+msgstr "Назва банка плацельшчыка:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer:"
-msgstr ""
+msgstr "Плацельшчык"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payment fields"
-msgstr ""
+msgstr "Палі плацяжа"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/directives/erip-payment/views/eripPayment.html
 msgid "Payment:"
-msgstr ""
+msgstr "Плацёж:"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Payment: {{paymentResult.paymentName}}"
-msgstr ""
+msgstr "Плацёж: {{paymentResult.paymentName}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient Name:"
-msgstr ""
+msgstr "Імя атрымальніка:"
 
 #: static/main/scripts/app/directives/money-transfer/views/moneyTransfer.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Recipient account number"
-msgstr ""
+msgstr "Нумар рахунку атрымальніка"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient account number:"
-msgstr ""
+msgstr "Нумар рахунку атрымальніка:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient bank name:"
-msgstr ""
+msgstr "Імя банка атрымальніка"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Selected date"
-msgstr ""
+msgstr "Выбраная дата"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Show Statement"
-msgstr ""
+msgstr "Паказаць выпіску"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Show details"
-msgstr ""
+msgstr "Падрабязней"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Sign In"
-msgstr ""
+msgstr "Увайсці"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
-msgstr ""
+msgstr "Плацёж паспяхова праведзен"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "You have no accounts yet :("
-msgstr ""
+msgstr "У вас яшче няма рахункаў :("
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
-msgstr ""
+msgstr "Вашы рахункі"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
-msgstr ""
+msgstr "Ɣ Е-Банк"

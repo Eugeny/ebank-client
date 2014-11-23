@@ -4,6 +4,12 @@ msgstr ""
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: static/main/scripts/app/main/views/main.html
 msgid "About"
@@ -23,7 +29,7 @@ msgstr "Баланс счета"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Account cards:"
-msgstr "Карты, привязанные к счету:"
+msgstr "Карты привязанные к счету:"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account number"
@@ -39,8 +45,8 @@ msgid ""
 "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
-"Состояние аккаунта от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:"
-"mm:ss Z'}}"
+"Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
+"ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Accounts"
@@ -186,7 +192,7 @@ msgstr "Выйти"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
