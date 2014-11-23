@@ -21,52 +21,52 @@ msgstr ""
 
 #: templates/main/reports/report.html:58
 msgid "Account statement"
-msgstr ""
+msgstr "Выпіска з рахунку"
 
 #: templates/main/reports/report.html:59
 msgid "account"
-msgstr ""
+msgstr "рахунак"
 
 #: templates/main/reports/report.html:70
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: templates/main/reports/report.html:71
 msgid "Type"
-msgstr ""
+msgstr "Тып"
 
 #: templates/main/reports/report.html:72
 msgid "Info"
-msgstr ""
+msgstr "Інфармацыя"
 
 #: templates/main/reports/report.html:73
 msgid "Amount"
-msgstr ""
+msgstr "Колькасць"
 
 #: templates/main/reports/report.html:92
 msgid "Payment"
-msgstr ""
+msgstr "Плацёж"
 
 #: templates/main/reports/report.html:104
 msgid "Recipient bank"
-msgstr ""
+msgstr "Банк атрымальніка"
 
 #: templates/main/reports/report.html:109
 msgid "Recipient name"
-msgstr ""
+msgstr "Імя атрымальніка"
 
 #: templates/main/reports/report.html:114
 msgid "Payer's bank"
-msgstr ""
+msgstr "Банк плацельшчыка"
 
 #: templates/main/reports/report.html:119
 msgid "Payer"
-msgstr ""
+msgstr "Плацельшчык"
 
 #: templates/main/reports/report.html:124
 msgid "Payer's account ID"
-msgstr ""
+msgstr "Нумар рахунку плацельшчыка"
 
 #: templates/main/reports/report.html:137
 msgid "Final account balance:"
-msgstr ""
+msgstr "Канчатковы баланс:"

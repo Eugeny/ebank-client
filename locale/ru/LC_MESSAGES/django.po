@@ -45,27 +45,27 @@ msgstr "Сумма"
 
 #: templates/main/reports/report.html:92
 msgid "Payment"
-msgstr ""
+msgstr "Платёж"
 
 #: templates/main/reports/report.html:104
 msgid "Recipient bank"
-msgstr ""
+msgstr "Банк получателя"
 
 #: templates/main/reports/report.html:109
 msgid "Recipient name"
-msgstr ""
+msgstr "Имя получателя"
 
 #: templates/main/reports/report.html:114
 msgid "Payer's bank"
-msgstr ""
+msgstr "Банк отправителя"
 
 #: templates/main/reports/report.html:119
 msgid "Payer"
-msgstr ""
+msgstr "Отправитель"
 
 #: templates/main/reports/report.html:124
 msgid "Payer's account ID"
-msgstr ""
+msgstr "Номер счета отправителя"
 
 #: templates/main/reports/report.html:137
 msgid "Final account balance:"
