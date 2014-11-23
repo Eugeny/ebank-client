@@ -97,7 +97,7 @@
                     <span class="operation-info">
                         <div class="erip-payment" ng-show="automaticAccountOperation.type == 'erip'">
                             <div class="erip-payment-name-container">
-                                <div class="label" translate>
+                                <div class="label">
                                     Erip payment name:
                                 </div>
                                 <div class="erip-payment-name">
@@ -106,7 +106,7 @@
                             </div>
                             <div class="erip-payment-fields-list-container">
                                 <div class="erip-payment-fields-list-header-container">
-                                    <span class="erip-payment-fields-list-header" translate>
+                                    <span class="erip-payment-fields-list-header">
                                         Payment fields
                                     </span>
                                 </div>
@@ -126,7 +126,7 @@
                         </div>
                         <div class="money-transfer" ng-show="automaticAccountOperation.type == 'direct'">
                             <div class="recipient-account-number-container">
-                                <div class="label" translate>
+                                <div class="label">
                                     Recipient account number:
                                 </div>
                                 <div class="recipient-account-number">
@@ -137,16 +137,12 @@
                     </span>
                 </div>
                 <div class="operation-amount-container col-xs-1">
-                    <span class="operation-amount">
+                    <span class="operation-amount" translate>
                         {{automaticAccountOperation.amount}}
                     </span>
                 </div>
                 <div class="edit-operation-container col-xs-1">
-<<<<<<< HEAD
-                    <span class="edit-operation" translate>
-=======
                     <a class="edit-operation" title="Erit operation">
->>>>>>> Added create and delete logic for automatic account operations
                         Edit
                     </a>
                 </div>

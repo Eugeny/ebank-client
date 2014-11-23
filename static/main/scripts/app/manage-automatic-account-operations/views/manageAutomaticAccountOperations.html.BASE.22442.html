@@ -94,10 +94,10 @@
                     </span>
                 </div>
                 <div class="operation-info-container col-xs-4">
-                    <span class="operation-info">
+                    <span class="operation-info" translate>
                         <div class="erip-payment" ng-show="automaticAccountOperation.type == 'erip'">
                             <div class="erip-payment-name-container">
-                                <div class="label" translate>
+                                <div class="label">
                                     Erip payment name:
                                 </div>
                                 <div class="erip-payment-name">
@@ -106,7 +106,7 @@
                             </div>
                             <div class="erip-payment-fields-list-container">
                                 <div class="erip-payment-fields-list-header-container">
-                                    <span class="erip-payment-fields-list-header" translate>
+                                    <span class="erip-payment-fields-list-header">
                                         Payment fields
                                     </span>
                                 </div>
@@ -126,7 +126,7 @@
                         </div>
                         <div class="money-transfer" ng-show="automaticAccountOperation.type == 'direct'">
                             <div class="recipient-account-number-container">
-                                <div class="label" translate>
+                                <div class="label">
                                     Recipient account number:
                                 </div>
                                 <div class="recipient-account-number">
@@ -137,30 +137,24 @@
                     </span>
                 </div>
                 <div class="operation-amount-container col-xs-1">
-                    <span class="operation-amount">
+                    <span class="operation-amount" translate>
                         {{automaticAccountOperation.amount}}
                     </span>
                 </div>
                 <div class="edit-operation-container col-xs-1">
-<<<<<<< HEAD
-                    <span class="edit-operation" translate>
-=======
-                    <a class="edit-operation" title="Erit operation">
->>>>>>> Added create and delete logic for automatic account operations
+                    <span class="edit-operation">
                         Edit
-                    </a>
+                    </span>
                 </div>
                 <div class="delete-operation-container col-xs-1">
-                    <a class="glyphicon glyphicon-remove-circle"
-                        title="Remove operation"
-                        ng-click="removeAutomaticAccountOperation(currentUserAccount.id, automaticAccountOperation.id)">
-                    </a>
+                    <span class="glyphicon glyphicon-remove-circle">
+                    </span>
                 </div>
             </li>
         </ul>
 
         <div class="no-automatic-account-operations-presented-container" ng-show="automaticAccountOperations.length == 0 && !isBusy">
-            <h3 translate>You have no automatic account operations for selected account yet :(</h3>
+            <h3 translate>You have no automatic account operations yet :(</h3>
         </div>
 
         <div class="automatic-account-operations-list-paging-container"
