@@ -1,0 +1,132 @@
+<div class="automatic-account-operation">
+    <div class="close-modal-button-container">
+        <a ng-click="closeModal()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+
+    <div class="automatic-account-operation-content">
+        <div class="automatic-account-operation-header-container">
+            <h3 class="automatic-account-operation-header"
+                ng-show="automaticAccountOperationId == null">
+                Create New Automatic Account Operation
+            </h3>
+            <h3 class="automatic-account-operation-header"
+                ng-show="automaticAccountOperationId != null">
+                Edit Automatic Account Operation
+            </h3>
+        </div>
+
+        <div class="automatic-account-operation-form"
+            ng-form="automaticAccountOperationForm">
+            <div class="automatic-account-operation-type-container">
+                <div class="automatic-account-operation-type input-group">
+                    <div class="input-group-addon" translate>
+                        Operation Type
+                    </div>
+
+                    <div class="form-control">
+                        <input type="radio" ng-model="automaticAccountOperationType" value="erip">
+                        <span translate>Erip Payment</span>
+                        <br />
+                        <input type="radio" ng-model="automaticAccountOperationType" value="direct">
+                        <span translate>Money Transfer</span>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group selected-start-date-container">
+                <div class="input-group-addon" translate>
+                    Selected Start Date
+                </div>
+
+                <span class="form-control">
+                    {{startDate | date:'MMM, dd, yyyy'}}
+                </span>
+            </div>
+            <div class="input-group start-date-container">
+                <div class="input-group-addon" translate>
+                    Start Date
+                </div>
+
+                <datepicker ng-model="startDate"
+                    class="form-control"
+                    name="startDate"
+                    min-date="(automaticAccountOperationId == null) ? minDate : 0"
+                    starting-day="1"
+                    class="well well-sm">
+                </datepicker>
+                <validation-message validation-expressions="[{
+                        isValid: (!statementFiltersForm.startDate.$dirty
+                            || statementFiltersForm.startDate.$valid),
+                        validationMessageText: 'The Start Date must be greater or equal than current date'
+                    }]">
+                </validation-message>
+            </div>
+
+            <div class="automatic-account-operation-period-container">
+                <div class="automatic-account-operation-period input-group">
+                    <div class="input-group-addon" translate>
+                        Operation Period
+                    </div>
+
+                    <div class="form-control">
+                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="day">
+                        <span translate>Daily</span>
+                        <br />
+                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="week">
+                        <span translate>Weekly</span>
+                        <br />
+                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="month">
+                        <span translate>Monthly</span>
+                        <br />
+                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="year">
+                        <span translate>Yearly</span>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <erip-payment class="erip-payment-settings"
+            payment-form="eripPaymentForm" current-payment="currentEripPayment"
+            current-payment-fields="currentPaymentFields"
+            ng-show="automaticAccountOperationType == 'erip'">
+        </erip-payment>
+
+        <money-transfer payment-form="moneyTransferInfoForm"
+            current-payment="currentPayment"
+            ng-show="automaticAccountOperationType == 'direct'">
+        </money-transfer>
+
+        <general-payment payment-form="generalPaymentInfoForm"
+            current-payment="currentPayment"
+            user-accounts="userAccounts"
+            ng-show="(automaticAccountOperationType == 'erip')
+                            ? (currentEripPayment != null)
+                            : true">
+        </general-payment>
+
+        <div class="action-btn-container" ng-show="(automaticAccountOperationType == 'erip')
+                                                        ? (currentEripPayment != null)
+                                                        : true">
+            <button class="btn btn-success save-btn" ng-click="save()"
+                ng-class="{disabled: !generalPaymentInfoForm.$valid
+                                    || !automaticAccountOperationForm.$valid
+                                    || ((automaticAccountOperationType == 'erip')
+                                        ? !eripPaymentForm.$valid
+                                        : !moneyTransferInfoForm.$valid)}">
+                Save
+            </button>
+
+            <button class="btn btn-danger cancel-btn" ng-click="closeModal()"
+                ng-show="automaticAccountOperationId != null">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <custom-spinner ng-show="isBusy">
+    </custom-spinner>
+</div>

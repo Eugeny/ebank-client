@@ -1,7 +1,8 @@
 angular.module('ebank-client')
-    .controller('manageAutomaticAccountOperationsCtrl', ['$scope', 'automaticAccountOperationsService', 'userAccountsProvider', 'currencyService',
-            'userNotificationService',
-        function($scope, automaticAccountOperationsService, userAccountsProvider, currencyService, userNotificationService) {
+    .controller('manageAutomaticAccountOperationsCtrl', ['$scope', '$modal', 'automaticAccountOperationsService',
+            'userAccountsProvider', 'currencyService', 'userNotificationService',
+        function($scope, $modal, automaticAccountOperationsService, userAccountsProvider, currencyService,
+                userNotificationService) {
             'use strict';
 
             var currencyList = null;
@@ -9,7 +10,7 @@ angular.module('ebank-client')
             function activate() {
                 $scope.$watch('currentUserAccount', function() {
                     $scope.reloadAutomaticAccontOperationsInformation();
-                })
+                });
 
                 $scope.isFirstTimeLoad = false;
 
@@ -19,6 +20,38 @@ angular.module('ebank-client')
                     .then(function(currenciesInfo) {
                         currencyList = currenciesInfo.currencies || [];
                     });
+            }
+
+            function updateAccountsInfo() {
+                $scope.isBusy = true;
+
+                userAccountsProvider.getAccounts()
+                    .then(function(accountsInfo) {
+                        $scope.userAccounts = accountsInfo.accounts || [];
+
+                        if ($scope.userAccounts.length) {
+                            $scope.currentUserAccount = $scope.userAccounts[0];
+                        }
+                    }, function(error) {
+                        console.log(error);
+                    }).finally(function() {
+                        $scope.isBusy = false;
+                        $scope.isFirstTimeLoad = false;
+                    });
+            }
+
+            function openAutomaticAccountOperationModal(automaticAccountOperationId) {
+                return $modal.open({
+                    templateUrl: '/static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html',
+                    controller: 'manageAutomaticAccountOperations.automaticAccountOperationCtrl',
+                    size: 'lg',
+                    windowClass: 'automatic-account-operation-modal',
+                    resolve: {
+                        automaticAccountOperationId: function() {
+                            return automaticAccountOperationId;
+                        }
+                    }
+                });
             }
 
             $scope.isFirstTimeLoad = true;
@@ -44,24 +77,6 @@ angular.module('ebank-client')
                 }
             };
 
-            function updateAccountsInfo() {
-                $scope.isBusy = true;
-
-                userAccountsProvider.getAccounts()
-                    .then(function(accountsInfo) {
-                        $scope.userAccounts = accountsInfo.accounts || [];
-
-                        if ($scope.userAccounts.length) {
-                            $scope.currentUserAccount = $scope.userAccounts[0];
-                        }
-                    }, function(error) {
-                        console.log(error);
-                    }).finally(function() {
-                        $scope.isBusy = false;
-                        $scope.isFirstTimeLoad = false;
-                    });
-            }
-
             $scope.reloadAutomaticAccontOperationsInformation = function() {
                 if ($scope.currentUserAccount && $scope.currentUserAccount.id) {
                     $scope.isBusy = true;
@@ -71,15 +86,20 @@ angular.module('ebank-client')
                             $scope.stateTimestamp = data.timeStamp;
                             $scope.automaticAccountOperations = data.automaticAccountOperations;
                         }, function(error) {
-                            userNofificationService.showError('An error occurred during automatic account operations list loading. Please try again.')
+                            userNotificationService.showError('An error occurred during automatic account operations list loading. Please try again.');
                         }).finally(function() {
                             $scope.isBusy = false;
                         });
                 }
-            }
+            };
 
             $scope.createAutomaticAccountOperation = function() {
-
+                openAutomaticAccountOperationModal()
+                    .result.then(function () {}, //cancel callback - do nothing (not used)
+                    //dismiss callback
+                    function (result) {
+                        updateAccountsInfo();
+                    });
             };
 
             activate();
