@@ -58,6 +58,10 @@ msgstr ""
 msgid "Automatic Account Operations"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Automatic account operations state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Balance"
 msgstr ""
@@ -107,6 +111,10 @@ msgstr ""
 msgid "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Daily"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date"
 msgstr ""
@@ -125,6 +133,10 @@ msgstr ""
 
 #: static/main/scripts/app/header/views/header.html
 msgid "ERIP Payments"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Edit"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
@@ -147,8 +159,16 @@ msgstr ""
 msgid "Enter old password"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Erip Payment"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Erip payment"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Erip payment name:"
 msgstr ""
 
 #: static/main/scripts/app/payments/views/paymentResult.html
@@ -189,7 +209,12 @@ msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/header/views/header.html
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Money Transfer"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Monthly"
 msgstr ""
 
 #: static/main/scripts/app/currency/views/currency.html
@@ -214,6 +239,28 @@ msgstr ""
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Old password"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Operation Amount"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Operation Info"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Operation Period"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Operation Start Date"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Operation Type"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
@@ -241,6 +288,7 @@ msgid "Payer:"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Payment fields"
 msgstr ""
 
@@ -263,11 +311,20 @@ msgid "Recipient account number"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Recipient account number:"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient bank name:"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Remove"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Selected Start Date"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
@@ -286,16 +343,44 @@ msgstr ""
 msgid "Sign In"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Start Date"
+msgstr ""
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Weekly"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Yearly"
 msgstr ""
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "You have no accounts yet :("
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "You have no automatic account operations yet :("
+msgstr ""
+
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "{{automaticAccountOperation.period}}"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "{{automaticAccountOperation.type}}"
 msgstr ""
 
 #: static/main/scripts/app/login/views/login.html
