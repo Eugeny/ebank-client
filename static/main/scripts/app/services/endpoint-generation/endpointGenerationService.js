@@ -65,6 +65,16 @@ angular.module('services')
                         url: '/api/currency',
                         method: 'GET'
                     };
+                },
+                /*  startDate,
+                    period (day|week|month|year),
+                    data[recipientAccountId],
+                    data[amount],
+                    data[paymentId],
+                    data[paymentFields],
+                    type (direct|erip)*/
+                getResourceAutopaymentEndpoint: function() {
+                    return 'api/autopayment/:accountId/:id';
                 }
             }
         }]);
