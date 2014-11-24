@@ -56,6 +56,21 @@ angular.module('providers')
 
                     return deferred.promise;
                 },
+                getEripPaymentById: function(id) {
+                    var deferred = $q.defer();
+
+                    self.getEripPayments()
+                        .then(function(data) {
+                            deferred.resolve({
+                                response: data[id],
+                                timestamp: data.timestamp
+                            });
+                        }, function(error) {
+                            deferred.reject(error);
+                        });
+
+                    return deferred.promise;
+                },
                 payEripPayment: function(paymentData) {
                     var deferred = $q.defer();
 

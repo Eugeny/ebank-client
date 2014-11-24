@@ -10,6 +10,9 @@ angular.module('services')
                 getEripPayments: function() {
                     return paymentsProvider.getEripPayments();
                 },
+                getEripPaymentById: function(id) {
+                    getEripPaymentById(id);
+                },
                 payEripPayment: function(paymentData) {
                     return paymentsProvider.payEripPayment(paymentData);
                 },
