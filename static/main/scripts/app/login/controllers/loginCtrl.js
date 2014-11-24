@@ -1,6 +1,6 @@
 angular.module('ebank-client')
-    .controller('loginCtrl', ['$scope', '$rootScope', 'userInfoService', 'customEvents', 'userNotificationService',
-        function($scope, $rootScope, userInfoService, customEvents, userNotificationService) {
+    .controller('loginCtrl', ['$scope', '$rootScope', 'userInfoService', 'customEvents', 'userNotificationService', 'gettext',
+        function($scope, $rootScope, userInfoService, customEvents, userNotificationService, gettext) {
             'use strict';
 
             function activate() {
@@ -43,7 +43,7 @@ angular.module('ebank-client')
                         }, function(error) {
                             console.log(error.data.message);
 
-                            userNotificationService.showError('Login or Password are incorrect, please try again');
+                            userNotificationService.showError(gettext('Login or password are incorrect, please try again'));
 
                             clearForm();
                             $scope.isBusy = false;

@@ -289,10 +289,10 @@
                                 <div class="statement-operation-type-container col-xs-2">
                                     <span class="statement-operation-type">
                                         {{reportEntry.isEripPayment
-                                            ? ('Erip Payment'|translate)
+                                            ? gettext('Erip Payment')
                                             : ((reportEntry.giverAccountId === $parent.account.id
-                                                ? ('Outgoing'|translate)
-                                                : ('Incoming'|translate)) + (' Money Transfer'|translate))}}
+                                                ? gettext('Outgoing')
+                                                : gettext('Incoming')) + gettext(' Money Transfer'))}}
                                     </span>
                                 </div>
                                 <div class="statement-operation-info-container col-xs-5">

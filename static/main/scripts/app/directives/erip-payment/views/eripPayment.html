@@ -38,7 +38,7 @@
                             <validation-message validation-expressions="[{
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.required),
-                                    validationMessageText: value.name + (' is required'|translate)
+                                    validationMessageText: value.name + gettext(' is required')
                                 },
                                 {
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty

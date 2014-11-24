@@ -1,9 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
         '$scope', 'automaticAccountOperationId', 'userAccountsService', 'automaticAccountOperationsService',
-            'userNotificationService',
+            'userNotificationService', 'gettext',
         function($scope, automaticAccountOperationId, userAccountsService, automaticAccountOperationsService,
-                userNotificationService) {
+                userNotificationService, gettext) {
             function activate() {
                 $scope.$watch('automaticAccountOperationType', function() {
                     clearForm();
@@ -77,7 +77,7 @@ angular.module('ebank-client')
                 automaticAccountOperationsService.saveAutomaticAccountOperation(currentAutomaticAccountOperation)
                     .then(function() {
                         $scope.closeModal();
-                        userNotificationService.showSuccess('Automatic account operation is successfully saved');
+                        userNotificationService.showSuccess(gettext('Automatic account operation is successfully saved'));
                     }, function(error) {
                         userAccountsService.showError(error.message);
                     }).finally(function() {

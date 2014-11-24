@@ -84,22 +84,30 @@ class BankApi(object):
             'accountId': accountId,
         })
 
+    def __phpize_data(self, data):
+        result = {}
+        for k,v in data.iteritems():
+            result['data[%s]' % k] = v
+        return result
+
     def autopayment_create(self, clientId, accountId, params):
         kw = {}
-        kw.update(params)
         kw.update({
             'clientId': clientId,
             'accountId': accountId,
         })
+        kw.update(self.__phpize_data(params.pop('data')))
+        kw.update(params)
         return self.request('autopayment/create', kw)
 
     def autopayment_update(self, clientId, accountId, id, params):
         kw = {}
-        kw.update(params)
         kw.update({
             'clientId': clientId,
             'accountId': accountId,
         })
+        kw.update(self.__phpize_data(params.pop('data')))
+        kw.update(params)
         return self.request('autopayment/%s/update' % id, kw)
 
     def autopayment_delete(self, clientId, accountId, id):

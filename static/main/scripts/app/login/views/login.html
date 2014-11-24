@@ -20,7 +20,7 @@
                     <validation-message validation-expressions="[{
                             isValid: (!loginForm.login.$dirty
                                 || loginForm.login.$valid),
-                            validationMessageText: ('The login is required'|translate)
+                            validationMessageText: gettext('The login is required')
                         }]">
                     </validation-message>
                 </div>
@@ -33,7 +33,7 @@
                     <validation-message validation-expressions="[{
                             isValid: (!loginForm.password.$dirty
                                 || loginForm.password.$valid),
-                            validationMessageText: ('The password is required'|translate)
+                            validationMessageText: gettext('The password is required')
                         }]">
                     </validation-message>
                 </div>

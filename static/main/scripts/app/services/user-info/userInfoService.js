@@ -1,6 +1,6 @@
 angular.module('services')
-    .factory('userInfoService', ['$q', '$rootScope', 'userInfoProvider', 'customEvents', 'userNotificationService',
-        function($q, $rootScope, userInfoProvider, customEvents, userNotificationService) {
+    .factory('userInfoService', ['$q', '$rootScope', 'userInfoProvider', 'customEvents', 'userNotificationService', 'localizationService', 'gettext',
+        function($q, $rootScope, userInfoProvider, customEvents, userNotificationService, localizationService, gettext) {
             'use strict';
 
             var isAuthenticated = false;
@@ -29,7 +29,7 @@ angular.module('services')
 
                         $rootScope.$emit(customEvents.general.sessionExpired);
 
-                        userNotificationService.showWarning('Your ssession has expired');
+                        userNotificationService.showWarning(gettext('Your session has expired'));
                     }
                 });
             }

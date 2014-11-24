@@ -10,7 +10,7 @@
             <select type="button" class="form-control"
                 name="currentUserAccount"
                 ng-model="currentUserAccount"
-                ng-options="account.id + (' (Balance: '|translate) + account.balance
+                ng-options="account.id + gettext(' (Balance: ') + account.balance
                     + ' ' + getCurrencyById(account.currency).code
                     + ')' for account in userAccounts"
                 ng-required="true">
@@ -101,7 +101,7 @@
                                     Erip payment name:
                                 </div>
                                 <div class="erip-payment-name">
-                                    {{automaticAccountOperation.paymentId}}
+                                    {{automaticAccountOperation.data.paymentId}}
                                 </div>
                             </div>
                             <div class="erip-payment-fields-list-container">
@@ -113,7 +113,7 @@
 
                                 <ul class="erip-payment-fields-list">
                                     <li class="erip-payment-field-container"
-                                        ng-repeat="(key, value) in automaticAccountOperation.paymentFields">
+                                        ng-repeat="(key, value) in automaticAccountOperation.data.paymentFields">
                                         <div class="label">
                                             {{key}}
                                         </div>
@@ -130,7 +130,7 @@
                                     Recipient account number:
                                 </div>
                                 <div class="recipient-account-number">
-                                    {{automaticAccountOperation.recipientAccountId}}
+                                    {{automaticAccountOperation.data.recipientAccountId}}
                                 </div>
                             </div>
                         </div>

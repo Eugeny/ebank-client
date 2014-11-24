@@ -50,12 +50,24 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+msgid "An error occurred during automatic account operations list loading. Please try again."
+msgstr ""
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+msgid "Automatic account operation is successfully removed"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
+msgid "Automatic account operation is successfully saved"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -193,6 +205,10 @@ msgstr ""
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
+msgstr ""
+
+#: static/main/scripts/app/login/controllers/loginCtrl.js
+msgid "Login or password are incorrect, please try again"
 msgstr ""
 
 #: static/main/scripts/app/header/views/header.html
@@ -347,6 +363,10 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
+#: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
+msgid "The password was successfully changed"
+msgstr ""
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
 msgstr ""
@@ -364,11 +384,15 @@ msgid "You have no accounts yet :("
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "You have no automatic account operations yet :("
+msgid "You have no automatic account operations for selected account yet :("
 msgstr ""
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
+msgstr ""
+
+#: static/main/scripts/app/services/user-info/userInfoService.js
+msgid "Your session has expired"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html

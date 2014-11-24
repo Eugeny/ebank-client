@@ -1,9 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAccount.changePasswordCtrl',
         ['$scope', '$http', 'validationRegularExpressions', 'endpointGenerationService',
-            'userNotificationService',
+            'userNotificationService', 'gettext',
         function($scope, $http, validationRegularExpressions, endpointGenerationService,
-                userNotificationService) {
+                userNotificationService, gettext) {
             'use strict';
 
             function activate() {
@@ -29,7 +29,7 @@ angular.module('ebank-client')
                         if (result.data.error) {
                             userNotificationService.showError(result.data.error.message);
                         } else {
-                            userNotificationService.showSuccess('The password successfully changed');
+                            userNotificationService.showSuccess(gettext('The password was successfully changed'));
                         }
                     }, function(error) {
                         var message = "An error occurred during password change process";

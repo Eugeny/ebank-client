@@ -11,7 +11,8 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'locale-frontend/template.pot': [
-                        'static/main/**/*.html',
+                        'static/main/scripts/app/**/*.js',
+                        'static/main/scripts/app/**/*.html',
                         'templates/**/*.html',
                     ]
                 }

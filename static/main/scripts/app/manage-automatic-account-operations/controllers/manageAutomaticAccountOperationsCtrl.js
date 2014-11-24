@@ -1,8 +1,8 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperationsCtrl', ['$scope', '$modal', 'automaticAccountOperationsService',
-            'userAccountsProvider', 'currencyService', 'userNotificationService',
+            'userAccountsProvider', 'currencyService', 'userNotificationService', 'gettext',
         function($scope, $modal, automaticAccountOperationsService, userAccountsProvider, currencyService,
-                userNotificationService) {
+                userNotificationService, gettext) {
             'use strict';
 
             var currencyList = null;
@@ -86,7 +86,7 @@ angular.module('ebank-client')
                             $scope.stateTimestamp = data.timeStamp;
                             $scope.automaticAccountOperations = data.automaticAccountOperations;
                         }, function(error) {
-                            userNotificationService.showError('An error occurred during automatic account operations list loading. Please try again.');
+                            userNotificationService.showError(gettext('An error occurred during automatic account operations list loading. Please try again.'));
                         }).finally(function() {
                             $scope.isBusy = false;
                         });
@@ -108,7 +108,7 @@ angular.module('ebank-client')
                 automaticAccountOperationsService.removeAutomaticAccountOperation(currentAccountId, automaticAccountOperationId)
                     .then(function(data) {
                         updateAccountsInfo();
-                        userNotificationService.showSuccess('Automatic account operation is successfully removed');
+                        userNotificationService.showSuccess(gettext('Automatic account operation is successfully removed'));
                     }, function(error) {
                         userNotificationService.showError(error.message);
                     }).finally(function() {

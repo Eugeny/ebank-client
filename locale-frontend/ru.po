@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Eugene Pankov <e@ajenti.org>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -41,29 +41,25 @@ msgid "Account number to pay from"
 msgstr "Оплатить с номера счета"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid ""
-"Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
-"yyyy HH:mm:ss Z'}}"
-msgstr ""
-"Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
-"ss Z'}}"
+msgid "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Accounts"
 msgstr "Счета"
 
 #: static/main/scripts/app/accounts/views/accounts.html
-msgid ""
-"Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
-"yyyy HH:mm:ss Z'}}"
-msgstr ""
-"Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
-"ss Z'}}"
+msgid "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Amount"
 msgstr "Сумма"
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+msgid "An error occurred during automatic account operations list loading. Please try again."
+msgstr "Во время загрузки списка автоматических операций возникла ошибка. У нас обед."
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
@@ -73,14 +69,17 @@ msgstr "Произошла ошибка во время платежа"
 msgid "Automatic Account Operations"
 msgstr "Автоматические операции"
 
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+msgid "Automatic account operation is successfully removed"
+msgstr "Автоматическая операция успешно удалена"
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
+msgid "Automatic account operation is successfully saved"
+msgstr "Автоматическая операция успешно сохранена"
+
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
-msgid ""
-"Automatic account operations state is actual for {{stateTimestamp | unixtime "
-"| date:'MMM, dd, yyyy HH:mm:ss Z'}}"
-msgstr ""
-"Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
-"ss Z'}}"
+msgid "Automatic account operations state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "Состояние автоматических операций от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Balance"
@@ -128,12 +127,8 @@ msgid "Currency code"
 msgstr "Код валюты"
 
 #: static/main/scripts/app/currency/views/currency.html
-msgid ""
-"Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, "
-"dd, yyyy HH:mm:ss Z'}}"
-msgstr ""
-"Информация о валютах от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:"
-"mm:ss Z'}}"
+msgid "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "Информация о валютах от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Daily"
@@ -184,7 +179,6 @@ msgid "Enter old password"
 msgstr "Введите старый пароль"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
-#, fuzzy
 msgid "Erip Payment"
 msgstr "Платеж ЕРИП"
 
@@ -193,9 +187,8 @@ msgid "Erip payment"
 msgstr "Платеж ЕРИП"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Erip payment name:"
-msgstr "Платеж ЕРИП"
+msgstr "Платеж ЕРИП:"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Error details:"
@@ -219,7 +212,11 @@ msgstr "Выйти"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
-msgstr "Войти"
+msgstr "Логин"
+
+#: static/main/scripts/app/login/controllers/loginCtrl.js
+msgid "Login or password are incorrect, please try again"
+msgstr "Неверный логин или пароль, попробуйте снова"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
@@ -268,29 +265,24 @@ msgid "Old password"
 msgstr "Старый пароль"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Amount"
-msgstr "Информация об операции"
+msgstr "Сумма операции"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Info"
 msgstr "Информация об операции"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Period"
-msgstr "Информация об операции"
+msgstr "Частота операции"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Start Date"
-msgstr "Тип операции"
+msgstr "Начало операции"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Type"
 msgstr "Тип операции"
 
@@ -355,9 +347,8 @@ msgid "Remove"
 msgstr "Удалить"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
-#, fuzzy
 msgid "Selected Start Date"
-msgstr "Выбранная дата"
+msgstr "Выбранная дата начала"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Selected date"
@@ -379,6 +370,10 @@ msgstr "Войти"
 msgid "Start Date"
 msgstr "Дата начала"
 
+#: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
+msgid "The password was successfully changed"
+msgstr "Пароль успешно изменен"
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
 msgstr "Платеж успешно обработан"
@@ -396,32 +391,28 @@ msgid "You have no accounts yet :("
 msgstr "У вас пока нет счетов"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
-msgid "You have no automatic account operations yet :("
-msgstr "У вас пока нет счетов"
+msgid "You have no automatic account operations for selected account yet :("
+msgstr "У вас пока нет автоматических операций"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
 msgstr "Ваши счета"
 
+#: static/main/scripts/app/services/user-info/userInfoService.js
+msgid "Your session has expired"
+msgstr "Ваша сессия истекла"
+
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "{{automaticAccountOperation.period}}"
-msgstr "Автоматические операции"
+msgstr "{{automaticAccountOperation.period}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
-msgid ""
-"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:"
-"ss Z'}}"
-msgstr ""
-"Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
-"ss Z'}}"
+msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "{{automaticAccountOperation.type}}"
-msgstr "Автоматические операции"
+msgstr "{{automaticAccountOperation.type}}"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"

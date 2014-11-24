@@ -65,12 +65,28 @@ msgstr ""
 msgid "Amount"
 msgstr "Колькасць"
 
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+msgid ""
+"An error occurred during automatic account operations list loading. Please "
+"try again."
+msgstr ""
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
 msgstr "Падчас працэсу аплаты адбылася памылка"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
+msgstr "Аўтаматычныя аперацыі з рахункам"
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
+#, fuzzy
+msgid "Automatic account operation is successfully removed"
+msgstr "Аўтаматычныя аперацыі з рахункам"
+
+#: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
+#, fuzzy
+msgid "Automatic account operation is successfully saved"
 msgstr "Аўтаматычныя аперацыі з рахункам"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -220,6 +236,10 @@ msgstr "Выйсці"
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
 msgstr "Увайсці"
+
+#: static/main/scripts/app/login/controllers/loginCtrl.js
+msgid "Login or password are incorrect, please try again"
+msgstr ""
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
@@ -379,6 +399,11 @@ msgstr "Увайсці"
 msgid "Start Date"
 msgstr ""
 
+#: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
+#, fuzzy
+msgid "The password was successfully changed"
+msgstr "Плацёж паспяхова праведзен"
+
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
 msgstr "Плацёж паспяхова праведзен"
@@ -397,12 +422,16 @@ msgstr "У вас яшче няма рахункаў :("
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 #, fuzzy
-msgid "You have no automatic account operations yet :("
+msgid "You have no automatic account operations for selected account yet :("
 msgstr "У вас яшче няма рахункаў :("
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
 msgstr "Вашы рахункі"
+
+#: static/main/scripts/app/services/user-info/userInfoService.js
+msgid "Your session has expired"
+msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 #, fuzzy
