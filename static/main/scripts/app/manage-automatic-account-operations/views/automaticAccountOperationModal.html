@@ -26,11 +26,15 @@
                     </div>
 
                     <div class="form-control">
-                        <input type="radio" ng-model="automaticAccountOperationType" value="erip">
-                        <span translate>Erip Payment</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationType" value="erip">
+                            <span translate>Erip Payment</span>
+                        </label>
                         <br />
-                        <input type="radio" ng-model="automaticAccountOperationType" value="direct">
-                        <span translate>Money Transfer</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationType" value="direct">
+                            <span translate>Money Transfer</span>
+                        </label>
                         <br />
                     </div>
                 </div>
@@ -72,17 +76,25 @@
                     </div>
 
                     <div class="form-control">
-                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="day">
-                        <span translate>Daily</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationPeriod" value="day">
+                            <span translate>Daily</span>
+                        </label>
                         <br />
-                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="week">
-                        <span translate>Weekly</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationPeriod" value="week">
+                            <span translate>Weekly</span>
+                        </label>
                         <br />
-                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="month">
-                        <span translate>Monthly</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationPeriod" value="month">
+                            <span translate>Monthly</span>
+                        </label>
                         <br />
-                        <input type="radio" ng-model="automaticAccountOperationPeriod" value="year">
-                        <span translate>Yearly</span>
+                        <label>
+                            <input type="radio" ng-model="automaticAccountOperationPeriod" value="year">
+                            <span translate>Yearly</span>
+                        </label>
                         <br />
                     </div>
                 </div>
@@ -120,7 +132,7 @@
                 Save
             </button>
 
-            <button class="btn btn-danger cancel-btn" ng-click="closeModal()"
+            <button class="btn btn-warning cancel-btn" ng-click="closeModal()"
                 ng-show="automaticAccountOperationId != null">
                 Cancel
             </button>

@@ -96,7 +96,9 @@
                 </div>
                 <div class="operation-info-container col-xs-4">
                     <div class="operation-info">
-                        <div class="erip-payment" ng-show="automaticAccountOperation.type == 'erip'">
+                        <div class="erip-payment"
+                                ng-show="(automaticAccountOperation.type == 'erip')
+                                    && ($parent.getEripPaymentById(automaticAccountOperation.data.paymentId) != null)">
                             <div class="erip-payment-name-container">
                                 <span class="label" translate>
                                     Erip payment:
@@ -147,7 +149,8 @@
                     </span>
                 </div>
                 <div class="edit-operation-container col-xs-1">
-                    <a class="edit-operation" title="Edit operation" translate>
+                    <a class="edit-operation" title="Edit operation"
+                        ng-click="editAutomaticAccountOperation(automaticAccountOperation.id)" translate>
                         Edit
                     </a>
                 </div>

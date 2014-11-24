@@ -1,5 +1,5 @@
 .account-modal {
-    background-color: @accountModalBackgroundColor;
+    background-color: @modalBackgroundColor;
 
     .account-details {
         position: relative;
@@ -219,6 +219,10 @@
                                             &:last-of-type {
                                                 margin-bottom: 0;
                                             }
+
+                                            & > .input-group-addon {
+                                                min-width: 120px;
+                                            }
                                         }
 
                                         .date-container {
@@ -278,6 +282,10 @@
                                             .input-group {
                                                 margin: 0;
                                                 margin-top: 10px;
+
+                                                & > .input-group-addon {
+                                                    min-width: 120px;
+                                                }
                                             }
                                         }
                                     }
