@@ -1,7 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
-        '$scope', 'automaticAccountOperationId', 'userAccountsService',
-        function($scope, automaticAccountOperationId, userAccountsService) {
+        '$scope', 'automaticAccountOperationId', 'userAccountsService', 'automaticAccountOperationsService',
+            'userNotificationService',
+        function($scope, automaticAccountOperationId, userAccountsService, automaticAccountOperationsService,
+                userNotificationService) {
             function activate() {
                 $scope.$watch('automaticAccountOperationType', function() {
                     clearForm();
@@ -51,7 +53,7 @@ angular.module('ebank-client')
 
             $scope.save = function() {
                 var currentAutomaticAccountOperation = {
-                    startDate: $scope.startDate.getTime(),
+                    startDate: Math.floor($scope.startDate.getTime()/1000),
                     period: $scope.automaticAccountOperationPeriod,
                     type: $scope.automaticAccountOperationType,
                     data: {
@@ -67,7 +69,20 @@ angular.module('ebank-client')
                     currentAutomaticAccountOperation.data.recipientAccountNumber= $scope.currentPayment.recipientAccountNumber;
                 }
 
-                console.log(currentAutomaticAccountOperation);
+                if (automaticAccountOperationId) {
+                    currentAutomaticAccountOperation.id = automaticAccountOperationId;
+                }
+
+                $scope.isBusy = true;
+                automaticAccountOperationsService.saveAutomaticAccountOperation(currentAutomaticAccountOperation)
+                    .then(function() {
+                        $scope.closeModal();
+                        userNotificationService.showSuccess('Automatic account operation is successfully saved');
+                    }, function(error) {
+                        userAccountsService.showError(error.message);
+                    }).finally(function() {
+                        $scope.isBusy = false;
+                    });
             };
 
             activate();

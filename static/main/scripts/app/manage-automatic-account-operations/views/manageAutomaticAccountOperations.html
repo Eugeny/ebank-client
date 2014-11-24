@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="create-new-automatic-account-operation-btn-container">
-            <button class="btn btn-primary" ng-click="createAutomaticAccountOperation()">
+            <button class="btn btn-success" ng-click="createAutomaticAccountOperation()">
                 Create Automatic Account Operation
             </button>
         </div>
@@ -142,19 +142,21 @@
                     </span>
                 </div>
                 <div class="edit-operation-container col-xs-1">
-                    <span class="edit-operation" translate>
+                    <a class="edit-operation" title="Edit operation" translate>
                         Edit
-                    </span>
+                    </a>
                 </div>
                 <div class="delete-operation-container col-xs-1">
-                    <span class="glyphicon glyphicon-remove-circle">
-                    </span>
+                    <a class="glyphicon glyphicon-remove-circle"
+                        title="Remove operation"
+                        ng-click="removeAutomaticAccountOperation(currentUserAccount.id, automaticAccountOperation.id)">
+                    </a>
                 </div>
             </li>
         </ul>
 
         <div class="no-automatic-account-operations-presented-container" ng-show="automaticAccountOperations.length == 0 && !isBusy">
-            <h3 translate>You have no automatic account operations yet :(</h3>
+            <h3 translate>You have no automatic account operations for selected account yet :(</h3>
         </div>
 
         <div class="automatic-account-operations-list-paging-container"

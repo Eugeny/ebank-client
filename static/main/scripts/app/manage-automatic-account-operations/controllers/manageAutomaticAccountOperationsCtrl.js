@@ -102,5 +102,19 @@ angular.module('ebank-client')
                     });
             };
 
+            $scope.removeAutomaticAccountOperation = function(currentAccountId, automaticAccountOperationId) {
+                $scope.isBusy = true;
+
+                automaticAccountOperationsService.removeAutomaticAccountOperation(currentAccountId, automaticAccountOperationId)
+                    .then(function(data) {
+                        updateAccountsInfo();
+                        userNotificationService.showSuccess('Automatic account operation is successfully removed');
+                    }, function(error) {
+                        userNotificationService.showError(error.message);
+                    }).finally(function() {
+                        $scope.isBusy = false;
+                    });
+            };
+
             activate();
         }]);

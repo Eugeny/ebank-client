@@ -28,6 +28,80 @@ angular.module('providers')
                         });
 
                     return deferred.promise;
+                },
+
+                /*{
+                    startDate,
+                    period,
+                    type,
+                    data: {
+                        accountNumber,
+                        amount,
+
+                        //erip fields
+                        paymentId,
+                        paymentFields,
+
+                        //money transfer fields
+                        recipientAccountNumber
+                    },
+
+                    //update fields
+                    id
+                }*/
+                saveAutomaticAccountOperation: function(operationData) {
+                    var deferred = $q.defer();
+
+                    var data = {
+                        startDate: operationData.startDate,
+                        period: operationData.period,
+                        type: operationData.type,
+                        data: {
+                            amount: operationData.data.amount
+                        }
+                    };
+
+                    if (operationData.type == 'erip') {
+                        data.data.paymentId = operationData.data.paymentId;
+                        data.data.paymentFields = operationData.data.paymentFields;
+                    } else {
+                        data.data.recipientAccountId = operationData.data.recipientAccountNumber;
+                    }
+
+                    var saveOptions = {
+                        accountId: operationData.data.accountNumber
+                    };
+
+                    if (operationData.id) {
+                        saveOptions.id = operationData.id;
+                    }
+
+                    resource.save(
+                        saveOptions,
+                        data,
+                        function(data) {
+                            deferred.resolve(data);
+                        }, function(error) {
+                            deferred.reject(error);
+                        });
+
+                    return deferred.promise;
+                },
+                removeAutomaticAccountOperation: function(accountId, operationId) {
+                    var deferred = $q.defer();
+
+                    resource.remove({
+                        accountId: accountId,
+                        id: operationId
+                    },
+                    {},
+                    function(data) {
+                        deferred.resolve(data);
+                    }, function(error) {
+                        deferred.reject(error);
+                    });
+
+                    return deferred.promise;
                 }
             };
 

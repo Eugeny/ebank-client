@@ -4,6 +4,12 @@ angular.module('services')
             return {
                 getAutomaticAccountOperationsForAccount: function(accountId) {
                     return automaticAccountOperationsProvider.getAutomaticAccountOperationsForAccount(accountId);
+                },
+                saveAutomaticAccountOperation: function(operationData) {
+                    return automaticAccountOperationsProvider.saveAutomaticAccountOperation(operationData);
+                },
+                removeAutomaticAccountOperation: function(accountId, operationId) {
+                    return automaticAccountOperationsProvider.removeAutomaticAccountOperation(accountId, operationId);
                 }
             };
         }]);
