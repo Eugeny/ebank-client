@@ -113,6 +113,15 @@ angular.module('ebank-client')
                     });
             };
 
+            $scope.editAutomaticAccountOperation = function(automaticAccountOperationId) {
+                openAutomaticAccountOperationModal(automaticAccountOperationId)
+                    .result.then(function () {}, //cancel callback - do nothing (not used)
+                    //dismiss callback
+                    function (result) {
+                        updateAccountsInfo();
+                    });
+            };
+
             $scope.removeAutomaticAccountOperation = function(currentAccountId, automaticAccountOperationId) {
                 $scope.isBusy = true;
 
