@@ -1,0 +1,271 @@
+.automatic-account-operations-page-container {
+    height: 100%;
+
+    overflow-y: auto;
+
+    .page-title-container {
+        width: 100%;
+        text-align: center;
+
+        padding-bottom: 5px;
+        margin: 10px 0;
+
+        border-bottom: 1px solid @primaryColor2;
+
+        .page-title {
+            font-size: @pageHeaderTitleFontSize;
+            line-height: @pageHeaderTitleFontSize;
+
+            color: @pageHeaderTitleColor;
+
+            margin: 0;
+        }
+    }
+
+    .automatic-account-operations-controls-container {
+        width: 100%;
+        overflow: hidden;
+
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        border-bottom: 1px solid @primaryColor2;
+
+        .accounts-select-container {
+            float: left;
+
+            margin-left: 15px;
+        }
+
+        .create-new-automatic-account-operation-btn-container {
+            float: right;
+
+            margin-right: 15px;
+        }
+    }
+
+    .automatic-account-operations-list-container {
+        .automatic-account-operations-header-container {
+            overflow: hidden;
+
+            margin-bottom: 10px;
+
+            .timestamp-container {
+                float: left;
+
+                margin-left: 15px;
+
+                line-height: 16px;
+
+                .timestamp {
+                    font-size: 14px;
+                    line-height: 16px;
+
+                    color: @primaryColor3;
+                }
+            }
+
+            .refresh-button-container {
+                float: right;
+
+                margin-right: 15px;
+
+                line-height: 16px;
+
+                .refresh-button {
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+            }
+        }
+
+        .automatic-account-operations-list-header-container {
+            width: 100%;
+            overflow: hidden;
+
+            border-bottom: 1px solid @primaryColor2;
+
+            padding-bottom: 5px;
+
+            .automatic-account-operations-list-header {
+                overflow: hidden;
+
+
+                .operation-type-header-container,
+                .operation-start-date-header-container,
+                .operation-period-header-container,
+                .operation-info-header-container,
+                .operation-amount-header-container,
+                .edit-operation-header-container,
+                .delete-operation-header-container {
+                    color: @primaryColor4;
+
+                    span {
+                        line-height: 14px;
+                        font-size: 14px;
+                    }
+                }
+
+                .delete-operation-header-container {
+                    text-align: center;
+                }
+            }
+        }
+
+        .automatic-account-operations-list {
+            width: 100%;
+
+            overflow: hidden;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .automatic-account-operation-container {
+                overflow: hidden;
+
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                border-bottom: 1px solid @primaryColor2;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: @primaryColor1;
+                }
+
+                .operation-type-container {
+                    .operation-type {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .operation-start-date-container {
+                    .operation-start-date {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .operation-period-container {
+                    .operation-period {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .operation-info-container {
+                    .operation-info {
+                        .label {
+                            padding: 0;
+
+                            word-wrap: break-work;
+                            white-space: normal;
+
+                            font-size: 14px;
+                            font-weight: bold;
+
+                            color: @primaryColor4;
+                        }
+
+                        .erip-payment {
+                            .erip-payment-name-container {
+                                width: 100%;
+
+                                .erip-payment-name {
+                                    word-wrap: break-work;
+                                    white-space: normal;
+                                }
+                            }
+
+                            .erip-payment-fields-list-container {
+                                width: 100%;
+
+                                .erip-payment-fields-list-header-container {
+                                    .erip-payment-fields-list-header {
+                                        display: inline-block;
+                                        width: 100%;
+                                    }
+                                }
+
+                                .erip-payment-fields-list {
+                                    list-style: none;
+
+                                    margin: 0;
+                                    padding: 0;
+
+                                    .erip-payment-field-container {
+                                        width: 100%;
+
+                                        padding-top: 2px;
+                                        margin: 2px 5px 0px 5px;
+
+
+                                        border-top: 1px solid @primaryColor2;
+
+                                        .erip-payment-field {
+                                            word-wrap: break-work;
+                                            white-space: normal;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .money-transfer {
+                            .recipient-account-number-container {
+                                .recipient-account-number {
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .edit-operation-container {
+                    text-align: right;
+
+                    .edit-operation {
+                        padding: 2px;
+
+                        background-color: transparent;
+
+                        border: 1px solid transparent;
+                        .border-radius(4px);
+
+                        .transition(all .25s ease);
+
+                        &:hover {
+                            background-color: white;
+                            border-color: @primaryColor4;
+                        }
+                    }
+                }
+
+                .operation-amount-container {
+                    .operation-amount {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .delete-operation-container {
+                    text-align: center;
+                }
+            }
+        }
+
+        .no-automatic-account-operations-presented-container {
+            width: 100%;
+
+            text-align: center;
+            color: @primaryColor3;
+        }
+
+        .automatic-account-operations-list-paging-container {
+            width: 100%;
+
+            text-align: center;
+        }
+    }
+}

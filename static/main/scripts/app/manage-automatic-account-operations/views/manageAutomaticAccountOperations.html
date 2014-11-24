@@ -1,6 +1,7 @@
 <div class="page-container automatic-account-operations-page-container">
-    <div class="automatic-accaount-operations-header-container" ng-hide="isFirstTimeLoad">
-        <h3 class="money-transfer-header" translate>
+    <div class="automatic-accaount-operations-header-container page-title-container"
+            ng-hide="isFirstTimeLoad">
+        <h3 class="money-transfer-header page-title" translate>
             Automatic Account Operations
         </h3>
     </div>
@@ -24,7 +25,7 @@
     </div>
 
     <div class="automatic-account-operations-list-container" ng-hide="isFirstTimeLoad">
-        <div class="automatic-account-operations-list-header-container">
+        <div class="automatic-account-operations-header-container">
             <div class="timestamp-container">
                 <span class="timestamp" translate>
                     Automatic account operations state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
@@ -85,7 +86,7 @@
                 </div>
                 <div class="operation-start-date-container col-xs-2">
                     <span class="operation-start-date" translate>
-                        {{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                        {{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}
                     </span>
                 </div>
                 <div class="operation-period-container col-xs-1">
@@ -94,47 +95,51 @@
                     </span>
                 </div>
                 <div class="operation-info-container col-xs-4">
-                    <span class="operation-info">
+                    <div class="operation-info">
                         <div class="erip-payment" ng-show="automaticAccountOperation.type == 'erip'">
                             <div class="erip-payment-name-container">
-                                <div class="label" translate>
-                                    Erip payment name:
-                                </div>
-                                <div class="erip-payment-name">
-                                    {{automaticAccountOperation.data.paymentId}}
-                                </div>
+                                <span class="label" translate>
+                                    Erip payment:
+                                </span>
+                                <span class="erip-payment-name">
+                                    {{$parent.getEripPaymentById(automaticAccountOperation.data.paymentId).name}}
+                                </span>
                             </div>
                             <div class="erip-payment-fields-list-container">
-                                <div class="erip-payment-fields-list-header-container">
-                                    <span class="erip-payment-fields-list-header" translate>
+                                <div class="erip-payment-fields-list-header-container"
+                                        ng-show="automaticAccountOperation.data.paymentFields.length != 0">
+                                    <span class="erip-payment-fields-list-header label" translate>
                                         Payment fields
                                     </span>
                                 </div>
 
-                                <ul class="erip-payment-fields-list">
+                                <ul class="erip-payment-fields-list"
+                                        ng-show="automaticAccountOperation.data.paymentFields.length != 0">
                                     <li class="erip-payment-field-container"
-                                        ng-repeat="(key, value) in automaticAccountOperation.data.paymentFields">
-                                        <div class="label">
-                                            {{key}}
-                                        </div>
-                                        <div class="erip-payment-field">
+                                        ng-repeat="(key, value) in automaticAccountOperation.data.paymentFields track by $index">
+                                        <span class="label">
+                                            {{$parent.$parent.getEripPaymentById(
+                                                $parent.automaticAccountOperation.data.paymentId)
+                                                .fileds[key].name}}:
+                                        </span>
+                                        <span class="erip-payment-field">
                                             {{value}}
-                                        </div>
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="money-transfer" ng-show="automaticAccountOperation.type == 'direct'">
                             <div class="recipient-account-number-container">
-                                <div class="label" translate>
+                                <span class="label" translate>
                                     Recipient account number:
-                                </div>
-                                <div class="recipient-account-number">
+                                </span>
+                                <span class="recipient-account-number">
                                     {{automaticAccountOperation.data.recipientAccountId}}
-                                </div>
+                                </span>
                             </div>
                         </div>
-                    </span>
+                    </div>
                 </div>
                 <div class="operation-amount-container col-xs-1">
                     <span class="operation-amount">

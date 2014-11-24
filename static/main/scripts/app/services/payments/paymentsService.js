@@ -7,6 +7,9 @@ angular.module('services')
                 getEripTree: function() {
                     return paymentsProvider.getEripTree();
                 },
+                getEripPayments: function() {
+                    return paymentsProvider.getEripPayments();
+                },
                 payEripPayment: function(paymentData) {
                     return paymentsProvider.payEripPayment(paymentData);
                 },

@@ -25,6 +25,37 @@ angular.module('providers')
 
                     return deferred.promise;
                 },
+                getEripPayments: function() {
+                    function getCategoryPayments(category) {
+                        var currentCategoryPayments = {};
+
+                        _.each(category.payments, function(payment) {
+                            currentCategoryPayments[payment.paymentId] = payment;
+                        });
+
+                        _.each(_.map(category.categories, getCategoryPayments), function(payments) {
+                            _.extend(currentCategoryPayments, payments);
+                        });
+
+                        return currentCategoryPayments;
+                    }
+
+                    var deferred = $q.defer();
+
+                    self.getEripTree()
+                        .then(function(data) {
+                            var eripPayments = getCategoryPayments(data.eripData);
+
+                            deferred.resolve({
+                                response: eripPayments,
+                                timestamp: data.timestamp
+                            });
+                        }, function(error) {
+                            deferred.reject(error);
+                        });
+
+                    return deferred.promise;
+                },
                 payEripPayment: function(paymentData) {
                     var deferred = $q.defer();
 

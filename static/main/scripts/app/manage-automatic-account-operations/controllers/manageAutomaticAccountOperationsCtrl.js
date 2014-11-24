@@ -1,11 +1,13 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperationsCtrl', ['$scope', '$modal', 'automaticAccountOperationsService',
-            'userAccountsProvider', 'currencyService', 'userNotificationService', 'gettext',
+            'userAccountsProvider', 'currencyService', 'userNotificationService', 'gettext', 'paymentsService',
         function($scope, $modal, automaticAccountOperationsService, userAccountsProvider, currencyService,
-                userNotificationService, gettext) {
+                userNotificationService, gettext, paymentsService) {
             'use strict';
 
             var currencyList = null;
+
+            var eripPaymentsDictionary = null;
 
             function activate() {
                 $scope.$watch('currentUserAccount', function() {
@@ -19,6 +21,11 @@ angular.module('ebank-client')
                 currencyService.getCurrencyList()
                     .then(function(currenciesInfo) {
                         currencyList = currenciesInfo.currencies || [];
+                    });
+
+                paymentsService.getEripPayments()
+                    .then(function(eripPayments) {
+                        eripPaymentsDictionary = eripPayments.response;
                     });
             }
 
@@ -35,7 +42,7 @@ angular.module('ebank-client')
                     }, function(error) {
                         console.log(error);
                     }).finally(function() {
-                        $scope.isBusy = false;
+                        $scope.isBusy = false;  
                         $scope.isFirstTimeLoad = false;
                     });
             }
@@ -75,6 +82,10 @@ angular.module('ebank-client')
                 } else {
                     return null;
                 }
+            };
+
+            $scope.getEripPaymentById = function(id) {
+                return eripPaymentsDictionary[id];
             };
 
             $scope.reloadAutomaticAccontOperationsInformation = function() {
