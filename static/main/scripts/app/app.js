@@ -21,7 +21,6 @@
             $rootScope.gettext = function (string) {
                 return gettextCatalog.getString(string);
             };
-            $rootScope.testvalue = '123';
             $rootScope.isAppBusy = false;
 
             //custom events
