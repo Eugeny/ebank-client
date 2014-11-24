@@ -62,3 +62,6 @@ env
 static/CACHE
 build
 node_modules
+
+locale-frontend/*.pot
+locale-frontend/*.js

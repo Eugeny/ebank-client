@@ -15,10 +15,13 @@
     ]).config(['$interpolateProvider', '$httpProvider',
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');
-    }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService', 'userInfoService', 'gettext',
-        function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService, gettext) {
+    }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService', 'userInfoService', 'gettextCatalog',
+        function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService, gettextCatalog) {
             $rootScope.localizationService = localizationService;
-            $rootScope.gettext = gettext;
+            $rootScope.gettext = function (string) {
+                return gettextCatalog.getString(string);
+            };
+            $rootScope.testvalue = '123';
             $rootScope.isAppBusy = false;
 
             //custom events

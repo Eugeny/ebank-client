@@ -16,27 +16,27 @@
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.required),
-                    validationMessageText: gettext('The amount is required')
+                    validationMessageText: $root.gettext('The amount is required')
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.number),
-                    validationMessageText: gettext('The amount must be integer number')
+                    validationMessageText: $root.gettext('The amount must be integer number')
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.pattern),
-                    validationMessageText: gettext('The amount must be greater than zero integer number')
+                    validationMessageText: $root.gettext('The amount must be greater than zero integer number')
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.min),
-                    validationMessageText: gettext('The amount must be greater than zero')
+                    validationMessageText: $root.gettext('The amount must be greater than zero')
                 },
                 {
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.max),
-                    validationMessageText: gettext('The amount must be less than selected account balance')
+                    validationMessageText: $root.gettext('The amount must be less than selected account balance')
                 }]">
             </validation-message>
         </div>
@@ -51,7 +51,7 @@
             <select type="button" class="form-control"
                 name="currentUserAccount"
                 ng-model="currentPayment.currentUserAccount"
-                ng-options="account.id + gettext(' (Balance: ') + account.balance
+                ng-options="account.id + ' (' + $root.gettext('Balance') + ': ' + account.balance
                     + ' ' + getCurrencyById(account.currency).code
                     + ')' for account in userAccounts"
                 ng-required="true">
@@ -59,7 +59,7 @@
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.currentUserAccount.$dirty
                         || !paymentForm.currentUserAccount.$error.required),
-                    validationMessageText: gettext('The account number to pay from is required')
+                    validationMessageText: $root.gettext('The account number to pay from is required')
                 }]">
             </validation-message>
         </div>

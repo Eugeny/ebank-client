@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         'nggettext_extract': {
-            pot: {
+            pot_normal: {
                 options: {
                     extensions: {
                         htm: 'html',
@@ -14,6 +14,18 @@ module.exports = function(grunt) {
                         'static/main/scripts/app/**/*.js',
                         'static/main/scripts/app/**/*.html',
                         'templates/**/*.html',
+                    ]
+                }
+            },
+            pot_expr: {
+                options: {
+                    extensions: {
+                        js: 'js',
+                    },
+                },
+                files: {
+                    'locale-frontend/template_expressions.pot': [
+                        'locale-frontend/expressions.js',
                     ]
                 }
             },

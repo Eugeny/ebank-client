@@ -30,9 +30,11 @@ locale:
 	./manage.py compilemessages
 
 locale-frontend:
-	grunt compile -v
+	python locale-frontend/extract_expressions.py > locale-frontend/expressions.js
 	grunt extract -v
-	msgmerge -U locale-frontend/be.po locale-frontend/template.pot
-	msgmerge -U locale-frontend/ru.po locale-frontend/template.pot
+	msgcat locale-frontend/template.pot locale-frontend/template_expressions.pot > locale-frontend/template.full.pot
+	msgmerge -UN locale-frontend/be.po locale-frontend/template.full.pot
+	msgmerge -UN locale-frontend/ru.po locale-frontend/template.full.pot
+	grunt compile -v
 
 .PHONY: build static locale locale-frontend

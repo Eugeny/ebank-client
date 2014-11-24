@@ -180,7 +180,7 @@ msgid "Erip payment"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "Erip payment name:"
+msgid "Erip payment:"
 msgstr ""
 
 #: static/main/scripts/app/payments/views/paymentResult.html
@@ -226,6 +226,7 @@ msgstr ""
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/header/views/header.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+#: static/main/scripts/app/payments/money-transfer/views/moneyTransfer.html
 msgid "Money Transfer"
 msgstr ""
 
@@ -400,7 +401,7 @@ msgid "{{automaticAccountOperation.period}}"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
