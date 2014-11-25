@@ -79,10 +79,13 @@ class BankApi(object):
         })
 
     def autopayment_list(self, clientId, accountId):
-        return self.request('autopayment/list', {
+        data = self.request('autopayment/list', {
             'clientId': clientId,
             'accountId': accountId,
         })
+        for payment in data['response']:
+            payment['data']['paymentFields'] = json.loads(payment['data'].get('paymentFields', 'null'))
+        return data
 
     def __phpize_data(self, data):
         result = {}
@@ -96,6 +99,7 @@ class BankApi(object):
             'clientId': clientId,
             'accountId': accountId,
         })
+        params['data']['paymentFields'] = json.dumps(params['data'].get('paymentFields', None))
         kw.update(self.__phpize_data(params.pop('data')))
         kw.update(params)
         return self.request('autopayment/create', kw)
@@ -106,6 +110,7 @@ class BankApi(object):
             'clientId': clientId,
             'accountId': accountId,
         })
+        params['data']['paymentFields'] = json.dumps(params['data'].get('paymentFields', None))
         kw.update(self.__phpize_data(params.pop('data')))
         kw.update(params)
         return self.request('autopayment/%s/update' % id, kw)
