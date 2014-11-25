@@ -49,7 +49,7 @@
                 ng-class="{'unread-notification': notification.unread}">
 
                 <div class="notification-date-container col-xs-3">
-                    <span class="notification-date" translate>
+                    <span class="notification-date">
                         {{notification.timestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
                     </span>
                 </div>
@@ -61,10 +61,10 @@
                     </span>
                 </div>
                 <div class="notification-type-container col-xs-3">
-                    <span class="notification-type" translate>
+                    <span class="notification-type">
                         {{(notification.content.type == 'newDeposit')
-                            ? 'New deposit'
-                            : 'Capitalization'}}
+                            ? gettext('New deposit')
+                            : gettext('Capitalization')}}
                     </span>
                 </div>
                 <div class="notification-details-link-container col-xs-3">

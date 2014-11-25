@@ -116,6 +116,10 @@ msgstr ""
 msgid "Copyright Gamma E-Bank ©2014"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Create Automatic Account Operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
 msgstr ""
@@ -434,13 +438,6 @@ msgstr ""
 msgid "Your session has expired"
 msgstr ""
 
-#: static/main/scripts/app/notifications/views/notifications.html
-msgid ""
-"{{(notification.content.type == 'newDeposit')\n"
-"                            ? 'New deposit'\n"
-"                            : 'Capitalization'}}"
-msgstr ""
-
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "{{automaticAccountOperation.period}}"
 msgstr ""
@@ -451,10 +448,6 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "{{automaticAccountOperation.type}}"
-msgstr ""
-
-#: static/main/scripts/app/notifications/views/notifications.html
-msgid "{{notification.timestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
