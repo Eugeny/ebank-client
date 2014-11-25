@@ -9,6 +9,8 @@ msgid "About"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
+#: static/main/scripts/app/notifications/views/notifications.html
 msgid "Account Number"
 msgstr ""
 
@@ -26,6 +28,10 @@ msgstr ""
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Account number"
+msgstr ""
+
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
+msgid "Account number money were deposited from"
 msgstr ""
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
@@ -86,6 +92,10 @@ msgstr ""
 msgid "Bank sells"
 msgstr ""
 
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
+msgid "Capitalization Rate"
+msgstr ""
+
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
 msgstr ""
@@ -128,6 +138,7 @@ msgid "Daily"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
+#: static/main/scripts/app/notifications/views/notifications.html
 msgid "Date"
 msgstr ""
 
@@ -250,6 +261,10 @@ msgstr ""
 msgid "No operations found for your filters"
 msgstr ""
 
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid "Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
 msgstr ""
@@ -259,6 +274,7 @@ msgid "Old password"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Operation Amount"
 msgstr ""
 
@@ -277,6 +293,7 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Operation Type"
 msgstr ""
 
@@ -352,7 +369,12 @@ msgstr ""
 msgid "Show Statement"
 msgstr ""
 
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
+msgid "Show account"
+msgstr ""
+
 #: static/main/scripts/app/accounts/views/accounts.html
+#: static/main/scripts/app/notifications/views/notifications.html
 msgid "Show details"
 msgstr ""
 
@@ -364,12 +386,20 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
+#: static/main/scripts/app/notifications/notification/views/notificationModal.html
+msgid "The operation occurred at {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+
 #: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
 msgid "The password was successfully changed"
 msgstr ""
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
+msgstr ""
+
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid "Type"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
@@ -388,12 +418,27 @@ msgstr ""
 msgid "You have no automatic account operations for selected account yet :("
 msgstr ""
 
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid "You have no notifications yet :("
+msgstr ""
+
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
 msgstr ""
 
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid "Your notifications"
+msgstr ""
+
 #: static/main/scripts/app/services/user-info/userInfoService.js
 msgid "Your session has expired"
+msgstr ""
+
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid ""
+"{{(notification.content.type == 'newDeposit')\n"
+"                            ? 'New deposit'\n"
+"                            : 'Capitalization'}}"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -406,6 +451,10 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "{{automaticAccountOperation.type}}"
+msgstr ""
+
+#: static/main/scripts/app/notifications/views/notifications.html
+msgid "{{notification.timestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
