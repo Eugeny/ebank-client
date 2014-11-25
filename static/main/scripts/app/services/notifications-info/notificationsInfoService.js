@@ -11,6 +11,10 @@ angular.module('services')
                 return notificationsInfoProvider.getCurrentUserNotificationsInfo();
             };
 
+            self.getUserNotificationInfoById = function(notificationInfoId) {
+                return notificationsInfoProvider.getUserNotificationInfoById(notificationInfoId);
+            };
+
             self.updateCurrentNotificationsInfo = function() {
                 var deferred = $q.defer();
 
@@ -23,6 +27,10 @@ angular.module('services')
                     });
 
                 return deferred.promise;
+            };
+
+            self.markNotificationInfoRead = function(notificationInfoId) {
+                return notificationsInfoProvider.markNotificationInfoRead(notificationInfoId);
             };
 
             return self;

@@ -1,0 +1,104 @@
+<div class="page-container notifications-page-container">
+    <div class="notifications-list-container" ng-hide="isFirstTimeLoad">
+        <div class="notifications-page-header-container">
+            <div class="page-title-container">
+                <h3 class="page-title" translate>
+                    Your notifications
+                </h3>
+            </div>
+
+            <div class="timestamp-container">
+                <span class="timestamp" translate>
+                    Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                </span>
+            </div>
+
+            <div class="refresh-button-container">
+                <a class="refresh-button" ng-click="reloadNotificationsInformation()">
+                    <span class="glyphicon glyphicon-refresh" ng-class="{ 'fa-spin': isBusy}"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="notifications-list-header-container" ng-hide="notifications.length == 0">
+            <div class="notifications-list-header">
+                <div class="notification-date-header-container col-xs-3">
+                    <span class="notification-date-header" translate>
+                        Date
+                    </span>
+                </div>
+                <div class="notification-account-number-header-container col-xs-3">
+                    <span class="notification-account-number-header" translate>
+                        Account Number
+                    </span>
+                </div>
+                <div class="notification-type-header-container col-xs-3">
+                    <span class="notification-type-header" translate>
+                        Type
+                    </span>
+                </div>
+                <div class="actions-header-container col-xs-3">
+                </div>
+            </div>
+        </div>
+
+        <ul class="notifications-list" ng-hide="notifications.length == 0">
+            <li class="notification-container" ng-repeat="notification in notifications
+                | orderBy: ['unread', 'timestamp']: true
+                | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber * itemsPerPage"
+                ng-class="{'unread-notification': notification.unread}">
+
+                <div class="notification-date-container col-xs-3">
+                    <span class="notification-date" translate>
+                        {{notification.timestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                    </span>
+                </div>
+                <div class="notification-account-number-container col-xs-3">
+                    <span class="notification-account-number">
+                        {{(notification.content.type == 'newDeposit')
+                            ? notification.content.recipientAccountId
+                            : notification.content.accountId}}
+                    </span>
+                </div>
+                <div class="notification-type-container col-xs-3">
+                    <span class="notification-type" translate>
+                        {{(notification.content.type == 'newDeposit')
+                            ? 'New deposit'
+                            : 'Capitalization'}}
+                    </span>
+                </div>
+                <div class="notification-details-link-container col-xs-3">
+                    <a class="notification-details-link"
+                        ui-sref="main.authenticated.notifications.notification({id: notification.id})" translate>
+                        Show details
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="no-notifications-presented-container" ng-show="notifications.length == 0 && !isBusy">
+            <h3 translate>You have no notifications yet :(</h3>
+        </div>
+
+        <div class="notifications-list-paging-container"
+            ng-hide="notifications.length / itemsPerPage <= 1">
+            <pagination class="pagination-sm"
+                ng-model="currentPageNumber"
+                total-items="notifications.length"
+                items-per-page="itemsPerPage"
+                max-size="maxPaginationSize"
+                boundary-links="true"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;">
+            </pagination>
+        </div>
+    </div>
+
+    <ui-view name="notification-details-content-view">
+    </ui-view>
+
+    <custom-spinner ng-show="isBusy">
+    </custom-spinner>
+</div>

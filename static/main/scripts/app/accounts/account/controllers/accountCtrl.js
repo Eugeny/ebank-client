@@ -1,7 +1,7 @@
 angular.module('ebank-client')
     .controller('accounts.accountCtrl', ['$scope', '$state', '$stateParams', '$modal',
-        'userAccountsService',
-    function($scope, $state, $stateParams, $modal, userAccountsService) {
+        'userAccountsService', 'userNotificationService',
+    function($scope, $state, $stateParams, $modal, userAccountsService, userNotificationService) {
         'use strict';
 
         $scope.isBusy = false;
@@ -12,6 +12,8 @@ angular.module('ebank-client')
 
             if (id === undefined || id < 0) {
                 goToAccounsState();
+
+                userNotificationService.showError('Incorrent notification identifier');
             }
 
             $scope.isBusy = true;
@@ -29,6 +31,8 @@ angular.module('ebank-client')
                         });
                 }, function(error) {
                     goToAccounsState();
+
+                    userNotificationService.showError(error.message);
                 }).finally(function() {
                     $scope.isBusy = false;
                 });
@@ -67,9 +71,7 @@ angular.module('ebank-client')
 
             //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
-                if (toState.name === 'main.authenticated.accounts') {
-                    $scope.closeModal();
-                }
+                $scope.closeModal();
             });
         }
 

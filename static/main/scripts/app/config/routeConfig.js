@@ -158,9 +158,27 @@ angular.module('ebank-client')
                     auth: getCheckAuthForRouteFactory()
                 }
             }).state('main.authenticated.notifications', {
-
+                url: '/notifications',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/notifications/views/notifications.html',
+                        controller: 'notificationsCtrl'
+                    }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
+                }
             }).state('main.authenticated.notifications.notification', {
-                
+                url: '/notification/:id',
+                views: {
+                    'notification-details-content-view': {
+                        templateUrl: '/static/main/scripts/app/notifications/notification/views/notification.html',
+                        controller: 'notifications.notificationCtrl'
+                    }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
+                }
             });
 
             $locationProvider.html5Mode({

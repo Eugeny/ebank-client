@@ -19,12 +19,27 @@ angular.module('providers')
 
                     return deferred.promise;
                 },
+                getUserNotificationInfoById: function(notificationInfoId) {
+                    var deferred = $q.defer();
+
+                    self.getCurrentUserNotificationsInfo()
+                        .then(function(data) {
+                            deferred.resolve({
+                                notification: _.findWhere(data.notifications, {id: notificationInfoId}),
+                                timestamp: data.timestamp
+                            });
+                        }, function(error) {
+                            deferred.resolve(data);
+                        });
+
+                    return deferred.promise;
+                },
                 markNotificationInfoRead: function(notificationInfoId) {
                     var deferred = $q.defer();
 
                     $http(endpointGenerationService.getPostMarkReadNotificationInfoEndpoint(notificationInfoId))
                         .then(function(data) {
-                            deferre.resolve(true);
+                            deferred.resolve(true);
                         }, function(error) {
                             deferred.reject(error);
                         });

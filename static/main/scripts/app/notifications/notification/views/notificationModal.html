@@ -1,0 +1,81 @@
+<div class="notification-details">
+    <div class="close-modal-button-container">
+        <a ng-click="closeModal()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+
+    <div class="notification-details-content">
+        <div class="notification-general-info-container">
+            <div class="timestamp-container">
+                <span class="timestamp" translate>
+                    The operation occurred at {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                </span>
+            </div>
+
+            <div class="notification-account-number-container row">
+                <div class="label col-xs-3" translate>
+                    Account Number
+                </div>
+                <div class="value col-xs-9">
+                    {{(notification.content.type == 'newDeposit')
+                        ? notification.content.recipientAccountId
+                        : notification.content.accountId}}
+
+                    <a class="show-account-link"
+                        ui-sref="main.authenticated.accounts.account({
+                            id: ((notification.content.type == 'newDeposit')
+                                ? notification.content.recipientAccountId
+                                : notification.content.accountId)
+                        })"
+                        title="Show account"
+                        translate>
+                        Show account
+                    </a>
+                </div>
+            </div>
+
+            <div class="notification-operation-type-container row">
+                <div class="label col-xs-3" translate>
+                    Operation Type
+                </div>
+                <div class="value col-xs-9">
+                    {{(notification.content.type == 'newDeposit')
+                        ? 'New deposit'
+                        : 'Capitalization'}}
+                </div>
+            </div>
+
+            <div class="notification-operation-amount-container row">
+                <div class="label col-xs-3" translate>
+                    Operation Amount
+                </div>
+                <div class="value col-xs-9">
+                    {{(notification.content.type == 'newDeposit')
+                        ? notification.content.accountAmount
+                        : (notification.content.accountAmountAfter - notification.content.accountAmountBefore)}}
+                </div>
+            </div>
+
+            <div class="notification-operation-capitalization-rate-container row"
+                ng-show="notification.content.type == 'capitalization'">
+                <div class="label col-xs-3" translate>
+                    Capitalization Rate
+                </div>
+                <div class="value col-xs-9">
+                    {{notification.content.capitalizationRate}}
+                </div>
+            </div>
+
+            <div class="notification-operation-payer-account-number-container row"
+                ng-show="notification.content.type == 'newDeposit'">
+                <div class="label col-xs-3" translate>
+                    Account number money were deposited from
+                </div>
+                <div class="value col-xs-9">
+                    {{notification.content.payerAccountId}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

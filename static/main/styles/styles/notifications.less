@@ -1,0 +1,168 @@
+.notifications-page-container {
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+
+    .notifications-list-container {
+        width: 100%;
+
+        .notifications-page-header-container {
+            overflow: hidden;
+
+            margin-bottom: 10px;
+
+            .page-title-container {
+                width: 100%;
+                text-align: center;
+
+                padding-bottom: 5px;
+                margin: 10px 0;
+
+                border-bottom: 1px solid @primaryColor2;
+
+                .page-title {
+                    font-size: @pageHeaderTitleFontSize;
+                    line-height: @pageHeaderTitleFontSize;
+
+                    color: @pageHeaderTitleColor;
+
+                    margin: 0;
+                }
+            }
+
+            .timestamp-container {
+                float: left;
+
+                margin-left: 15px;
+
+                line-height: 16px;
+
+                .timestamp {
+                    font-size: 14px;
+                    line-height: 16px;
+
+                    color: @primaryColor3;
+                }
+            }
+
+            .refresh-button-container {
+                float: right;
+
+                margin-right: 15px;
+
+                line-height: 16px;
+
+                .refresh-button {
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+            }
+        }
+
+        .notifications-list-header-container {
+            width: 100%;
+            overflow: hidden;
+
+            border-bottom: 1px solid @primaryColor2;
+
+            padding-bottom: 5px;
+
+            .notifications-list-header {
+                overflow: hidden;
+
+                .notification-date-header-container,
+                .notification-account-number-header-container,
+                .notification-type-header-container {
+                    color: @primaryColor4;
+
+                    span {
+                        line-height: 14px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .notifications-list {
+            width: 100%;
+
+            overflow: hidden;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .notification-container {
+                overflow: hidden;
+
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                border-bottom: 1px solid @primaryColor2;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: @primaryColor1;
+                }
+
+                .notification-date-container {
+                    .notification-date {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .notification-account-number-container {
+                    .notification-account-number {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .notification-type-container {
+                    .notification-type {
+                        color: @primaryColor6;
+                    }
+                }
+
+                .notification-details-link-container {
+                    text-align: right;
+
+                    .notification-details-link {
+                        padding: 2px;
+
+                        background-color: transparent;
+
+                        border: 1px solid transparent;
+                        .border-radius(4px);
+
+                        .transition(all .25s ease);
+
+                        &:hover {
+                            background-color: white;
+                            border-color: @primaryColor4;
+                        }
+                    }
+                }
+
+                &.unread-notification {
+                    .notification-date-container .notification-date,
+                    .notification-account-number-container .notification-account-number,
+                    .notification-type-container .notification-type {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .no-notifications-presented-container {
+            text-align: center;
+            color: @primaryColor3;
+        }
+
+        .notifications-list-paging-container {
+            text-align: center;
+        }
+    }
+}

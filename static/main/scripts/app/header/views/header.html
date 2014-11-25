@@ -62,8 +62,9 @@
                     <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li class="notifications-link-container">
-                            <a class="notifications-link" href="#">
+                        <li class="notifications-link-container" ui-sref-active="active">
+                            <a class="notifications-link"
+                                ui-sref="main.authenticated.notifications">
                                 <span translate>Notifications</span>
                                 <span class="badge notifications-counter-badge"
                                       ng-show="getUnreadNotificationsCount()">
