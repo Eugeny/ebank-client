@@ -12,7 +12,7 @@
         <validation-message validation-expressions="[{
                 isValid: (!paymentForm.recipientAccountNumber.$dirty
                     || paymentForm.recipientAccountNumber.$valid),
-                validationMessageText: gettext('The recipient account number is required')
+                validationMessageText: $root.gettext('The recipient account number is required')
             }]">
         </validation-message>
     </div>

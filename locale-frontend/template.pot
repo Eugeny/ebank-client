@@ -408,6 +408,7 @@ msgstr ""
 msgid "{{automaticAccountOperation.type}}"
 msgstr ""
 
+#: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
 msgstr ""

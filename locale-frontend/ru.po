@@ -418,6 +418,7 @@ msgstr "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}
 msgid "{{automaticAccountOperation.type}}"
 msgstr "{{automaticAccountOperation.type}}"
 
+#: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
 msgstr "Ɣ Е-Банк"
@@ -432,6 +433,10 @@ msgstr ""
 
 #: locale-frontend/expressions.js
 msgid "Outgoing"
+msgstr ""
+
+#: locale-frontend/expressions.js
+msgid "The Start Date must be greater or equal than current date"
 msgstr ""
 
 #: locale-frontend/expressions.js
@@ -463,6 +468,14 @@ msgid "The login is required"
 msgstr ""
 
 #: locale-frontend/expressions.js
+msgid "The new password confirmation is required"
+msgstr ""
+
+#: locale-frontend/expressions.js
+msgid "The new password confirmation must match the new password field"
+msgstr ""
+
+#: locale-frontend/expressions.js
 msgid "The new password is required"
 msgstr ""
 
@@ -484,5 +497,5 @@ msgstr ""
 
 #: locale-frontend/expressions.js
 msgid "is required"
-msgstr ""
+msgstr "необходим"
 
