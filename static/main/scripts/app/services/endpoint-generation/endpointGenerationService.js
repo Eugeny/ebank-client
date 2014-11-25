@@ -66,6 +66,21 @@ angular.module('services')
                         method: 'GET'
                     };
                 },
+                getGetNotificationsInfoEndpoint: function() {
+                    return {
+                        url: '/api/notifications',
+                        method: 'GET'
+                    };
+                },
+                getPostMarkReadNotificationInfoEndpoint: function(notificationInfoId) {
+                    return {
+                        url: '/api/notification/mark-read',
+                        method: 'POST',
+                        data: {
+                            notificationId: notificationInfoId
+                        }
+                    };
+                },
                 /*  startDate,
                     period (day|week|month|year),
                     data[recipientAccountId],

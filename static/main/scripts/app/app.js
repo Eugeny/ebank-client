@@ -15,8 +15,11 @@
     ]).config(['$interpolateProvider', '$httpProvider',
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');
-    }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService', 'userInfoService', 'gettextCatalog',
-        function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService, gettextCatalog) {
+    }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService',
+            'userInfoService', 'gettextCatalog', 'notificationsInfoService',
+        function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService,
+                gettextCatalog, notificationsInfoService) {
+
             $rootScope.localizationService = localizationService;
             $rootScope.gettext = function (string) {
                 return gettextCatalog.getString(string);
@@ -61,7 +64,11 @@
 
             $rootScope.$on('$stateChangeSuccess', function() {
                 $rootScope.$emit(customEvents.leftMenu.closeLeftMenu);
-                $rootScope.isAppBusy = false;
+
+                notificationsInfoService.updateCurrentNotificationsInfo()
+                    .finally(function() {
+                        $rootScope.isAppBusy = false;
+                    });
             });
         }]);
  })(window);

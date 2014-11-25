@@ -157,6 +157,10 @@ angular.module('ebank-client')
                 resolve: {
                     auth: getCheckAuthForRouteFactory()
                 }
+            }).state('main.authenticated.notifications', {
+
+            }).state('main.authenticated.notifications.notification', {
+                
             });
 
             $locationProvider.html5Mode({

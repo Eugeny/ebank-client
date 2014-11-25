@@ -20,7 +20,7 @@ angular.module('ebank-client')
             $scope.validationRegularExpressions = validationRegularExpressions;
 
             $scope.changePassword = function() {
-                if (changePasswordForm.$valid) {
+                if ($scope.changePasswordForm.$valid) {
                     $http(endpointGenerationService.getPostChangeUserPasswordEndpoint({
                         client_id_to_change: $scope.login,
                         old_password: $scope.password,

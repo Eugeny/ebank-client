@@ -1,28 +1,29 @@
 angular.module('services')
-    .factory('notificationsInfoService', ['$q',
-        function($q) {
-            function activate() {
-                self.updateCurrentNotificationsInfo();
-            }
+    .factory('notificationsInfoService', ['$q', 'notificationsInfoProvider',
+        function($q, notificationsInfoProvider) {
+            'use strict';
 
             var self = {};
 
-            self.currentNotificationsInfo = null;
+            self.currentNotificationsInfo = [];
+
+            self.getCurrentUserNotificationsInfo = function() {
+                return notificationsInfoProvider.getCurrentUserNotificationsInfo();
+            };
 
             self.updateCurrentNotificationsInfo = function() {
                 var deferred = $q.defer();
 
-                //TODO: load data from server here
-                //mock data
-                self.currentNotificationsInfo = {
-                    count: 10
-                };
-                deferred.resolve(self.currentNotificationsInfo);
+                self.getCurrentUserNotificationsInfo()
+                    .then(function(notificationsInfo) {
+                        self.currentNotificationsInfo = notificationsInfo.notifications;
+                        deferred.resolve(notificationsInfo);
+                    }, function(error) {
+                        deferred.reject(error);
+                    });
 
                 return deferred.promise;
             };
-
-            activate();
 
             return self;
         }]);

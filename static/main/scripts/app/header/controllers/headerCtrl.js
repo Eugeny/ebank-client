@@ -8,6 +8,13 @@ angular.module('ebank-client')
 
             $scope.isLeftMenuOpen = false;
 
+            $scope.getUnreadNotificationsCount = function() {
+                return _.where(notificationsInfoService.currentNotificationsInfo,
+                            {
+                                unread: true
+                            }).length;
+            };
+
             $scope.toggleLeftMenu = function() {
                 $scope.isLeftMenuOpen = !$scope.isLeftMenuOpen;
             };

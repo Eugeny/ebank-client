@@ -66,8 +66,8 @@
                             <a class="notifications-link" href="#">
                                 <span translate>Notifications</span>
                                 <span class="badge notifications-counter-badge"
-                                      ng-show="notificationsInfoService.currentNotificationsInfo.count">
-                                      {{notificationsInfoService.currentNotificationsInfo.count}}
+                                      ng-show="getUnreadNotificationsCount()">
+                                      {{getUnreadNotificationsCount()}}
                                 </span>
                             </a>
                         </li>

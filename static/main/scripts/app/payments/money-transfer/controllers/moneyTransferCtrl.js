@@ -5,10 +5,6 @@ angular.module('ebank-client')
                 userNotificationService, currencyService) {
             'use strict';
 
-            console.log('MTC', $scope);
-            window.s2= $scope;
-            $scope.testvalue = '321';
-
             var currencyList = null;
 
             function activate() {
