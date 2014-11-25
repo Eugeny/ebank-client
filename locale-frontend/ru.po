@@ -172,14 +172,12 @@ msgid "Enter login"
 msgstr "Введите логин"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
-#, fuzzy
 msgid "Enter new password"
-msgstr "Новый пароль"
+msgstr "Введите новый пароль"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
-#, fuzzy
 msgid "Enter old password"
-msgstr "Старый пароль"
+msgstr "Введите старый пароль"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: locale-frontend/expressions.js
@@ -191,7 +189,6 @@ msgid "Erip payment"
 msgstr "Платеж ЕРИП"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Erip payment:"
 msgstr "Платеж ЕРИП"
 
@@ -337,9 +334,8 @@ msgstr "Имя получателя:"
 
 #: static/main/scripts/app/directives/money-transfer/views/moneyTransfer.html
 #: static/main/scripts/app/payments/views/paymentResult.html
-#, fuzzy
 msgid "Recipient account number"
-msgstr "Номер счета получателя:"
+msgstr "Номер счета получателя"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -379,9 +375,8 @@ msgid "Start Date"
 msgstr "Дата начала"
 
 #: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
-#, fuzzy
 msgid "The password was successfully changed"
-msgstr "Платеж успешно обработан"
+msgstr "Пароль успешно изменен"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
@@ -416,9 +411,8 @@ msgid "{{automaticAccountOperation.period}}"
 msgstr "{{automaticAccountOperation.period}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
-msgstr "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "{{automaticAccountOperation.type}}"
