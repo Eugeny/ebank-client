@@ -80,10 +80,10 @@
             <li class="automatic-account-operation-container" ng-repeat="automaticAccountOperation in automaticAccountOperations
                 | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
                 <div class="operation-type-container col-xs-2">
-                    <span class="operation-type" translate>
+                    <span class="operation-type">
                         {{(automaticAccountOperation.type == 'erip')
-                            ? 'Erip Payment'
-                            : 'Money Transfer'}}
+                            ? gettext('Erip Payment')
+                            : gettext('Money Transfer')}}
                     </span>
                 </div>
                 <div class="operation-start-date-container col-xs-2">

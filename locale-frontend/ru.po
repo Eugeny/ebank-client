@@ -491,20 +491,6 @@ msgstr "Ваши оповещения"
 msgid "Your session has expired"
 msgstr "Ваша сессия истекла"
 
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.period}}"
-msgstr "{{automaticAccountOperation.period}}"
-
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid ""
-"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
-msgstr ""
-"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
-
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.type}}"
-msgstr "{{automaticAccountOperation.type}}"
-
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
@@ -609,6 +595,17 @@ msgstr "неделя"
 #: locale-frontend/expressions.js
 msgid "year"
 msgstr "год"
+
+#~ msgid "{{automaticAccountOperation.period}}"
+#~ msgstr "{{automaticAccountOperation.period}}"
+
+#~ msgid ""
+#~ "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
+#~ msgstr ""
+#~ "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
+
+#~ msgid "{{automaticAccountOperation.type}}"
+#~ msgstr "{{automaticAccountOperation.type}}"
 
 #~ msgid "(Balance:"
 #~ msgstr "(Баланс:"

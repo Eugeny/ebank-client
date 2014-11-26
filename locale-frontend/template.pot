@@ -454,18 +454,6 @@ msgstr ""
 msgid "Your session has expired"
 msgstr ""
 
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.period}}"
-msgstr ""
-
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
-msgstr ""
-
-#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.type}}"
-msgstr ""
-
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
 msgid "Ɣ E-Bank"
