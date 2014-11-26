@@ -81,17 +81,19 @@
                 | slice: (currentPageNumber - 1)*itemsPerPage : currentPageNumber*itemsPerPage">
                 <div class="operation-type-container col-xs-2">
                     <span class="operation-type" translate>
-                        {{automaticAccountOperation.type}}
+                        {{(automaticAccountOperation.type == 'erip')
+                            ? 'Erip Payment'
+                            : 'Money Transfer'}}
                     </span>
                 </div>
                 <div class="operation-start-date-container col-xs-2">
-                    <span class="operation-start-date" translate>
+                    <span class="operation-start-date">
                         {{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}
                     </span>
                 </div>
                 <div class="operation-period-container col-xs-1">
-                    <span class="operation-period" translate>
-                        {{automaticAccountOperation.period}}
+                    <span class="operation-period">
+                        {{automaticAccountOperation.period | translate}}
                     </span>
                 </div>
                 <div class="operation-info-container col-xs-4">
