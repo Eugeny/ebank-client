@@ -5,6 +5,9 @@ angular.module('services')
                 getAutomaticAccountOperationsForAccount: function(accountId) {
                     return automaticAccountOperationsProvider.getAutomaticAccountOperationsForAccount(accountId);
                 },
+                getAutomaticAccountUperationById: function(accountId, operationId) {
+                    return automaticAccountOperationsProvider.getAutomaticAccountUperationById(accountId, operationId);
+                },
                 saveAutomaticAccountOperation: function(operationData) {
                     return automaticAccountOperationsProvider.saveAutomaticAccountOperation(operationData);
                 },
