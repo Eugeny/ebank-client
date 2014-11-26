@@ -1,6 +1,6 @@
 angular.module('directives')
-    .controller('eripPaymentCtrl', ['$scope', 'paymentsService', 'localizationService',
-        function($scope, paymentsService, localizationService) {
+    .controller('eripPaymentCtrl', ['$scope', 'paymentsService', 'localizationService', 'customEvents',
+        function($scope, paymentsService, localizationService, customEvents) {
             'use strict';
 
             function activate() {
@@ -13,6 +13,10 @@ angular.module('directives')
                     }).finally(function() {
                         $scope.isBusy = false;
                     });
+
+                $scope.$on(customEvents.eripTree.expandNode, function(event) {
+                    event.stopPropagation();
+                });
             }
 
             $scope.isBusy = false;
@@ -21,8 +25,12 @@ angular.module('directives')
 
             $scope.localizationService = localizationService;
 
-            $scope.paymentSelectedCallback = function() {
+            $scope.paymentSelectedCallback = function(item, defaultFields) {
                 $scope.currentPaymentFields = {};
+
+                if (defaultFields) {
+                    $scope.currentPaymentFields = defaultFields;
+                }
             };
 
             activate();

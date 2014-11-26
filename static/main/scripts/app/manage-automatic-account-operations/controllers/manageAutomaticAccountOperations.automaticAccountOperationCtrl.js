@@ -1,9 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
         '$scope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService', 'automaticAccountOperationsService',
-            'userNotificationService', 'gettext', 'paymentsService',
+            'userNotificationService', 'gettext', 'paymentsService', 'customEvents',
         function($scope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
-                automaticAccountOperationsService, userNotificationService, gettext, paymentsService) {
+                automaticAccountOperationsService, userNotificationService, gettext, paymentsService, customEvents) {
             var updateAccountsInfoDeferred = null;
 
             function activate() {
@@ -30,7 +30,7 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = currentUserAccount;
 
                             $scope.automaticAccountOperationPeriod = automaticAccountOperation.period;
-                            $scope.startDate = automaticAccountOperation.startDate * 1000; //load from unixtime
+                            $scope.startDate = new Date(automaticAccountOperation.startDate * 1000); //load from unixtime
 
                             $scope.currentPayment.paymentAmount = parseInt(automaticAccountOperation.data.amount);
 
@@ -38,9 +38,10 @@ angular.module('ebank-client')
                                 $scope.isBusy = true;
 
                                 paymentsService.getEripPaymentById(automaticAccountOperation.data.paymentId)
-                                    .then(function(data) {
-                                        $scope.currentEripPayment = data.response;
-                                        $scope.currentPaymentFields = automaticAccountOperation.data.paymentFields;
+                                    .then(function() {
+                                        $scope.$broadcast(customEvents.eripTree.paymentSelected,
+                                            parseInt(automaticAccountOperation.data.paymentId),
+                                            automaticAccountOperation.data.paymentFields);
                                     }, function(error) {
                                         userNotificationService.showError('No erip payment found for current automatic operation');
                                         $scope.closeModal();
@@ -48,7 +49,7 @@ angular.module('ebank-client')
                                         $scope.isBusy = false;
                                     });
                             } else {
-                                $scope.currentPayment.recipientAccountNumber = automaticAccountOperation.data.recipientAccountNumber;
+                                $scope.currentPayment.recipientAccountNumber = automaticAccountOperation.data.recipientAccountId;
                             }
                         });
                 }
