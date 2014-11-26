@@ -120,6 +120,10 @@ msgstr ""
 msgid "Create Automatic Account Operation"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Create New Automatic Account Operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
 msgstr ""
@@ -164,6 +168,10 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Edit"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Edit Automatic Account Operation"
 msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html

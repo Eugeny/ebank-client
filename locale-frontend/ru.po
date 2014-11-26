@@ -144,6 +144,10 @@ msgstr "Гамма Е-Банк © 2014"
 msgid "Create Automatic Account Operation"
 msgstr "Добавить автоматическую операцию со счетом"
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Create New Automatic Account Operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
 msgstr "Валюта"
@@ -193,6 +197,10 @@ msgstr "Платежи ЕРИП"
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Edit"
 msgstr "Изменить"
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Edit Automatic Account Operation"
+msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
@@ -495,10 +503,6 @@ msgid "Ɣ E-Bank"
 msgstr "Ɣ Е-Банк"
 
 #: locale-frontend/expressions.js
-msgid "(Balance:"
-msgstr "(Баланс:"
-
-#: locale-frontend/expressions.js
 msgid "Capitalization"
 msgstr "Капитализация"
 
@@ -581,3 +585,6 @@ msgstr "Номер счета получателя обязателен"
 #: locale-frontend/expressions.js
 msgid "is required"
 msgstr "необходим"
+
+#~ msgid "(Balance:"
+#~ msgstr "(Баланс:"
