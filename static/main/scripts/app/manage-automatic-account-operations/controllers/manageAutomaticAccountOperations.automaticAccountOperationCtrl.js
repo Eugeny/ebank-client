@@ -4,7 +4,7 @@ angular.module('ebank-client')
             'userNotificationService', 'gettext', 'paymentsService', 'customEvents',
         function($scope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
                 automaticAccountOperationsService, userNotificationService, gettext, paymentsService, customEvents) {
-            var updateAccountsInfoDeferred = null;
+            var updateAccountsInfoPromise = null;
 
             function activate() {
                 $scope.$watch('automaticAccountOperationType', function() {
@@ -52,20 +52,27 @@ angular.module('ebank-client')
                                 $scope.currentPayment.recipientAccountNumber = automaticAccountOperation.data.recipientAccountId;
                             }
                         });
-                }
 
-                if (!automaticAccountOperation) {
+                    $scope.automaticAccountOperationId = automaticAccountOperation.id;
+                } else {
                     $scope.automaticAccountOperationType = 'erip';
                     $scope.automaticAccountOperationPeriod = 'day';
                 }
             }
 
-            $scope.automaticAccountOperationId = automaticAccountOperation.id;
-
             function updateAccountsInfo() {
                 $scope.isBusy = true;
 
-                return userAccountsService.getAccounts()
+                var result = updateAccountsInfoPromise;
+
+                if (updateAccountsInfoPromise) {
+                    var result = updateAccountsInfoPromise;
+                    updateAccountsInfoPromise = null;
+
+                    return result;
+                }
+
+                return updateAccountsInfoPromise = userAccountsService.getAccounts()
                     .then(function(accountsInfo) {
                         $scope.userAccounts = accountsInfo.accounts || [];
 
