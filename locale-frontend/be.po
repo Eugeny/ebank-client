@@ -589,8 +589,24 @@ msgid "The recipient account number is required"
 msgstr "Патрэбен нумар рахунку атрымальніка"
 
 #: locale-frontend/expressions.js
+msgid "day"
+msgstr ""
+
+#: locale-frontend/expressions.js
 msgid "is required"
 msgstr "патрэбен"
+
+#: locale-frontend/expressions.js
+msgid "month"
+msgstr ""
+
+#: locale-frontend/expressions.js
+msgid "week"
+msgstr ""
+
+#: locale-frontend/expressions.js
+msgid "year"
+msgstr ""
 
 #~ msgid "(Balance:"
 #~ msgstr "(Баланс:"
