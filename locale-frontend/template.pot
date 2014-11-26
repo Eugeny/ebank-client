@@ -174,6 +174,10 @@ msgstr ""
 msgid "Edit Automatic Account Operation"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Edit operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
 msgstr ""
@@ -367,6 +371,10 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove"
+msgstr ""
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Remove operation"
 msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html

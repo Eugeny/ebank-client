@@ -200,6 +200,10 @@ msgstr "Рэдагаваць"
 msgid "Edit Automatic Account Operation"
 msgstr ""
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Edit operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
 msgstr "Уключыць фільтр"
@@ -400,6 +404,10 @@ msgstr "Імя банка атрымальніка"
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove"
 msgstr "Выдаліць"
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
+msgid "Remove operation"
+msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Selected Start Date"
