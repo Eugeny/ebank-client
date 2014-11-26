@@ -1,26 +1,70 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
-        '$scope', 'automaticAccountOperationId', 'userAccountsService', 'automaticAccountOperationsService',
-            'userNotificationService', 'gettext',
-        function($scope, automaticAccountOperationId, userAccountsService, automaticAccountOperationsService,
-                userNotificationService, gettext) {
+        '$scope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService', 'automaticAccountOperationsService',
+            'userNotificationService', 'gettext', 'paymentsService',
+        function($scope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
+                automaticAccountOperationsService, userNotificationService, gettext, paymentsService) {
+            var updateAccountsInfoDeferred = null;
+
             function activate() {
                 $scope.$watch('automaticAccountOperationType', function() {
                     clearForm();
-
                     updateAccountsInfo();
                 });
 
-                $scope.automaticAccountOperationType = 'erip';
-                $scope.automaticAccountOperationPeriod = 'day';
+                //load operation data or set it to default value
+                if (automaticAccountOperation) {
+                    $scope.automaticAccountOperationType = automaticAccountOperation.type;
+
+                    updateAccountsInfo()
+                        .then(function() {
+                            var currentUserAccount = _.findWhere($scope.userAccounts, {
+                                id: editingAutomaticAccountOperationAccountId
+                            });
+
+                            if (!currentUserAccount) {
+                                userNotificationService.showError('No user account for current automatic operation found');
+                                $scope.closeModal();
+                            }
+
+                            $scope.currentPayment.currentUserAccount = currentUserAccount;
+
+                            $scope.automaticAccountOperationPeriod = automaticAccountOperation.period;
+                            $scope.startDate = automaticAccountOperation.startDate * 1000; //load from unixtime
+
+                            $scope.currentPayment.paymentAmount = parseInt(automaticAccountOperation.data.amount);
+
+                            if (automaticAccountOperation.type == 'erip') {
+                                $scope.isBusy = true;
+
+                                paymentsService.getEripPaymentById(automaticAccountOperation.data.paymentId)
+                                    .then(function(data) {
+                                        $scope.currentEripPayment = data.response;
+                                        $scope.currentPaymentFields = automaticAccountOperation.data.paymentFields;
+                                    }, function(error) {
+                                        userNotificationService.showError('No erip payment found for current automatic operation');
+                                        $scope.closeModal();
+                                    }).finally(function() {
+                                        $scope.isBusy = false;
+                                    });
+                            } else {
+                                $scope.currentPayment.recipientAccountNumber = automaticAccountOperation.data.recipientAccountNumber;
+                            }
+                        });
+                }
+
+                if (!automaticAccountOperation) {
+                    $scope.automaticAccountOperationType = 'erip';
+                    $scope.automaticAccountOperationPeriod = 'day';
+                }
             }
 
-            $scope.automaticAccountOperationId = automaticAccountOperationId;
+            $scope.automaticAccountOperationId = automaticAccountOperation.id;
 
             function updateAccountsInfo() {
                 $scope.isBusy = true;
 
-                userAccountsService.getAccounts()
+                return userAccountsService.getAccounts()
                     .then(function(accountsInfo) {
                         $scope.userAccounts = accountsInfo.accounts || [];
 
@@ -28,7 +72,8 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        console.log(error);
+                        userNotificationService.showError('Can not load current automatic operation account info');
+                        $scope.closeModal();
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;
@@ -69,8 +114,8 @@ angular.module('ebank-client')
                     currentAutomaticAccountOperation.data.recipientAccountNumber= $scope.currentPayment.recipientAccountNumber;
                 }
 
-                if (automaticAccountOperationId) {
-                    currentAutomaticAccountOperation.id = automaticAccountOperationId;
+                if (automaticAccountOperation) {
+                    currentAutomaticAccountOperation.id = automaticAccountOperation.id;
                 }
 
                 $scope.isBusy = true;

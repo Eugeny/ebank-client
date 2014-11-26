@@ -11,7 +11,7 @@ angular.module('services')
                     return paymentsProvider.getEripPayments();
                 },
                 getEripPaymentById: function(id) {
-                    getEripPaymentById(id);
+                    return paymentsProvider.getEripPaymentById(id);
                 },
                 payEripPayment: function(paymentData) {
                     return paymentsProvider.payEripPayment(paymentData);

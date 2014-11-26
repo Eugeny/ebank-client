@@ -42,20 +42,23 @@ angular.module('ebank-client')
                     }, function(error) {
                         console.log(error);
                     }).finally(function() {
-                        $scope.isBusy = false;  
+                        $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;
                     });
             }
 
-            function openAutomaticAccountOperationModal(automaticAccountOperationId) {
+            function openAutomaticAccountOperationModal(automaticAccountOperation, editingAutomaticAccountOperationAccountId) {
                 return $modal.open({
                     templateUrl: '/static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html',
                     controller: 'manageAutomaticAccountOperations.automaticAccountOperationCtrl',
                     size: 'lg',
                     windowClass: 'automatic-account-operation-modal',
                     resolve: {
-                        automaticAccountOperationId: function() {
-                            return automaticAccountOperationId;
+                        automaticAccountOperation: function() {
+                            return automaticAccountOperation;
+                        },
+                        editingAutomaticAccountOperationAccountId: function() {
+                            return editingAutomaticAccountOperationAccountId;
                         }
                     }
                 });
@@ -85,7 +88,9 @@ angular.module('ebank-client')
             };
 
             $scope.getEripPaymentById = function(id) {
-                return eripPaymentsDictionary[id];
+                if (eripPaymentsDictionary && id) {
+                    return eripPaymentsDictionary[id];
+                }
             };
 
             $scope.reloadAutomaticAccontOperationsInformation = function() {
@@ -94,7 +99,7 @@ angular.module('ebank-client')
 
                     automaticAccountOperationsService.getAutomaticAccountOperationsForAccount($scope.currentUserAccount.id)
                         .then(function(data) {
-                            $scope.stateTimestamp = data.timeStamp;
+                            $scope.stateTimestamp = data.timestamp;
                             $scope.automaticAccountOperations = data.automaticAccountOperations;
                         }, function(error) {
                             userNotificationService.showError(gettext('An error occurred during automatic account operations list loading. Please try again.'));
@@ -113,8 +118,8 @@ angular.module('ebank-client')
                     });
             };
 
-            $scope.editAutomaticAccountOperation = function(automaticAccountOperationId) {
-                openAutomaticAccountOperationModal(automaticAccountOperationId)
+            $scope.editAutomaticAccountOperation = function(automaticAccountOperation) {
+                openAutomaticAccountOperationModal(automaticAccountOperation, $scope.currentUserAccount.id)
                     .result.then(function () {}, //cancel callback - do nothing (not used)
                     //dismiss callback
                     function (result) {

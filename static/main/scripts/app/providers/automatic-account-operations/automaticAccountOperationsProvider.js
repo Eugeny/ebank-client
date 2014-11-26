@@ -21,11 +21,34 @@ angular.module('providers')
                         function(data) {
                             deferred.resolve({
                                 automaticAccountOperations: data.response,
-                                timeStamp: data.serverTime
+                                timestamp: data.serverTime
                             });
                         }, function(error) {
                             deferred.reject(error);
                         });
+
+                    return deferred.promise;
+                },
+                getAutomaticAccountUperationById: function(accountId, operationId) {
+                    var deferred = $q.defer();
+
+                    resource.get({
+                        accountId: accountId,
+                        id: operationId
+                    }, function(data) {
+                        if (data && data.response) {
+                            deferred.resolve({
+                                automaticAccountOperation: data.response,
+                                timestamp: data.serverTime
+                            });
+                        } else {
+                            deferred.reject({
+                                message: 'No operations with that id found'
+                            });
+                        }
+                    }, function(error) {
+                        deferred.reject(error);
+                    });
 
                     return deferred.promise;
                 },

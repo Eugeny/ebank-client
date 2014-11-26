@@ -62,7 +62,7 @@ angular.module('providers')
                     self.getEripPayments()
                         .then(function(data) {
                             deferred.resolve({
-                                response: data[id],
+                                response: data.response[id],
                                 timestamp: data.timestamp
                             });
                         }, function(error) {
