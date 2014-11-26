@@ -39,7 +39,7 @@ msgstr "Номер счета"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Account number money were deposited from"
-msgstr ""
+msgstr "Номер счета куда деньги были отданы на хранение"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
@@ -118,7 +118,7 @@ msgstr "Продажа"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Capitalization Rate"
-msgstr ""
+msgstr "Разрмер капитализации"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
@@ -142,7 +142,7 @@ msgstr "Гамма Е-Банк © 2014"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Create Automatic Account Operation"
-msgstr ""
+msgstr "Добавить автоматическую операцию со счетом"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
@@ -300,6 +300,8 @@ msgid ""
 "Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
 "yyyy HH:mm:ss Z'}}"
 msgstr ""
+"Нотификации актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
+"HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
@@ -407,7 +409,7 @@ msgstr "Показать выписку"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Show account"
-msgstr ""
+msgstr "Показать счет"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 #: static/main/scripts/app/notifications/views/notifications.html
@@ -427,6 +429,7 @@ msgid ""
 "The operation occurred at {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss "
 "Z'}}"
 msgstr ""
+"Операция произошла {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
 msgid "The password was successfully changed"
@@ -438,7 +441,7 @@ msgstr "Платеж успешно обработан"
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Weekly"
@@ -458,7 +461,7 @@ msgstr "У вас пока нет автоматических операций"
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid "You have no notifications yet :("
-msgstr ""
+msgstr "У вас еще нет оповещений"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
@@ -466,7 +469,7 @@ msgstr "Ваши счета"
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid "Your notifications"
-msgstr ""
+msgstr "Ваши оповещения"
 
 #: static/main/scripts/app/services/user-info/userInfoService.js
 msgid "Your session has expired"
@@ -497,7 +500,7 @@ msgstr "(Баланс:"
 
 #: locale-frontend/expressions.js
 msgid "Capitalization"
-msgstr ""
+msgstr "Капитализация"
 
 #: locale-frontend/expressions.js
 msgid "Incoming"
@@ -505,7 +508,7 @@ msgstr "Входящий"
 
 #: locale-frontend/expressions.js
 msgid "New deposit"
-msgstr ""
+msgstr "Новый депозит"
 
 #: locale-frontend/expressions.js
 msgid "Outgoing"
