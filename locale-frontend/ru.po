@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Eugene Pankov <e@ajenti.org>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -38,19 +38,27 @@ msgstr "Номер счета"
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Account number to pay from"
-msgstr ""
+msgstr "Номер счета для операции"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
-msgid "Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
-msgstr "Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Account state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
+"yyyy HH:mm:ss Z'}}"
+msgstr ""
+"Состояние счета от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
+"ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Accounts"
 msgstr "Счета"
 
 #: static/main/scripts/app/accounts/views/accounts.html
-msgid "Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
-msgstr "Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Accounts state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
+"yyyy HH:mm:ss Z'}}"
+msgstr ""
+"Состояние счетов от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:"
+"ss Z'}}"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
@@ -58,8 +66,12 @@ msgid "Amount"
 msgstr "Сумма"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
-msgid "An error occurred during automatic account operations list loading. Please try again."
-msgstr "Во время загрузки списка автоматических операций возникла ошибка. У нас обед."
+msgid ""
+"An error occurred during automatic account operations list loading. Please "
+"try again."
+msgstr ""
+"Во время загрузки списка автоматических операций возникла ошибка. "
+"Пожалуйста, попробуйте позже."
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
@@ -67,7 +79,7 @@ msgstr "Произошла ошибка во время платежа"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
-msgstr "Автоматические операции"
+msgstr "Автоматические операции со счетом"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
 msgid "Automatic account operation is successfully removed"
@@ -78,8 +90,12 @@ msgid "Automatic account operation is successfully saved"
 msgstr "Автоматическая операция успешно сохранена"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "Automatic account operations state is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
-msgstr "Состояние автоматических операций от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Automatic account operations state is actual for {{stateTimestamp | unixtime "
+"| date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+"Состояние автоматических операций от {{stateTimestamp | unixtime | "
+"date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: locale-frontend/expressions.js
@@ -128,8 +144,12 @@ msgid "Currency code"
 msgstr "Код валюты"
 
 #: static/main/scripts/app/currency/views/currency.html
-msgid "Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
-msgstr "Информация о валютах от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid ""
+"Currency information is actual for {{stateTimestamp | unixtime | date:'MMM, "
+"dd, yyyy HH:mm:ss Z'}}"
+msgstr ""
+"Информация о валютах от {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:"
+"mm:ss Z'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Daily"
@@ -222,11 +242,11 @@ msgstr "Неверный логин или пароль, попробуйте с
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
-msgstr "Управление счетом"
+msgstr "Управление учетной записью"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Automatic Acccount Operations"
-msgstr "Управление автоматическими операциями"
+msgstr "Управление автоматическими операциями со счетом"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Menu"
@@ -279,7 +299,7 @@ msgstr "Информация об операции"
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Operation Period"
-msgstr "Частота операции"
+msgstr "Цикличность операции"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Operation Start Date"
@@ -308,11 +328,11 @@ msgstr "Номер счета плательщика"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's bank name:"
-msgstr "Банк плательщика"
+msgstr "Имя банка плательщика"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer:"
-msgstr "Плательщик"
+msgstr "Плательщик:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -344,7 +364,7 @@ msgstr "Номер счета получателя:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient bank name:"
-msgstr "Банк получателя"
+msgstr "Имя банка получателя"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove"
@@ -411,8 +431,10 @@ msgid "{{automaticAccountOperation.period}}"
 msgstr "{{automaticAccountOperation.period}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-msgid "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
-msgstr "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
+msgid ""
+"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
+msgstr ""
+"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "{{automaticAccountOperation.type}}"
@@ -429,73 +451,76 @@ msgstr "(Баланс:"
 
 #: locale-frontend/expressions.js
 msgid "Incoming"
-msgstr ""
+msgstr "Входящий"
 
 #: locale-frontend/expressions.js
 msgid "Outgoing"
-msgstr ""
+msgstr "Исходящий"
 
 #: locale-frontend/expressions.js
 msgid "The Start Date must be greater or equal than current date"
-msgstr ""
+msgstr "Дата начала должна быть больше или равна текущей дате"
 
 #: locale-frontend/expressions.js
 msgid "The account number to pay from is required"
-msgstr ""
+msgstr "Номер счета для операции обязателен"
 
 #: locale-frontend/expressions.js
 msgid "The amount is required"
-msgstr "Сумма необходима"
+msgstr "Сумма обязательна"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be greater than zero"
-msgstr ""
+msgstr "Сумма должна быть больше нуля"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be greater than zero integer number"
-msgstr ""
+msgstr "Сумма должна быть целым числом больше нуля"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be integer number"
-msgstr ""
+msgstr "Сумма должна быть целым числом"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be less than selected account balance"
-msgstr ""
+msgstr "Сумма должна быть меньше баланса счета"
 
 #: locale-frontend/expressions.js
 msgid "The login is required"
-msgstr ""
+msgstr "Логин обязателен"
 
 #: locale-frontend/expressions.js
 msgid "The new password confirmation is required"
-msgstr ""
+msgstr "Подтверждение нового пароля обязательно"
 
 #: locale-frontend/expressions.js
 msgid "The new password confirmation must match the new password field"
-msgstr ""
+msgstr "Подтверждение нового пароля должно совпадать с новым паролем"
 
 #: locale-frontend/expressions.js
 msgid "The new password is required"
-msgstr ""
+msgstr "Новый пароль обязателен"
 
 #: locale-frontend/expressions.js
-msgid "The new password must consist of latin alphabet letters in both upper and lower case or decimal digits, also it must be from 6 to 20 characters length"
+msgid ""
+"The new password must consist of latin alphabet letters in both upper and "
+"lower case or decimal digits, also it must be from 6 to 20 characters length"
 msgstr ""
+"Новый пароль должен состоять из латинских букв алфавита в обоих регистрах "
+"или десятичных цифр, также он должен быть длинной от 6 до 20 символов"
 
 #: locale-frontend/expressions.js
 msgid "The old password is required"
-msgstr ""
+msgstr "Старый пароль обязателен"
 
 #: locale-frontend/expressions.js
 msgid "The password is required"
-msgstr ""
+msgstr "Пароль обязателен"
 
 #: locale-frontend/expressions.js
 msgid "The recipient account number is required"
-msgstr ""
+msgstr "Номер счета получателя обязателен"
 
 #: locale-frontend/expressions.js
 msgid "is required"
 msgstr "необходим"
-

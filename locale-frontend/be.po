@@ -38,7 +38,7 @@ msgstr "Нумар рахунку"
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Account number to pay from"
-msgstr ""
+msgstr "Нумар рахунку з якога плаціць"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid ""
@@ -69,7 +69,7 @@ msgstr "Колькасць"
 msgid ""
 "An error occurred during automatic account operations list loading. Please "
 "try again."
-msgstr ""
+msgstr "Пад час правядзенная аўтаматычнай аперацыі адбылася памылка"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "An error occurred during payment process"
@@ -80,28 +80,25 @@ msgid "Automatic Account Operations"
 msgstr "Аўтаматычныя аперацыі з рахункам"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperationsCtrl.js
-#, fuzzy
 msgid "Automatic account operation is successfully removed"
-msgstr "Аўтаматычныя аперацыі з рахункам"
+msgstr "Аўтаматычныя аперацыя з рахункам паспяхова выдалена"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
-#, fuzzy
 msgid "Automatic account operation is successfully saved"
-msgstr "Аўтаматычныя аперацыі з рахункам"
+msgstr "Аўтаматычныя аперацыя з рахункам паспяхова выстаўлена"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid ""
 "Automatic account operations state is actual for {{stateTimestamp | unixtime "
 "| date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
-"Стан рахункаў актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
-"HH:mm:ss Z'}}"
+"Інфармацыя аб аўтаматычных аперацыях з рахункам актуальна на "
+"{{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: locale-frontend/expressions.js
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Bank buys"
@@ -154,7 +151,7 @@ msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Daily"
-msgstr ""
+msgstr "Штодзень"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Date"
@@ -178,7 +175,7 @@ msgstr "Плацяжы ЕРІП"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Edit"
-msgstr ""
+msgstr "Рэдагаваць"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
@@ -193,18 +190,15 @@ msgid "Enter login"
 msgstr "Увядзіце лагін"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
-#, fuzzy
 msgid "Enter new password"
-msgstr "Новы пароль"
+msgstr "Увядзіце новы пароль"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
-#, fuzzy
 msgid "Enter old password"
-msgstr "Стары пароль"
+msgstr "Увядзіце стары пароль"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "Erip Payment"
 msgstr "Плацёж ЕРІП"
 
@@ -213,9 +207,8 @@ msgid "Erip payment"
 msgstr "Плацёж ЕРІП"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Erip payment:"
-msgstr "Плацёж ЕРІП"
+msgstr "Плацёж ЕРІП:"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Error details:"
@@ -239,15 +232,15 @@ msgstr "Выйсці"
 
 #: static/main/scripts/app/login/views/login.html
 msgid "Login"
-msgstr "Увайсці"
+msgstr "Логін"
 
 #: static/main/scripts/app/login/controllers/loginCtrl.js
 msgid "Login or password are incorrect, please try again"
-msgstr ""
+msgstr "Няправільныя лагін ці пароль, паспрабуйце зноў"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Account"
-msgstr "Кіраванне рахункам"
+msgstr "Кіраванне уліковым запісам"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Manage Automatic Acccount Operations"
@@ -267,7 +260,7 @@ msgstr "Перавод  грошаў"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Monthly"
-msgstr ""
+msgstr "Штомесяц"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Name"
@@ -283,7 +276,7 @@ msgstr "Няма валют для адлюстравання"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "No operations found for your filters"
-msgstr "Не знойдзена аперацый для вашых фільтраў"
+msgstr "Не знойдзена аперацый для выбраных фільтраў"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
@@ -294,29 +287,24 @@ msgid "Old password"
 msgstr "Стары пароль"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Amount"
-msgstr "Інфармацыя аб аперацыі"
+msgstr "Колькасць аперацыі"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Info"
 msgstr "Інфармацыя аб аперацыі"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Period"
-msgstr "Інфармацыя аб аперацыі"
+msgstr "Цыклічнасць аперацыі"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Start Date"
-msgstr "Тып аперацыі"
+msgstr "Дата пачатку аперацыі"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "Operation Type"
 msgstr "Тып аперацыі"
 
@@ -342,7 +330,7 @@ msgstr "Назва банка плацельшчыка:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer:"
-msgstr "Плацельшчык"
+msgstr "Плацельшчык:"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -364,9 +352,8 @@ msgstr "Імя атрымальніка:"
 
 #: static/main/scripts/app/directives/money-transfer/views/moneyTransfer.html
 #: static/main/scripts/app/payments/views/paymentResult.html
-#, fuzzy
 msgid "Recipient account number"
-msgstr "Нумар рахунку атрымальніка:"
+msgstr "Нумар рахунку атрымальніка"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -379,12 +366,11 @@ msgstr "Імя банка атрымальніка"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove"
-msgstr ""
+msgstr "Выдаліць"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
-#, fuzzy
 msgid "Selected Start Date"
-msgstr "Выбраная дата"
+msgstr "Выбраная дата пачатку"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Selected date"
@@ -403,14 +389,12 @@ msgid "Sign In"
 msgstr "Увайсці"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
-#, fuzzy
 msgid "Start Date"
-msgstr "Выбраная дата"
+msgstr "Дата пачатку"
 
 #: static/main/scripts/app/manage-account/change-password/controllers/changePasswordCtrl.js
-#, fuzzy
 msgid "The password was successfully changed"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "Пароль паспяхова зменены"
 
 #: static/main/scripts/app/payments/views/paymentResult.html
 msgid "The payment is successfuly processed"
@@ -418,20 +402,19 @@ msgstr "Плацёж паспяхова праведзен"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Weekly"
-msgstr ""
+msgstr "Штотыдзень"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Yearly"
-msgstr ""
+msgstr "Штогод"
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "You have no accounts yet :("
 msgstr "У вас яшче няма рахункаў :("
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "You have no automatic account operations for selected account yet :("
-msgstr "У вас яшче няма рахункаў :("
+msgstr "У вас яшче няма аўтаматычных аперацый  :("
 
 #: static/main/scripts/app/accounts/views/accounts.html
 msgid "Your accounts"
@@ -439,25 +422,21 @@ msgstr "Вашы рахункі"
 
 #: static/main/scripts/app/services/user-info/userInfoService.js
 msgid "Your session has expired"
-msgstr ""
+msgstr "Ваша сэсія скончылася"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "{{automaticAccountOperation.period}}"
-msgstr "Аўтаматычныя аперацыі з рахункам"
+msgstr "{{automaticAccountOperation.period}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid ""
 "{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
 msgstr ""
-"Стан рахунку актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
-"HH:mm:ss Z'}}"
+"{{automaticAccountOperation.startDate | unixtime | date:'MMM, dd, yyyy'}}"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
-#, fuzzy
 msgid "{{automaticAccountOperation.type}}"
-msgstr "Аўтаматычныя аперацыі з рахункам"
+msgstr "{{automaticAccountOperation.type}}"
 
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
@@ -465,92 +444,85 @@ msgid "Ɣ E-Bank"
 msgstr "Ɣ Е-Банк"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "(Balance:"
-msgstr "Баланс"
+msgstr "(Баланс:"
 
 #: locale-frontend/expressions.js
 msgid "Incoming"
-msgstr ""
+msgstr "Уваходны"
 
 #: locale-frontend/expressions.js
 msgid "Outgoing"
-msgstr ""
+msgstr "Выходны"
 
 #: locale-frontend/expressions.js
 msgid "The Start Date must be greater or equal than current date"
-msgstr ""
+msgstr "Дата пачатку павінна быць больш або роўная цяперашняй даты"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The account number to pay from is required"
-msgstr "Аплаціць з нумара рахунку"
+msgstr "Патрэбен нумар рахунку для аперацыі"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The amount is required"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "Патрэбна колькасць"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be greater than zero"
-msgstr ""
+msgstr "Колькасць павінна быць больш за нуль"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be greater than zero integer number"
-msgstr ""
+msgstr "Колькасць павінна быць цэлым лікам больш за нуль "
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The amount must be integer number"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "Колькасць павінна быць цэлым лікам"
 
 #: locale-frontend/expressions.js
 msgid "The amount must be less than selected account balance"
-msgstr ""
+msgstr "Колькасць павінна быць меньш баланса абранага рахунку"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The login is required"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "Патрэбен логін"
 
 #: locale-frontend/expressions.js
 msgid "The new password confirmation is required"
-msgstr ""
+msgstr "Пацвярджэнне новага пароля абавязкова"
 
 #: locale-frontend/expressions.js
 msgid "The new password confirmation must match the new password field"
 msgstr ""
+"Поле \"Пацвярджэнне новага пароля\" павінна адпавядаць полю \"Новы пароль\""
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The new password is required"
-msgstr "Увядзіце новы пароль"
+msgstr "Патрэбен новы пароль"
 
 #: locale-frontend/expressions.js
 msgid ""
 "The new password must consist of latin alphabet letters in both upper and "
 "lower case or decimal digits, also it must be from 6 to 20 characters length"
 msgstr ""
+"Новы пароль павінен складацца з лацінскіх літар алфавіту ў абодвух рэгістрах "
+"або дзесятковых лічбаў, таксама ён павінен мець даўжыню ад 6 да 20 знакаў"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The old password is required"
-msgstr "Увядзіце стары пароль"
+msgstr "Патрэбен стары пароль"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The password is required"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "Патрэбен пароль"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "The recipient account number is required"
-msgstr "Нумар рахунку атрымальніка"
+msgstr "Патрэбен нумар рахунку атрымальніка"
 
 #: locale-frontend/expressions.js
-#, fuzzy
 msgid "is required"
-msgstr "Плацёж паспяхова праведзен"
+msgstr "патрэбен"
 
 #, fuzzy
 #~ msgid "Erip payment name:"
