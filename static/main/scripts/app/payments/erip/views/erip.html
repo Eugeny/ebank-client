@@ -1,6 +1,6 @@
 <div class="page-container payments-page-container">
     <div class="erip-payment-header-container" ng-hide="isFirstTimeLoad">
-        <h3 class="erip-payment-header">
+        <h3 class="erip-payment-header" translate> 
             ERIP Payments
         </h3>
     </div>
@@ -19,7 +19,7 @@
 
         <div class="pay-btn-container" ng-show="currentEripPayment != null">
             <button class="btn btn-success pay-btn" ng-click="pay()"
-                ng-class="{disabled: !paymentForm.$valid || !generalPaymentInfoForm.$valid}">
+                ng-class="{disabled: !paymentForm.$valid || !generalPaymentInfoForm.$valid}" translate>
                 Pay
             </button>
         </div>

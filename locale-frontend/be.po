@@ -189,6 +189,7 @@ msgid "Download statement in:"
 msgstr "Сьцягнуць выпіску ў:"
 
 #: static/main/scripts/app/header/views/header.html
+#: static/main/scripts/app/payments/erip/views/erip.html
 msgid "ERIP Payments"
 msgstr "Плацяжы ЕРІП"
 
@@ -356,6 +357,10 @@ msgstr "Тып аперацыі"
 #: static/main/scripts/app/login/views/login.html
 msgid "Password"
 msgstr "Пароль"
+
+#: static/main/scripts/app/payments/erip/views/erip.html
+msgid "Pay"
+msgstr ""
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's account number:"
