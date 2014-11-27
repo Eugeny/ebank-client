@@ -144,7 +144,7 @@ msgstr "Дадаць аўтаматычную аперацыю з рахунка
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Create New Automatic Account Operation"
-msgstr ""
+msgstr "Дадаць новую аўтаматычную аперацыю з рахункам"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Currency"
@@ -198,11 +198,11 @@ msgstr "Рэдагаваць"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Edit Automatic Account Operation"
-msgstr ""
+msgstr "Рэдагаваць аўтаматычную аперацыю з рахункам"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Edit operation"
-msgstr ""
+msgstr "Рэдагаваць аперацыю"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Enable Filter"
@@ -407,7 +407,7 @@ msgstr "Выдаліць"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove operation"
-msgstr ""
+msgstr "Выдаліць аперацыю"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Selected Start Date"
@@ -590,7 +590,7 @@ msgstr "Патрэбен нумар рахунку атрымальніка"
 
 #: locale-frontend/expressions.js
 msgid "day"
-msgstr ""
+msgstr "дзень"
 
 #: locale-frontend/expressions.js
 msgid "is required"
@@ -598,15 +598,15 @@ msgstr "патрэбен"
 
 #: locale-frontend/expressions.js
 msgid "month"
-msgstr ""
+msgstr "месяц"
 
 #: locale-frontend/expressions.js
 msgid "week"
-msgstr ""
+msgstr "тыдзень"
 
 #: locale-frontend/expressions.js
 msgid "year"
-msgstr ""
+msgstr "год"
 
 #~ msgid "(Balance:"
 #~ msgstr "(Баланс:"
