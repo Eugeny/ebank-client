@@ -116,6 +116,10 @@ msgstr "Покупка"
 msgid "Bank sells"
 msgstr "Продажа"
 
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Cancel"
+msgstr ""
+
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Capitalization Rate"
 msgstr "Разрмер капитализации"
@@ -261,6 +265,7 @@ msgid "Log Out"
 msgstr "Выйти"
 
 #: static/main/scripts/app/login/views/login.html
+#: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Login"
 msgstr "Логин"
 
@@ -361,6 +366,7 @@ msgid "Password"
 msgstr "Пароль"
 
 #: static/main/scripts/app/payments/erip/views/erip.html
+#: static/main/scripts/app/payments/money-transfer/views/moneyTransfer.html
 msgid "Pay"
 msgstr "Оплатить"
 
@@ -415,6 +421,10 @@ msgstr "Удалить"
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Remove operation"
 msgstr "Удалить операцию"
+
+#: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
+msgid "Save"
+msgstr ""
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Selected Start Date"

@@ -128,12 +128,12 @@
                                     || !automaticAccountOperationForm.$valid
                                     || ((automaticAccountOperationType == 'erip')
                                         ? !eripPaymentForm.$valid
-                                        : !moneyTransferInfoForm.$valid)}">
+                                        : !moneyTransferInfoForm.$valid)}" translate>
                 Save
             </button>
 
             <button class="btn btn-warning cancel-btn" ng-click="closeModal()"
-                ng-show="automaticAccountOperationId != null">
+                ng-show="automaticAccountOperationId != null" translate>
                 Cancel
             </button>
         </div>
