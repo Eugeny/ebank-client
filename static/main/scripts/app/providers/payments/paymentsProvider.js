@@ -12,8 +12,11 @@ angular.module('providers')
                             var eripInfoData = response.data || {};
                             var eripData = eripInfoData.response || {};
 
-                            //TODO: move definition to localization
-                            eripData.name = 'Payments';
+                            eripData.name = {
+                                en: 'Payments',
+                                ru: 'Платежи',
+                                be: 'Плацяжы'
+                            };
 
                             deferred.resolve({
                                 eripData: eripData,
