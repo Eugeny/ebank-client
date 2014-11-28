@@ -116,7 +116,7 @@ msgstr "Продаж"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Cancel"
-msgstr ""
+msgstr "Адмена"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Capitalization Rate"
@@ -422,7 +422,7 @@ msgstr "Выдаліць аперацыю"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Save"
-msgstr ""
+msgstr "Захаваць"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Selected Start Date"

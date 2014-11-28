@@ -118,7 +118,7 @@ msgstr "Продажа"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Capitalization Rate"
@@ -424,7 +424,7 @@ msgstr "Удалить операцию"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Selected Start Date"
