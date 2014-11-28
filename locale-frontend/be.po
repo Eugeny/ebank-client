@@ -39,7 +39,7 @@ msgstr "Нумар рахунку"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Account number money were deposited from"
-msgstr "Нумар рахунку куды грошы былі здадзены на захоўванне"
+msgstr "Нумар рахунку з якога былі пераведзены грошы"
 
 #: static/main/scripts/app/directives/general-payment/views/generalPayment.html
 #: static/main/scripts/app/payments/views/paymentResult.html
@@ -360,7 +360,7 @@ msgstr "Пароль"
 
 #: static/main/scripts/app/payments/erip/views/erip.html
 msgid "Pay"
-msgstr ""
+msgstr "Аплаціць"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Payer's account number:"
@@ -508,7 +508,7 @@ msgstr "Уваходны"
 
 #: locale-frontend/expressions.js
 msgid "New deposit"
-msgstr "Новы дэпазіт"
+msgstr "Новае перавод"
 
 #: locale-frontend/expressions.js
 msgid "Outgoing"
