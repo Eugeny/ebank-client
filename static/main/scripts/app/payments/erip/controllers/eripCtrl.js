@@ -86,7 +86,7 @@ angular.module('ebank-client')
                         openPaymentResultModal({
                             payment: currentPayment,
                             paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
-                            paymentName: $scope.currentPayment.name,
+                            paymentName: $scope.currentEripPayment.name,
                             isSuccessful: true,
                             errorInfo: null
                         }).result.then(function () {}, //cancel callback - do nothing (not used)
@@ -98,8 +98,8 @@ angular.module('ebank-client')
                     }, function (error) {
                         openPaymentResultModal({
                             payment: currentPayment,
-                            paymentSpecificFieldDefinitions: $scope.currentPayment.fields,
-                            paymentName: $scope.currentPayment.name,
+                            paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
+                            paymentName: $scope.currentEripPayment.name,
                             isSuccessful: false,
                             errorInfo: error
                         }).result.then(function () {}, //cancel callback - do nothing (not used)

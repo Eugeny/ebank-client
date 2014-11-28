@@ -102,7 +102,11 @@ angular.module('ebank-client')
                     .then(function (result) {
                         openPaymentResultModal({
                             payment: currentPayment,
-                            paymentName: 'Money Transfer',
+                            paymentName: {
+                                en: 'Money Transfer',
+                                ru: 'Перевод денег',
+                                be: 'Перавод грошаў'
+                            },
                             isSuccessful: true,
                             errorInfo: null
                         }).result.then(function () {}, //cancel callback - do nothing (not used)
@@ -114,7 +118,11 @@ angular.module('ebank-client')
                     }, function (error) {
                         openPaymentResultModal({
                             payment: currentPayment,
-                            paymentName: 'Money Transfer',
+                            paymentName: {
+                                en: 'Money Transfer',
+                                ru: 'Перевод денег',
+                                be: 'Перавод грошаў'
+                            },
                             isSuccessful: false,
                             errorInfo: error
                         }).result.then(function () {}, //cancel callback - do nothing (not used)

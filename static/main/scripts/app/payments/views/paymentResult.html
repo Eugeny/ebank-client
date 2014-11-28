@@ -17,7 +17,8 @@
             </h3>
 
             <h4 class="payment-name-container" ng-show="paymentResult.paymentName != null" translate>
-                Payment: {{paymentResult.paymentName}}
+                <span translate>Payment:</span>
+                {{paymentResult.paymentName[$root.localizationService.currentLocale.code]}}
             </h4>
         </div>
 
@@ -28,7 +29,7 @@
                 <div class="input-group-addon" translate>
                     Recipient account number
                 </div>
-                <input class="form-control" type="text" readonly="readonly" 
+                <input class="form-control" type="text" readonly="readonly"
                     ng-model="paymentResult.payment.recipientAccountNumber">
             </div>
 
@@ -38,10 +39,10 @@
                 ng-repeat="(key, value) in paymentResult.payment.paymentFields">
                 <div class="input-group-addon">
                     {{$parent.paymentResult.paymentSpecificFieldDefinitions != null
-                        ? $parent.paymentResult.paymentSpecificFieldDefinitions[key].name
+                        ? $parent.paymentResult.paymentSpecificFieldDefinitions[key].name[$root.localizationService.currentLocale.code]
                         : key}}
                 </div>
-                <input class="form-control" type="text" readonly="readonly" 
+                <input class="form-control" type="text" readonly="readonly"
                     ng-model="value">
             </div>
 
@@ -51,7 +52,7 @@
                 <div class="input-group-addon" translate>
                     Amount
                 </div>
-                <input class="form-control" type="text" readonly="readonly" 
+                <input class="form-control" type="text" readonly="readonly"
                     ng-model="paymentResult.payment.amount">
             </div>
 
@@ -60,7 +61,7 @@
                 <div class="input-group-addon" translate>
                     Account number to pay from
                 </div>
-                <input class="form-control" type="text" readonly="readonly" 
+                <input class="form-control" type="text" readonly="readonly"
                     ng-model="paymentResult.payment.accountNumber">
             </div>
         </div>
