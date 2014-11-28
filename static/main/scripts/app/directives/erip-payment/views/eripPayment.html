@@ -17,7 +17,7 @@
                 Payment:
             </span>
             <span class="payment-name">
-                {{currentPayment.name|translate}}
+                {{currentPayment.name[$root.localizationService.currentLocale.code]}}
             </span>
         </div>
 
@@ -27,10 +27,10 @@
                     <div class="field-container">
                         <div class="field input-group">
                             <div class="input-group-addon">
-                                {{value.name|translate}}
+                                {{value.name[$root.localizationService.currentLocale.code]}}
                             </div>
                             <input class="form-control" type="text"
-                                placeholder="{{value.name}}"
+                                placeholder="{{value.name[$root.localizationService.currentLocale.code]}}"
                                 name="{{'paymentFields.' + key}}"
                                 ng-required="true"
                                 ng-pattern="value.regex"
@@ -38,12 +38,13 @@
                             <validation-message validation-expressions="[{
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.required),
-                                    validationMessageText: value.name + ' ' + $root.gettext('is required')
+                                    validationMessageText: value.name[$root.localizationService.currentLocale.code]
+                                        + ' ' + $root.gettext('is required')
                                 },
                                 {
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty
                                         || !paymentForm['paymentFields.' + key].$error.pattern),
-                                    validationMessageText: $root.gettext(value.errorMessage[$parent.localizationService.currentLocale.code])
+                                    validationMessageText: $root.gettext(value.errorMessage[$root.localizationService.currentLocale.code])
                                 }]">
                             </validation-message>
                         </div>

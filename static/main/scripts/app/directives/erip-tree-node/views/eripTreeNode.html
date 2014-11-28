@@ -8,7 +8,7 @@
                         }">
             </span>
             <span class="category-name">
-                {{node.name|translate}}
+                {{node.name[$root.localizationService.currentLocale.code]}}
             </span>
         </div>
     </div>
@@ -30,7 +30,7 @@
                     ng-class="{active: $parent.isSelectedItem(payment)}">
                     <div class="category-payment" ng-click="$parent.selectItem(payment)">
                         <span class="category-payment-name">
-                            {{payment.name|translate}}
+                            {{payment.name[$root.localizationService.currentLocale.code]}}
                         </span>
                     </div>
                 </li>

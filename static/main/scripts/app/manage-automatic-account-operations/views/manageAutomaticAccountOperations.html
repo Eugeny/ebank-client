@@ -106,7 +106,7 @@
                                     Erip payment:
                                 </span>
                                 <span class="erip-payment-name">
-                                    {{$parent.getEripPaymentById(automaticAccountOperation.data.paymentId).name}}
+                                    {{$parent.getEripPaymentById(automaticAccountOperation.data.paymentId).name[$root.localizationService.currentLocale.code]}}
                                 </span>
                             </div>
                             <div class="erip-payment-fields-list-container">
@@ -124,7 +124,7 @@
                                         <span class="label">
                                             {{$parent.$parent.getEripPaymentById(
                                                 $parent.automaticAccountOperation.data.paymentId)
-                                                .fields[key].name}}:
+                                                .fields[key].name[$root.localizationService.currentLocale.code]}}:
                                         </span>
                                         <span class="erip-payment-field">
                                             {{value}}
