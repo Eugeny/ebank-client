@@ -63,7 +63,7 @@
                     Capitalization Rate
                 </div>
                 <div class="value col-xs-9">
-                    {{notification.content.capitalizationRate}}
+                    {{(notification.content.capitalizationRate * 100) | number:2}}%
                 </div>
             </div>
 
