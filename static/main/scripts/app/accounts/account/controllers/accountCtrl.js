@@ -26,8 +26,10 @@ angular.module('ebank-client')
                         //cancel callback - do nothing (not used)
                         function () {},
                         //dismiss callback
-                        function (result) {
-                            goToAccounsState();
+                        function (reason) {
+                            if (!reason || !reason.isTransitionToState) {
+                                goToAccounsState();
+                            }
                         });
                 }, function(error) {
                     goToAccounsState();
@@ -71,7 +73,7 @@ angular.module('ebank-client')
 
             //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
-                $scope.closeModal();
+                $scope.closeModal(true);
             });
         }
 
@@ -136,8 +138,11 @@ angular.module('ebank-client')
 
         $scope.isFiltersMenuOpen = false;
 
-        $scope.closeModal = function() {
-            $scope.$dismiss();
+        $scope.closeModal = function(isTransitionToState) {
+            isTransitionToState = isTransitionToState || false;
+            $scope.$dismiss({
+                isTransitionToState: isTransitionToState
+            });
         };
 
         $scope.setTab = function(tabId) {

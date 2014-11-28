@@ -1,6 +1,6 @@
 angular.module('ebank-client')
-    .controller('accountsCtrl', ['$scope', 'userAccountsService', 'currencyService',
-        function($scope, userAccountsService, currencyService) {
+    .controller('accountsCtrl', ['$scope', '$rootScope', 'userAccountsService', 'currencyService',
+        function($scope, $rootScope, userAccountsService, currencyService) {
             function activate() {
                 $scope.isBusy = true;
 
@@ -12,6 +12,12 @@ angular.module('ebank-client')
 
                         $scope.reloadAccontsInformation();
                     });
+
+                $rootScope.$on('$stateChangeSuccess', function(e, toState) {
+                    if (toState.name === 'main.authenticated.accounts') {
+                        $scope.reloadAccontsInformation();
+                    }
+                });
             }
 
             $scope.isFirstTimeLoad = true;

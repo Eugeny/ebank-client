@@ -26,8 +26,10 @@ angular.module('ebank-client')
                         //cancel callback - do nothing (not used)
                         function () {},
                         //dismiss callback
-                        function (result) {
-                            goToNotificationsState();
+                        function (reason) {
+                            if (!reason || !reason.isTransitionToState) {
+                                goToNotificationsState();
+                            }
                         });
 
                     if (notificationInfo.notification && notificationInfo.notification.unread) {
@@ -73,7 +75,9 @@ angular.module('ebank-client')
         function activate() {
             //TODO: move this logic somewhere else
             $rootScope.$on('$stateChangeSuccess', function(e, toState) {
-                $scope.closeModal();
+                if(toState.name !== 'main.authenticated.notifications.notification') {
+                    $scope.closeModal(true);
+                }
             });
         }
 
@@ -83,8 +87,11 @@ angular.module('ebank-client')
 
         $scope.isBusy = false;
 
-        $scope.closeModal = function() {
-            $scope.$dismiss();
+        $scope.closeModal = function(isTransitionToState) {
+            isTransitionToState = isTransitionToState || false;
+            $scope.$dismiss({
+                isTransitionToState: isTransitionToState
+            });
         };
 
         activate();
