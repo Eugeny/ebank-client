@@ -38,16 +38,16 @@ angular.module('services')
 
             var supportedLocales = [
                     {
-                        code: 'en',
-                        friendlyName: 'Eng'
-                    },
-                    {
                         code: 'ru',
                         friendlyName: 'Рус'
                     },
                     {
                         code: 'be',
                         friendlyName: 'Бел'
+                    },
+                    {
+                        code: 'en',
+                        friendlyName: 'Eng'
                     }
                 ];
 

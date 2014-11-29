@@ -1,5 +1,11 @@
 {% extends "main/base.html" %}
 
+{% block meta %}
+    <noscript>
+        <meta http-equiv="refresh" content="0;URL=/javascript-disabled">
+    </noscript>
+{% endblock %}
+
 {% block content %}
 {% verbatim %}
     <ui-view name="site-view"></ui-view>

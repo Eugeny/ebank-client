@@ -20,6 +20,13 @@ def index(request):
         {}
     )
 
+def javascript_disabled(request):
+    return render(
+        request,
+        'main/javascript-disabled.html',
+        {}
+    )
+
 
 def template(request, template_name=None):
     t, o = loader.find_template('partial/' + template_name)

@@ -136,3 +136,91 @@
     -ms-transform-origin:     @x @y;
     -o-transform-origin:      @x @y;
 }
+
+.glitched-text{
+  font-family: 'Roboto', sans-serif;
+
+  color: black;
+  position: relative;
+
+  margin: 0 auto;
+}
+
+.glitched-text:after{
+  content:attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow:-1px 0 red;
+  top: 0;
+  color: black;
+  background: white;
+  overflow: hidden;
+  clip:rect(0,900px,0,0);
+  animation: glitchOne 2s infinite linear alternate-reverse;
+}
+
+.glitched-text:before{
+  content:attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow:-1px 0 blue;
+  top: 0;
+  color: black;
+  background: white;
+  overflow: hidden;
+  clip:rect(0,900px,0,0);
+  animation: glitchTwo 3s infinite linear alternate-reverse;
+}
+
+/*------------------------------------*\
+    $Functions
+\*------------------------------------*/
+
+@steps: 20;
+
+.makeRandom1(@min: 0, @max: @min+1, @int: 0) { 
+  .checkInt() {
+    @getNum: `Math.random() * (@{max} - @{min} + @{int})`;
+    @base: unit(`@{int} == 1 ? Math.floor(@{getNum}) : @{getNum}`);
+  }
+  .checkInt();
+  @randNum1: @base + @min;
+}
+
+.makeRandom2(@min: 0, @max: @min+1, @int: 0) { 
+  .checkInt() {
+    @getNum: `Math.random() * (@{max} - @{min} + @{int})`;
+    @base: unit(`@{int} == 1 ? Math.floor(@{getNum}) : @{getNum}`);
+  }
+  .checkInt();
+  @randNum2: @base + @min;
+}
+
+@keyframes glitchOne{
+  .mixin-loop (@index) when (@index > 0) {
+    .makeRandom1(0, 100, 1);
+    .makeRandom2(0, 100, 1);
+    @percent: percentage(@index*(1/@steps));
+    @{percent}{
+      clip: rect(unit(@randNum1, px), 9999px, unit(@randNum2, px),0);
+    }
+    .mixin-loop(@index - 1);
+  }
+  .mixin-loop(0) {}
+  .mixin-loop(@steps);
+}
+
+@keyframes glitchTwo{
+  .mixin-loop (@index) when (@index > 0) {
+    .makeRandom1(0, 100, 1);
+    .makeRandom2(0, 100, 1);
+    @hash: #;
+    @percent: percentage(@index*(1/@steps));
+    @{hash}@{percent}{
+      clip: rect(unit(@randNum1, px), 9999px, unit(@randNum2, px),0);
+    }
+    .mixin-loop(@index - 1);
+  }
+  .mixin-loop(0) {}
+  .mixin-loop(@steps);
+}
