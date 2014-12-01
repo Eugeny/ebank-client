@@ -56,9 +56,16 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
             currency = x
 
     report = BankApi().payment_report(account_id, date_from, date_to, type)['response']
-    if format != 'csv':
-        for payment in report:
+    eripTree = BankApi().get_erip_tree()['response']['categories']
+    for payment in report:
+        if format != 'csv':
             payment['processedAt'] = datetime.utcfromtimestamp(payment['processedAt'])
+        if 'eripPaymentId' in payment:
+            id = payment['eripPaymentId']
+            for cat in eripTree.values():
+                for p in cat['payments']:
+                    if p['paymentId'] == id:
+                        payment['eripPaymentName'] = p['name'][request.COOKIES['django_language']]
 
     context = {
         'client': client,

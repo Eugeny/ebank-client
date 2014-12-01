@@ -87,9 +87,9 @@
                         {% endif %}
                     </td>
                     <td>
-                        {% if payment.paymentInfo.payment %}
+                        {% if payment.eripPaymentId %}
                             <div>
-                                <strong>{% trans "Payment" %}</strong>: {{payment.paymentInfo.payment}}
+                                <strong>{% trans "Payment" %}</strong>: {{payment.eripPaymentName}}
                             </div>
                         {% endif %}
                         {% if payment.paymentInfo.fields %} 
