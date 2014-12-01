@@ -5,5 +5,5 @@ angular.module('constants')
         passwordLength: /^.{6,20}$/,
         passwordCharacters: /^[a-zA-Z0-9]+$/,
         integerNumberRegularExpression: /^[1-9][0-9]*$/,
-        maxLength: /^.{0,1000}$/
+        maxLengthNumber: 1000
     });

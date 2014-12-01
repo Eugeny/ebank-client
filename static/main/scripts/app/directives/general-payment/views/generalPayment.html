@@ -54,7 +54,8 @@
                 ng-options="account.id + ' (' + $root.gettext('Balance') + ': ' + account.balance
                     + ' ' + getCurrencyById(account.currency).code
                     + ')' for account in userAccounts"
-                ng-required="true">
+                ng-required="true"
+                ng-maxlength="validationRegularExpressions.maxLengthNumber">
             </select>
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.currentUserAccount.$dirty
