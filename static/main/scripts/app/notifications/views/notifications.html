@@ -2,8 +2,9 @@
     <div class="notifications-list-container" ng-hide="isFirstTimeLoad">
         <div class="notifications-page-header-container">
             <div class="page-title-container">
-                <h3 class="page-title" translate>
-                    Your notifications
+                <h3 class="page-title">
+                    {{'Your notifications' | translate}}
+                    {{getUnreadNotificationsCount() ? '(' + getUnreadNotificationsCount() + ')' : ''}}
                 </h3>
             </div>
 

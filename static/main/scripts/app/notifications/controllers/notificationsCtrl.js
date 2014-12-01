@@ -41,5 +41,12 @@ angular.module('ebank-client')
                     });
             };
 
+            $scope.getUnreadNotificationsCount = function() {
+                return _.where(notificationsInfoService.currentNotificationsInfo,
+                            {
+                                unread: true
+                            }).length;
+            };
+
             activate();
         }]);
