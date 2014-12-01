@@ -135,7 +135,7 @@ angular.module('ebank-client')
                         updateAccountsInfo();
                         userNotificationService.showSuccess(gettext('Automatic account operation is successfully removed'));
                     }, function(error) {
-                        userNotificationService.showError(error.message);
+                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                     }).finally(function() {
                         $scope.isBusy = false;
                     });

@@ -27,7 +27,7 @@ angular.module('ebank-client')
                         new_password: $scope.newPassword
                     })).then(function(result) {
                         if (result.data.error) {
-                            userNotificationService.showError(result.data.error.message);
+                            userNotificationService.showError(result.data.error.message || 'Oops, an error occurred, please try again');
                         } else {
                             userNotificationService.showSuccess(gettext('The password was successfully changed'));
                         }
@@ -39,7 +39,7 @@ angular.module('ebank-client')
                             message = "Authentication failed";
                         }
 
-                        userNotificationService.showError(message);
+                        userNotificationService.showError(message || 'Oops, an error occurred, please try again');
                     }).finally(function() {
                         clearForm();
                     });

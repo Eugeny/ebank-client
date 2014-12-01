@@ -34,7 +34,7 @@ angular.module('ebank-client')
                 }, function(error) {
                     goToAccounsState();
 
-                    userNotificationService.showError(error.message);
+                    userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                 }).finally(function() {
                     $scope.isBusy = false;
                 });
@@ -166,7 +166,7 @@ angular.module('ebank-client')
                 .then(function(result) {
                     eripPayments = result.response;
                 }, function(error) {
-                    userNotificationService.showError(error.message);
+                    userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                 }).finally(function() {
                     $scope.isBusy = false;
                 });

@@ -13,7 +13,7 @@ angular.module('ebank-client')
             if (id === undefined || id < 0) {
                 goToNotificationsState();
 
-                userNotificationService.showError('Incorrent notification identifier');
+                userNotificationService.showError('Incorrect notification identifier');
             }
 
             $scope.isBusy = true;
@@ -43,7 +43,7 @@ angular.module('ebank-client')
                 }, function(error) {
                     goToNotificationsState();
 
-                    userNotificationService.showError(error.message);
+                    userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                 }).finally(function() {
                     $scope.isBusy = false;
                 });
