@@ -40,7 +40,7 @@ angular.module('ebank-client')
                             $scope.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        console.log(error);
+                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

@@ -1,6 +1,6 @@
 angular.module('directives')
-    .controller('languageSelectorCtrl', ['$scope', 'localizationService',
-        function($scope, localizationService) {
+    .controller('languageSelectorCtrl', ['$scope', 'localizationService', 'userNotificationService',
+        function($scope, localizationService, userNotificationService) {
             'use strict';
 
             function activate() {
@@ -9,8 +9,7 @@ angular.module('directives')
                         $scope.supportedLocales = locales;
                         $scope.currentLocale = localizationService.currentLocale;
                     }, function(error) {
-                        //TODO: call notification service to notify user about problem
-                        console.log(error);
+                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                     });
             }
 

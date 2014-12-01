@@ -41,8 +41,6 @@ angular.module('ebank-client')
                         .then(function(result) {
                             $rootScope.$emit(customEvents.general.logIn);
                         }, function(error) {
-                            console.log(error.data.message);
-
                             userNotificationService.showError(gettext('Login or password are incorrect, please try again'));
 
                             clearForm();

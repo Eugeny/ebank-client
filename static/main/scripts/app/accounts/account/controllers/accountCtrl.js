@@ -191,7 +191,7 @@ angular.module('ebank-client')
                         $scope.reportEntries = reportInfo.reportEntries;
                         $scope.currentPageNumber = 1;
                     }, function(error) {
-                        console.log(error);
+                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
                     }).finally(function() {
                         $scope.isBusy = false;
                     });
