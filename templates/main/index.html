@@ -1,5 +1,13 @@
 {% extends "main/base.html" %}
 
+{% block title %}
+{% verbatim %}
+    <title>
+        {{ $root.gettext('Ɣ E-Bank') }}
+    </title>
+{% endverbatim %}
+{% endblock %}
+
 {% block meta %}
     <noscript>
         <meta http-equiv="refresh" content="0;URL=/javascript-disabled">
