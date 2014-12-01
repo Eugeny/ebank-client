@@ -60,12 +60,16 @@ def report(request, account_id=None, date_from=None, date_to=None, type=None, fo
     for payment in report:
         if format != 'csv':
             payment['processedAt'] = datetime.utcfromtimestamp(payment['processedAt'])
+        if 'capitalizationRate' in payment['paymentInfo']:
+            payment['paymentInfo']['capitalizationRate'] *= 100
         if 'eripPaymentId' in payment:
             id = payment['eripPaymentId']
             for cat in eripTree.values():
                 for p in cat['payments']:
                     if p['paymentId'] == id:
                         payment['eripPaymentName'] = p['name'][request.COOKIES['django_language']]
+                        for k in payment['paymentInfo']['fields']:
+                            payment['paymentInfo']['fields'][p['fields'][k]['name'][request.COOKIES['django_language']]] = payment['paymentInfo']['fields'].pop(k)
 
     context = {
         'client': client,

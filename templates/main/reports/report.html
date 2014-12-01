@@ -93,6 +93,12 @@
                         {% endif %}
                     </td>
                     <td>
+                        {% if payment.paymentInfo.capitalizationRate %}
+                            <div>
+                                <strong>+{{payment.paymentInfo.capitalizationRate}}%</strong>
+                            </div>
+                        {% endif %}
+
                         {% if payment.eripPaymentId %}
                             <div>
                                 <strong>{% trans "Payment" %}</strong>: {{payment.eripPaymentName}}
