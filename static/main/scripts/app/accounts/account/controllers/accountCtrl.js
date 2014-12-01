@@ -59,9 +59,13 @@ angular.module('ebank-client')
         }
 
         activate();
-    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'accountInfo', 'currencyService', 'userAccountsService',
-    function($scope, $rootScope, accountInfo, currencyService, userAccountsService) {
+    }]).controller('accounts.account.modalCtrl', ['$scope', '$rootScope', 'accountInfo', 'currencyService',
+        'userAccountsService', 'paymentsService', 'userNotificationService',
+    function($scope, $rootScope, accountInfo, currencyService, userAccountsService, paymentsService,
+            userNotificationService) {
         'use strict';
+
+        var eripPayments = [];
 
         function activate() {
             $scope.setTab($scope.tabIds.generalInfo);
@@ -91,14 +95,16 @@ angular.module('ebank-client')
 
         function getStatementOperationTypeFilterValue() {
             return $scope.statementOperationTypeFilterEnabled
-                ? $scope.statementOperationType === 'erip'
+                ? $scope.statementOperationType
                 : null;
         }
 
         function getStatementDownloadLink(documentFormat) {
             return '/report/'
                 + $scope.account.id + '/'
-                + ((getStatementOperationTypeFilterValue() ? 'erip': 'direct') || '') + '/'
+                + (getStatementOperationTypeFilterValue() !== null
+                        ? getStatementOperationTypeFilterValue()
+                        : '') + '/'
                 + getStatementOperationDateFromFilterValue() + '/'
                 + getStatementOperationDateToFilterValue() + '/'
                 + documentFormat;
@@ -153,23 +159,43 @@ angular.module('ebank-client')
             return $scope.currentTabId === tabId;
         };
 
-        $scope.loadAccountReport = function() {
+        $scope.updateEripPaymentsList = function() {
             $scope.isBusy = true;
 
-            //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
-            userAccountsService.getAccountReport(
-                $scope.account.id,
-                getStatementOperationDateFromFilterValue(),
-                getStatementOperationDateToFilterValue(),
-                getStatementOperationTypeFilterValue())
-            .then(function(reportInfo) {
-                $scope.reportEntries = reportInfo.reportEntries;
-                $scope.currentPageNumber = 1;
-            }, function(error) {
-                console.log(error);
-            }).finally(function() {
-                $scope.isBusy = false;
-            });
+            return paymentsService.getEripPayments()
+                .then(function(result) {
+                    eripPayments = result.response;
+                }, function(error) {
+                    userNotificationService.showError(error.message);
+                }).finally(function() {
+                    $scope.isBusy = false;
+                });
+        };
+
+        $scope.getEripPaymentById = function(id) {
+            return _.findWhere(eripPayments, {paymentId: id});
+        };
+
+        $scope.loadAccountReport = function() {
+            $scope.updateEripPaymentsList()
+                .then(function() {
+                    $scope.isBusy = true;
+
+                    //accountId, dateFrom(opt), dateTo(opt), paymentType(opt)
+                    userAccountsService.getAccountReport(
+                        $scope.account.id,
+                        getStatementOperationDateFromFilterValue(),
+                        getStatementOperationDateToFilterValue(),
+                        getStatementOperationTypeFilterValue())
+                    .then(function(reportInfo) {
+                        $scope.reportEntries = reportInfo.reportEntries;
+                        $scope.currentPageNumber = 1;
+                    }, function(error) {
+                        console.log(error);
+                    }).finally(function() {
+                        $scope.isBusy = false;
+                    });
+                });
         };
 
         $scope.getFiltersCount = function() {

@@ -220,6 +220,11 @@
                                                 <span translate>Money Transfer</span>
                                             </label>
                                             <br />
+                                            <label>
+                                                <input type="radio" ng-model="statementOperationType" value="capitalization">
+                                                <span translate>Capitalization</span>
+                                            </label>
+                                            <br />
                                         </div>
                                     </div>
                                 </div>
@@ -292,21 +297,25 @@
                                 </div>
                                 <div class="statement-operation-type-container col-xs-2">
                                     <span class="statement-operation-type">
-                                        {{reportEntry.isEripPayment
-                                            ? gettext('Erip Payment')
-                                            : ((reportEntry.giverAccountId === $parent.account.id
+                                        {{reportEntry.type === 'erip' ? gettext('Erip Payment') : ''}}
+                                        {{reportEntry.type === 'direct'
+                                            ? ((reportEntry.giverAccountId === $parent.account.id
                                                 ? gettext('Outgoing')
-                                                : gettext('Incoming')) + gettext(' Money Transfer'))}}
+                                                : gettext('Incoming')) + gettext(' Money Transfer'))
+                                            : ''}}
+                                        {{reportEntry.type === 'capitalization' ? gettext('Capitalization') : ''}}
                                     </span>
                                 </div>
                                 <div class="statement-operation-info-container col-xs-5">
-                                    <div class="erip-payment-statement-operation statement-operation-info" ng-if="reportEntry.isEripPayment">
-                                        <div class="erip-payment-name-container">
+                                    <div class="erip-payment-statement-operation statement-operation-info"
+                                        ng-if="reportEntry.type === 'erip'">
+                                        <div class="erip-payment-name-container"
+                                            ng-if="reportEntry.paymentInfo.payment[$root.localizationService.currentLocale.code]">
                                             <span class="label" translate>
                                                 Payment:
                                             </span>
                                             <span class="erip-payment-name">
-                                                {{reportEntry.paymentInfo.payment}}
+                                                {{reportEntry.paymentInfo.payment[$root.localizationService.currentLocale.code] || reportEntry.paymentInfo.payment}}
                                             </span>
                                         </div>
 
@@ -318,7 +327,11 @@
                                                 <li class="erip-payment-field-container"
                                                     ng-repeat="(key, value) in reportEntry.paymentInfo.fields">
                                                     <span class="label">
-                                                        {{key}}:
+                                                        {{getEripPaymentById(reportEntry.eripPaymentId)
+                                                            ? (getEripPaymentById(reportEntry.eripPaymentId).fields[key].name[$root.localizationService.currentLocale.code]
+                                                                ? getEripPaymentById(reportEntry.eripPaymentId).fields[key].name[$root.localizationService.currentLocale.code]
+                                                                :key)
+                                                            : key}}:
                                                     </span>
                                                     <span class="field-value">
                                                         {{value}}
@@ -327,7 +340,8 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="money-transfer-statement-operation-info" ng-if="!reportEntry.isEripPayment">
+                                    <div class="money-transfer-statement-operation-info"
+                                        ng-if="reportEntry.type === 'direct'">
                                         <div class="outgoing-money-transfer-statement-operation-info statement-operation-info"
                                              ng-if="reportEntry.giverAccountId === $parent.account.id">
                                             <div class="recipient-bank-name-container"
@@ -392,6 +406,28 @@
                                                     {{reportEntry.giverAccountId}}
                                                 </span>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="capitalization-statement-operation-info statement-operation-info"
+                                        ng-if="reportEntry.type === 'capitalization'">
+                                        <div class="capitalization-rate-container">
+                                            <span class="label" translate>
+                                                Capitalization rate:
+                                            </span>
+                                            <span class="capitalization-rate">
+                                                {{(reportEntry.paymentInfo.capitalizationRate * 100) | number:2}}%
+                                            </span>
+                                        </div>
+                                        <div class="recipient-name-container"
+                                            ng-if="(reportEntry.recipientFirstName
+                                                    && reportEntry.recipientLastName)">
+                                            <span class="label" translate>
+                                                Recipient Name:
+                                            </span>
+                                            <span class="recipient-name">
+                                                {{reportEntry.recipientFirstName}}
+                                                {{reportEntry.recipientLastName}}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

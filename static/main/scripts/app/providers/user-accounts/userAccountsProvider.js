@@ -56,7 +56,7 @@ angular.module('providers')
                     return deferred.promise;
                 },
                 //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
-                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
+                getAccountReport: function(accountId, dateFrom, dateTo, paymentType) {
                     var deferred = $q.defer();
 
                     var requestObject = {
@@ -71,20 +71,14 @@ angular.module('providers')
                         requestObject.dateTo = dateTo;
                     }
 
-                    if (isEripPayment != null) {
-                        requestObject.type = isEripPayment ? 'erip' : 'direct';
+                    if (paymentType != null) {
+                        requestObject.type = paymentType;
                     }
 
                     $http(endpointGenerationService.getPostPaymentReportEndpoint(requestObject))
                         .then(function(result) {
                             var reportInfo = result.data || {};
                             var reportEntries = reportInfo.response || [];
-
-                            _.each(reportEntries, function(entry) {
-                                entry.isEripPayment = entry.type == 'erip';
-
-                                delete entry.type;
-                            });
 
                             deferred.resolve({
                                 reportEntries: reportEntries,

@@ -11,8 +11,8 @@ angular.module('services')
                     return userAccountsProvider.getAccount(accountId);
                 },
                 //accountId, dateFrom(opt), dateTo(opt), isEripPayment(opt)
-                getAccountReport: function(accountId, dateFrom, dateTo, isEripPayment) {
-                    return userAccountsProvider.getAccountReport(accountId, dateFrom, dateTo, isEripPayment);
+                getAccountReport: function(accountId, dateFrom, dateTo, paymentType) {
+                    return userAccountsProvider.getAccountReport(accountId, dateFrom, dateTo, paymentType);
                 }
             }
         }]);
