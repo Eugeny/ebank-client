@@ -76,13 +76,19 @@
                 <tr>
                     <td>{{ payment.processedAt  }}</td>
                     <td>
+                        {% if payment.type == 'capitalization' %}
+                            {% trans "Capitalization" %}
+                        {% endif %}
+                        
                         {% if payment.type == 'erip' %}
-                            ERIP
-                        {% else %}
+                            {% trans "ERIP" %}
+                        {% endif %}
+
+                        {% if payment.type == 'direct' %}
                             {% if payment.giverAccountId != account.id %}
-                                Incoming
+                                {% trans "Incoming" %}
                             {% else %}
-                                Outgoing
+                                {% trans "Outgoing" %}
                             {% endif %}
                         {% endif %}
                     </td>
