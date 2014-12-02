@@ -1,5 +1,5 @@
 angular.module('ebank-client')
-    .controller('accountsCtrl', ['$scope', '$rootScope', 'userAccountsService', 'currencyService', 'userNotificationService', 'gettext'
+    .controller('accountsCtrl', ['$scope', '$rootScope', 'userAccountsService', 'currencyService', 'userNotificationService', 'gettext',
         function($scope, $rootScope, userAccountsService, currencyService, userNotificationService, gettext) {
             function activate() {
                 $scope.isBusy = true;

@@ -1,6 +1,6 @@
 angular.module('ebank-client')
     .controller('accounts.accountCtrl', ['$scope', '$state', '$stateParams', '$modal',
-        'userAccountsService', 'userNotificationService', 'gettext'
+        'userAccountsService', 'userNotificationService', 'gettext',
     function($scope, $state, $stateParams, $modal, userAccountsService, userNotificationService, gettext) {
         'use strict';
 

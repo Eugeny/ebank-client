@@ -1,5 +1,5 @@
 angular.module('directives')
-    .controller('languageSelectorCtrl', ['$scope', 'localizationService', 'userNotificationService', 'gettext'
+    .controller('languageSelectorCtrl', ['$scope', 'localizationService', 'userNotificationService', 'gettext',
         function($scope, localizationService, userNotificationService, gettext) {
             'use strict';
 

@@ -4,7 +4,7 @@ angular.module('services')
             tmhDynamicLocaleProvider.localeLocationPattern('/static/main/vendor/bower_components/angular-i18n/angular-locale_{{locale}}.js');
         }])
     .factory('localizationService', ['$q', '$window', '$cookies', 'gettextCatalog', 'tmhDynamicLocale',
-            'userNotificationService', 'gettext'
+            'userNotificationService', 'gettext',
         function($q, $window, $cookies, gettextCatalog, tmhDynamicLocale, userNotificationService, gettext) {
             'use strict';
 

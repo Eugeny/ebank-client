@@ -1,6 +1,6 @@
 angular.module('ebank-client')
     .controller('notifications.notificationCtrl', ['$scope', '$state', '$stateParams', '$modal',
-        'notificationsInfoService', 'userNotificationService', 'gettext'
+        'notificationsInfoService', 'userNotificationService', 'gettext',
     function($scope, $state, $stateParams, $modal, notificationsInfoService, userNotificationService, gettext) {
         'use strict';
 

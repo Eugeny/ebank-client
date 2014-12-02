@@ -1,6 +1,6 @@
 angular.module('ebank-client')
     .controller('payments.moneyTransferCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
-            'paymentsService', 'userNotificationService', 'gettext'
+            'paymentsService', 'userNotificationService', 'gettext',
         function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
                 userNotificationService, gettext) {
             'use strict';
