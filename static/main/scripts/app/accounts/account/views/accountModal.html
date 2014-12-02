@@ -36,6 +36,14 @@
                     </div>
                 </div>
 
+                <div class="opened-at-container row"
+                    ng-if="account.createdAt">
+                    <div class="label col-xs-3" translate>Opened At</div>
+                    <div class="value col-xs-9" translate>
+                        {{account.createdAt | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}
+                    </div>
+                </div>
+
                 <div class="currency-code-container row">
                     <div class="label col-xs-3" translate>Currency</div>
                     <div class="value col-xs-9">
