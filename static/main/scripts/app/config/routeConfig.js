@@ -75,6 +75,17 @@ angular.module('ebank-client')
                 resolve: {
                     auth: getCheckAuthForRouteFactory()
                 }
+            }).state('main.authenticated.about', {
+                url: '/about',
+                views: {
+                    'main-content-view': {
+                        templateUrl: '/static/main/scripts/app/about/views/about.html',
+                        controller: 'aboutCtrl'
+                    }
+                },
+                resolve: {
+                    auth: getCheckAuthForRouteFactory()
+                }
             }).state('main.authenticated.accounts', {
                 url: '/accounts',
                 views: {
