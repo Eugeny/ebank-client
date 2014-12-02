@@ -1,7 +1,7 @@
 <div class="page-container about-page-container">
     <div class="page-title-container">
         <h3 class="page-title" translate>
-            About Us
+            About
         </h3>
     </div>
 
@@ -37,19 +37,19 @@
         <div class="signature-localized-container"
             ng-if="localizationService.currentLocale.code === 'ru'">
             <span class="signature-localized">
-                Гамма Е-Банк - мы вдохновляем.
+                <b>Гамма Е-Банк - мы вдохновляем.</b>
             </span>
         </div>
         <div class="signature-localized-container"
             ng-if="localizationService.currentLocale.code === 'be'">
             <span class="signature-localized">
-                Гама Е-Банк - мы натхняем.
+                <b>Гама Е-Банк - мы натхняем.</b>
             </span>
         </div>
         <div class="signature-localized-container"
             ng-if="localizationService.currentLocale.code === 'en'">
             <span class="signature-localized">
-                Gamma E-Bank - we inspire.
+                <b>Gamma E-Bank - we inspire.</b>
             </span>
         </div>
     </div>
@@ -57,21 +57,85 @@
     <div class="page-subtitle-container">
         <div class="subtitle-localized-container"
             ng-if="localizationService.currentLocale.code === 'ru'">
-            <h3 class=subtitle-localized>
+            <h3 class="subtitle-localized">
                 Познакомьтесь с нашей командой
             </h3>
         </div>
         <div class="subtitle-localized-container"
             ng-if="localizationService.currentLocale.code === 'be'">
-            <h3 class=subtitle-localized>
+            <h3 class="subtitle-localized">
                 Пазнаёмцеся з нашай камандай
             </h3>
         </div>
         <div class="subtitle-localized-container"
             ng-if="localizationService.currentLocale.code === 'en'">
-            <h3 class=subtitle-localized>
+            <h3 class="subtitle-localized">
                 Meet our team
             </h3>
+        </div>
+    </div>
+
+    <div class="team-info-container row">
+        <div class="team-member-info-contaimer col-xs-3">
+            <div class="team-member-picture-container">
+                <img class="team-member-picture-background-image"
+                    src="/static/main/images/dream-team-photo/kiryl.png"/>
+
+                <div class="member-name-container">
+                    <div class="member-first-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'ru'">
+                        <span class="member-first-name-localized">
+                            Кирилл
+                        </span>
+                    </div>
+                    <div class="member-first-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'be'">
+                        <span class="member-first-name-localized">
+                            Кірыл
+                        </span>
+                    </div>
+                    <div class="member-first-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'en'">
+                        <span class="member-first-name-localized">
+                            Kiryl
+                        </span>
+                    </div>
+
+                    <div class="member-last-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'ru'">
+                        <span class="member-last-name-localized">
+                            Андрусский
+                        </span>
+                    </div>
+                    <div class="member-last-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'be'">
+                        <span class="member-last-name-localized">
+                            Андрускі
+                        </span>
+                    </div>
+                    <div class="member-last-name-localized-contaimer"
+                        ng-if="localizationService.currentLocale.code === 'en'">
+                        <span class="member-last-name-localized">
+                            Andrusky
+                        </span>
+                    </div>
+                </div>
+
+                <div class="horizontal-divider"></div>
+
+                <div class="links-container">
+                    <div class="github-link-container">
+                        <a class="github-link fa fa-github"
+                            href="https://github.com/kirylandruski"
+                            alt="GitHub"></a>
+                    </div>
+                    <div class="linkedin-link-container">
+                        <a class="linkedin-link fa fa-linkedin"
+                            href="https://www.linkedin.com/profile/view?id=364854426"
+                            alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

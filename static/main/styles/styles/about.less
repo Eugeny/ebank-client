@@ -1,0 +1,115 @@
+.about-page-container {
+    .page-title-container {
+        width: 100%;
+        text-align: center;
+
+        padding-bottom: 5px;
+        margin: 10px 0;
+
+        border-bottom: 1px solid @accountsPageHeaderTitleBorderColor;
+
+        .page-title {
+            font-size: @pageHeaderTitleFontSize;
+            line-height: @pageHeaderTitleFontSize;
+
+            color: @pageHeaderTitleColor;
+
+            margin: 0;
+        }
+    }
+
+    .page-verbiage-cotainer {
+        overflow: hidden;
+
+        padding: 0 15px;
+
+        .verbiage-localized-container {
+            color: @primaryColor4;
+
+            .verbiage-localized {
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+
+    .page-signature-container {
+        overflow: hidden;
+
+        margin-top: 10px;
+        padding: 0 15px;
+
+        .signature-localized-container {
+            float: left;
+
+            color: @primaryColor4;
+        }
+    }
+
+    .page-subtitle-container {
+        overflow: hidden;
+
+        padding: 0 15px;
+
+        .subtitle-localized-container {
+            text-align: center;
+
+            .subtitle-localized {
+                margin: 15px 0;
+
+                font-size: 20px;
+                color: @primaryColor3;
+            }
+        }
+    }
+
+    .team-info-container {
+        .team-member-info-contaimer {
+            .team-member-picture-container {
+                display: block;
+                position: relative;
+
+                width: 75%;
+
+                margin: auto;
+
+                .team-member-picture-background-image {
+                    display: block;
+                    width: 100%;
+
+                    border-radius: 100%;
+
+                    .box-shadow(0px 0px 25px -5px @primaryColor6);
+
+                    pointer-events: none;
+                }
+
+                .member-name-container {
+                    position: absolute;
+
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height: 100%;
+
+                    .member-first-name-localized-contaimer,
+                    .member-last-name-localized-contaimer {
+                        width: 100%;
+
+
+                        .member-first-name-localized,
+                        .member-last-name-localized {
+
+                        }
+                    }
+                }
+
+
+                &:hover {
+                    //opacity: 0.3;
+                }
+            }
+        }
+    }
+}

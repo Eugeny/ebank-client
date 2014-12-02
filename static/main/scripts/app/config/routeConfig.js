@@ -82,10 +82,10 @@ angular.module('ebank-client')
                         templateUrl: '/static/main/scripts/app/about/views/about.html',
                         controller: 'aboutCtrl'
                     }
-                },
+                }/*,
                 resolve: {
                     auth: getCheckAuthForRouteFactory()
-                }
+                }*/
             }).state('main.authenticated.accounts', {
                 url: '/accounts',
                 views: {
