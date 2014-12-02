@@ -1,4 +1,9 @@
 .about-page-container {
+    height: 100%;
+    width: 100%;
+
+    overflow-y: auto;
+
     .page-title-container {
         width: 100%;
         text-align: center;
@@ -55,7 +60,7 @@
             text-align: center;
 
             .subtitle-localized {
-                margin: 15px 0;
+                margin: 15px 0 25px 0;
 
                 font-size: 20px;
                 color: @primaryColor3;
@@ -64,6 +69,8 @@
     }
 
     .team-info-container {
+        width: 100%;
+
         .team-member-info-contaimer {
             .team-member-picture-container {
                 display: block;
@@ -82,32 +89,118 @@
                     .box-shadow(0px 0px 25px -5px @primaryColor6);
 
                     pointer-events: none;
+
+                    .transition(all .25s ease);
                 }
 
                 .member-name-container {
                     position: absolute;
 
-                    top: 0;
+                    bottom: 100%;
                     left: 0;
 
                     width: 100%;
-                    height: 100%;
+
+                    margin-bottom: 5px;
+
+                    opacity: 0;
+
+                    .transition(all .25s ease);
 
                     .member-first-name-localized-contaimer,
                     .member-last-name-localized-contaimer {
                         width: 100%;
 
+                        font-size: 100%;
 
-                        .member-first-name-localized,
-                        .member-last-name-localized {
+                        text-align: center;
+                        color: @primaryColor6;
+                    }
+                }
 
+                .horizontal-divider {
+                    position: absolute;
+
+                    top: 0;
+
+                    width: 75%;
+
+                    margin-top: 50%;
+                    margin-left: 12.5%;
+
+                    border-bottom: 1px solid @primaryColor4;
+
+                    opacity: 0;
+
+                    .transition(all .25s ease);
+                }
+
+                .links-container {
+                    position: absolute;
+
+                    top: 100%;
+                    left: 0;
+
+                    width: 100%;
+
+                    margin-top: 5px;
+
+                    opacity: 0;
+
+                    text-align: center;
+
+                    .transition(all .25s ease);
+
+                    .link-container {
+                        display: inline-block;
+
+                        font-size: 125%;
+
+                        &.linkedin-link-container {
+                            margin-left: 10px;
                         }
                     }
                 }
 
-
                 &:hover {
-                    //opacity: 0.3;
+                    .team-member-picture-background-image {
+                        opacity: 0.25;
+                    }
+
+                    .member-name-container {
+                        bottom: 50%;
+
+                        opacity: 1;
+                    }
+
+                    .horizontal-divider {
+                        opacity: 1;
+                    }
+
+                    .links-container {
+                        top: 50%;
+
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .responsibilities-container {
+                margin-top: 15px;
+
+                width: 100%;
+
+                .responsibilities-localized-container {
+                    text-align: center;
+
+                    font-size: 18px;
+
+                    color: @primaryColor4;
+
+                    .responsibilities-localized {
+                        word-wrap: break-word;
+                        white-space: normal;
+                    }
                 }
             }
         }
