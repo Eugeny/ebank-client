@@ -313,6 +313,10 @@ msgstr "Імя"
 msgid "New password"
 msgstr "Новы пароль"
 
+#: static/main/scripts/app/providers/user-accounts/userAccountsProvider.js
+msgid "No account with that id found"
+msgstr ""
+
 #: static/main/scripts/app/currency/views/currency.html
 msgid "No currencies loaded :("
 msgstr "Няма валют для адлюстравання"

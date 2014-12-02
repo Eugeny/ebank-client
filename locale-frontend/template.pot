@@ -284,6 +284,10 @@ msgstr ""
 msgid "New password"
 msgstr ""
 
+#: static/main/scripts/app/providers/user-accounts/userAccountsProvider.js
+msgid "No account with that id found"
+msgstr ""
+
 #: static/main/scripts/app/currency/views/currency.html
 msgid "No currencies loaded :("
 msgstr ""
