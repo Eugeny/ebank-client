@@ -11,6 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 
+#: static/main/scripts/app/about/views/about.html
 #: static/main/scripts/app/main/views/main.html
 msgid "About"
 msgstr "Пра нас"
@@ -118,9 +119,18 @@ msgstr "Продаж"
 msgid "Cancel"
 msgstr "Адмена"
 
+#: static/main/scripts/app/accounts/account/views/accountModal.html
+#: locale-frontend/expressions.js
+msgid "Capitalization"
+msgstr "Капіталізацыя"
+
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Capitalization Rate"
 msgstr "Памер капіталізацыі"
+
+#: static/main/scripts/app/accounts/account/views/accountModal.html
+msgid "Capitalization rate:"
+msgstr ""
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
@@ -327,6 +337,10 @@ msgstr "Апавяшчэння"
 msgid "Old password"
 msgstr "Стары пароль"
 
+#: static/main/scripts/app/accounts/account/views/accountModal.html
+msgid "Opened At"
+msgstr ""
+
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid "Operation Amount"
@@ -387,12 +401,9 @@ msgstr "Палі плацяжа"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/directives/erip-payment/views/eripPayment.html
+#: static/main/scripts/app/payments/views/paymentResult.html
 msgid "Payment:"
 msgstr "Плацёж:"
-
-#: static/main/scripts/app/payments/views/paymentResult.html
-msgid "Payment: {{paymentResult.paymentName}}"
-msgstr "Плацёж: {{paymentResult.paymentName}}"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Recipient Name:"
@@ -505,12 +516,10 @@ msgstr "Ваша сэсія скончылася"
 
 #: static/main/scripts/app/directives/left-menu/views/leftMenu.html
 #: static/main/scripts/app/login/views/login.html
+#: static/main/scripts/app/main/views/main.html
+#: templates/main/javascript-disabled.html
 msgid "Ɣ E-Bank"
 msgstr "Ɣ Е-Банк"
-
-#: locale-frontend/expressions.js
-msgid "Capitalization"
-msgstr "Капіталізацыя"
 
 #: locale-frontend/expressions.js
 msgid "Incoming"
@@ -590,24 +599,27 @@ msgid "The recipient account number is required"
 msgstr "Патрэбен нумар рахунку атрымальніка"
 
 #: locale-frontend/expressions.js
-msgid "day"
-msgstr "дзень"
+msgid "The value is too long"
+msgstr ""
 
 #: locale-frontend/expressions.js
 msgid "is required"
 msgstr "патрэбен"
 
-#: locale-frontend/expressions.js
-msgid "month"
-msgstr "месяц"
+#~ msgid "Payment: {{paymentResult.paymentName}}"
+#~ msgstr "Плацёж: {{paymentResult.paymentName}}"
 
-#: locale-frontend/expressions.js
-msgid "week"
-msgstr "тыдзень"
+#~ msgid "day"
+#~ msgstr "дзень"
 
-#: locale-frontend/expressions.js
-msgid "year"
-msgstr "год"
+#~ msgid "month"
+#~ msgstr "месяц"
+
+#~ msgid "week"
+#~ msgstr "тыдзень"
+
+#~ msgid "year"
+#~ msgstr "год"
 
 #~ msgid "{{automaticAccountOperation.period}}"
 #~ msgstr "{{automaticAccountOperation.period}}"
