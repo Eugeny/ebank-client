@@ -67,7 +67,7 @@ angular.module('ebank-client')
 
                 if (updateAccountsInfoPromise) {
                     var result = updateAccountsInfoPromise;
-                    updateAccountsInfoPromise = null;
+                    //updateAccountsInfoPromise = null;
 
                     return result;
                 }
@@ -85,6 +85,8 @@ angular.module('ebank-client')
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;
+
+                        updateAccountsInfoPromise = null;
                     });
             }
 
