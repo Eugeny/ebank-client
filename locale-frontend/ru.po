@@ -119,11 +119,11 @@ msgstr "Продажа"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
 msgid "Can not load current automatic operation account info"
-msgstr ""
+msgstr "Невозможно загрузить текущую информацию об автоматических операциях"
 
 #: static/main/scripts/app/services/localization/localizationService.js
 msgid "Can not load the list of supported locales"
-msgstr ""
+msgstr "Невозможно загрузить список поддерживаемых локалей"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/automaticAccountOperationModal.html
 msgid "Cancel"
@@ -280,11 +280,11 @@ msgstr "Общая информация"
 
 #: static/main/scripts/app/notifications/notification/controllers/notificationCtrl.js
 msgid "Incorrect notification identifier"
-msgstr ""
+msgstr "Неправильный идентификатор оповещения"
 
 #: static/main/scripts/app/accounts/account/controllers/accountCtrl.js
 msgid "Incorrent notification identifier"
-msgstr ""
+msgstr "Неправильный идентификатор оповещения"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Log Out"
@@ -341,7 +341,7 @@ msgstr "Нет загруженных валют"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
 msgid "No erip payment found for current automatic operation"
-msgstr ""
+msgstr "Не найдено платежей ЕРИП для текущей автоматической операции"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "No operations found for your filters"
@@ -349,7 +349,7 @@ msgstr "С этим фильтром операции не найдены"
 
 #: static/main/scripts/app/manage-automatic-account-operations/controllers/manageAutomaticAccountOperations.automaticAccountOperationCtrl.js
 msgid "No user account for current automatic operation found"
-msgstr ""
+msgstr "Не найдено счетов для текущей автоматической операции"
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid ""
@@ -377,11 +377,11 @@ msgstr "Старый пароль"
 #: static/main/scripts/app/payments/erip/controllers/eripCtrl.js
 #: static/main/scripts/app/payments/money-transfer/controllers/moneyTransferCtrl.js
 msgid "Oops, an error occurred, please try again"
-msgstr ""
+msgstr "Упс, произошла ошибка, попробуйте еще раз"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Opened At"
-msgstr "Адкрыты"
+msgstr "Открыт"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
@@ -511,7 +511,7 @@ msgstr "Дата начала"
 msgid ""
 "The notification has not been marked as read due to error occurred during "
 "marking process."
-msgstr ""
+msgstr "Оповещение не было отмечено как прочитанное из-за ошибки"
 
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
 msgid ""
@@ -530,7 +530,7 @@ msgstr "Платеж успешно обработан"
 
 #: static/main/scripts/app/services/localization/localizationService.js
 msgid "The provided locale is not supported"
-msgstr ""
+msgstr "Выбранная локаль не поддерживается"
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid "Type"
