@@ -1,7 +1,7 @@
 angular.module('ebank-client')
     .controller('notifications.notificationCtrl', ['$scope', '$state', '$stateParams', '$modal',
-        'notificationsInfoService', 'userNotificationService',
-    function($scope, $state, $stateParams, $modal, notificationsInfoService, userNotificationService) {
+        'notificationsInfoService', 'userNotificationService', 'gettext'
+    function($scope, $state, $stateParams, $modal, notificationsInfoService, userNotificationService, gettext) {
         'use strict';
 
         $scope.isBusy = false;
@@ -13,7 +13,7 @@ angular.module('ebank-client')
             if (id === undefined || id < 0) {
                 goToNotificationsState();
 
-                userNotificationService.showError('Incorrect notification identifier');
+                userNotificationService.showError(gettext('Incorrect notification identifier'));
             }
 
             $scope.isBusy = true;
@@ -37,13 +37,13 @@ angular.module('ebank-client')
                             .then(function() {}, //congratulations, notification is marked read
                                 function(error) {
                                     userNotificationService.showWarning(
-                                        'The notification has not been marked as read due to error occurred during marking process.');
+                                        gettext('The notification has not been marked as read due to error occurred during marking process.'));
                                 });
                     }
                 }, function(error) {
                     goToNotificationsState();
 
-                    userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
+                    userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
                 }).finally(function() {
                     $scope.isBusy = false;
                 });

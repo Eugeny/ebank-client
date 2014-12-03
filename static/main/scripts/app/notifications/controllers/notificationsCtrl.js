@@ -1,7 +1,7 @@
 angular.module('ebank-client')
     .controller('notificationsCtrl', ['$scope', '$rootScope', 'notificationsInfoService', 'currencyService',
-            'userNotificationService',
-        function($scope, $rootScope, notificationsInfoService, currencyService, userNotificationService) {
+            'userNotificationService', 'gettext'
+        function($scope, $rootScope, notificationsInfoService, currencyService, userNotificationService, gettext) {
             function activate() {
                 $scope.isBusy = true;
 
@@ -33,7 +33,7 @@ angular.module('ebank-client')
                         $scope.stateTimestamp = notificationsData.timestamp;
                         $scope.notifications = notificationsData.notifications;
                     }, function(error) {
-                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
+                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

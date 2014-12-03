@@ -23,7 +23,7 @@ angular.module('ebank-client')
                             });
 
                             if (!currentUserAccount) {
-                                userNotificationService.showError('No user account for current automatic operation found');
+                                userNotificationService.showError(gettext('No user account for current automatic operation found'));
                                 $scope.closeModal();
                             }
 
@@ -43,7 +43,7 @@ angular.module('ebank-client')
                                             parseInt(automaticAccountOperation.data.paymentId),
                                             automaticAccountOperation.data.paymentFields);
                                     }, function(error) {
-                                        userNotificationService.showError('No erip payment found for current automatic operation');
+                                        userNotificationService.showError(gettext('No erip payment found for current automatic operation'));
                                         $scope.closeModal();
                                     }).finally(function() {
                                         $scope.isBusy = false;
@@ -80,7 +80,7 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        userNotificationService.showError('Can not load current automatic operation account info');
+                        userNotificationService.showError(gettext('Can not load current automatic operation account info'));
                         $scope.closeModal();
                     }).finally(function() {
                         $scope.isBusy = false;

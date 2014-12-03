@@ -1,8 +1,8 @@
 angular.module('ebank-client')
     .controller('payments.eripCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
-            'paymentsService', 'userNotificationService',
+            'paymentsService', 'userNotificationService', 'gettext'
         function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
-                userNotificationService) {
+                userNotificationService, gettext) {
             'use strict';
 
             function activate() {
@@ -21,7 +21,7 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
+                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

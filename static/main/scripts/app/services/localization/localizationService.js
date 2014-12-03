@@ -4,8 +4,8 @@ angular.module('services')
             tmhDynamicLocaleProvider.localeLocationPattern('/static/main/vendor/bower_components/angular-i18n/angular-locale_{{locale}}.js');
         }])
     .factory('localizationService', ['$q', '$window', '$cookies', 'gettextCatalog', 'tmhDynamicLocale',
-            'userNotificationService',
-        function($q, $window, $cookies, gettextCatalog, tmhDynamicLocale, userNotificationService) {
+            'userNotificationService', 'gettext'
+        function($q, $window, $cookies, gettextCatalog, tmhDynamicLocale, userNotificationService, gettext) {
             'use strict';
 
             function activate() {
@@ -85,11 +85,11 @@ angular.module('services')
                             //set locale cookie
                             setLocaleCookie(self.currentLocale.code);
                         } else {
-                            userNotificationService.showWarning('The provided locale is not supported');
+                            userNotificationService.showWarning(gettext('The provided locale is not supported'));
                             deferred.resolve(false);
                         }
                     }, function(error) {
-                        userNotificationService.showWarning('Can not load the list of supported locales');
+                        userNotificationService.showWarning(gettext('Can not load the list of supported locales'));
                         deferred.reject(error);
                     });
 

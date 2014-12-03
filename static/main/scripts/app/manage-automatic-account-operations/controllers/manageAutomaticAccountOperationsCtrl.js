@@ -40,7 +40,7 @@ angular.module('ebank-client')
                             $scope.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
+                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;
@@ -135,7 +135,7 @@ angular.module('ebank-client')
                         updateAccountsInfo();
                         userNotificationService.showSuccess(gettext('Automatic account operation is successfully removed'));
                     }, function(error) {
-                        userNotificationService.showError(error.message || 'Oops, an error occurred, please try again');
+                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                     });
