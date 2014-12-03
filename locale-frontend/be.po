@@ -130,7 +130,7 @@ msgstr "Памер капіталізацыі"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Capitalization rate:"
-msgstr ""
+msgstr "Cтавка капитализации:"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Change Password"
@@ -315,7 +315,7 @@ msgstr "Новы пароль"
 
 #: static/main/scripts/app/providers/user-accounts/userAccountsProvider.js
 msgid "No account with that id found"
-msgstr ""
+msgstr "Рахунак з пазначаным id не знойдзены"
 
 #: static/main/scripts/app/currency/views/currency.html
 msgid "No currencies loaded :("
@@ -343,7 +343,7 @@ msgstr "Стары пароль"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 msgid "Opened At"
-msgstr ""
+msgstr "Открыт"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 #: static/main/scripts/app/notifications/notification/views/notificationModal.html
@@ -604,7 +604,7 @@ msgstr "Патрэбен нумар рахунку атрымальніка"
 
 #: locale-frontend/expressions.js
 msgid "The value is too long"
-msgstr ""
+msgstr "Значение слишком длинное"
 
 #: locale-frontend/expressions.js
 msgid "is required"
