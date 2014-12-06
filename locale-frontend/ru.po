@@ -84,6 +84,10 @@ msgstr ""
 msgid "An error occurred during payment process"
 msgstr "Произошла ошибка во время платежа"
 
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Are you sure you want to proceed?"
+msgstr ""
+
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
 msgstr "Автоматические операции со счетом"
@@ -129,6 +133,10 @@ msgstr "Невозможно загрузить список поддержив�
 msgid "Cancel"
 msgstr "Отмена"
 
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Cancel operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: locale-frontend/expressions.js
 msgid "Capitalization"
@@ -153,6 +161,10 @@ msgstr "Выберите платеж из дерева снизу"
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Code"
 msgstr "Код"
+
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Confirm operation"
+msgstr ""
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Confirm password"

@@ -82,6 +82,10 @@ msgstr "Пад час правядзенная аўтаматычнай апер
 msgid "An error occurred during payment process"
 msgstr "Падчас працэсу аплаты адбылася памылка"
 
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Are you sure you want to proceed?"
+msgstr ""
+
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
 msgstr "Аўтаматычныя аперацыі з рахункам"
@@ -127,6 +131,10 @@ msgstr "Немагчыма загрузіць спіс падтрымоўван�
 msgid "Cancel"
 msgstr "Адмена"
 
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Cancel operation"
+msgstr ""
+
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: locale-frontend/expressions.js
 msgid "Capitalization"
@@ -151,6 +159,10 @@ msgstr "Выберыце плацёж са спісу унізе"
 #: static/main/scripts/app/currency/views/currency.html
 msgid "Code"
 msgstr "Код"
+
+#: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
+msgid "Confirm operation"
+msgstr ""
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Confirm password"
