@@ -1,8 +1,8 @@
 angular.module('ebank-client')
     .controller('payments.eripCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
-            'paymentsService', 'userNotificationService', 'gettext',
+            'paymentsService', 'userNotificationService', 'confirmationPopup', 'gettext',
         function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
-                userNotificationService, gettext) {
+                userNotificationService, confirmationPopup, gettext) {
             'use strict';
 
             function activate() {
@@ -58,43 +58,45 @@ angular.module('ebank-client')
             $scope.isFirstTimeLoad = true;
 
             $scope.pay = function() {
-                $scope.isBusy = true;
-                var currentPayment = {
-                    accountNumber: $scope.currentPayment.currentUserAccount.id,
-                    paymentId: $scope.currentEripPayment.paymentId,
-                    paymentFields: $scope.currentPaymentFields,
-                    amount: $scope.currentPayment.paymentAmount
-                };
+                confirmationPopup.open(function() {//OK callback
+                    $scope.isBusy = true;
+                    var currentPayment = {
+                        accountNumber: $scope.currentPayment.currentUserAccount.id,
+                        paymentId: $scope.currentEripPayment.paymentId,
+                        paymentFields: $scope.currentPaymentFields,
+                        amount: $scope.currentPayment.paymentAmount
+                    };
 
-                paymentsService.payEripPayment(currentPayment)
-                    .then(function (result) {
-                        openPaymentResultModal({
-                            payment: currentPayment,
-                            paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
-                            paymentName: $scope.currentEripPayment.name,
-                            isSuccessful: true,
-                            errorInfo: null
-                        }).result.then(function () {}, //cancel callback - do nothing (not used)
-                        //dismiss callback
-                        function (result) {
-                            clearForm();
-                            updateAccountsInfo();
+                    paymentsService.payEripPayment(currentPayment)
+                        .then(function (result) {
+                            openPaymentResultModal({
+                                payment: currentPayment,
+                                paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
+                                paymentName: $scope.currentEripPayment.name,
+                                isSuccessful: true,
+                                errorInfo: null
+                            }).result.then(function () {}, //cancel callback - do nothing (not used)
+                            //dismiss callback
+                            function (result) {
+                                clearForm();
+                                updateAccountsInfo();
+                            });
+                        }, function (error) {
+                            openPaymentResultModal({
+                                payment: currentPayment,
+                                paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
+                                paymentName: $scope.currentEripPayment.name,
+                                isSuccessful: false,
+                                errorInfo: error
+                            }).result.then(function () {}, //cancel callback - do nothing (not used)
+                            //dismiss callback
+                            function (result) {
+                                updateAccountsInfo();
+                            });
+                        }).finally(function() {
+                            $scope.isBusy = false;
                         });
-                    }, function (error) {
-                        openPaymentResultModal({
-                            payment: currentPayment,
-                            paymentSpecificFieldDefinitions: $scope.currentEripPayment.fields,
-                            paymentName: $scope.currentEripPayment.name,
-                            isSuccessful: false,
-                            errorInfo: error
-                        }).result.then(function () {}, //cancel callback - do nothing (not used)
-                        //dismiss callback
-                        function (result) {
-                            updateAccountsInfo();
-                        });
-                    }).finally(function() {
-                        $scope.isBusy = false;
-                    });
+                }, function() {});
             };
 
             activate();

@@ -16,15 +16,16 @@
         function($interpolateProvider, $httpProvider) {
             $httpProvider.interceptors.push('unauthenticatedInterceptor');
     }]).run(['$rootScope', '$http', '$window', '$state', '$stateParams', 'customEvents', 'localizationService',
-            'userInfoService', 'gettextCatalog', 'notificationsInfoService',
+            'userInfoService', 'gettextCatalog', 'notificationsInfoService', 'validationRegularExpressions',
         function($rootScope, $http, $window, $state, $stateParams, customEvents, localizationService, userInfoService,
-                gettextCatalog, notificationsInfoService) {
+                gettextCatalog, notificationsInfoService, validationRegularExpressions) {
 
             $rootScope.localizationService = localizationService;
             $rootScope.gettext = function (string) {
                 return gettextCatalog.getString(string);
             };
             $rootScope.isAppBusy = false;
+            $rootScope.validationRegularExpressions = validationRegularExpressions;
 
             //custom events
             $rootScope.$on(customEvents.general.sessionExpired, function() {

@@ -1,8 +1,8 @@
 angular.module('ebank-client')
     .controller('payments.moneyTransferCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
-            'paymentsService', 'userNotificationService', 'gettext',
+            'paymentsService', 'userNotificationService', 'confirmationPopup', 'gettext',
         function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
-                userNotificationService, gettext) {
+                userNotificationService, confirmationPopup, gettext) {
             'use strict';
 
             function activate() {
@@ -75,49 +75,51 @@ angular.module('ebank-client')
             $scope.isFirstTimeLoad = true;
 
             $scope.pay = function() {
-                $scope.isBusy = true;
+                confirmationPopup.open(function() {//OK callback
+                    $scope.isBusy = true;
 
-                var currentPayment = {
-                    recipientAccountNumber: $scope.currentPayment.recipientAccountNumber,
-                    accountNumber: $scope.currentPayment.currentUserAccount.id,
-                    amount: $scope.currentPayment.paymentAmount
-                };
+                    var currentPayment = {
+                        recipientAccountNumber: $scope.currentPayment.recipientAccountNumber,
+                        accountNumber: $scope.currentPayment.currentUserAccount.id,
+                        amount: $scope.currentPayment.paymentAmount
+                    };
 
-                paymentsService.payGenericPayment(currentPayment)
-                    .then(function (result) {
-                        openPaymentResultModal({
-                            payment: currentPayment,
-                            paymentName: {
-                                en: 'Money Transfer',
-                                ru: 'Перевод денег',
-                                be: 'Перавод грошаў'
-                            },
-                            isSuccessful: true,
-                            errorInfo: null
-                        }).result.then(function () {}, //cancel callback - do nothing (not used)
-                        //dismiss callback
-                        function (result) {
-                            clearForm();
-                            updateAccountsInfo();
+                    paymentsService.payGenericPayment(currentPayment)
+                        .then(function (result) {
+                            openPaymentResultModal({
+                                payment: currentPayment,
+                                paymentName: {
+                                    en: 'Money Transfer',
+                                    ru: 'Перевод денег',
+                                    be: 'Перавод грошаў'
+                                },
+                                isSuccessful: true,
+                                errorInfo: null
+                            }).result.then(function () {}, //cancel callback - do nothing (not used)
+                            //dismiss callback
+                            function (result) {
+                                clearForm();
+                                updateAccountsInfo();
+                            });
+                        }, function (error) {
+                            openPaymentResultModal({
+                                payment: currentPayment,
+                                paymentName: {
+                                    en: 'Money Transfer',
+                                    ru: 'Перевод денег',
+                                    be: 'Перавод грошаў'
+                                },
+                                isSuccessful: false,
+                                errorInfo: error
+                            }).result.then(function () {}, //cancel callback - do nothing (not used)
+                            //dismiss callback
+                            function (result) {
+                                updateAccountsInfo();
+                            });
+                        }).finally(function() {
+                            $scope.isBusy = false;
                         });
-                    }, function (error) {
-                        openPaymentResultModal({
-                            payment: currentPayment,
-                            paymentName: {
-                                en: 'Money Transfer',
-                                ru: 'Перевод денег',
-                                be: 'Перавод грошаў'
-                            },
-                            isSuccessful: false,
-                            errorInfo: error
-                        }).result.then(function () {}, //cancel callback - do nothing (not used)
-                        //dismiss callback
-                        function (result) {
-                            updateAccountsInfo();
-                        });
-                    }).finally(function() {
-                        $scope.isBusy = false;
-                    });
+                }, function() {});
             };
 
             activate();

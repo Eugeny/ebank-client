@@ -1,9 +1,11 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
-        '$scope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService', 'automaticAccountOperationsService',
-            'userNotificationService', 'gettext', 'paymentsService', 'customEvents',
+        '$scope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService',
+            'automaticAccountOperationsService', 'userNotificationService', 'gettext', 'paymentsService', 'customEvents',
+            'confirmationPopup',
         function($scope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
-                automaticAccountOperationsService, userNotificationService, gettext, paymentsService, customEvents) {
+                automaticAccountOperationsService, userNotificationService, gettext, paymentsService, customEvents,
+                confirmationPopup) {
             var updateAccountsInfoPromise = null;
 
             function activate() {
@@ -107,37 +109,39 @@ angular.module('ebank-client')
             };
 
             $scope.save = function() {
-                var currentAutomaticAccountOperation = {
-                    startDate: Math.floor($scope.startDate.getTime()/1000),
-                    period: $scope.automaticAccountOperationPeriod,
-                    type: $scope.automaticAccountOperationType,
-                    data: {
-                        accountNumber: $scope.currentPayment.currentUserAccount.id,
-                        amount: $scope.currentPayment.paymentAmount
+                confirmationPopup.open(function() {//OK callback
+                    var currentAutomaticAccountOperation = {
+                        startDate: Math.floor($scope.startDate.getTime()/1000),
+                        period: $scope.automaticAccountOperationPeriod,
+                        type: $scope.automaticAccountOperationType,
+                        data: {
+                            accountNumber: $scope.currentPayment.currentUserAccount.id,
+                            amount: $scope.currentPayment.paymentAmount
+                        }
+                    };
+
+                    if ($scope.automaticAccountOperationType == 'erip') {
+                        currentAutomaticAccountOperation.data.paymentId = $scope.currentEripPayment.paymentId;
+                        currentAutomaticAccountOperation.data.paymentFields = $scope.currentPaymentFields;
+                    } else {
+                        currentAutomaticAccountOperation.data.recipientAccountNumber= $scope.currentPayment.recipientAccountNumber;
                     }
-                };
 
-                if ($scope.automaticAccountOperationType == 'erip') {
-                    currentAutomaticAccountOperation.data.paymentId = $scope.currentEripPayment.paymentId;
-                    currentAutomaticAccountOperation.data.paymentFields = $scope.currentPaymentFields;
-                } else {
-                    currentAutomaticAccountOperation.data.recipientAccountNumber= $scope.currentPayment.recipientAccountNumber;
-                }
+                    if (automaticAccountOperation) {
+                        currentAutomaticAccountOperation.id = automaticAccountOperation.id;
+                    }
 
-                if (automaticAccountOperation) {
-                    currentAutomaticAccountOperation.id = automaticAccountOperation.id;
-                }
-
-                $scope.isBusy = true;
-                automaticAccountOperationsService.saveAutomaticAccountOperation(currentAutomaticAccountOperation)
-                    .then(function() {
-                        $scope.closeModal();
-                        userNotificationService.showSuccess(gettext('Automatic account operation is successfully saved'));
-                    }, function(error) {
-                        userAccountsService.showError(error.message);
-                    }).finally(function() {
-                        $scope.isBusy = false;
-                    });
+                    $scope.isBusy = true;
+                    automaticAccountOperationsService.saveAutomaticAccountOperation(currentAutomaticAccountOperation)
+                        .then(function() {
+                            $scope.closeModal();
+                            userNotificationService.showSuccess(gettext('Automatic account operation is successfully saved'));
+                        }, function(error) {
+                            userAccountsService.showError(error.message);
+                        }).finally(function() {
+                            $scope.isBusy = false;
+                        });
+                }, function() {});
             };
 
             activate();

@@ -34,7 +34,7 @@
                                 name="{{'paymentFields.' + key}}"
                                 ng-required="true"
                                 ng-pattern="value.regex"
-                                ng-maxlength="$parent.$parent.validationRegularExpressions.maxLengthNumber"
+                                ng-maxlength="$root.validationRegularExpressions.maxLengthNumber"
                                 ng-model="currentPaymentFields[key]">
                             <validation-message validation-expressions="[{
                                     isValid: (!paymentForm['paymentFields.' + key].$dirty

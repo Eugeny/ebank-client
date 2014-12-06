@@ -1,8 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperationsCtrl', ['$scope', '$modal', 'automaticAccountOperationsService',
             'userAccountsProvider', 'currencyService', 'userNotificationService', 'gettext', 'paymentsService',
+            'confirmationPopup',
         function($scope, $modal, automaticAccountOperationsService, userAccountsProvider, currencyService,
-                userNotificationService, gettext, paymentsService) {
+                userNotificationService, gettext, paymentsService, confirmationPopup) {
             'use strict';
 
             var currencyList = null;
@@ -128,17 +129,19 @@ angular.module('ebank-client')
             };
 
             $scope.removeAutomaticAccountOperation = function(currentAccountId, automaticAccountOperationId) {
-                $scope.isBusy = true;
+                confirmationPopup.open(function() {//OK callback
+                    $scope.isBusy = true;
 
-                automaticAccountOperationsService.removeAutomaticAccountOperation(currentAccountId, automaticAccountOperationId)
-                    .then(function(data) {
-                        updateAccountsInfo();
-                        userNotificationService.showSuccess(gettext('Automatic account operation is successfully removed'));
-                    }, function(error) {
-                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
-                    }).finally(function() {
-                        $scope.isBusy = false;
-                    });
+                    automaticAccountOperationsService.removeAutomaticAccountOperation(currentAccountId, automaticAccountOperationId)
+                        .then(function(data) {
+                            updateAccountsInfo();
+                            userNotificationService.showSuccess(gettext('Automatic account operation is successfully removed'));
+                        }, function(error) {
+                            userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                        }).finally(function() {
+                            $scope.isBusy = false;
+                        });
+                }, function() {});
             };
 
             activate();

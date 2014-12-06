@@ -9,7 +9,7 @@
             placeholder="{{'Recipient account number'|translate}}"
             ng-required="true"
             ng-model="currentPayment.recipientAccountNumber"
-            ng-maxlength="$parent.validationRegularExpressions.maxLengthNumber">
+            ng-maxlength="$root.validationRegularExpressions.maxLengthNumber">
         <validation-message validation-expressions="[{
                 isValid: (!paymentForm.recipientAccountNumber.$dirty
                     || !paymentForm.recipientAccountNumber.$error.required),

@@ -1,0 +1,46 @@
+.confirmation-popup-modal {
+    background-color: @modalBackgroundColor;
+
+    .modal-dialog {
+        width: 400px;
+        height: 100%;
+
+        .modal-content {
+            top: 50%;
+
+            margin-top: -105px;
+        }
+    }
+
+    .confirmation-popup-content {
+        padding: 20px;
+
+        .confirmation-popup-header-container {
+            overflow: hidden;
+            width: 100%;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+            .confirmation-popup-header {
+                font-size: 22px;
+
+                color: @primaryColor4;
+            }
+        }
+
+        .confirmation-popup-controls-container {
+            overflow: hidden;
+
+            &>div {
+                text-align: center;
+            }
+
+            .confirm-operation-btn,
+            .cancel-operation-btn {
+                min-width: 140px;
+            }
+        }
+    }
+}

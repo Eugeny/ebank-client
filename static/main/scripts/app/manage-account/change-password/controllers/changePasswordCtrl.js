@@ -1,9 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAccount.changePasswordCtrl',
         ['$scope', '$http', 'validationRegularExpressions', 'endpointGenerationService',
-            'userNotificationService', 'gettext',
+            'userNotificationService', 'confirmationPopup', 'gettext',
         function($scope, $http, validationRegularExpressions, endpointGenerationService,
-                userNotificationService, gettext) {
+                userNotificationService, confirmationPopup, gettext) {
             'use strict';
 
             function activate() {
@@ -21,28 +21,30 @@ angular.module('ebank-client')
 
             $scope.changePassword = function() {
                 if ($scope.changePasswordForm.$valid) {
-                    $http(endpointGenerationService.getPostChangeUserPasswordEndpoint({
-                        client_id_to_change: $scope.login,
-                        old_password: $scope.password,
-                        new_password: $scope.newPassword
-                    })).then(function(result) {
-                        if (result.data.error) {
-                            userNotificationService.showError(result.data.error.message || gettext('Oops, an error occurred, please try again'));
-                        } else {
-                            userNotificationService.showSuccess(gettext('The password was successfully changed'));
-                        }
-                    }, function(error) {
-                        var message = "An error occurred during password change process";
-                        
-                        //the old password is not correct
-                        if (error.status === 403) {
-                            message = "Authentication failed";
-                        }
+                    confirmationPopup.open(function() {//OK callback
+                        $http(endpointGenerationService.getPostChangeUserPasswordEndpoint({
+                            client_id_to_change: $scope.login,
+                            old_password: $scope.password,
+                            new_password: $scope.newPassword
+                        })).then(function(result) {
+                            if (result.data.error) {
+                                userNotificationService.showError(result.data.error.message || gettext('Oops, an error occurred, please try again'));
+                            } else {
+                                userNotificationService.showSuccess(gettext('The password was successfully changed'));
+                            }
+                        }, function(error) {
+                            var message = "An error occurred during password change process";
+                            
+                            //the old password is not correct
+                            if (error.status === 403) {
+                                message = "Authentication failed";
+                            }
 
-                        userNotificationService.showError(message || gettext('Oops, an error occurred, please try again'));
-                    }).finally(function() {
-                        clearForm();
-                    });
+                            userNotificationService.showError(message || gettext('Oops, an error occurred, please try again'));
+                        }).finally(function() {
+                            clearForm();
+                        });
+                    }, function() {});
                 }
             };
 
