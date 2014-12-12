@@ -33,5 +33,5 @@ COMPRESS_PRECOMPILERS = (
 
 # -------------------------
 
-BANK_SERVER_URL = 'http://195.50.17.107:8040/api/'
+BANK_SERVER_URL = 'http://kofi.asmisha.net/api/'
 

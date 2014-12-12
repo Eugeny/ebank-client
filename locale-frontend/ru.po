@@ -86,7 +86,7 @@ msgstr "Произошла ошибка во время платежа"
 
 #: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Вы уверены, что желаете продолжить?"
 
 #: static/main/scripts/app/manage-automatic-account-operations/views/manageAutomaticAccountOperations.html
 msgid "Automatic Account Operations"
@@ -135,7 +135,7 @@ msgstr "Отмена"
 
 #: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
 msgid "Cancel operation"
-msgstr ""
+msgstr "Отменить операцию"
 
 #: static/main/scripts/app/accounts/account/views/accountModal.html
 #: locale-frontend/expressions.js
@@ -164,7 +164,7 @@ msgstr "Код"
 
 #: static/main/scripts/app/directives/confirmation-popup/views/confirmationPopup.html
 msgid "Confirm operation"
-msgstr ""
+msgstr "Подтвердить операцию"
 
 #: static/main/scripts/app/manage-account/change-password/views/changePassword.html
 msgid "Confirm password"
