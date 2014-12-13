@@ -91,6 +91,10 @@ header {
             .user-menu-dropdown {
                 line-height: @userMenuButtonHeight;
 
+                .user-icon-mobile {
+                    display: none;
+                }
+
                 li.active a {
                     background-color: @userMenuDropdownActiveElementBackgroundColor;
                     color: @userMenuDropdownActiveElementLinkTextColor;
@@ -114,6 +118,10 @@ header {
                         border-color: @menuButtonHoverBorderColor;
                     }
                 }
+            }
+
+            .username-mobile-container {
+                display: none;
             }
 
             .notifications-link-container {

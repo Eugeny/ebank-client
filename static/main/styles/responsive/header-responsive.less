@@ -1,0 +1,71 @@
+.device-phone {
+    header {
+        .header-content {
+            & > .navbar{
+                .menu-open-button-container {
+                    float: left;
+                }
+
+                .navbar-right {
+                    float: right;
+
+                    margin: 0;
+
+                    & > li {
+                        float: left;
+                    }
+                }
+
+                .user-menu-dropdown {
+                    .user-icon-mobile {
+                        display: inline;
+
+                        & + .username {
+                            display: none;
+                        }
+                    }
+
+                    & > a {
+                        &:hover {
+                        }
+                    }
+
+                    &.open {
+                        & > a {
+                        }
+                    }
+
+                    .dropdown-menu {
+                        position: fixed;
+
+                        overflow: hidden;
+
+                        top: 60px;
+                        right: 15px;
+                        left: initial;
+
+                        width: auto;
+
+                        max-width: 100%;
+
+                        background: white;
+
+                        border: 1px solid @primaryColor2;
+                        .border-radius(4px);
+                    }
+                }
+
+                .username-mobile-container {
+                    display: list-item;
+
+                    margin: 0 10px;
+
+                    border-bottom: 1px solid @primaryColor2;
+
+                    pointer-events: none;
+                    .disable-touch-events();
+                }
+            }
+        }
+    }
+}
