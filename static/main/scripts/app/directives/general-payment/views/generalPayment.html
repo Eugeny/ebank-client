@@ -12,7 +12,7 @@
                 max="{{currentPayment.currentUserAccount.balance | integerNumber:0}}"
                 ng-required="true"
                 ng-model="currentPayment.paymentAmount"
-                ng-pattern="validationRegularExpressions.integerNumberRegularExpression">
+                ng-pattern="$root.validationRegularExpressions.integerNumberRegularExpression">
             <validation-message validation-expressions="[{
                     isValid: (!paymentForm.paymentAmount.$dirty
                         || !paymentForm.paymentAmount.$error.required),
