@@ -45,6 +45,7 @@
                 </li>
                 <li class="user-menu-dropdown dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="user-icon-mobile glyphicon glyphicon-user"></span>
                     <span class="username">
                         <span class="first-name"
                               ng-show="userInfoService.currentUserInfo.name.firstName !== ''">
@@ -62,6 +63,24 @@
                     <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
+                        <li class="username-mobile-container">
+                            <a>
+                                <span class="username">
+                                    <span class="first-name"
+                                          ng-show="userInfoService.currentUserInfo.name.firstName !== ''">
+                                        {{userInfoService.currentUserInfo.name.firstName}}
+                                    </span>
+                                    <span class="middle-name"
+                                          ng-show="userInfoService.currentUserInfo.name.middleName !== ''">
+                                        {{userInfoService.currentUserInfo.name.middleName}}
+                                    </span>
+                                    <span class="last-name"
+                                          ng-show="userInfoService.currentUserInfo.name.lastName !== ''">
+                                        {{userInfoService.currentUserInfo.name.lastName}}
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
                         <li class="notifications-link-container" ui-sref-active="active">
                             <a class="notifications-link"
                                 ui-sref="main.authenticated.notifications">
