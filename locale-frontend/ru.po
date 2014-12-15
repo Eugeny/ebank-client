@@ -368,6 +368,7 @@ msgid ""
 "Notifcations are actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss "
 "Z'}}"
 msgstr ""
+"Уведомления актуальны на {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
