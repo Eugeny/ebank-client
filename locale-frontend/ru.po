@@ -365,11 +365,9 @@ msgstr "Не найдено счетов для текущей автомати�
 
 #: static/main/scripts/app/notifications/views/notifications.html
 msgid ""
-"Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
-"yyyy HH:mm:ss Z'}}"
+"Notifcations are actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss "
+"Z'}}"
 msgstr ""
-"Нотификации актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, yyyy "
-"HH:mm:ss Z'}}"
 
 #: static/main/scripts/app/header/views/header.html
 msgid "Notifications"
@@ -670,6 +668,13 @@ msgstr "Значэнне занадта доўгае"
 #: locale-frontend/expressions.js
 msgid "is required"
 msgstr "необходим"
+
+#~ msgid ""
+#~ "Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, "
+#~ "yyyy HH:mm:ss Z'}}"
+#~ msgstr ""
+#~ "Нотификации актуальны на {{stateTimestamp | unixtime | date:'MMM, dd, "
+#~ "yyyy HH:mm:ss Z'}}"
 
 #~ msgid "Payment: {{paymentResult.paymentName}}"
 #~ msgstr "Платеж: {{paymentResult.paymentName}}"

@@ -333,7 +333,7 @@ msgid "No user account for current automatic operation found"
 msgstr ""
 
 #: static/main/scripts/app/notifications/views/notifications.html
-msgid "Notifcations are actual for {{stateTimestamp | unixtime | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
+msgid "Notifcations are actual for {{stateTimestamp | date:'MMM, dd, yyyy HH:mm:ss Z'}}"
 msgstr ""
 
 #: static/main/scripts/app/header/views/header.html
