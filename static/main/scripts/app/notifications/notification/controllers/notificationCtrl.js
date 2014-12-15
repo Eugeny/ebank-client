@@ -1,7 +1,7 @@
 angular.module('ebank-client')
-    .controller('notifications.notificationCtrl', ['$scope', '$state', '$stateParams', '$modal',
+    .controller('notifications.notificationCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$modal',
         'notificationsInfoService', 'userNotificationService', 'gettext',
-    function($scope, $state, $stateParams, $modal, notificationsInfoService, userNotificationService, gettext) {
+    function($scope, $rootScope, $state, $stateParams, $modal, notificationsInfoService, userNotificationService, gettext) {
         'use strict';
 
         $scope.isBusy = false;
@@ -13,7 +13,7 @@ angular.module('ebank-client')
             if (id === undefined || id < 0) {
                 goToNotificationsState();
 
-                userNotificationService.showError(gettext('Incorrect notification identifier'));
+                userNotificationService.showError($rootScope.gettext('Incorrect notification identifier'));
             }
 
             $scope.isBusy = true;
@@ -37,13 +37,14 @@ angular.module('ebank-client')
                             .then(function() {}, //congratulations, notification is marked read
                                 function(error) {
                                     userNotificationService.showWarning(
-                                        gettext('The notification has not been marked as read due to error occurred during marking process.'));
+                                        $rootScope.gettext('The notification has not been marked as read due to error occurred during marking process.'));
                                 });
                     }
                 }, function(error) {
                     goToNotificationsState();
 
-                    userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                    userNotificationService.showError(error.message
+                        || $rootScope.gettext('Oops, an error occurred, please try again'));
                 }).finally(function() {
                     $scope.isBusy = false;
                 });

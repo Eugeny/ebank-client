@@ -29,7 +29,7 @@ angular.module('services')
 
                         $rootScope.$emit(customEvents.general.sessionExpired);
 
-                        userNotificationService.showWarning(gettext('Your session has expired'));
+                        userNotificationService.showWarning($rootScope.gettext('Your session has expired'));
                     }
                 });
             }

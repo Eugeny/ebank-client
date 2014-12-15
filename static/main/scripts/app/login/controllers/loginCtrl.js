@@ -41,7 +41,8 @@ angular.module('ebank-client')
                         .then(function(result) {
                             $rootScope.$emit(customEvents.general.logIn);
                         }, function(error) {
-                            userNotificationService.showError(gettext('Login or password are incorrect, please try again'));
+                            userNotificationService.showError(
+                                $rootScope.gettext('Login or password are incorrect, please try again'));
 
                             clearForm();
                             $scope.isBusy = false;

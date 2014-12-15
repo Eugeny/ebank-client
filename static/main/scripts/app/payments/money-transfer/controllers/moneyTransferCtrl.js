@@ -1,7 +1,7 @@
 angular.module('ebank-client')
-    .controller('payments.moneyTransferCtrl', ['$scope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
+    .controller('payments.moneyTransferCtrl', ['$scope', '$rootScope', '$modal', 'userAccountsProvider', 'validationRegularExpressions',
             'paymentsService', 'userNotificationService', 'confirmationPopup', 'gettext',
-        function($scope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
+        function($scope, $rootScope, $modal, userAccountsProvider, validationRegularExpressions, paymentsService,
                 userNotificationService, confirmationPopup, gettext) {
             'use strict';
 
@@ -21,7 +21,8 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                        userNotificationService.showError(error.message
+                            || $rootScope.gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

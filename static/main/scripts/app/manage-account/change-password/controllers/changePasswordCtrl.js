@@ -1,8 +1,8 @@
 angular.module('ebank-client')
     .controller('manageAccount.changePasswordCtrl',
-        ['$scope', '$http', 'validationRegularExpressions', 'endpointGenerationService',
+        ['$scope', '$rootScope', '$http', 'validationRegularExpressions', 'endpointGenerationService',
             'userNotificationService', 'confirmationPopup', 'gettext',
-        function($scope, $http, validationRegularExpressions, endpointGenerationService,
+        function($scope, $rootScope, $http, validationRegularExpressions, endpointGenerationService,
                 userNotificationService, confirmationPopup, gettext) {
             'use strict';
 
@@ -28,9 +28,11 @@ angular.module('ebank-client')
                             new_password: $scope.newPassword
                         })).then(function(result) {
                             if (result.data.error) {
-                                userNotificationService.showError(result.data.error.message || gettext('Oops, an error occurred, please try again'));
+                                userNotificationService.showError(result.data.error.message
+                                    || $rootScope.gettext('Oops, an error occurred, please try again'));
                             } else {
-                                userNotificationService.showSuccess(gettext('The password was successfully changed'));
+                                userNotificationService.showSuccess(
+                                    $rootScope.gettext('The password was successfully changed'));
                             }
                         }, function(error) {
                             var message = "An error occurred during password change process";
@@ -40,7 +42,8 @@ angular.module('ebank-client')
                                 message = "Authentication failed";
                             }
 
-                            userNotificationService.showError(message || gettext('Oops, an error occurred, please try again'));
+                            userNotificationService.showError(message
+                                || $rootScope.gettext('Oops, an error occurred, please try again'));
                         }).finally(function() {
                             clearForm();
                         });

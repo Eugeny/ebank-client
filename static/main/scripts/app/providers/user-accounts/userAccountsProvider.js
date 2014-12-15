@@ -1,6 +1,6 @@
 angular.module('providers')
-    .factory('userAccountsProvider', ['$http', '$q', 'endpointGenerationService', 'gettext',
-        function($http, $q, endpointGenerationService, gettext) {
+    .factory('userAccountsProvider', ['$rootScope', '$http', '$q', 'endpointGenerationService', 'gettext',
+        function($rootScope, $http, $q, endpointGenerationService, gettext) {
             'use strict';
 
             var self = {
@@ -46,7 +46,7 @@ angular.module('providers')
                                 });
                             } else {
                                 deferred.reject({
-                                    message: gettext('No account with that id found')
+                                    message: $rootScope.gettext('No account with that id found')
                                 });
                             }
                         }, function(error) {

@@ -1,9 +1,9 @@
 angular.module('ebank-client')
     .controller('manageAutomaticAccountOperations.automaticAccountOperationCtrl', [
-        '$scope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService',
+        '$scope', '$rootScope', 'automaticAccountOperation', 'editingAutomaticAccountOperationAccountId', 'userAccountsService',
             'automaticAccountOperationsService', 'userNotificationService', 'gettext', 'paymentsService', 'customEvents',
             'confirmationPopup',
-        function($scope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
+        function($scope, $rootScope, automaticAccountOperation, editingAutomaticAccountOperationAccountId, userAccountsService,
                 automaticAccountOperationsService, userNotificationService, gettext, paymentsService, customEvents,
                 confirmationPopup) {
             var updateAccountsInfoPromise = null;
@@ -25,7 +25,8 @@ angular.module('ebank-client')
                             });
 
                             if (!currentUserAccount) {
-                                userNotificationService.showError(gettext('No user account for current automatic operation found'));
+                                userNotificationService.showError(
+                                    $rootScope.gettext('No user account for current automatic operation found'));
                                 $scope.closeModal();
                             }
 
@@ -45,7 +46,8 @@ angular.module('ebank-client')
                                             parseInt(automaticAccountOperation.data.paymentId),
                                             automaticAccountOperation.data.paymentFields);
                                     }, function(error) {
-                                        userNotificationService.showError(gettext('No erip payment found for current automatic operation'));
+                                        userNotificationService.showError(
+                                            $rootScope.gettext('No erip payment found for current automatic operation'));
                                         $scope.closeModal();
                                     }).finally(function() {
                                         $scope.isBusy = false;
@@ -82,7 +84,8 @@ angular.module('ebank-client')
                             $scope.currentPayment.currentUserAccount = $scope.userAccounts[0];
                         }
                     }, function(error) {
-                        userNotificationService.showError(gettext('Can not load current automatic operation account info'));
+                        userNotificationService.showError(
+                            $rootScope.gettext('Can not load current automatic operation account info'));
                         $scope.closeModal();
                     }).finally(function() {
                         $scope.isBusy = false;
@@ -135,7 +138,8 @@ angular.module('ebank-client')
                     automaticAccountOperationsService.saveAutomaticAccountOperation(currentAutomaticAccountOperation)
                         .then(function() {
                             $scope.closeModal();
-                            userNotificationService.showSuccess(gettext('Automatic account operation is successfully saved'));
+                            userNotificationService.showSuccess(
+                                $rootScope.gettext('Automatic account operation is successfully saved'));
                         }, function(error) {
                             userAccountsService.showError(error.message);
                         }).finally(function() {

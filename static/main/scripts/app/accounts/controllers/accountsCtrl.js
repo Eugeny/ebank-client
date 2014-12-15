@@ -38,7 +38,8 @@ angular.module('ebank-client')
                         $scope.stateTimestamp = accountsData.timestamp;
                         $scope.accounts = accountsData.accounts;
                     }, function(error) {
-                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                        userNotificationService.showError(error.message
+                            || $rootScope.gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                         $scope.isFirstTimeLoad = false;

@@ -1,7 +1,7 @@
 angular.module('ebank-client')
-    .controller('accounts.accountCtrl', ['$scope', '$state', '$stateParams', '$modal',
+    .controller('accounts.accountCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$modal',
         'userAccountsService', 'userNotificationService', 'gettext',
-    function($scope, $state, $stateParams, $modal, userAccountsService, userNotificationService, gettext) {
+    function($scope, $rootScope, $state, $stateParams, $modal, userAccountsService, userNotificationService, gettext) {
         'use strict';
 
         $scope.isBusy = false;
@@ -13,7 +13,7 @@ angular.module('ebank-client')
             if (id === undefined || id < 0) {
                 goToAccounsState();
 
-                userNotificationService.showError(gettext('Incorrent notification identifier'));
+                userNotificationService.showError($rootScope.gettext('Incorrent notification identifier'));
             }
 
             $scope.isBusy = true;
@@ -34,7 +34,8 @@ angular.module('ebank-client')
                 }, function(error) {
                     goToAccounsState();
 
-                    userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                    userNotificationService.showError(error.message
+                        || $rootScope.gettext('Oops, an error occurred, please try again'));
                 }).finally(function() {
                     $scope.isBusy = false;
                 });
@@ -166,7 +167,8 @@ angular.module('ebank-client')
                 .then(function(result) {
                     eripPayments = result.response;
                 }, function(error) {
-                    userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                    userNotificationService.showError(error.message
+                        || $rootScope.gettext('Oops, an error occurred, please try again'));
                 }).finally(function() {
                     $scope.isBusy = false;
                 });
@@ -191,7 +193,8 @@ angular.module('ebank-client')
                         $scope.reportEntries = reportInfo.reportEntries;
                         $scope.currentPageNumber = 1;
                     }, function(error) {
-                        userNotificationService.showError(error.message || gettext('Oops, an error occurred, please try again'));
+                        userNotificationService.showError(error.message
+                            || $rootScope.gettext('Oops, an error occurred, please try again'));
                     }).finally(function() {
                         $scope.isBusy = false;
                     });
